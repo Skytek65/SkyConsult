@@ -120,6 +120,7 @@ function initRevealAnimations() {
         '.service-card',
         '.process-step',
         '.tech-category',
+        '.project-card',
         '.cta-card',
         '.contact-centered',
     ];
