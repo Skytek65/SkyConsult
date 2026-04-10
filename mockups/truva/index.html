@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Truva Turkish Kitchen | Mason - Authentic Turkish & Mediterranean Cuisine</title>
+  <meta name="description" content="Experience authentic Turkish cuisine in Mason, OH. Sizzling kebabs, delicate baklava, and warm hospitality at Truva Turkish Kitchen. Book your table today!">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'truva-red': '#B91C1C',
+            'truva-red-dark': '#991B1B',
+            'truva-gold': '#D97706',
+            'truva-gold-light': '#F59E0B',
+            'truva-cream': '#FEF3C7',
+            'truva-dark': '#1F2937',
+            'truva-charcoal': '#374151',
+          },
+          fontFamily: {
+            'display': ['Playfair Display', 'serif'],
+            'body': ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    .gradient-hero {
+      background: linear-gradient(135deg, rgba(185, 28, 28, 0.95) 0%, rgba(153, 27, 27, 0.85) 50%, rgba(31, 41, 55, 0.9) 100%);
+    }
+    
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .gold-gradient {
+      background: linear-gradient(135deg, #D97706 0%, #F59E0B 50%, #D97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(185, 28, 28, 0.15);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(185, 28, 28, 0.3);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #D97706;
+      color: #D97706;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      background: #D97706;
+      color: white;
+    }
+    
+    .image-overlay {
+      position: relative;
+    }
+    
+    .image-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(31, 41, 55, 0.6) 0%, transparent 50%);
+    }
+    
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .pattern-bg {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B91C1C' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+  </style>
+</head>
+<body class="font-body antialiased bg-gray-50">
+  
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <div class="flex-shrink-0 flex items-center">
+          <a href="#" class="flex items-center space-x-2">
+            <div class="w-10 h-10 bg-gradient-to-br from-truva-red to-truva-red-dark rounded-full flex items-center justify-center">
+              <span class="text-white font-display font-bold text-lg">T</span>
+            </div>
+            <div class="hidden sm:block">
+              <h1 class="font-display font-bold text-xl text-truva-dark">TRUVA</h1>
+              <p class="text-xs text-truva-gold font-medium tracking-wider">TURKISH KITCHEN</p>
+            </div>
+          </a>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center space-x-8">
+          <a href="#home" class="text-truva-charcoal hover:text-truva-red font-medium transition-colors">Home</a>
+          <a href="#about" class="text-truva-charcoal hover:text-truva-red font-medium transition-colors">About</a>
+          <a href="#menu" class="text-truva-charcoal hover:text-truva-red font-medium transition-colors">Menu</a>
+          <a href="#locations" class="text-truva-charcoal hover:text-truva-red font-medium transition-colors">Locations</a>
+          <a href="#contact" class="text-truva-charcoal hover:text-truva-red font-medium transition-colors">Contact</a>
+        </div>
+        
+        <!-- CTA Buttons -->
+        <div class="hidden lg:flex items-center space-x-4">
+          <a href="tel:5134861856" class="text-truva-red font-semibold hover:text-truva-red-dark transition-colors">
+            <i class="fas fa-phone mr-2"></i>(513) 486-1856
+          </a>
+          <a href="#contact" class="btn-primary text-white px-6 py-2.5 rounded-full font-semibold text-sm shadow-lg">
+            Book a Table
+          </a>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <div class="lg:hidden flex items-center">
+          <button id="mobile-menu-btn" class="text-truva-charcoal hover:text-truva-red p-2">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100">
+      <div class="px-4 pt-2 pb-6 space-y-1">
+        <a href="#home" class="block px-3 py-3 text-truva-charcoal hover:text-truva-red hover:bg-red-50 rounded-md font-medium">Home</a>
+        <a href="#about" class="block px-3 py-3 text-truva-charcoal hover:text-truva-red hover:bg-red-50 rounded-md font-medium">About</a>
+        <a href="#menu" class="block px-3 py-3 text-truva-charcoal hover:text-truva-red hover:bg-red-50 rounded-md font-medium">Menu</a>
+        <a href="#locations" class="block px-3 py-3 text-truva-charcoal hover:text-truva-red hover:bg-red-50 rounded-md font-medium">Locations</a>
+        <a href="#contact" class="block px-3 py-3 text-truva-charcoal hover:text-truva-red hover:bg-red-50 rounded-md font-medium">Contact</a>
+        <div class="pt-4 border-t border-gray-100 mt-4">
+          <a href="tel:5134861856" class="flex items-center px-3 py-3 text-truva-red font-semibold">
+            <i class="fas fa-phone mr-3"></i>(513) 486-1856
+          </a>
+          <a href="#contact" class="block mx-3 mt-3 btn-primary text-white text-center px-6 py-3 rounded-full font-semibold">
+            Book a Table
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section - Modern Asymmetric Design -->
+  <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://static.wixstatic.com/media/b39a47_4b0ff08fcb914a5b8ef05452fe02cba9~mv2.jpg/v1/fill/w_824,h_1054,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_8859_JPG.jpg" 
+           alt="Truva Turkish Kitchen Interior" 
+           class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-r from-truva-dark/95 via-truva-dark/80 to-transparent"></div>
+    </div>
+    
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Content -->
+        <div class="text-white space-y-8">
+          <!-- Badge -->
+          <div class="inline-flex items-center px-4 py-2 bg-truva-gold/20 backdrop-blur-sm rounded-full border border-truva-gold/30">
+            <i class="fas fa-star text-truva-gold mr-2"></i>
+            <span class="text-truva-gold-light font-semibold text-sm tracking-wide">4.7 Stars • 849+ Reviews</span>
+          </div>
+          
+          <!-- Headline -->
+          <div class="space-y-4">
+            <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight text-shadow">
+              Authentic Turkish<br>
+              <span class="gold-gradient">Cuisine Awaits</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-200 max-w-xl leading-relaxed">
+              Experience the rich flavors of authentic Turkish cuisine in Mason. From sizzling kebabs to delicate baklava, every dish is a celebration of taste, culture, and hospitality.
+            </p>
+          </div>
+          
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row gap-4 pt-4">
+            <a href="#menu" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-center shadow-xl flex items-center justify-center">
+              <i class="fas fa-utensils mr-3"></i>Explore Menu
+            </a>
+            <a href="tel:5134861856" class="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold text-center hover:bg-white/20 transition-all flex items-center justify-center">
+              <i class="fas fa-phone mr-3"></i>Call Now
+            </a>
+          </div>
+          
+          <!-- Quick Info -->
+          <div class="flex flex-wrap gap-6 pt-6 text-sm text-gray-300">
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt text-truva-gold mr-2"></i>
+              <span>Mason, OH</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-clock text-truva-gold mr-2"></i>
+              <span>Open Daily</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-utensils text-truva-gold mr-2"></i>
+              <span>Dine-in & Takeout</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Content - Floating Cards -->
+        <div class="hidden lg:block relative">
+          <div class="relative">
+            <!-- Decorative Elements -->
+            <div class="absolute -top-10 -right-10 w-72 h-72 bg-truva-gold/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-truva-red/20 rounded-full blur-3xl"></div>
+            
+            <!-- Feature Cards -->
+            <div class="relative space-y-4">
+              <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 transform rotate-2 hover:rotate-0 transition-transform duration-300">
+                <div class="flex items-center space-x-4">
+                  <div class="w-12 h-12 bg-truva-gold/20 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-fire text-truva-gold text-xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-white font-semibold">Sizzling Kebabs</h3>
+                    <p class="text-gray-300 text-sm">Fresh from the grill</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 transform -rotate-1 hover:rotate-0 transition-transform duration-300 ml-8">
+                <div class="flex items-center space-x-4">
+                  <div class="w-12 h-12 bg-truva-red/20 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-birthday-cake text-truva-red text-xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-white font-semibold">Delicate Baklava</h3>
+                    <p class="text-gray-300 text-sm">Traditional desserts</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 transform rotate-1 hover:rotate-0 transition-transform duration-300">
+                <div class="flex items-center space-x-4">
+                  <div class="w-12 h-12 bg-truva-gold/20 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-wine-glass text-truva-gold text-xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-white font-semibold">Mediterranean Wines</h3>
+                    <p class="text-gray-300 text-sm">Curated selection</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#about" class="text-white/70 hover:text-white transition-colors">
+        <i class="fas fa-chevron-down text-2xl"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <section class="bg-white py-8 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 bg-truva-red/10 rounded-full flex items-center justify-center mb-3">
+            <i class="fas fa-award text-truva-red text-xl"></i>
+          </div>
+          <p class="font-semibold text-truva-dark">4.7★ Rating</p>
+          <p class="text-sm text-gray-500">849+ Reviews</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 bg-truva-gold/10 rounded-full flex items-center justify-center mb-3">
+            <i class="fas fa-calendar-alt text-truva-gold text-xl"></i>
+          </div>
+          <p class="font-semibold text-truva-dark">Since 2015</p>
+          <p class="text-sm text-gray-500">Cincinnati's Favorite</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 bg-truva-red/10 rounded-full flex items-center justify-center mb-3">
+            <i class="fas fa-map-marker-alt text-truva-red text-xl"></i>
+          </div>
+          <p class="font-semibold text-truva-dark">3 Locations</p>
+          <p class="text-sm text-gray-500">Kenwood • Mason • Charlotte</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 bg-truva-gold/10 rounded-full flex items-center justify-center mb-3">
+            <i class="fas fa-users text-truva-gold text-xl"></i>
+          </div>
+          <p class="font-semibold text-truva-dark">Private Events</p>
+          <p class="text-sm text-gray-500">Up to 40 Guests</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section - Modern Split Design -->
+  <section id="about" class="py-20 lg:py-32 bg-white pattern-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Left - Images -->
+        <div class="relative">
+          <div class="relative z-10">
+            <img src="https://static.wixstatic.com/media/b39a47_2e3cd838580d4bcc9656b400b1540fd2~mv2.jpg/v1/crop/x_0,y_1618,w_4243,h_4039/fill/w_896,h_914,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_4745_JPG.jpg" 
+                 alt="Truva Turkish Kitchen Restaurant Interior" 
+                 class="rounded-2xl shadow-2xl w-full object-cover h-[500px]">
+          </div>
+          <!-- Floating Image -->
+          <div class="absolute -bottom-8 -right-8 w-48 h-48 rounded-2xl shadow-xl overflow-hidden z-20 border-4 border-white hidden md:block">
+            <img src="https://static.wixstatic.com/media/b39a47_e00314ccf0d9462f88427a8c619a679b~mv2.jpg/v1/crop/x_0,y_1092,w_4243,h_4429/fill/w_836,h_914,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_4746_JPG.jpg" 
+                 alt="Truva Restaurant Detail" 
+                 class="w-full h-full object-cover">
+          </div>
+          <!-- Decorative -->
+          <div class="absolute -top-4 -left-4 w-24 h-24 bg-truva-gold/20 rounded-full blur-2xl"></div>
+          <div class="absolute -bottom-4 right-20 w-32 h-32 bg-truva-red/20 rounded-full blur-2xl"></div>
+        </div>
+        
+        <!-- Right - Content -->
+        <div class="space-y-6">
+          <div class="inline-flex items-center px-4 py-2 bg-truva-red/10 rounded-full">
+            <span class="text-truva-red font-semibold text-sm tracking-wide">BEYOND TASTE, INTO EXPERIENCE</span>
+          </div>
+          
+          <h2 class="font-display text-4xl lg:text-5xl font-bold text-truva-dark leading-tight">
+            Our Story of<br>
+            <span class="text-truva-red">Authentic Turkish</span> Cuisine
+          </h2>
+          
+          <div class="space-y-4 text-gray-600 leading-relaxed">
+            <p>
+              Truva Turkish Kitchen first opened its doors in Cincinnati in 2015, quickly becoming a local favorite for those seeking the true taste of Turkey. In 2021, we moved to our beautiful new Kenwood location, continuing our mission to share authentic Turkish and Mediterranean flavors with the community.
+            </p>
+            <p>
+              In March 2024, we proudly expanded to Mason, bringing a fresh and modern dining atmosphere to the northern Cincinnati area. Our Mason restaurant blends tradition with contemporary style, offering guests a rich menu that caters to every palate — from meat lovers to vegetarian guests.
+            </p>
+            <p class="font-medium text-truva-dark">
+              Truva's Mason location features a private dining room for up to 40 guests — perfect for birthdays, business meetings, or family gatherings.
+            </p>
+          </div>
+          
+          <div class="flex flex-col sm:flex-row gap-4 pt-4">
+            <a href="#menu" class="btn-primary text-white px-8 py-3 rounded-full font-semibold text-center shadow-lg">
+              View Full Menu
+            </a>
+            <a href="#locations" class="btn-secondary px-8 py-3 rounded-full font-semibold text-center">
+              Find Our Location
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section - Modern Grid -->
+  <section id="menu" class="py-20 lg:py-32 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center px-4 py-2 bg-truva-gold/10 rounded-full mb-4">
+          <span class="text-truva-gold font-semibold text-sm tracking-wide">CULINARY DELIGHTS</span>
+        </div>
+        <h2 class="font-display text-4xl lg:text-5xl font-bold text-truva-dark mb-4">
+          Explore Our <span class="text-truva-red">Menu</span>
+        </h2>
+        <p class="text-gray-600 text-lg">
+          From timeless family recipes to modern culinary touches, every dish is crafted with care and elegance.
+        </p>
+      </div>
+      
+      <!-- Menu Categories -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <!-- Dinner - Featured -->
+        <div class="md:col-span-2 lg:col-span-2 card-hover bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+          <div class="relative h-64">
+            <img src="https://static.wixstatic.com/media/b39a47_0c595bfc4f4b4a3fac472e930b409a4b~mv2.jpg/v1/fill/w_782,h_1366,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b39a47_0c595bfc4f4b4a3fac472e930b409a4b~mv2.jpg" 
+                 alt="Turkish Dinner" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h3 class="text-white font-display text-2xl font-bold">Dinner</h3>
+              <p class="text-white/80 text-sm mt-1">Authentic Turkish main courses & specialties</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="flex justify-between items-start p-3 bg-gray-50 rounded-lg">
+                <div>
+                  <h4 class="font-semibold text-truva-dark">Shepherd Salad</h4>
+                  <p class="text-sm text-gray-500 mt-1">Fresh vegetables with vinegar dressing</p>
+                </div>
+                <span class="text-truva-red font-bold">$15.99</span>
+              </div>
+              <div class="flex justify-between items-start p-3 bg-gray-50 rounded-lg">
+                <div>
+                  <h4 class="font-semibold text-truva-dark">Mediterranean Salad</h4>
+                  <p class="text-sm text-gray-500 mt-1">Romaine, olives, feta & house dressing</p>
+                </div>
+                <span class="text-truva-red font-bold">$15.99</span>
+              </div>
+              <div class="flex justify-between items-start p-3 bg-gray-50 rounded-lg">
+                <div>
+                  <h4 class="font-semibold text-truva-dark">Lentil Soup</h4>
+                  <p class="text-sm text-gray-500 mt-1">Red lentils, vegetables & Turkish spices</p>
+                </div>
+                <span class="text-truva-red font-bold">$8.99</span>
+              </div>
+              <div class="flex justify-between items-start p-3 bg-gray-50 rounded-lg">
+                <div>
+                  <h4 class="font-semibold text-truva-dark">Chicken Soup</h4>
+                  <p class="text-sm text-gray-500 mt-1">Creamy soup with chicken & dill</p>
+                </div>
+                <span class="text-truva-red font-bold">$8.99</span>
+              </div>
+            </div>
+            <a href="#" class="inline-flex items-center text-truva-red font-semibold mt-4 hover:text-truva-red-dark transition-colors">
+              View Full Dinner Menu <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Dessert -->
+        <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+          <div class="relative h-48">
+            <img src="https://static.wixstatic.com/media/b39a47_45dd133871054f109984f9a3268f860f~mv2.jpg/v1/fill/w_782,h_1174,al_br,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b39a47_45dd133871054f109984f9a3268f860f~mv2.jpg" 
+                 alt="Turkish Desserts" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-4 left-4">
+              <h3 class="text-white font-display text-xl font-bold">Dessert</h3>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="text-gray-600 text-sm mb-4">Indulge in delicate baklava and traditional Turkish sweets.</p>
+            <a href="#" class="text-truva-red font-semibold text-sm hover:text-truva-red-dark transition-colors">
+              View Desserts <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Lunch -->
+        <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+          <div class="relative h-48 bg-gradient-to-br from-truva-gold/20 to-truva-red/20 flex items-center justify-center">
+            <i class="fas fa-sun text-6xl text-truva-gold/40"></i>
+            <div class="absolute bottom-4 left-4">
+              <h3 class="text-truva-dark font-display text-xl font-bold">Lunch & Sandwiches</h3>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="text-gray-600 text-sm mb-4">Quick, delicious options perfect for your lunch break.</p>
+            <a href="#" class="text-truva-red font-semibold text-sm hover:text-truva-red-dark transition-colors">
+              View Lunch Menu <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Drinks -->
+        <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+          <div class="relative h-48 bg-gradient-to-br from-truva-red/20 to-truva-dark/20 flex items-center justify-center">
+            <i class="fas fa-wine-glass-alt text-6xl text-truva-red/40"></i>
+            <div class="absolute bottom-4 left-4">
+              <h3 class="text-truva-dark font-display text-xl font-bold">Drinks</h3>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="text-gray-600 text-sm mb-4">Turkish tea, coffee, wines, and refreshing beverages.</p>
+            <a href="#" class="text-truva-red font-semibold text-sm hover:text-truva-red-dark transition-colors">
+              View Drinks <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Sides -->
+        <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+          <div class="relative h-48 bg-gradient-to-br from-green-100 to-yellow-50 flex items-center justify-center">
+            <i class="fas fa-leaf text-6xl text-green-500/40"></i>
+            <div class="absolute bottom-4 left-4">
+              <h3 class="text-truva-dark font-display text-xl font-bold">Sides</h3>
+            </div>
+          </div>
+          <div class="p-5">
+            <p class="text-gray-600 text-sm mb-4">Perfect accompaniments to complete your meal.</p>
+            <a href="#" class="text-truva-red font-semibold text-sm hover:text-truva-red-dark transition-colors">
+              View Sides <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Dietary Info -->
+      <div class="flex flex-wrap justify-center gap-4 text-sm">
+        <span class="flex items-center px-4 py-2 bg-green-50 text-green-700 rounded-full">
+          <i class="fas fa-leaf mr-2"></i>Vegetarian Options
+        </span>
+        <span class="flex items-center px-4 py-2 bg-yellow-50 text-yellow-700 rounded-full">
+          <i class="fas fa-wheat mr-2"></i>Gluten-Free Available
+        </span>
+        <span class="flex items-center px-4 py-2 bg-blue-50 text-blue-700 rounded-full">
+          <i class="fas fa-cheese mr-2"></i>Dairy-Free Options
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Section - Modern Card -->
+  <section class="py-20 bg-truva-dark relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-12">
+        <i class="fas fa-quote-left text-4xl text-truva-gold/50"></i>
+      </div>
+      
+      <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10">
+        <blockquote class="text-center">
+          <p class="text-xl md:text-2xl text-white font-display italic leading-relaxed mb-8">
+            "Excellent food & ambience. Excellent service. Very comfortable dining seats. If you're looking for a quaint, cozy environment with Turkish/Mediterranean cuisine & contemporary jazz; then this is for you. Casual, respectable dress."
+          </p>
+          <footer class="flex items-center justify-center space-x-4">
+            <div class="w-12 h-12 bg-truva-gold rounded-full flex items-center justify-center">
+              <span class="text-white font-bold">D</span>
+            </div>
+            <div class="text-left">
+              <p class="text-white font-semibold">Daniel W.</p>
+              <div class="flex text-truva-gold">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+      
+      <div class="text-center mt-8">
+        <a href="#" class="inline-flex items-center text-truva-gold hover:text-white transition-colors font-semibold">
+          Read More Reviews <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locations Section -->
+  <section id="locations" class="py-20 lg:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center px-4 py-2 bg-truva-red/10 rounded-full mb-4">
+          <span class="text-truva-red font-semibold text-sm tracking-wide">VISIT US</span>
+        </div>
+        <h2 class="font-display text-4xl lg:text-5xl font-bold text-truva-dark mb-4">
+          Our <span class="text-truva-red">Locations</span>
+        </h2>
+        <p class="text-gray-600 text-lg">
+          Three convenient locations serving authentic Turkish cuisine.
+        </p>
+      </div>
+      
+      <!-- Location Cards -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Mason - Highlighted -->
+        <div class="relative bg-gradient-to-br from-truva-red to-truva-red-dark rounded-2xl p-8 text-white shadow-xl transform md:scale-105">
+          <div class="absolute top-4 right-4">
+            <span class="bg-white/20 px-3 py-1 rounded-full text-sm font-semibold">YOU ARE HERE</span>
+          </div>
+          <div class="mb-6">
+            <i class="fas fa-store text-4xl text-truva-gold mb-4"></i>
+            <h3 class="font-display text-2xl font-bold mb-2">Mason</h3>
+            <p class="text-white/80 text-sm">New Location - March 2024</p>
+          </div>
+          <div class="space-y-3 text-sm">
+            <p class="flex items-start">
+              <i class="fas fa-map-marker-alt text-truva-gold mt-1 mr-3"></i>
+              <span>5065 Deerfield Blvd<br>Mason, OH 45040</span>
+            </p>
+            <p class="flex items-center">
+              <i class="fas fa-phone text-truva-gold mr-3"></i>
+              <a href="tel:5134861856" class="hover:text-truva-gold transition-colors">(513) 486-1856</a>
+            </p>
+            <p class="flex items-center">
+              <i class="fas fa-users text-truva-gold mr-3"></i>
+              <span>Private Room: 40 guests</span>
+            </p>
+          </div>
+          <div class="mt-6 pt-6 border-t border-white/20">
+            <a href="https://www.google.com/maps/place/5065+Deerfield+Blvd,+Mason,+OH+45040" 
+               target="_blank" 
+               class="inline-flex items-center text-truva-gold hover:text-white transition-colors font-semibold">
+              <i class="fas fa-directions mr-2"></i>Get Directions
+            </a>
+          </div>
+        </div>
+        
+        <!-- Kenwood -->
+        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 card-hover">
+          <div class="mb-6">
+            <i class="fas fa-store text-4xl text-truva-red/40 mb-4"></i>
+            <h3 class="font-display text-2xl font-bold text-truva-dark mb-2">Kenwood</h3>
+            <p class="text-gray-500 text-sm">Flagship Location</p>
+          </div>
+          <div class="space-y-3 text-sm text-gray-600">
+            <p class="flex items-start">
+              <i class="fas fa-map-marker-alt text-truva-red mt-1 mr-3"></i>
+              <span>8060 Montgomery Rd<br>Suite 400, Cincinnati, OH 45236</span>
+            </p>
+            <p class="flex items-center">
+              <i class="fas fa-phone text-truva-red mr-3"></i>
+              <a href="tel:5134076965" class="hover:text-truva-red transition-colors">(513) 407-6965</a>
+            </p>
+          </div>
+          <div class="mt-6 pt-6 border-t border-gray-200">
+            <a href="https://www.google.com/maps/place/8060+Montgomery+Rd,+Cincinnati,+OH+45236" 
+               target="_blank" 
+               class="inline-flex items-center text-truva-red hover:text-truva-red-dark transition-colors font-semibold">
+              <i class="fas fa-directions mr-2"></i>Get Directions
+            </a>
+          </div>
+        </div>
+        
+        <!-- Charlotte -->
+        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 card-hover">
+          <div class="mb-6">
+            <i class="fas fa-store text-4xl text-truva-gold/60 mb-4"></i>
+            <h3 class="font-display text-2xl font-bold text-truva-dark mb-2">Charlotte, NC</h3>
+            <p class="text-gray-500 text-sm">Newest Location</p>
+          </div>
+          <div class="space-y-3 text-sm text-gray-600">
+            <p class="flex items-start">
+              <i class="fas fa-map-marker-alt text-truva-gold mt-1 mr-3"></i>
+              <span>9213 Baybrook Ln<br>Charlotte, NC 28277</span>
+            </p>
+            <p class="flex items-center">
+              <i class="fas fa-phone text-truva-gold mr-3"></i>
+              <a href="tel:9802074372" class="hover:text-truva-gold transition-colors">(980) 207-4372</a>
+            </p>
+          </div>
+          <div class="mt-6 pt-6 border-t border-gray-200">
+            <a href="https://www.google.com/maps/place/9213+Baybrook+Ln,+Charlotte,+NC+28277" 
+               target="_blank" 
+               class="inline-flex items-center text-truva-gold hover:text-truva-gold-dark transition-colors font-semibold">
+              <i class="fas fa-directions mr-2"></i>Get Directions
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section - Split Layout -->
+  <section id="contact" class="py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-truva-cream/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16">
+        <!-- Left - Info -->
+        <div class="space-y-8">
+          <div>
+            <div class="inline-flex items-center px-4 py-2 bg-truva-red/10 rounded-full mb-4">
+              <span class="text-truva-red font-semibold text-sm tracking-wide">GET IN TOUCH</span>
+            </div>
+            <h2 class="font-display text-4xl lg:text-5xl font-bold text-truva-dark mb-4">
+              Reserve Your<br>
+              <span class="text-truva-red">Table Today</span>
+            </h2>
+            <p class="text-gray-600 text-lg">
+              Have a question or want to make a reservation? Get in touch with our team today. Private dining available for up to 40 guests.
+            </p>
+          </div>
+          
+          <!-- Contact Info -->
+          <div class="space-y-6">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-truva-red/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-phone text-truva-red text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-truva-dark mb-1">Call Us</h4>
+                <a href="tel:5134861856" class="text-gray-600 hover:text-truva-red transition-colors">(513) 486-1856</a>
+                <p class="text-sm text-gray-500 mt-1">Mason Location</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-truva-gold/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-map-marker-alt text-truva-gold text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-truva-dark mb-1">Visit Us</h4>
+                <p class="text-gray-600">5065 Deerfield Blvd<br>Mason, OH 45040</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-truva-red/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-clock text-truva-red text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-truva-dark mb-1">Hours</h4>
+                <p class="text-gray-600">Open Daily<br>Lunch & Dinner Service</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Social -->
+          <div class="pt-6 border-t border-gray-200">
+            <h4 class="font-semibold text-truva-dark mb-4">Follow Us</h4>
+            <div class="flex space-x-4">
+              <a href="https://www.instagram.com/truvaturkishkitchen" 
+                 target="_blank" 
+                 class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white hover:transform hover:scale-110 transition-all">
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
+              <a href="https://www.facebook.com/truvaturkishkitchen/" 
+                 target="_blank" 
+                 class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:transform hover:scale-110 transition-all">
+                <i class="fab fa-facebook-f text-xl"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right - Form -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+          <h3 class="font-display text-2xl font-bold text-truva-dark mb-6">Send Us a Message</h3>
+          <form class="space-y-5" onsubmit="event.preventDefault(); alert('Thank you for your message! We will contact you soon.');">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                <input type="text" required 
+                       class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-truva-red focus:border-truva-red outline-none transition-all"
+                       placeholder="John">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                <input type="text" required 
+                       class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-truva-red focus:border-truva-red outline-none transition-all"
+                       placeholder="Doe">
+              </div>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+              <input type="email" required 
+                     class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-truva-red focus:border-truva-red outline-none transition-all"
+                     placeholder="john@example.com">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+              <input type="tel" 
+                     class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-truva-red focus:border-truva-red outline-none transition-all"
+                     placeholder="(513) 000-0000">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+              <textarea rows="4" 
+                        class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-truva-red focus:border-truva-red outline-none transition-all resize-none"
+                        placeholder="How can we help you?"></textarea>
+            </div>
+            
+            <button type="submit" 
+                    class="w-full btn-primary text-white py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-truva-dark text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <!-- Brand -->
+        <div class="lg:col-span-1">
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="w-12 h-12 bg-gradient-to-br from-truva-red to-truva-red-dark rounded-full flex items-center justify-center">
+              <span class="text-white font-display font-bold text-xl">T</span>
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-xl">TRUVA</h3>
+              <p class="text-xs text-truva-gold font-medium tracking-wider">TURKISH KITCHEN</p>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Authentic Turkish cuisine in Cincinnati. Experience warmth, tradition, and elegance in every bite.
+          </p>
+          <div class="flex space-x-3">
+            <a href="https://www.instagram.com/truvaturkishkitchen" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-truva-red transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/truvaturkishkitchen/" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-truva-red transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-semibold text-white mb-6">Quick Links</h4>
+          <ul class="space-y-3 text-gray-400">
+            <li><a href="#home" class="hover:text-truva-gold transition-colors">Home</a></li>
+            <li><a href="#about" class="hover:text-truva-gold transition-colors">About Us</a></li>
+            <li><a href="#menu" class="hover:text-truva-gold transition-colors">Menu</a></li>
+            <li><a href="#locations" class="hover:text-truva-gold transition-colors">Locations</a></li>
+            <li><a href="#contact" class="hover:text-truva-gold transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Locations -->
+        <div>
+          <h4 class="font-semibold text-white mb-6">Locations</h4>
+          <ul class="space-y-4 text-gray-400 text-sm">
+            <li>
+              <p class="font-semibold text-white">Mason</p>
+              <p>5065 Deerfield Blvd<br>Mason, OH 45040<br>(513) 486-1856</p>
+            </li>
+            <li>
+              <p class="font-semibold text-white">Kenwood</p>
+              <p>8060 Montgomery Rd, Ste 400<br>Cincinnati, OH 45236<br>(513) 407-6965</p>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h4 class="font-semibold text-white mb-6">Contact</h4>
+          <ul class="space-y-3 text-gray-400 text-sm">
+            <li class="flex items-center">
+              <i class="fas fa-phone mr-3 text-truva-gold"></i>
+              <a href="tel:5134861856" class="hover:text-truva-gold transition-colors">(513) 486-1856</a>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mr-3 text-truva-gold mt-1"></i>
+              <span>5065 Deerfield Blvd<br>Mason, OH 45040</span>
+            </li>
+          </ul>
+          <div class="mt-6">
+            <a href="#contact" class="inline-block bg-truva-red text-white px-6 py-2 rounded-full font-semibold text-sm hover:bg-truva-red-dark transition-colors">
+              Book a Table
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Bottom -->
+      <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <p class="text-gray-500 text-sm">
+          © 2025 Truva Turkish Kitchen. All rights reserved.
+        </p>
+        <div class="flex space-x-6 text-sm text-gray-500">
+          <a href="#" class="hover:text-truva-gold transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-truva-gold transition-colors">Terms & Conditions</a>
+          <a href="#" class="hover:text-truva-gold transition-colors">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating CTA Button -->
+  <div class="fixed bottom-6 right-6 z-40">
+    <a href="tel:5134861856" 
+       class="flex items-center bg-truva-red text-white px-6 py-3 rounded-full shadow-2xl hover:bg-truva-red-dark transition-all transform hover:scale-105">
+      <i class="fas fa-phone mr-3"></i>
+      <span class="font-semibold hidden sm:inline">Call Now</span>
+    </a>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // Close mobile menu if open
+          mobileMenu.classList.add('hidden');
+        }
+      });
+    });
+    
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > 100) {
+        navbar.classList.add('shadow-md');
+      } else {
+        navbar.classList.remove('shadow-md');
+      }
+      
+      lastScroll = currentScroll;
+    });
+    
+    // Scroll reveal animation
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
