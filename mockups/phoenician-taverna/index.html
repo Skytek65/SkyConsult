@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenician Taverna | Authentic Lebanese Cuisine in Mason, OH</title>
+    <meta name="description" content="Experience authentic Lebanese cuisine at Phoenician Taverna in Mason, OH. 800+ 5-star reviews. Traditional dishes made from scratch. Reserve your table today!">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mediterranean: {
+                            50: '#f8f9fa',
+                            100: '#e9ecef',
+                            200: '#dee2e6',
+                            300: '#ced4da',
+                            400: '#adb5bd',
+                            500: '#6c757d',
+                            600: '#495057',
+                            700: '#343a40',
+                            800: '#212529',
+                            900: '#1a1d20',
+                        },
+                        gold: {
+                            100: '#fef9e7',
+                            200: '#fcf3cf',
+                            300: '#f9e79f',
+                            400: '#f7dc6f',
+                            500: '#d4af37',
+                            600: '#b8860b',
+                            700: '#daa520',
+                        },
+                        azure: {
+                            500: '#0077b6',
+                            600: '#023e8a',
+                            700: '#03045e',
+                            800: '#1a365d',
+                        },
+                        olive: {
+                            500: '#718355',
+                            600: '#556b2f',
+                        }
+                    },
+                    fontFamily: {
+                        'display': ['Cormorant Garamond', 'serif'],
+                        'body': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .animate-fade-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .animate-delay-100 { animation-delay: 0.1s; }
+        .animate-delay-200 { animation-delay: 0.2s; }
+        .animate-delay-300 { animation-delay: 0.3s; }
+        .animate-delay-400 { animation-delay: 0.4s; }
+        
+        /* Custom Styles */
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .text-shadow-lg {
+            text-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 50%, #d4af37 100%);
+            background-size: 200% 200%;
+            animation: shimmer 3s ease infinite;
+        }
+        
+        .mediterranean-gradient {
+            background: linear-gradient(135deg, #1a365d 0%, #03045e 100%);
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .menu-item {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #daa520, #d4af37);
+            transition: width 0.3s ease;
+        }
+        
+        .menu-item:hover::after {
+            width: 100%;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        /* Star Rating */
+        .star-rating {
+            color: #daa520;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #1a365d;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #03045e;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Hero Image Overlay */
+        .hero-overlay {
+            background: linear-gradient(to bottom, 
+                rgba(26, 54, 93, 0.7) 0%, 
+                rgba(26, 54, 93, 0.4) 50%, 
+                rgba(26, 54, 93, 0.8) 100%);
+        }
+    </style>
+</head>
+<body class="font-body text-mediterranean-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-transparent" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="flex items-center space-x-2">
+                        <span class="font-display text-2xl sm:text-3xl text-white font-semibold tracking-wide text-shadow">Phoenician</span>
+                        <span class="font-display text-2xl sm:text-3xl text-gold-500 font-semibold tracking-wide text-shadow">Taverna</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="menu-item text-white hover:text-gold-400 transition-colors duration-300 text-sm font-medium uppercase tracking-wider">Home</a>
+                    <a href="#about" class="menu-item text-white hover:text-gold-400 transition-colors duration-300 text-sm font-medium uppercase tracking-wider">Our Story</a>
+                    <a href="#menu" class="menu-item text-white hover:text-gold-400 transition-colors duration-300 text-sm font-medium uppercase tracking-wider">Menu</a>
+                    <a href="#reviews" class="menu-item text-white hover:text-gold-400 transition-colors duration-300 text-sm font-medium uppercase tracking-wider">Reviews</a>
+                    <a href="#visit" class="menu-item text-white hover:text-gold-400 transition-colors duration-300 text-sm font-medium uppercase tracking-wider">Visit</a>
+                    <a href="https://www.toasttab.com/phoenician-taverna" target="_blank" class="gold-gradient text-mediterranean-900 px-6 py-3 rounded-sm font-semibold text-sm uppercase tracking-wider hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
+                        Order Online
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-white hover:text-gold-400 transition-colors" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-y-0 left-0 w-80 bg-azure-800 z-50 lg:hidden shadow-2xl">
+            <div class="p-6">
+                <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-white hover:text-gold-400">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+                <div class="mt-12 space-y-6">
+                    <a href="#home" onclick="toggleMobileMenu()" class="block text-white hover:text-gold-400 text-lg font-medium uppercase tracking-wider">Home</a>
+                    <a href="#about" onclick="toggleMobileMenu()" class="block text-white hover:text-gold-400 text-lg font-medium uppercase tracking-wider">Our Story</a>
+                    <a href="#menu" onclick="toggleMobileMenu()" class="block text-white hover:text-gold-400 text-lg font-medium uppercase tracking-wider">Menu</a>
+                    <a href="#reviews" onclick="toggleMobileMenu()" class="block text-white hover:text-gold-400 text-lg font-medium uppercase tracking-wider">Reviews</a>
+                    <a href="#visit" onclick="toggleMobileMenu()" class="block text-white hover:text-gold-400 text-lg font-medium uppercase tracking-wider">Visit</a>
+                    <a href="https://www.toasttab.com/phoenician-taverna" target="_blank" class="block gold-gradient text-mediterranean-900 px-6 py-3 rounded-sm font-semibold text-center uppercase tracking-wider mt-8">
+                        Order Online
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="https://img1.wsimg.com/isteam/ip/78a08e44-8203-4504-a6c1-53131ee6c39f/e28f9b8a-0e12-4e92-8fd0-0e073a85f3e4.jpg" 
+                 alt="Authentic Lebanese cuisine at Phoenician Taverna" 
+                 class="w-full h-full object-cover">
+            <div class="hero-overlay absolute inset-0"></div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <div class="animate-fade-up">
+                <p class="text-gold-400 font-display text-xl sm:text-2xl mb-4 tracking-widest uppercase">Mason, Ohio</p>
+                <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white font-semibold mb-6 text-shadow-lg leading-tight">
+                    Lebanese Food<br><span class="text-gold-400 italic">Embassy</span>
+                </h1>
+                <p class="text-white/90 text-lg sm:text-xl md:text-2xl font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Experience authentic Mediterranean cuisine crafted from scratch with recipes passed down through generations
+                </p>
+            </div>
+            
+            <div class="animate-fade-up animate-delay-200 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="tel:5137700027" class="group bg-white text-azure-800 px-8 py-4 rounded-sm font-semibold text-sm uppercase tracking-wider hover:bg-gold-400 transition-all duration-300 shadow-lg flex items-center gap-3">
+                    <i class="fas fa-phone"></i>
+                    Call to Reserve
+                </a>
+                <a href="https://www.toasttab.com/phoenician-taverna" target="_blank" class="group gold-gradient text-mediterranean-900 px-8 py-4 rounded-sm font-semibold text-sm uppercase tracking-wider hover:shadow-xl transition-all duration-300 flex items-center gap-3">
+                    <i class="fas fa-utensils"></i>
+                    Order Online
+                </a>
+            </div>
+            
+            <!-- Trust Badge -->
+            <div class="animate-fade-up animate-delay-400 mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 text-white/80">
+                <div class="flex items-center gap-2">
+                    <div class="star-rating text-xl">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="font-semibold text-white">800+ 5-Star Reviews</span>
+                </div>
+                <div class="hidden sm:block w-px h-6 bg-white/30"></div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-award text-gold-400"></i>
+                    <span class="font-medium">Authentic Lebanese</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-white/60 hover:text-gold-400 transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 md:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Image Side -->
+                <div class="relative order-2 lg:order-1">
+                    <div class="relative">
+                        <img src="https://img1.wsimg.com/isteam/ip/78a08e44-8203-4504-a6c1-53131ee6c39f/logo/583f7784-175a-4b60-8116-2bde185f88e7.jpg" 
+                             alt="Phoenician Taverna Logo" 
+                             class="w-full max-w-md mx-auto rounded-sm shadow-2xl">
+                        <!-- Decorative Elements -->
+                        <div class="absolute -top-4 -right-4 w-24 h-24 border-2 border-gold-400 rounded-sm"></div>
+                        <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-azure-800/10 rounded-sm"></div>
+                    </div>
+                    
+                    <!-- Stats Cards -->
+                    <div class="grid grid-cols-2 gap-4 mt-8 max-w-md mx-auto">
+                        <div class="bg-azure-50 p-4 rounded-sm text-center">
+                            <p class="font-display text-3xl text-azure-800 font-semibold">15+</p>
+                            <p class="text-sm text-mediterranean-600 uppercase tracking-wider">Years of Excellence</p>
+                        </div>
+                        <div class="bg-gold-100 p-4 rounded-sm text-center">
+                            <p class="font-display text-3xl text-gold-600 font-semibold">800+</p>
+                            <p class="text-sm text-mediterranean-600 uppercase tracking-wider">5-Star Reviews</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Side -->
+                <div class="order-1 lg:order-2">
+                    <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm mb-4">Our Story</p>
+                    <h2 class="font-display text-4xl md:text-5xl text-mediterranean-900 mb-6 leading-tight">
+                        A Taste of Lebanon<br>in the Heart of Mason
+                    </h2>
+                    <div class="w-20 h-1 gold-gradient mb-8"></div>
+                    
+                    <div class="space-y-4 text-mediterranean-600 leading-relaxed">
+                        <p class="text-lg">
+                            Phoenician Taverna is more than just a restaurant—it's a journey to the Mediterranean. Our recipes have been passed down through generations, preserving the authentic flavors of Lebanese cuisine.
+                        </p>
+                        <p>
+                            Every dish on our menu is executed entirely from scratch in-house. From our freshly baked pita bread to our signature hummus and tender kebabs, we use only the finest ingredients to bring you an authentic taste of Lebanon.
+                        </p>
+                        <p>
+                            Our commitment to excellence has earned us over 800 five-star reviews from our beloved community in Mason and beyond. We invite you to experience why we're known as the "Lebanese Food Embassy."
+                        </p>
+                    </div>
+                    
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <div class="flex items-center gap-2 text-mediterranean-700">
+                            <i class="fas fa-check-circle text-olive-500"></i>
+                            <span class="font-medium">Authentic Recipes</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-mediterranean-700">
+                            <i class="fas fa-check-circle text-olive-500"></i>
+                            <span class="font-medium">Made From Scratch</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-mediterranean-700">
+                            <i class="fas fa-check-circle text-olive-500"></i>
+                            <span class="font-medium">Fresh Ingredients</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Highlights Section -->
+    <section id="menu" class="py-20 md:py-32 bg-azure-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm mb-4">Our Menu</p>
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-mediterranean-900 mb-6">
+                    Authentic Lebanese Delicacies
+                </h2>
+                <p class="text-mediterranean-600 max-w-2xl mx-auto text-lg">
+                    Every dish is crafted with love and tradition, using time-honored recipes and the freshest ingredients
+                </p>
+            </div>
+            
+            <!-- Menu Categories -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Mezze -->
+                <div class="group bg-white rounded-sm overflow-hidden shadow-lg hover-lift">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://img1.wsimg.com/isteam/ip/78a08e44-8203-4504-a6c1-53131ee6c39f/e28f9b8a-0e12-4e92-8fd0-0e073a85f3e4.jpg" 
+                             alt="Traditional Lebanese Mezze" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl text-mediterranean-900 mb-3">Mezze</h3>
+                        <p class="text-mediterranean-600 text-sm mb-4">
+                            Start your journey with our selection of traditional Lebanese appetizers
+                        </p>
+                        <ul class="space-y-2 text-sm text-mediterranean-700">
+                            <li class="flex justify-between">
+                                <span>Hummus</span>
+                                <span class="text-gold-600 font-medium">$8</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Baba Ghanoush</span>
+                                <span class="text-gold-600 font-medium">$8</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Falafel</span>
+                                <span class="text-gold-600 font-medium">$9</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Kibbeh</span>
+                                <span class="text-gold-600 font-medium">$12</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Grilled Specialties -->
+                <div class="group bg-white rounded-sm overflow-hidden shadow-lg hover-lift">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://img1.wsimg.com/isteam/ip/78a08e44-8203-4504-a6c1-53131ee6c39f/e28f9b8a-0e12-4e92-8fd0-0e073a85f3e4.jpg" 
+                             alt="Grilled Lebanese Specialties" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl text-mediterranean-900 mb-3">Grilled Specialties</h3>
+                        <p class="text-mediterranean-600 text-sm mb-4">
+                            Tender meats marinated in traditional spices and grilled to perfection
+                        </p>
+                        <ul class="space-y-2 text-sm text-mediterranean-700">
+                            <li class="flex justify-between">
+                                <span>Chicken Shawarma</span>
+                                <span class="text-gold-600 font-medium">$18</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Beef Shawarma</span>
+                                <span class="text-gold-600 font-medium">$20</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Lamb Kebab</span>
+                                <span class="text-gold-600 font-medium">$24</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Mixed Grill</span>
+                                <span class="text-gold-600 font-medium">$32</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Entrees -->
+                <div class="group bg-white rounded-sm overflow-hidden shadow-lg hover-lift">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://img1.wsimg.com/isteam/ip/78a08e44-8203-4504-a6c1-53131ee6c39f/e28f9b8a-0e12-4e92-8fd0-0e073a85f3e4.jpg" 
+                             alt="Lebanese Main Entrees" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl text-mediterranean-900 mb-3">Traditional Entrees</h3>
+                        <p class="text-mediterranean-600 text-sm mb-4">
+                            Hearty dishes that represent the heart of Lebanese home cooking
+                        </p>
+                        <ul class="space-y-2 text-sm text-mediterranean-700">
+                            <li class="flex justify-between">
+                                <span>Shish Taouk</span>
+                                <span class="text-gold-600 font-medium">$19</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Kafta Kebab</span>
+                                <span class="text-gold-600 font-medium">$21</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Chicken Tawook</span>
+                                <span class="text-gold-600 font-medium">$18</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Shanklish Salad</span>
+                                <span class="text-gold-600 font-medium">$14</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="text-center mt-12">
+                <a href="https://www.toasttab.com/phoenician-taverna" target="_blank" class="inline-flex items-center gap-3 gold-gradient text-mediterranean-900 px-8 py-4 rounded-sm font-semibold uppercase tracking-wider hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <i class="fas fa-book-open"></i>
+                    View Full Menu & Order Online
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Ordering & Catering Banner -->
+    <section class="py-16 mediterranean-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="font-display text-3xl md:text-4xl mb-4">
+                        Order Online for Pickup or Delivery
+                    </h2>
+                    <p class="text-white/80 mb-6">
+                        Enjoy authentic Lebanese cuisine from the comfort of your home. Our online ordering system makes it easy to get your favorites delivered or ready for pickup.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://www.toasttab.com/phoenician-taverna" target="_blank" class="inline-flex items-center gap-2 bg-white text-azure-800 px-6 py-3 rounded-sm font-semibold hover:bg-gold-400 transition-all duration-300">
+                            <i class="fas fa-shopping-bag"></i>
+                            Order Now
+                        </a>
+                        <a href="https://www.toasttab.com/phoenician-taverna/giftcards" target="_blank" class="inline-flex items-center gap-2 border-2 border-gold-400 text-gold-400 px-6 py-3 rounded-sm font-semibold hover:bg-gold-400 hover:text-mediterranean-900 transition-all duration-300">
+                            <i class="fas fa-gift"></i>
+                            Buy Gift Card
+                        </a>
+                    </div>
+                </div>
+                <div class="glass-effect p-6 rounded-sm">
+                    <h3 class="font-display text-2xl mb-4 text-gold-400">Catering Available</h3>
+                    <p class="text-white/80 mb-4">
+                        Planning an event? Let us cater your special occasions with authentic Mediterranean flavors. Perfect for corporate events, weddings, and family gatherings.
+                    </p>
+                    <div class="flex items-center gap-3 text-gold-400">
+                        <i class="fas fa-phone"></i>
+                        <span class="font-semibold">Call (513) 770-0027 for catering inquiries</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 md:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm mb-4">Testimonials</p>
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-mediterranean-900 mb-6">
+                    800+ Happy Diners
+                </h2>
+                <div class="flex items-center justify-center gap-2 mb-4">
+                    <div class="star-rating text-3xl">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="text-2xl font-semibold text-mediterranean-900">5.0</span>
+                </div>
+                <p class="text-mediterranean-600">
+                    Based on 800+ reviews from Google, Yelp, and TripAdvisor
+                </p>
+            </div>
+            
+            <!-- Review Cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-azure-50 p-8 rounded-sm">
+                    <div class="star-rating mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-mediterranean-700 mb-6 italic leading-relaxed">
+                        "Absolutely the best Lebanese food in Ohio! The hummus is incredibly creamy and the shawarma is perfectly seasoned. This place deserves all the praise it gets."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-azure-800 rounded-full flex items-center justify-center text-white font-semibold">
+                            S
+                        </div>
+                        <div>
+                            <p class="font-semibold text-mediterranean-900">Sarah M.</p>
+                            <p class="text-sm text-mediterranean-500">Google Review</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="bg-azure-50 p-8 rounded-sm">
+                    <div class="star-rating mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-mediterranean-700 mb-6 italic leading-relaxed">
+                        "Authentic flavors that remind me of my grandmother's cooking. The staff is warm and welcoming, and the atmosphere is perfect for a date night or family dinner."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gold-500 rounded-full flex items-center justify-center text-white font-semibold">
+                            M
+                        </div>
+                        <div>
+                            <p class="font-semibold text-mediterranean-900">Michael R.</p>
+                            <p class="text-sm text-mediterranean-500">Yelp Review</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review 3 -->
+                <div class="bg-azure-50 p-8 rounded-sm">
+                    <div class="star-rating mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-mediterranean-700 mb-6 italic leading-relaxed">
+                        "We've been coming here for years and the quality never wavers. The mixed grill platter is a must-try, and their fresh pita bread is made in-house daily!"
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-olive-500 rounded-full flex items-center justify-center text-white font-semibold">
+                            J
+                        </div>
+                        <div>
+                            <p class="font-semibold text-mediterranean-900">Jennifer K.</p>
+                            <p class="text-sm text-mediterranean-500">TripAdvisor Review</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Section -->
+    <section id="visit" class="py-20 md:py-32 bg-mediterranean-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-gold-600 font-semibold uppercase tracking-widest text-sm mb-4">Visit Us</p>
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-mediterranean-900 mb-6">
+                    Dine With Us
+                </h2>
+                <p class="text-mediterranean-600 max-w-2xl mx-auto text-lg">
+                    Reservations recommended. Walk-ins welcome based on availability.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <!-- Address -->
+                    <div class="bg-white p-6 rounded-sm shadow-md hover-lift">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-azure-100 rounded-full flex items-center justify-center text-azure-800 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-display text-xl text-mediterranean-900 mb-2">Location</h3>
+                                <p class="text-mediterranean-600">
+                                    7944 Mason Montgomery Rd<br>
+                                    Mason, OH 45040
+                                </p>
+                                <a href="https://maps.google.com/?q=7944+Mason+Montgomery+Rd,+Mason,+OH+45040" target="_blank" class="inline-flex items-center gap-2 text-azure-800 hover:text-gold-600 font-medium mt-2 transition-colors">
+                                    <i class="fas fa-directions"></i>
+                                    Get Directions
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Phone -->
+                    <div class="bg-white p-6 rounded-sm shadow-md hover-lift">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gold-100 rounded-full flex items-center justify-center text-gold-600 flex-shrink-0">
+                                <i class="fas fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-display text-xl text-mediterranean-900 mb-2">Reservations</h3>
+                                <p class="text-mediterranean-600 mb-2">
+                                    Call us to reserve your table
+                                </p>
+                                <a href="tel:5137700027" class="text-2xl font-display text-azure-800 hover:text-gold-600 transition-colors">
+                                    (513) 770-0027
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hours -->
+                    <div class="bg-white p-6 rounded-sm shadow-md hover-lift">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-olive-100 rounded-full flex items-center justify-center text-olive-600 flex-shrink-0">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-display text-xl text-mediterranean-900 mb-2">Hours</h3>
+                                <ul class="space-y-2 text-mediterranean-600">
+                                    <li class="flex justify-between">
+                                        <span>Monday</span>
+                                        <span class="text-red-500 font-medium">Closed</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span>Tuesday - Thursday</span>
+                                        <span>5:00 PM - 8:30 PM</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span>Friday - Saturday</span>
+                                        <span>5:00 PM - 9:00 PM</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span>Sunday</span>
+                                        <span>5:00 PM - 8:00 PM</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Map Placeholder -->
+                <div class="bg-white p-6 rounded-sm shadow-md h-full">
+                    <div class="h-full min-h-[400px] bg-azure-50 rounded-sm flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%2302368a\' fill-opacity=\'0.4\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+                        <div class="text-center z-10">
+                            <div class="w-16 h-16 bg-azure-800 rounded-full flex items-center justify-center text-white mx-auto mb-4">
+                                <i class="fas fa-map-marker-alt text-2xl"></i>
+                            </div>
+                            <h4 class="font-display text-xl text-mediterranean-900 mb-2">Find Us</h4>
+                            <p class="text-mediterranean-600 mb-4">7944 Mason Montgomery Rd<br>Mason, OH 45040</p>
+                            <a href="https://maps.google.com/?q=7944+Mason+Montgomery+Rd,+Mason,+OH+45040" target="_blank" class="inline-flex items-center gap-2 bg-azure-800 text-white px-6 py-3 rounded-sm font-medium hover:bg-azure-700 transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                                Open in Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-mediterranean-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Brand -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="font-display text-2xl text-white font-semibold">Phoenician</span>
+                        <span class="font-display text-2xl text-gold-400 font-semibold">Taverna</span>
+                    </div>
+                    <p class="text-white/60 text-sm leading-relaxed mb-4">
+                        Authentic Lebanese cuisine in the heart of Mason, Ohio. Experience the taste of the Mediterranean.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-500 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-500 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold-500 transition-colors">
+                            <i class="fab fa-yelp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-display text-lg mb-4 text-gold-400">Quick Links</h4>
+                    <ul class="space-y-2 text-white/60">
+                        <li><a href="#home" class="hover:text-gold-400 transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-gold-400 transition-colors">Our Story</a></li>
+                        <li><a href="#menu" class="hover:text-gold-400 transition-colors">Menu</a></li>
+                        <li><a href="#reviews" class="hover:text-gold-400 transition-colors">Reviews</a></li>
+                        <li><a href="#visit" class="hover:text-gold-400 transition-colors">Visit Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="font-display text-lg mb-4 text-gold-400">Services</h4>
+                    <ul class="space-y-2 text-white/60">
+                        <li><a href="https://www.toasttab.com/phoenician-taverna" target="_blank" class="hover:text-gold-400 transition-colors">Online Ordering</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Catering</a></li>
+                        <li><a href="https://www.toasttab.com/phoenician-taverna/giftcards" target="_blank" class="hover:text-gold-400 transition-colors">Gift Cards</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Private Events</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-display text-lg mb-4 text-gold-400">Contact</h4>
+                    <ul class="space-y-3 text-white/60">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-gold-400"></i>
+                            <span>7944 Mason Montgomery Rd<br>Mason, OH 45040</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone text-gold-400"></i>
+                            <a href="tel:5137700027" class="hover:text-gold-400 transition-colors">(513) 770-0027</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/40 text-sm">
+                    © 2024 Phoenician Taverna. All Rights Reserved.
+                </p>
+                <div class="flex items-center gap-2 text-white/40 text-sm">
+                    <span>Authentic Lebanese Cuisine</span>
+                    <span class="text-gold-400">•</span>
+                    <span>Mason, Ohio</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Order Button (Mobile) -->
+    <div class="fixed bottom-6 right-6 z-40 lg:hidden">
+        <a href="https://www.toasttab.com/phoenician-taverna" target="_blank" class="gold-gradient text-mediterranean-900 w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110">
+            <i class="fas fa-utensils text-xl"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+        }
+        
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.remove('bg-transparent');
+                navbar.classList.add('bg-azure-800/95', 'backdrop-blur-md', 'shadow-lg');
+            } else {
+                navbar.classList.add('bg-transparent');
+                navbar.classList.remove('bg-azure-800/95', 'backdrop-blur-md', 'shadow-lg');
+            }
+        });
+        
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Intersection Observer for Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.hover-lift').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
