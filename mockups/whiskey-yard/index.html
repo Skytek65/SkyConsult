@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiskey Yard | Modern Global Bistro & Whiskey Bar | West Chester, OH</title>
+    <meta name="description" content="Whiskey Yard - A modern global bistro & whiskey bar in West Chester, OH. Featuring 200+ whiskeys, craft cocktails, seasonal fare, and soulful hospitality. Make a reservation today!">
+    <meta name="keywords" content="Whiskey Yard, West Chester restaurant, whiskey bar, craft cocktails, bistro, Liberty Township, Ohio dining">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'whiskey': {
+                            50: '#fdf8f3',
+                            100: '#f9ebe0',
+                            200: '#f2d4c0',
+                            300: '#e8b896',
+                            400: '#dd9566',
+                            500: '#d47642',
+                            600: '#c45f36',
+                            700: '#a34b2e',
+                            800: '#853d2a',
+                            900: '#6c3426',
+                        },
+                        'amber-gold': {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        'dark-wood': {
+                            800: '#3d2517',
+                            900: '#2a1a10',
+                            950: '#1a1009',
+                        }
+                    },
+                    fontFamily: {
+                        'display': ['Cormorant Garamond', 'serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        /* Hero Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(212, 118, 66, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(212, 118, 66, 0.6);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .animate-slide-in {
+            animation: slideIn 0.8s ease-out forwards;
+        }
+        
+        .animate-delay-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .animate-delay-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .animate-delay-3 {
+            animation-delay: 0.3s;
+        }
+        
+        .animate-delay-4 {
+            animation-delay: 0.4s;
+        }
+        
+        /* Glassmorphism */
+        .glass {
+            background: rgba(26, 16, 9, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        /* Hero gradient overlay */
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(42, 26, 16, 0.95) 0%, rgba(42, 26, 16, 0.7) 50%, rgba(133, 61, 42, 0.4) 100%);
+        }
+        
+        /* Menu card hover */
+        .menu-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Button glow effect */
+        .btn-glow {
+            animation: pulse-glow 3s infinite;
+        }
+        
+        /* Parallax effect */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1009;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #d47642;
+            border-radius: 4px;
+        }
+        
+        /* Image overlay gradient */
+        .img-overlay {
+            background: linear-gradient(to top, rgba(26, 16, 9, 0.9) 0%, rgba(26, 16, 9, 0.3) 50%, transparent 100%);
+        }
+        
+        /* Mobile menu animation */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 50;
+            animation: pulse-glow 3s infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .floating-cta {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-dark-wood-950 text-gray-100 antialiased">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="glass">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+                    <!-- Logo -->
+                    <a href="#" class="flex items-center space-x-3">
+                        <img src="https://cdn.prod.website-files.com/68bebc3edfa467c12520d9f3/68c00eb0f3a76e4bd98d072b_WHISKEY%20YARD%20Logo%20black%209.8.25-p-500.png" 
+                             alt="Whiskey Yard Logo" 
+                             class="h-12 w-auto bg-white/10 rounded-lg p-1">
+                        <span class="font-display text-2xl font-bold text-whiskey-100 hidden sm:block">Whiskey Yard</span>
+                    </a>
+                    
+                    <!-- Desktop Navigation -->
+                    <div class="hidden lg:flex items-center space-x-8">
+                        <a href="#about" class="text-gray-300 hover:text-whiskey-400 transition-colors font-medium">About</a>
+                        <a href="#menu" class="text-gray-300 hover:text-whiskey-400 transition-colors font-medium">Menu</a>
+                        <a href="#whiskey" class="text-gray-300 hover:text-whiskey-400 transition-colors font-medium">Whiskey</a>
+                        <a href="#reservations" class="text-gray-300 hover:text-whiskey-400 transition-colors font-medium">Reservations</a>
+                        <a href="#contact" class="text-gray-300 hover:text-whiskey-400 transition-colors font-medium">Contact</a>
+                        <a href="tel:513-480-9273" class="btn-glow bg-whiskey-600 hover:bg-whiskey-500 text-white px-6 py-3 rounded-full font-semibold transition-all flex items-center space-x-2">
+                            <i data-lucide="phone" class="w-4 h-4"></i>
+                            <span>Call Now</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="lg:hidden text-whiskey-100" id="mobile-menu-btn">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed inset-y-0 right-0 w-full sm:w-80 bg-dark-wood-900 z-50 p-6 shadow-2xl" id="mobile-menu">
+        <div class="flex justify-between items-center mb-8">
+            <span class="font-display text-2xl font-bold text-whiskey-100">Menu</span>
+            <button class="text-whiskey-100" id="close-mobile-menu">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+        </div>
+        <div class="flex flex-col space-y-4">
+            <a href="#about" class="text-gray-300 hover:text-whiskey-400 transition-colors text-lg font-medium py-2">About</a>
+            <a href="#menu" class="text-gray-300 hover:text-whiskey-400 transition-colors text-lg font-medium py-2">Menu</a>
+            <a href="#whiskey" class="text-gray-300 hover:text-whiskey-400 transition-colors text-lg font-medium py-2">Whiskey</a>
+            <a href="#reservations" class="text-gray-300 hover:text-whiskey-400 transition-colors text-lg font-medium py-2">Reservations</a>
+            <a href="#contact" class="text-gray-300 hover:text-whiskey-400 transition-colors text-lg font-medium py-2">Contact</a>
+            <a href="tel:513-480-9273" class="btn-glow bg-whiskey-600 hover:bg-whiskey-500 text-white px-6 py-4 rounded-full font-semibold transition-all text-center mt-4">
+                Call (513) 480-YARD
+            </a>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="https://cdn.prod.website-files.com/68bebc3edfa467c12520d9f3/6900bb66060feb0e7ebff874_image%20(2)%20new-p-1080.jpg" 
+                 alt="Whiskey Yard Interior" 
+                 class="w-full h-full object-cover">
+            <div class="hero-gradient absolute inset-0"></div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+            <div class="animate-fade-in-up opacity-0">
+                <span class="inline-block bg-whiskey-600/20 text-whiskey-300 px-4 py-2 rounded-full text-sm font-semibold tracking-wider mb-6 border border-whiskey-500/30">
+                    NOW OPEN IN WEST CHESTER
+                </span>
+            </div>
+            
+            <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-6 animate-fade-in-up opacity-0 animate-delay-1">
+                Where Whiskey<br>
+                <span class="text-whiskey-400">Meets Wanderlust</span>
+            </h1>
+            
+            <p class="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 font-light animate-fade-in-up opacity-0 animate-delay-2">
+                A modern global bistro & whiskey bar rooted in hospitality, featuring an award‑caliber back bar and soulful plates built for sharing.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up opacity-0 animate-delay-3">
+                <a href="#reservations" class="btn-glow bg-whiskey-600 hover:bg-whiskey-500 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all flex items-center space-x-3 shadow-lg hover:shadow-whiskey-500/25">
+                    <i data-lucide="calendar" class="w-5 h-5"></i>
+                    <span>Book a Table</span>
+                </a>
+                <a href="#menu" class="bg-transparent border-2 border-whiskey-400 text-whiskey-400 hover:bg-whiskey-400 hover:text-dark-wood-900 px-8 py-4 rounded-full font-semibold text-lg transition-all flex items-center space-x-3">
+                    <i data-lucide="utensils" class="w-5 h-5"></i>
+                    <span>View Menu</span>
+                </a>
+            </div>
+            
+            <!-- Trust Indicators -->
+            <div class="mt-16 flex flex-wrap justify-center items-center gap-8 animate-fade-in-up opacity-0 animate-delay-4">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="star" class="w-5 h-5 text-amber-gold-400 fill-amber-gold-400"></i>
+                    <span class="text-gray-300 font-medium">4.5/5 (168 Reviews)</span>
+                </div>
+                <div class="hidden sm:block w-px h-6 bg-gray-600"></div>
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="wine" class="w-5 h-5 text-whiskey-400"></i>
+                    <span class="text-gray-300 font-medium">200+ Whiskeys</span>
+                </div>
+                <div class="hidden sm:block w-px h-6 bg-gray-600"></div>
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="music" class="w-5 h-5 text-whiskey-400"></i>
+                    <span class="text-gray-300 font-medium">Live Music</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i data-lucide="chevron-down" class="w-8 h-8 text-whiskey-400"></i>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-dark-wood-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Content -->
+                <div class="space-y-8">
+                    <div>
+                        <span class="text-whiskey-400 font-semibold tracking-wider uppercase text-sm">Our Story</span>
+                        <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mt-3 leading-tight">
+                            The Yard,<br>Our Way
+                        </h2>
+                    </div>
+                    
+                    <div class="space-y-6 text-gray-300 text-lg leading-relaxed">
+                        <p>
+                            Whiskey Yard is a love letter to global flavors and American whiskey. We're a hospitality‑first crew: open arms, sharp standards, and just enough swagger to keep things fun.
+                        </p>
+                        <p>
+                            Our kitchen trades in seasonality and soul; our bar team curates bottles with intention. No gatekeeping, no pretense — just good taste.
+                        </p>
+                    </div>
+                    
+                    <!-- Core Values -->
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="bg-dark-wood-800/50 p-4 rounded-lg border border-whiskey-700/30">
+                            <i data-lucide="heart" class="w-6 h-6 text-whiskey-400 mb-2"></i>
+                            <h4 class="font-semibold text-white">Love</h4>
+                            <p class="text-sm text-gray-400">Family-first hospitality</p>
+                        </div>
+                        <div class="bg-dark-wood-800/50 p-4 rounded-lg border border-whiskey-700/30">
+                            <i data-lucide="sparkles" class="w-6 h-6 text-whiskey-400 mb-2"></i>
+                            <h4 class="font-semibold text-white">Excellence</h4>
+                            <p class="text-sm text-gray-400">Exceed expectations</p>
+                        </div>
+                        <div class="bg-dark-wood-800/50 p-4 rounded-lg border border-whiskey-700/30">
+                            <i data-lucide="users" class="w-6 h-6 text-whiskey-400 mb-2"></i>
+                            <h4 class="font-semibold text-white">Community</h4>
+                            <p class="text-sm text-gray-400">Respect & nourish</p>
+                        </div>
+                        <div class="bg-dark-wood-800/50 p-4 rounded-lg border border-whiskey-700/30">
+                            <i data-lucide="award" class="w-6 h-6 text-whiskey-400 mb-2"></i>
+                            <h4 class="font-semibold text-white">5-Star Service</h4>
+                            <p class="text-sm text-gray-400">Without pretension</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image -->
+                <div class="relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://cdn.prod.website-files.com/68bebc3edfa467c12520d9f3/6996530f361fd4e34e0f8a42_WY%20ROASTED%20GARLIC%20LOAF%20.png" 
+                             alt="Whiskey Yard Dish" 
+                             class="w-full h-[500px] object-cover">
+                        <div class="img-overlay absolute inset-0"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span class="text-whiskey-300 text-sm font-medium">House Favorites</span>
+                            <h3 class="text-white font-display text-2xl font-bold mt-1">Seasonal Fare & Soul</h3>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-whiskey-600 text-white px-6 py-4 rounded-lg shadow-xl">
+                        <p class="text-3xl font-bold font-display">200+</p>
+                        <p class="text-sm">Whiskeys & Bourbons</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Menu Preview Section -->
+    <section id="menu" class="py-24 bg-dark-wood-950 relative overflow-hidden">
+        <!-- Decorative Background -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-whiskey-900/20 to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="text-whiskey-400 font-semibold tracking-wider uppercase text-sm">Culinary Excellence</span>
+                <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mt-3 mb-4">
+                    Our Menu Moves The Way You Do
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+                    Curious, flexible, and always hungry for what's next. Expect vibrant small plates, a few craveable mains, and fresh pastas.
+                </p>
+            </div>
+            
+            <!-- Menu Categories -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Small Plates -->
+                <div class="menu-card bg-dark-wood-900 rounded-2xl overflow-hidden border border-whiskey-800/30">
+                    <div class="relative h-48">
+                        <img src="https://cdn.prod.website-files.com/68bebc3edfa467c12520d9f3/695fd0729bbdc14a507af87b_WY%20ASIAN%20BEEF%20BAO%20BUNS.png" 
+                             alt="Small Plates" 
+                             class="w-full h-full object-cover">
+                        <div class="img-overlay absolute inset-0"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-whiskey-600 text-white text-xs font-bold px-3 py-1 rounded-full">SIGNATURE</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-white mb-2">Small Plates</h3>
+                        <p class="text-gray-400 text-sm mb-4">Curated for sharing — where global flavors meet soulful craftsmanship.</p>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-whiskey-400 mr-2"></i> Asian Beef Bao Buns</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-whiskey-400 mr-2"></i> Whiskey-Braised Short Rib Poutine</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-whiskey-400 mr-2"></i> Ahi Tuna Poke Pagoda</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Fresh Pasta -->
+                <div class="menu-card bg-dark-wood-900 rounded-2xl overflow-hidden border border-whiskey-800/30">
+                    <div class="relative h-48">
+                        <img src="https://cdn.prod.website-files.com/68bebc3edfa467c12520d9f3/6973a3192533650f36e128a4_WY%20BUCATINI%20ALLA%20ROSA%20.png" 
+                             alt="Fresh Pasta" 
+                             class="w-full h-full object-cover">
+                        <div class="img-overlay absolute inset-0"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-whiskey-600 text-white text-xs font-bold px-3 py-1 rounded-full">HANDCRAFTED</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-white mb-2">Fresh Pasta</h3>
+                        <p class="text-gray-400 text-sm mb-4">Handcrafted pastas, made fresh and finished with worldly inspiration.</p>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-whiskey-400 mr-2"></i> Bucatini Alla Rosa</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-whiskey-400 mr-2"></i> Aji Pappardelle</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-whiskey-400 mr-2"></i> Gnocchi Carbonara</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Mains -->
+                <div class="menu-card bg-dark-wood-900 rounded-2xl overflow-hidden border border-whiskey-800/30">
+                    <div class="relative h-48">
+                        <img src="https://cdn.prod.website-files.com/68bebc3edfa467c12520d9f3/6960e356d99a54e692daf657_WY%20FILET%20MIGNON%20AU%20CAFE%CC%81.png" 
+                             alt="Mains" 
+                             class="w-full h-full object-cover">
+                        <div class="img-overlay absolute inset-0"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-whiskey-600 text-white text-xs font-bold px-3 py-1 rounded-full">SIGNATURE EXPERIENCE</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-white mb-2">Mains</h3>
+                        <p class="text-gray-400 text-sm mb-4">Inspired by kitchens around the world, crafted with soul.</p>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-whiskey-400 mr-2"></i> Filet Mignon Au Café</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-whiskey-400 mr-2"></i> Crab-Crusted Halibut</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-whiskey-400 mr-2"></i> Whiskey-Braised Short Rib</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Menu Download CTA -->
+            <div class="text-center">
+                <a href="https://cdn.prod.website-files.com/68bebc3edfa467c12520d9f3/69aba8f9c7cd898619b0124a_WY%2002-2026%20Main%20Menu.pdf" 
+                   target="_blank"
+                   class="inline-flex items-center space-x-3 bg-transparent border-2 border-whiskey-400 text-whiskey-400 hover:bg-whiskey-400 hover:text-dark-wood-900 px-8 py-4 rounded-full font-semibold transition-all">
+                    <i data-lucide="file-text" class="w-5 h-5"></i>
+                    <span>View Full Menu PDF</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Whiskey Collection Section -->
+    <section id="whiskey" class="py-24 bg-dark-wood-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Image Side -->
+                <div class="relative order-2 lg:order-1">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <img src="https://cdn.prod.website-files.com/68bebc3edfa467c12520d9f3/6961bbaf62d4145979aaf475_WY%20SALTY%20CARAMEL%20BRU%CC%82LE%CC%81ED%20CHEESECAKE%20(1).png" 
+                                 alt="Whiskey Cocktail" 
+                                 class="w-full h-48 object-cover rounded-lg">
+                            <img src="https://cdn.prod.website-files.com/68bebc3edfa467c12520d9f3/6961bbaf3de086060292cf54_WY%20KEY%20LIME%20PIE%20(1).png" 
+                                 alt="Whiskey Bar" 
+                                 class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                        <div class="space-y-4 pt-8">
+                            <img src="https://cdn.prod.website-files.com/68bebc3edfa467c12520d9f3/6961bbaf78b348053f419986_WY%20NOLA%20BANANA%20CREAM%20PIE.png" 
+                                 alt="Bourbon Selection" 
+                                 class="w-full h-64 object-cover rounded-lg">
+                            <img src="https://cdn.prod.website-files.com/68bebc3edfa467c12520d9f3/69700e9e27fa33522446265a_WY%20VEAL%20INVOLTINI.png" 
+                                 alt="Cocktail" 
+                                 class="w-full h-48 object-cover rounded-lg">
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Stats Card -->
+                    <div class="absolute -bottom-6 -right-6 bg-whiskey-800 text-white p-6 rounded-xl shadow-2xl">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-whiskey-600 p-3 rounded-lg">
+                                <i data-lucide="wine" class="w-8 h-8"></i>
+                            </div>
+                            <div>
+                                <p class="text-3xl font-bold font-display">200+</p>
+                                <p class="text-whiskey-200 text-sm">Whiskeys & Bourbons</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Side -->
+                <div class="order-1 lg:order-2 space-y-8">
+                    <div>
+                        <span class="text-whiskey-400 font-semibold tracking-wider uppercase text-sm">The Bar</span>
+                        <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mt-3 leading-tight">
+                            What We're Pouring
+                        </h2>
+                    </div>
+                    
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        From Kentucky icons to Japanese elegance and emerging craft. Our award-caliber back bar features bottles curated with intention from every corner of the whiskey world.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-whiskey-700/30 p-3 rounded-lg flex-shrink-0">
+                                <i data-lucide="flask-conical" class="w-6 h-6 text-whiskey-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-lg">Whiskey Flights</h4>
+                                <p class="text-gray-400">For every palate — from "Whiskey-Light" to "Barrel Geek"</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-whiskey-700/30 p-3 rounded-lg flex-shrink-0">
+                                <i data-lucide="glass-water" class="w-6 h-6 text-whiskey-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-lg">Craft Cocktails</h4>
+                                <p class="text-gray-400">Classic cocktails and thoughtful zero‑proofs</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-whiskey-700/30 p-3 rounded-lg flex-shrink-0">
+                                <i data-lucide="grape" class="w-6 h-6 text-whiskey-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-lg">Wine & Beer</h4>
+                                <p class="text-gray-400">A tight, curated wine and craft beer list</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://www.thewhiskeyyard.com/whiskey" 
+                       target="_blank"
+                       class="inline-flex items-center space-x-3 bg-whiskey-600 hover:bg-whiskey-500 text-white px-8 py-4 rounded-full font-semibold transition-all shadow-lg hover:shadow-whiskey-500/25">
+                        <i data-lucide="list" class="w-5 h-5"></i>
+                        <span>View Whiskey List</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Live Music Section -->
+    <section class="py-24 bg-dark-wood-950 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-whiskey-900/10 to-dark-wood-950"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-whiskey-600/20 rounded-full mb-8">
+                <i data-lucide="music" class="w-10 h-10 text-whiskey-400"></i>
+            </div>
+            <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mb-6">
+                Tune Into The Moment
+            </h2>
+            <p class="text-gray-300 text-lg max-w-3xl mx-auto mb-8">
+                Dive into a mix of fresh, curated music made to match your mood, boost your energy, and bring the atmosphere of our space right to your ears.
+            </p>
+            <a href="https://open.spotify.com/playlist/1J3KwLuW7KPsArRvqLmBxQ?si=Aw8AjrLtSG27zqNxz3QOzA&pi=UpMfsSZ1TRSMZ" 
+               target="_blank"
+               class="inline-flex items-center space-x-3 bg-transparent border-2 border-whiskey-400 text-whiskey-400 hover:bg-whiskey-400 hover:text-dark-wood-900 px-8 py-4 rounded-full font-semibold transition-all">
+                <i data-lucide="play-circle" class="w-5 h-5"></i>
+                <span>Listen to Our Playlist</span>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Reservations Section -->
+    <section id="reservations" class="py-24 bg-whiskey-900 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-whiskey-800 to-whiskey-900"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-block bg-white/10 text-whiskey-100 px-4 py-2 rounded-full text-sm font-semibold tracking-wider mb-6">
+                BOOK YOUR TABLE
+            </span>
+            <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mb-6">
+                Ready to Experience The Yard?
+            </h2>
+            <p class="text-whiskey-100 text-lg max-w-2xl mx-auto mb-10">
+                Walk-ins welcome, but reservations get the royal treatment. Join us for an unforgettable evening of exceptional food, craft cocktails, and warm hospitality.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://www.opentable.com/r/whiskey-yard-reservations-liberty-township?restref=1488718&lang=en-US" 
+                   target="_blank"
+                   class="btn-glow bg-white text-whiskey-900 hover:bg-gray-100 px-10 py-5 rounded-full font-bold text-lg transition-all shadow-xl flex items-center space-x-3">
+                    <i data-lucide="calendar-check" class="w-6 h-6"></i>
+                    <span>Book Your Reservation Now</span>
+                </a>
+            </div>
+            
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-whiskey-100">
+                <div class="flex flex-col items-center">
+                    <i data-lucide="clock" class="w-6 h-6 mb-2 text-whiskey-300"></i>
+                    <span class="font-semibold">Mon - Fri</span>
+                    <span class="text-sm">11 AM – 11 PM</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <i data-lucide="clock" class="w-6 h-6 mb-2 text-whiskey-300"></i>
+                    <span class="font-semibold">Saturday</span>
+                    <span class="text-sm">9 AM – 11 PM</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <i data-lucide="clock" class="w-6 h-6 mb-2 text-whiskey-300"></i>
+                    <span class="font-semibold">Sunday</span>
+                    <span class="text-sm">9 AM – 10 PM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-dark-wood-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div>
+                        <span class="text-whiskey-400 font-semibold tracking-wider uppercase text-sm">Get In Touch</span>
+                        <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mt-3">
+                            Visit Us
+                        </h2>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-whiskey-700/30 p-3 rounded-lg flex-shrink-0">
+                                <i data-lucide="map-pin" class="w-6 h-6 text-whiskey-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-lg mb-1">Address</h4>
+                                <p class="text-gray-300">
+                                    7524 Bales Street<br>
+                                    Liberty Township, OH 45069<br>
+                                    <span class="text-sm text-gray-400">(West Chester area)</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-whiskey-700/30 p-3 rounded-lg flex-shrink-0">
+                                <i data-lucide="phone" class="w-6 h-6 text-whiskey-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-lg mb-1">Phone</h4>
+                                <a href="tel:513-480-9273" class="text-whiskey-400 hover:text-whiskey-300 transition-colors text-lg">
+                                    (513) 480-YARD<br>
+                                    <span class="text-sm text-gray-400">(513) 480-9273</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-whiskey-700/30 p-3 rounded-lg flex-shrink-0">
+                                <i data-lucide="mail" class="w-6 h-6 text-whiskey-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-lg mb-1">Email</h4>
+                                <a href="mailto:info@thewhiskeyyard.com" class="text-whiskey-400 hover:text-whiskey-300 transition-colors">
+                                    info@thewhiskeyyard.com
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hours -->
+                    <div class="bg-dark-wood-800/50 p-6 rounded-xl border border-whiskey-700/30">
+                        <h4 class="font-semibold text-white text-lg mb-4 flex items-center">
+                            <i data-lucide="clock" class="w-5 h-5 mr-2 text-whiskey-400"></i>
+                            Hours of Operation
+                        </h4>
+                        <div class="space-y-2 text-gray-300">
+                            <div class="flex justify-between">
+                                <span>Monday - Friday</span>
+                                <span class="font-medium text-whiskey-100">11 AM – 11 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Saturday</span>
+                                <span class="font-medium text-whiskey-100">9 AM – 11 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Sunday</span>
+                                <span class="font-medium text-whiskey-100">9 AM – 10 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Map or Additional Info -->
+                <div class="space-y-8">
+                    <!-- Newsletter Signup -->
+                    <div class="bg-dark-wood-800/50 p-8 rounded-2xl border border-whiskey-700/30">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <i data-lucide="gift" class="w-6 h-6 text-whiskey-400"></i>
+                            <h3 class="font-display text-2xl font-bold text-white">Join the Founder's Tasting List</h3>
+                        </div>
+                        <p class="text-gray-400 mb-6">
+                            Be first to tastings, chef collaborations, opening parties, and exclusive whiskey events.
+                        </p>
+                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you for signing up! We\\'ll be in touch soon.');">
+                            <div class="relative">
+                                <input type="email" 
+                                       placeholder="Enter your email" 
+                                       required
+                                       class="w-full px-5 py-4 bg-dark-wood-900 border border-whiskey-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-whiskey-400 transition-colors">
+                                <i data-lucide="mail" class="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500"></i>
+                            </div>
+                            <button type="submit" 
+                                    class="w-full bg-whiskey-600 hover:bg-whiskey-500 text-white px-6 py-4 rounded-lg font-semibold transition-all flex items-center justify-center space-x-2">
+                                <span>Join Now</span>
+                                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Gift Cards -->
+                    <div class="bg-gradient-to-br from-whiskey-800 to-whiskey-900 p-8 rounded-2xl">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <i data-lucide="credit-card" class="w-6 h-6 text-whiskey-200"></i>
+                            <h3 class="font-display text-2xl font-bold text-white">Gift Cards</h3>
+                        </div>
+                        <p class="text-whiskey-100 mb-6">
+                            Share the Whiskey Yard experience with friends and family. Perfect for any occasion.
+                        </p>
+                        <a href="https://www.thewhiskeyyard.com/gift-cards" 
+                           target="_blank"
+                           class="inline-flex items-center space-x-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-semibold transition-all">
+                            <span>Purchase Gift Cards</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-dark-wood-950 border-t border-whiskey-800/30 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="space-y-4">
+                    <img src="https://cdn.prod.website-files.com/68bebc3edfa467c12520d9f3/68c00eb0f3a76e4bd98d072b_WHISKEY%20YARD%20Logo%20black%209.8.25-p-500.png" 
+                         alt="Whiskey Yard Logo" 
+                         class="h-16 w-auto bg-white/10 rounded-lg p-2">
+                    <p class="text-gray-400 text-sm">
+                        A modern global bistro & whiskey bar rooted in hospitality. Where whiskey meets wanderlust.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-whiskey-400 transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-whiskey-400 transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-whiskey-400 transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#menu" class="hover:text-whiskey-400 transition-colors">Menu</a></li>
+                        <li><a href="#whiskey" class="hover:text-whiskey-400 transition-colors">Whiskey List</a></li>
+                        <li><a href="#reservations" class="hover:text-whiskey-400 transition-colors">Reservations</a></li>
+                        <li><a href="https://www.thewhiskeyyard.com/live-music" target="_blank" class="hover:text-whiskey-400 transition-colors">Live Music</a></li>
+                        <li><a href="https://www.thewhiskeyyard.com/events" target="_blank" class="hover:text-whiskey-400 transition-colors">Events</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="https://www.thewhiskeyyard.com/about" target="_blank" class="hover:text-whiskey-400 transition-colors">About Us</a></li>
+                        <li><a href="https://www.thewhiskeyyard.com/our-team" target="_blank" class="hover:text-whiskey-400 transition-colors">Our Team</a></li>
+                        <li><a href="https://www.thewhiskeyyard.com/careers" target="_blank" class="hover:text-whiskey-400 transition-colors">Careers</a></li>
+                        <li><a href="https://www.thewhiskeyyard.com/press" target="_blank" class="hover:text-whiskey-400 transition-colors">Press</a></li>
+                        <li><a href="https://www.epicb.com/" target="_blank" class="hover:text-whiskey-400 transition-colors">Epic Brands</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Contact</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-start space-x-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 mt-1 flex-shrink-0 text-whiskey-400"></i>
+                            <span>7524 Bales Street<br>Liberty Township, OH 45069</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-whiskey-400"></i>
+                            <a href="tel:513-480-9273" class="hover:text-whiskey-400 transition-colors">(513) 480-9273</a>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="mail" class="w-4 h-4 text-whiskey-400"></i>
+                            <a href="mailto:info@thewhiskeyyard.com" class="hover:text-whiskey-400 transition-colors">info@thewhiskeyyard.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-whiskey-800/30 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <p class="text-gray-500 text-sm">
+                    © 2026 Whiskey Yard. All rights reserved.
+                </p>
+                <div class="flex space-x-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-whiskey-400 transition-colors">Terms of Use</a>
+                    <a href="#" class="hover:text-whiskey-400 transition-colors">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Floating CTA Button -->
+    <div class="floating-cta">
+        <a href="tel:513-480-9273" 
+           class="bg-whiskey-600 hover:bg-whiskey-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-all">
+            <i data-lucide="phone" class="w-6 h-6"></i>
+        </a>
+    </div>
+    
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+        
+        // Close mobile menu when clicking on a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe menu cards
+        document.querySelectorAll('.menu-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(card);
+        });
+        
+        // Active navigation highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-whiskey-400');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-whiskey-400');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
