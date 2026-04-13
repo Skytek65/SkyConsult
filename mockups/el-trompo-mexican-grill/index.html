@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Trompo Mexican Grill | Authentic Mexican Cuisine in Mason, OH</title>
+  <meta name="description" content="Experience authentic Mexican cuisine at El Trompo Mexican Grill. Fresh foods, delicious meats, amazing appetizers & craft margaritas. 4 locations in Cincinnati area.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'trompo': {
+              50: '#fef7ed',
+              100: '#fdedd3',
+              200: '#fbd9a5',
+              300: '#f8bf6d',
+              400: '#f59e3b',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+              800: '#9a3412',
+              900: '#7c2d12',
+            },
+            'cilantro': {
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+            }
+          },
+          fontFamily: {
+            'display': ['Playfair Display', 'serif'],
+            'sans': ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+    .text-shadow-lg { text-shadow: 3px 3px 6px rgba(0,0,0,0.6); }
+    .gradient-overlay { background: linear-gradient(135deg, rgba(124,45,18,0.9) 0%, rgba(234,88,12,0.7) 100%); }
+    .pattern-bg { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f97316' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+    .smooth-scroll { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="font-sans antialiased smooth-scroll">
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-lg transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex items-center">
+          <a href="#" class="flex items-center space-x-3">
+            <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/cgB29P9awzOhQCndAfRP/media/67744901985cef1d2009d4ed.png" alt="El Trompo Logo" class="h-16 w-auto">
+            <span class="font-display text-2xl font-bold text-trompo-800 hidden sm:block">El Trompo</span>
+          </a>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#menu" class="text-gray-700 hover:text-trompo-600 font-medium transition">Menu</a>
+          <a href="#locations" class="text-gray-700 hover:text-trompo-600 font-medium transition">Locations</a>
+          <a href="#about" class="text-gray-700 hover:text-trompo-600 font-medium transition">Our Story</a>
+          <a href="#events" class="text-gray-700 hover:text-trompo-600 font-medium transition">Events</a>
+          <a href="#contact" class="bg-trompo-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-trompo-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">Reserve Table</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button class="md:hidden p-2 rounded-md text-gray-700 hover:text-trompo-600" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+      <div class="px-4 pt-2 pb-4 space-y-1">
+        <a href="#menu" class="block px-3 py-2 text-gray-700 hover:text-trompo-600 font-medium">Menu</a>
+        <a href="#locations" class="block px-3 py-2 text-gray-700 hover:text-trompo-600 font-medium">Locations</a>
+        <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-trompo-600 font-medium">Our Story</a>
+        <a href="#events" class="block px-3 py-2 text-gray-700 hover:text-trompo-600 font-medium">Events</a>
+        <a href="#contact" class="block px-3 py-2 text-trompo-600 font-semibold">Reserve Table</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/cgB29P9awzOhQCndAfRP/media/65ef231f5ad57b266c57fec8.jpeg" alt="El Trompo Mexican Food" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-br from-trompo-900/90 via-trompo-800/70 to-trompo-600/60"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+      <div class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-8 border border-white/20">
+        <span class="text-yellow-400 mr-2">★★★★★</span>
+        <span class="text-white font-medium">4.8 Rating • 2,479 Reviews</span>
+      </div>
+      
+      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 text-shadow-lg leading-tight">
+        Feed Your<br><span class="text-yellow-400">Stomach</span>
+      </h1>
+      
+      <p class="text-xl md:text-2xl text-white/90 mb-4 max-w-2xl mx-auto font-light">
+        Fill your stomach with fresh foods, delicious meats & our amazing appetizers!
+      </p>
+      <p class="text-lg text-white/80 mb-10">
+        Your Molcajete awaits you, what will you fill it with?!
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#locations" class="bg-trompo-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-trompo-600 transition shadow-2xl hover:shadow-trompo-500/50 transform hover:-translate-y-1">
+          Find My Trompo!
+        </a>
+        <a href="https://foodalot.com/eltrompo/selectlocation" target="_blank" class="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transition">
+          Order Online
+        </a>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+          <div class="text-3xl mb-2">🌮</div>
+          <p class="text-white font-semibold">Authentic</p>
+          <p class="text-white/70 text-sm">Mexican Cuisine</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+          <div class="text-3xl mb-2">🍹</div>
+          <p class="text-white font-semibold">Craft</p>
+          <p class="text-white/70 text-sm">Margaritas</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+          <div class="text-3xl mb-2">🎉</div>
+          <p class="text-white font-semibold">Daily</p>
+          <p class="text-white/70 text-sm">Events</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+          <div class="text-3xl mb-2">👑</div>
+          <p class="text-white font-semibold">VIP</p>
+          <p class="text-white/70 text-sm">Experience</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Menu Preview Section -->
+  <section id="menu" class="py-24 bg-white pattern-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="text-trompo-600 font-semibold tracking-wide uppercase">Our Menu</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-4">
+          Authentic Mexican <span class="text-trompo-600">Flavors</span>
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          From sizzling fajitas and mouthwatering enchiladas to savory tamales and flavorful guacamole
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Menu Item 1 -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer">
+          <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/cgB29P9awzOhQCndAfRP/media/65ef231f0013ad057b95a82b.jpeg" alt="Mexican Dishes" class="w-full h-80 object-cover transform group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h3 class="text-2xl font-bold text-white mb-2">Molcajete</h3>
+            <p class="text-white/80">Traditional stone bowl with fresh meats & vegetables</p>
+          </div>
+        </div>
+
+        <!-- Menu Item 2 -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer">
+          <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/cgB29P9awzOhQCndAfRP/media/65ef231fdc69e7a5142bd4fc.png" alt="Appetizers" class="w-full h-80 object-cover transform group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h3 class="text-2xl font-bold text-white mb-2">Fresh Appetizers</h3>
+            <p class="text-white/80">Queso, guacamole & homemade chips</p>
+          </div>
+        </div>
+
+        <!-- Menu Item 3 -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer">
+          <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/cgB29P9awzOhQCndAfRP/media/65f86626461bdd1a35b915f9.jpeg" alt="Fajitas" class="w-full h-80 object-cover transform group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h3 class="text-2xl font-bold text-white mb-2">Sizzling Fajitas</h3>
+            <p class="text-white/80">Chicken, steak & shrimp with fresh peppers</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="https://eltrompo.info/menu" class="inline-flex items-center bg-trompo-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-trompo-700 transition shadow-lg">
+          View Full Menu
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Margaritas Section -->
+  <section class="py-24 bg-gradient-to-br from-trompo-900 to-trompo-700 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pattern-bg"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-yellow-400 font-semibold tracking-wide uppercase">Craft Cocktails</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-6">
+            Get to the <span class="text-yellow-400">Margaritas!</span>
+          </h2>
+          <p class="text-xl text-white/90 mb-6 leading-relaxed">
+            Whether your palate needs a refreshing margarita, an overwhelmingly-good berry daiquiri or the Hocus Pocus Trio — we are here to bring you all that you need & more!
+          </p>
+          <p class="text-lg text-white/80 mb-8">
+            Our bar is stocked and ready to bring a smile to your face!
+          </p>
+          <a href="https://eltrompo.info/locations" class="inline-flex items-center bg-white text-trompo-700 px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-400 hover:text-trompo-800 transition shadow-xl">
+            Find Your Trompo
+          </a>
+        </div>
+        <div class="relative">
+          <div class="absolute -top-4 -right-4 w-72 h-72 bg-yellow-400/20 rounded-full blur-3xl"></div>
+          <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/cgB29P9awzOhQCndAfRP/media/65f8662551d5047694b473b4.jpeg" alt="Margaritas" class="relative rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition duration-500">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locations Section -->
+  <section id="locations" class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="text-trompo-600 font-semibold tracking-wide uppercase">Visit Us</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-4">
+          Choose Your El Trompo <span class="text-trompo-600">Location</span>
+        </h2>
+        <p class="text-xl text-gray-600">4 convenient locations across the Cincinnati area</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Mason -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition border-t-4 border-trompo-500">
+          <div class="bg-trompo-600 p-4">
+            <h3 class="text-2xl font-bold text-white text-center">Mason</h3>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-600 mb-4">📍 Mason, OH 45040</p>
+            <div class="space-y-2 mb-6">
+              <p class="text-sm text-gray-500 font-semibold">HOURS</p>
+              <p class="text-gray-700">Sun-Thu: 11am - 10pm</p>
+              <p class="text-gray-700">Fri-Sat: 11am - 11pm</p>
+            </div>
+            <a href="https://eltrompo.info/reservation-page" class="block w-full text-center bg-trompo-600 text-white py-3 rounded-full font-semibold hover:bg-trompo-700 transition">Reserve Table</a>
+            <a href="https://g.page/r/CU3zepQjexnLEAE/review" class="block w-full text-center mt-2 text-trompo-600 py-2 rounded-full font-medium hover:bg-trompo-50 transition text-sm">Leave a Review</a>
+          </div>
+        </div>
+
+        <!-- Colerain -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition border-t-4 border-trompo-500">
+          <div class="bg-trompo-600 p-4">
+            <h3 class="text-2xl font-bold text-white text-center">Colerain</h3>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-600 mb-4">📍 Colerain Township</p>
+            <div class="space-y-2 mb-6">
+              <p class="text-sm text-gray-500 font-semibold">HOURS</p>
+              <p class="text-gray-700">Sun-Thu: 11am - 10pm</p>
+              <p class="text-gray-700">Fri-Sat: 11am - 11pm</p>
+            </div>
+            <a href="https://eltrompo.info/reservation-page" class="block w-full text-center bg-trompo-600 text-white py-3 rounded-full font-semibold hover:bg-trompo-700 transition">Reserve Table</a>
+            <a href="https://g.page/r/CQj5-AHaP2aMEAE/review" class="block w-full text-center mt-2 text-trompo-600 py-2 rounded-full font-medium hover:bg-trompo-50 transition text-sm">Leave a Review</a>
+          </div>
+        </div>
+
+        <!-- Monroe -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition border-t-4 border-trompo-500">
+          <div class="bg-trompo-600 p-4">
+            <h3 class="text-2xl font-bold text-white text-center">Monroe</h3>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-600 mb-4">📍 Monroe, OH</p>
+            <div class="space-y-2 mb-6">
+              <p class="text-sm text-gray-500 font-semibold">HOURS</p>
+              <p class="text-gray-700">Sun-Thu: 11am - 10pm</p>
+              <p class="text-gray-700">Fri-Sat: 11am - 11pm</p>
+            </div>
+            <a href="https://eltrompo.info/reservation-page" class="block w-full text-center bg-trompo-600 text-white py-3 rounded-full font-semibold hover:bg-trompo-700 transition">Reserve Table</a>
+            <a href="https://g.page/r/CQr7pafUTjWbEAE/review" class="block w-full text-center mt-2 text-trompo-600 py-2 rounded-full font-medium hover:bg-trompo-50 transition text-sm">Leave a Review</a>
+          </div>
+        </div>
+
+        <!-- West Chester -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition border-t-4 border-trompo-500">
+          <div class="bg-trompo-600 p-4">
+            <h3 class="text-2xl font-bold text-white text-center">West Chester</h3>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-600 mb-4">📍 West Chester, OH</p>
+            <div class="space-y-2 mb-6">
+              <p class="text-sm text-gray-500 font-semibold">HOURS</p>
+              <p class="text-gray-700">Sun-Thu: 11am - 10pm</p>
+              <p class="text-gray-700">Fri-Sat: 11am - 11pm</p>
+            </div>
+            <a href="https://eltrompo.info/reservation-page" class="block w-full text-center bg-trompo-600 text-white py-3 rounded-full font-semibold hover:bg-trompo-700 transition">Reserve Table</a>
+            <a href="https://g.page/r/CVAttsMobTd9EAE/review" class="block w-full text-center mt-2 text-trompo-600 py-2 rounded-full font-medium hover:bg-trompo-50 transition text-sm">Leave a Review</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <div class="absolute -top-6 -left-6 w-32 h-32 bg-yellow-400 rounded-full opacity-20"></div>
+          <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-trompo-500 rounded-full opacity-20"></div>
+          <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://storage.googleapis.com/msgsndr/cgB29P9awzOhQCndAfRP/media/65f86625fdfcaaa48743cff1.jpeg" alt="El Trompo Experience" class="relative rounded-2xl shadow-2xl">
+        </div>
+        
+        <div>
+          <span class="text-trompo-600 font-semibold tracking-wide uppercase">Our Story</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-6">
+            Become a <span class="text-trompo-600">King</span>
+          </h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            At El Trompo Mexican Grill & Entertainment Experience, we are dedicated to bringing the rich and diverse flavors of Mexican cuisine to your table. Our menu is a culinary journey that showcases the best of Mexico's regional dishes, prepared with authentic ingredients and traditional cooking techniques.
+          </p>
+          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            From sizzling fajitas and mouthwatering enchiladas to savory tamales and flavorful guacamole, each dish is a masterpiece crafted with passion and love.
+          </p>
+          
+          <div class="bg-gradient-to-r from-trompo-50 to-yellow-50 rounded-xl p-6 border-l-4 border-trompo-500">
+            <h4 class="font-bold text-gray-900 mb-2">👑 El Rey Experience</h4>
+            <p class="text-gray-700">Download the App for access to all the Trompo information, VIP Reservations & Online Ordering through our App!</p>
+            <a href="https://app.eltrompo.info/app" class="inline-flex items-center mt-4 text-trompo-600 font-semibold hover:text-trompo-700">
+              Get the App
+              <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section id="events" class="py-24 bg-gradient-to-br from-trompo-900 to-trompo-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="text-yellow-400 font-semibold tracking-wide uppercase">Entertainment</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-4">
+          Events <span class="text-yellow-400">Every Day</span>
+        </h2>
+        <p class="text-xl text-white/80">You'll find a ton of regular events at El Trompo!</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center hover:bg-white/20 transition">
+          <div class="text-5xl mb-4">🎤</div>
+          <h3 class="text-xl font-bold text-white mb-2">Live Music</h3>
+          <p class="text-white/70">Enjoy live performances from local artists</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center hover:bg-white/20 transition">
+          <div class="text-5xl mb-4">🎉</div>
+          <h3 class="text-xl font-bold text-white mb-2">Theme Nights</h3>
+          <p class="text-white/70">Special events and themed dining experiences</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center hover:bg-white/20 transition">
+          <div class="text-5xl mb-4">👨‍🍳</div>
+          <h3 class="text-xl font-bold text-white mb-2">Cooking Classes</h3>
+          <p class="text-white/70">Learn the secrets of Mexican cuisine</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 bg-white pattern-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-trompo-600 font-semibold tracking-wide uppercase">Get in Touch</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-4">
+          Contact Us
+        </h2>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
+        <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you for your message! We will get back to you soon.');">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+              <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-trompo-500 focus:border-transparent" placeholder="John">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+              <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-trompo-500 focus:border-transparent" placeholder="Doe">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+            <input type="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-trompo-500 focus:border-transparent" placeholder="john@example.com">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Your Message</label>
+            <textarea rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-trompo-500 focus:border-transparent" placeholder="How can we help you?"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-trompo-600 text-white py-4 rounded-full font-semibold text-lg hover:bg-trompo-700 transition shadow-lg">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/cgB29P9awzOhQCndAfRP/media/67744901985cef1d2009d4ed.png" alt="El Trompo Logo" class="h-16 w-auto mb-4">
+          <p class="text-gray-400">Authentic Mexican cuisine with passion and love. Experience the true flavors of Mexico.</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#menu" class="text-gray-400 hover:text-white transition">Menu</a></li>
+            <li><a href="#locations" class="text-gray-400 hover:text-white transition">Locations</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-white transition">Our Story</a></li>
+            <li><a href="https://eltrompo.info/gallery" class="text-gray-400 hover:text-white transition">Gallery</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-4">Working Hours</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>Sunday - Thursday: 11am - 10pm</li>
+            <li>Friday - Saturday: 11am - 11pm</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-4">Follow Us</h4>
+          <div class="flex space-x-4">
+            <a href="https://www.instagram.com/eltrompogrill/" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-trompo-500 transition">
+              <span class="text-sm">IG</span>
+            </a>
+            <a href="https://www.facebook.com/ElTrompoMexicanGrill" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-trompo-500 transition">
+              <span class="text-sm">FB</span>
+            </a>
+            <a href="https://www.tiktok.com/@eltrompomexgrill" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-trompo-500 transition">
+              <span class="text-sm">TT</span>
+            </a>
+            <a href="https://www.youtube.com/channel/UChMYkjk5Fx29Cgk7NsyyAeA" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-trompo-500 transition">
+              <span class="text-sm">YT</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+        <p>© 2020 - 2025 El Trompo Mexican Grill. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating CTA -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <a href="https://eltrompo.info/reservation-page" class="bg-trompo-500 text-white px-6 py-4 rounded-full font-semibold shadow-2xl hover:bg-trompo-600 transition flex items-center space-x-2 animate-pulse">
+      <span>🍽️</span>
+      <span>Reserve Table</span>
+    </a>
+  </div>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-xl');
+      } else {
+        navbar.classList.remove('shadow-xl');
+      }
+    });
+  </script>
+</body>
+</html>
