@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Old Bag of Nails Pub - Mason | Traditional Irish Pub & Restaurant</title>
+    <meta name="description" content="The Old Bag of Nails Pub in Mason, OH - Your neighborhood pub serving traditional fish & chips, pub fare, and cold drinks in a warm, welcoming atmosphere.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-green: #1a472a;
+            --dark-green: #0d2616;
+            --accent-gold: #c9a962;
+            --light-gold: #e8d5a3;
+            --cream: #f5f0e6;
+            --wood-dark: #3d2817;
+            --text-dark: #1a1a1a;
+            --text-light: #f5f0e6;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--cream);
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--accent-gold);
+            margin: 3px 0;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26,71,42,0.85), rgba(13,38,22,0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%231a472a" width="100" height="100"/></svg>');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 6rem 2rem 2rem;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 50px,
+                rgba(201,169,98,0.03) 50px,
+                rgba(201,169,98,0.03) 52px
+            );
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--light-gold);
+            font-style: italic;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--dark-green);
+        }
+        
+        .btn-primary:hover {
+            background: var(--light-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(201,169,98,0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-gold);
+            border: 2px solid var(--accent-gold);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--accent-gold);
+            color: var(--dark-green);
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-gold);
+            margin: 0.5rem auto 0;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--cream);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-image {
+            background: linear-gradient(135deg, var(--wood-dark) 0%, var(--primary-green) 100%);
+            height: 400px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-image::before {
+            content: '🍺';
+            font-size: 6rem;
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        /* Features/Services */
+        .features {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+            color: var(--text-light);
+        }
+        
+        .features h2 {
+            color: var(--accent-gold);
+        }
+        
+        .features h2::after {
+            background: var(--light-gold);
+        }
+        
+        .features .section-subtitle {
+            color: var(--light-gold);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201,169,98,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border-color: var(--accent-gold);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: var(--accent-gold);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-card p {
+            color: var(--light-gold);
+        }
+        
+        /* Menu Preview */
+        .menu-preview {
+            background: var(--cream);
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .menu-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--accent-gold);
+            transition: transform 0.3s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .menu-item h4 {
+            color: var(--primary-green);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .menu-item .price {
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+            float: right;
+        }
+        
+        .menu-item p {
+            color: #666;
+            font-size: 0.95rem;
+            clear: both;
+            margin-top: 0.5rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--wood-dark) 0%, var(--dark-green) 100%);
+            color: var(--text-light);
+        }
+        
+        .contact h2 {
+            color: var(--accent-gold);
+        }
+        
+        .contact h2::after {
+            background: var(--light-gold);
+        }
+        
+        .contact .section-subtitle {
+            color: var(--light-gold);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(201,169,98,0.2);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-card h3 {
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-card p {
+            color: var(--light-gold);
+            margin-bottom: 0.3rem;
+        }
+        
+        .contact-card a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+        
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Hours Table */
+        .hours-table {
+            width: 100%;
+            max-width: 400px;
+            margin: 1rem auto 0;
+            text-align: left;
+        }
+        
+        .hours-table td {
+            padding: 0.3rem 0;
+            color: var(--light-gold);
+        }
+        
+        .hours-table td:first-child {
+            font-weight: bold;
+            padding-right: 2rem;
+        }
+        
+        /* Footer CTA */
+        .footer-cta {
+            background: var(--primary-green);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .footer-cta h2 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-cta h2::after {
+            display: none;
+        }
+        
+        .footer-cta p {
+            color: var(--light-gold);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-green);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        footer p {
+            color: var(--light-gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--dark-green);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .about-image {
+                height: 300px;
+                order: -1;
+            }
+            
+            section {
+                padding: 3rem 1rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">The Old Bag of Nails Pub</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">What We Offer</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>The Old Bag of Nails Pub</h1>
+            <p class="hero-subtitle">Mason's Neighborhood Gathering Place</p>
+            <p class="hero-description">Traditional Irish-American pub fare, cold drinks, and warm hospitality in the heart of Mason. Come experience why we've been a local favorite for years.</p>
+            <div class="cta-buttons">
+                <a href="tel:+15134927941" class="btn btn-primary">📞 Call Now</a>
+                <a href="#menu" class="btn btn-secondary">🍽️ View Menu</a>
+                <a href="#contact" class="btn btn-secondary">📍 Get Directions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Welcome to Your Local Pub</h2>
+            <p class="section-subtitle">Where good food meets great company</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>A Mason Tradition</h3>
+                    <p>The Old Bag of Nails Pub has been serving the Mason community with hearty pub fare and a welcoming atmosphere that feels like home. Our name honors the traditional Irish saying, representing a place where friends gather and memories are made.</p>
+                    <p>We're more than just a restaurant – we're your neighborhood pub where locals come to unwind, celebrate, and enjoy the simple pleasures of great food and good company.</p>
+                    <p>Whether you're stopping by for our famous fish and chips, grabbing a drink after work, or bringing the family for dinner, you'll always find a warm welcome at The Old Bag of Nails.</p>
+                </div>
+                <div class="about-image">
+                    <span style="z-index: 1; color: var(--text-light); text-align: center; padding: 2rem;">
+                        <strong style="font-size: 2rem; display: block; margin-bottom: 1rem; color: var(--accent-gold);">Your Neighborhood Pub</strong>
+                        Great Food • Cold Drinks • Warm Atmosphere
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>What Makes Us Special</h2>
+            <p class="section-subtitle">The perfect blend of tradition and comfort</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🐟</div>
+                    <h3>Signature Fish & Chips</h3>
+                    <p>Our legendary beer-battered fish and chips, served with malt vinegar and tartar sauce. A customer favorite that keeps you coming back.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍔</div>
+                    <h3>Pub Favorites</h3>
+                    <p>From juicy burgers to hearty sandwiches and classic comfort food, our menu has something for everyone in your group.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍺</div>
+                    <h3>Cold Drinks & Beer</h3>
+                    <p>Great selection of domestic and craft beers, cocktails, and non-alcoholic beverages to complement your meal.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Family Friendly</h3>
+                    <p>A welcoming atmosphere where families, friends, and colleagues can relax and enjoy quality time together.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📺</div>
+                    <h3>Game Day Spot</h3>
+                    <p>Multiple TVs for watching your favorite sports. The perfect place to catch the big game with fellow fans.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎉</div>
+                    <h3>Private Events</h3>
+                    <p>Host your next gathering with us! We accommodate groups and parties in a comfortable, casual setting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Preview -->
+    <section class="menu-preview" id="menu">
+        <div class="container">
+            <h2>Popular Menu Items</h2>
+            <p class="section-subtitle">A taste of what awaits you</p>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h4>Fish & Chips <span class="price">Market</span></h4>
+                    <p>Beer-battered cod served with house-made chips, coleslaw, tartar sauce, and malt vinegar</p>
+                </div>
+                <div class="menu-item">
+                    <h4>Bang Bang Shrimp <span class="price">$13.99</span></h4>
+                    <p>Crispy shrimp tossed in our signature spicy cream sauce over fresh greens</p>
+                </div>
+                <div class="menu-item">
+                    <h4>Shepherd's Pie <span class="price">$14.99</span></h4>
+                    <p>Traditional Irish comfort food with seasoned ground beef, vegetables, mashed potatoes, and gravy</p>
+                </div>
+                <div class="menu-item">
+                    <h4>Pub Burger <span class="price">$12.99</span></h4>
+                    <p>Half-pound Angus beef with your choice of cheese, lettuce, tomato, onion, and pickle</p>
+                </div>
+                <div class="menu-item">
+                    <h4>Reuben Sandwich <span class="price">$13.49</span></h4>
+                    <p>Corned beef, Swiss cheese, sauerkraut, and Thousand Island on grilled rye bread</p>
+                </div>
+                <div class="menu-item">
+                    <h4>Chicken Tenders <span class="price">$11.99</span></h4>
+                    <p>Hand-breaded tenders served with fries and your choice of dipping sauce</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="color: #666; font-style: italic;">* Menu items and prices subject to change. Please call for current offerings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Visit Us Today</h2>
+            <p class="section-subtitle">We'd love to see you at the pub!</p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p>5234 Kings Mills Rd<br>Unit 11 & 12<br>Mason, OH 45040</p>
+                    <a href="https://maps.google.com/?q=5234+Kings+Mills+Rd+Mason+OH+45040" target="_blank">Get Directions →</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+15134927941">(513) 492-7941</a></p>
+                    <p style="font-size: 0.9rem; margin-top: 1rem;">Call for reservations, takeout, or questions</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🕐</div>
+                    <h3>Hours</h3>
+                    <table class="hours-table">
+                        <tr><td>Mon-Thu:</td><td>11:00 AM - 11:00 PM</td></tr>
+                        <tr><td>Fri-Sat:</td><td>11:00 AM - 12:00 AM</td></tr>
+                        <tr><td>Sunday:</td><td>11:00 AM - 10:00 PM</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta">
+        <div class="container">
+            <h2>Ready to Experience The Old Bag of Nails?</h2>
+            <p>Join us for great food, cold drinks, and the warm hospitality that makes us Mason's favorite neighborhood pub.</p>
+            <div class="cta-buttons">
+                <a href="tel:+15134927941" class="btn btn-primary">📞 Call Now: (513) 492-7941</a>
+                <a href="#contact" class="btn btn-secondary">📍 Get Directions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <p>&copy; 2026 The Old Bag of Nails Pub - Mason. All rights reserved.</p>
+        <p style="font-size: 0.9rem; color: var(--accent-gold);">5234 Kings Mills Rd, Mason, OH 45040 | (513) 492-7941</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
