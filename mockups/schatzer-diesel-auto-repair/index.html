@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schatzer Diesel & Auto Repair | Morrow, OH</title>
+    <meta name="description" content="Expert diesel & auto repair services in Morrow, OH. Specializing in diesel trucks, fleet services, diagnostics & maintenance. Call (513) 313-7179 today!">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#DC2626',
+                            50: '#FEF2F2',
+                            100: '#FEE2E2',
+                            200: '#FECACA',
+                            300: '#FCA5A5',
+                            400: '#F87171',
+                            500: '#EF4444',
+                            600: '#DC2626',
+                            700: '#B91C1C',
+                            800: '#991B1B',
+                            900: '#7F1D1D',
+                        },
+                        dark: {
+                            DEFAULT: '#0F172A',
+                            50: '#F8FAFC',
+                            100: '#F1F5F9',
+                            200: '#E2E8F0',
+                            300: '#CBD5E1',
+                            400: '#94A3B8',
+                            500: '#64748B',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1E293B',
+                            900: '#0F172A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(220, 38, 38, 0.15) 100%);
+        }
+        .text-shadow {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+        }
+        .btn-secondary {
+            border: 2px solid #DC2626;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: #DC2626;
+            color: white;
+        }
+        .section-gradient {
+            background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+        }
+        .diagonal-line {
+            position: relative;
+        }
+        .diagonal-line::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(135deg, #0F172A 50%, transparent 50%);
+        }
+        .icon-box {
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+        }
+        .image-overlay {
+            background: linear-gradient(90deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 50%, transparent 100%);
+        }
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-dark-900 text-white">
+
+    <!-- Top Bar -->
+    <div class="bg-primary-600 text-white py-2 px-4 text-center text-sm">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-8">
+            <span class="flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                Morrow, OH
+            </span>
+            <span class="hidden sm:inline">|</span>
+            <span class="flex items-center gap-2 font-semibold">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+                <a href="tel:+15133137179" class="hover:underline">(513) 313-7179</a>
+            </span>
+            <span class="hidden sm:inline">|</span>
+            <span class="flex items-center gap-2 text-primary-100">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+                Mon-Fri: 8AM-6PM | Sat: 9AM-2PM
+            </span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-dark-800/95 backdrop-blur-sm sticky top-0 z-50 border-b border-dark-700">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <div class="icon-box p-2 rounded-lg">
+                        <i data-lucide="truck" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <div class="hidden sm:block">
+                        <h1 class="font-display text-xl font-bold text-white leading-tight">SCHATZER</h1>
+                        <p class="text-xs text-primary-400 font-semibold tracking-wider">DIESEL & AUTO REPAIR</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#services" class="text-gray-300 hover:text-primary-400 transition-colors font-medium">Services</a>
+                    <a href="#about" class="text-gray-300 hover:text-primary-400 transition-colors font-medium">About</a>
+                    <a href="#why-us" class="text-gray-300 hover:text-primary-400 transition-colors font-medium">Why Us</a>
+                    <a href="#contact" class="btn-secondary px-6 py-2 rounded-full text-white font-semibold">
+                        Contact
+                    </a>
+                    <a href="tel:+15133137179" class="btn-primary px-6 py-2 rounded-full text-white font-semibold flex items-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        Call Now
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-white p-2">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-72 h-full bg-dark-800 z-50 p-6 shadow-2xl">
+            <button id="closeMenu" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="mt-12 flex flex-col gap-6">
+                <a href="#services" class="text-gray-300 hover:text-primary-400 text-lg font-medium">Services</a>
+                <a href="#about" class="text-gray-300 hover:text-primary-400 text-lg font-medium">About</a>
+                <a href="#why-us" class="text-gray-300 hover:text-primary-400 text-lg font-medium">Why Us</a>
+                <a href="#contact" class="text-gray-300 hover:text-primary-400 text-lg font-medium">Contact</a>
+                <a href="tel:+15133137179" class="btn-primary px-6 py-3 rounded-full text-white font-semibold text-center flex items-center justify-center gap-2 mt-4">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                    Call Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center diagonal-line">
+        <!-- Background -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=1920&q=80" 
+                 alt="Diesel truck repair shop" 
+                 class="w-full h-full object-cover">
+            <div class="hero-gradient absolute inset-0"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="container mx-auto px-4 py-20 relative z-10">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="bg-primary-600 text-white px-4 py-1 rounded-full text-sm font-semibold tracking-wider uppercase">
+                        Diesel Specialists
+                    </span>
+                    <span class="text-primary-400 text-sm font-semibold tracking-wider uppercase">
+                        Since 2010
+                    </span>
+                </div>
+
+                <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white text-shadow leading-tight mb-6">
+                    TRUCKS BROKEN?
+                    <span class="block text-primary-500">WE'LL FIX IT.</span>
+                </h1>
+
+                <p class="text-xl md:text-2xl text-gray-300 mb-4 max-w-2xl text-shadow">
+                    Expert diesel & auto repair in Morrow, OH. From Cummins to Power Stroke—we keep your fleet rolling and your family safe.
+                </p>
+
+                <div class="flex flex-wrap gap-4 mb-10">
+                    <div class="flex items-center gap-2 text-gray-300">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-primary-400"></i>
+                        <span>Same-Day Diagnostics</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-300">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-primary-400"></i>
+                        <span>Fleet Services Available</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-300">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-primary-400"></i>
+                        <span>ASE Certified Techs</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="tel:+15133137179" class="btn-primary px-8 py-4 rounded-full text-white font-bold text-lg flex items-center justify-center gap-3">
+                        <i data-lucide="phone-call" class="w-6 h-6"></i>
+                        Call (513) 313-7179
+                    </a>
+                    <a href="#contact" class="btn-secondary px-8 py-4 rounded-full text-white font-bold text-lg text-center">
+                        Schedule Service
+                    </a>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="mt-12 flex flex-wrap gap-6 items-center">
+                    <div class="flex items-center gap-2 bg-dark-800/50 backdrop-blur px-4 py-2 rounded-lg">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-primary-400"></i>
+                        <span class="text-sm font-semibold">ASE Certified</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-dark-800/50 backdrop-blur px-4 py-2 rounded-lg">
+                        <i data-lucide="star" class="w-6 h-6 text-yellow-400"></i>
+                        <span class="text-sm font-semibold">4.9/5 Rating</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-dark-800/50 backdrop-blur px-4 py-2 rounded-lg">
+                        <i data-lucide="award" class="w-6 h-6 text-primary-400"></i>
+                        <span class="text-sm font-semibold">15+ Years Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-gradient py-24">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-primary-400 font-semibold tracking-wider uppercase text-sm">What We Do</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-2 mb-4">PROFESSIONAL SERVICES</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    From heavy-duty diesel engines to everyday vehicles, we handle it all with precision and care.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Diesel Repair -->
+                <div class="card-hover bg-dark-800 rounded-2xl p-8 border border-dark-700">
+                    <div class="icon-box w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="fuel" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-3">Diesel Repair</h3>
+                    <p class="text-gray-400 mb-4">
+                        Expert diesel engine repair for Cummins, Duramax, and Power Stroke. Injection systems, turbo repairs, and complete rebuilds.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-primary-400"></i>
+                            Engine rebuilds
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-primary-400"></i>
+                            Fuel system repair
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-primary-400"></i>
+                            Turbocharger service
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Auto Repair -->
+                <div class="card-hover bg-dark-800 rounded-2xl p-8 border border-dark-700">
+                    <div class="icon-box w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="car" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-3">Auto Repair</h3>
+                    <p class="text-gray-400 mb-4">
+                        Complete auto repair services for all makes and models. From oil changes to transmission work, we've got you covered.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-primary-400"></i>
+                            Brake service
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-primary-400"></i>
+                            Transmission repair
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-primary-400"></i>
+                            Suspension work
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Fleet Services -->
+                <div class="card-hover bg-dark-800 rounded-2xl p-8 border border-dark-700">
+                    <div class="icon-box w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="truck" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-3">Fleet Services</h3>
+                    <p class="text-gray-400 mb-4">
+                        Keep your fleet running with our comprehensive maintenance programs. Priority scheduling and fleet account management.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-primary-400"></i>
+                            Scheduled maintenance
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-primary-400"></i>
+                            Priority service
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-primary-400"></i>
+                            Account billing
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Diagnostics -->
+                <div class="card-hover bg-dark-800 rounded-2xl p-8 border border-dark-700">
+                    <div class="icon-box w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="scan" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-3">Diagnostics</h3>
+                    <p class="text-gray-400 mb-4">
+                        State-of-the-art diagnostic equipment to quickly identify issues and get you back on the road fast.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-primary-400"></i>
+                            Check engine light
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-primary-400"></i>
+                            Computer diagnostics
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-primary-400"></i>
+                            Electrical systems
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CTA Banner -->
+            <div class="mt-16 bg-gradient-to-r from-primary-600 to-primary-800 rounded-2xl p-8 md:p-12 text-center">
+                <h3 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">
+                    Need Emergency Service?
+                </h3>
+                <p class="text-primary-100 text-lg mb-6 max-w-2xl mx-auto">
+                    We understand downtime costs money. Call us for urgent diesel and auto repairs—we'll get you moving fast.
+                </p>
+                <a href="tel:+15133137179" class="inline-flex items-center gap-3 bg-white text-primary-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors">
+                    <i data-lucide="phone" class="w-6 h-6"></i>
+                    (513) 313-7179
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-dark-900 py-24">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Image Side -->
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-full h-full bg-primary-600/20 rounded-2xl"></div>
+                    <div class="relative rounded-2xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1632823471565-1ecdf5c6b7e9?w=800&q=80" 
+                             alt="Mechanic working on diesel engine" 
+                             class="w-full h-[500px] object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-dark-900 to-transparent p-8">
+                            <div class="flex items-center gap-4">
+                                <div class="icon-box p-3 rounded-lg">
+                                    <i data-lucide="wrench" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold text-lg">15+ Years</p>
+                                    <p class="text-gray-300">of Diesel Expertise</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Side -->
+                <div>
+                    <span class="text-primary-400 font-semibold tracking-wider uppercase text-sm">About Us</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-2 mb-6">
+                        YOUR TRUSTED DIESEL SPECIALISTS IN MORROW, OH
+                    </h2>
+                    <p class="text-gray-400 text-lg mb-6">
+                        At Schatzer Diesel & Auto Repair, we don't just fix vehicles—we solve problems. Our shop specializes in heavy-duty diesel engines and complex automotive repairs that other shops turn away.
+                    </p>
+                    <p class="text-gray-400 text-lg mb-8">
+                        Located in Morrow, Ohio, we've built our reputation on honest work, fair pricing, and getting the job done right the first time. Whether you're a fleet manager keeping trucks on the road or a car owner needing reliable service, we treat every vehicle like it's our own.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start gap-4">
+                            <div class="icon-box p-3 rounded-lg shrink-0">
+                                <i data-lucide="users" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold mb-1">Experienced Team</h4>
+                                <p class="text-gray-400 text-sm">ASE certified technicians with specialized diesel training</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="icon-box p-3 rounded-lg shrink-0">
+                                <i data-lucide="badge-check" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold mb-1">Quality Guaranteed</h4>
+                                <p class="text-gray-400 text-sm">All work backed by our satisfaction guarantee</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="tel:+15133137179" class="btn-primary inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-bold text-lg">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                        Call Today
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="section-gradient py-24">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-primary-400 font-semibold tracking-wider uppercase text-sm">Why Schatzer</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-2 mb-4">WHY CHOOSE US?</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    We're not your average repair shop. Here's what sets us apart from the competition.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Reason 1 -->
+                <div class="bg-dark-800 rounded-2xl p-8 border border-dark-700 text-center group hover:border-primary-600 transition-colors">
+                    <div class="w-20 h-20 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="zap" class="w-10 h-10 text-white"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">Diesel Specialists</h3>
+                    <p class="text-gray-400">
+                        Most shops avoid diesels. We embrace them. Our team has specialized training in Cummins, Duramax, and Power Stroke engines.
+                    </p>
+                </div>
+
+                <!-- Reason 2 -->
+                <div class="bg-dark-800 rounded-2xl p-8 border border-dark-700 text-center group hover:border-primary-600 transition-colors">
+                    <div class="w-20 h-20 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="award" class="w-10 h-10 text-white"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">Certified Technicians</h3>
+                    <p class="text-gray-400">
+                        Our ASE certified mechanics stay current with the latest training and technology to deliver superior service.
+                    </p>
+                </div>
+
+                <!-- Reason 3 -->
+                <div class="bg-dark-800 rounded-2xl p-8 border border-dark-700 text-center group hover:border-primary-600 transition-colors">
+                    <div class="w-20 h-20 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="clock" class="w-10 h-10 text-white"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">Fast Turnaround</h3>
+                    <p class="text-gray-400">
+                        We know downtime costs money. Our efficient processes and experienced team get you back on the road quickly.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <p class="font-display text-4xl md:text-5xl font-bold text-primary-400 mb-2">15+</p>
+                    <p class="text-gray-400">Years Experience</p>
+                </div>
+                <div class="text-center">
+                    <p class="font-display text-4xl md:text-5xl font-bold text-primary-400 mb-2">5K+</p>
+                    <p class="text-gray-400">Happy Customers</p>
+                </div>
+                <div class="text-center">
+                    <p class="font-display text-4xl md:text-5xl font-bold text-primary-400 mb-2">4.9</p>
+                    <p class="text-gray-400">Star Rating</p>
+                </div>
+                <div class="text-center">
+                    <p class="font-display text-4xl md:text-5xl font-bold text-primary-400 mb-2">100%</p>
+                    <p class="text-gray-400">Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-dark-900 py-24">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-primary-400 font-semibold tracking-wider uppercase text-sm">Reviews</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-2 mb-4">WHAT OUR CUSTOMERS SAY</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-dark-800 rounded-2xl p-8 border border-dark-700">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        "Best diesel shop in the area! Fixed my Cummins when two other shops couldn't figure it out. Fair pricing and honest work."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold">JD</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold">James D.</p>
+                            <p class="text-gray-500 text-sm">Cummins Owner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-dark-800 rounded-2xl p-8 border border-dark-700">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        "We run a fleet of 12 trucks and Schatzer keeps us rolling. Fast service, great communication, and they understand urgency."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold">MS</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold">Mike S.</p>
+                            <p class="text-gray-500 text-sm">Fleet Manager</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-dark-800 rounded-2xl p-8 border border-dark-700">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        "Took my wife's car here for brakes and they were professional and quick. Now I bring both our vehicles here. Highly recommend!"
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold">RK</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold">Robert K.</p>
+                            <p class="text-gray-500 text-sm">Morrow Resident</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-gradient py-24">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Info -->
+                <div>
+                    <span class="text-primary-400 font-semibold tracking-wider uppercase text-sm">Get In Touch</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-2 mb-6">
+                        READY TO GET BACK ON THE ROAD?
+                    </h2>
+                    <p class="text-gray-400 text-lg mb-8">
+                        Call us today or stop by our shop in Morrow. We'll diagnose your issue fast and get you a fair quote before any work begins.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="icon-box p-3 rounded-lg shrink-0">
+                                <i data-lucide="map-pin" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold mb-1">Location</h4>
+                                <p class="text-gray-400">Morrow, OH 45152</p>
+                                <p class="text-primary-400 text-sm mt-1">Conveniently located in Warren County</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="icon-box p-3 rounded-lg shrink-0">
+                                <i data-lucide="phone" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold mb-1">Phone</h4>
+                                <a href="tel:+15133137179" class="text-gray-400 hover:text-primary-400 transition-colors text-lg">
+                                    (513) 313-7179
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="icon-box p-3 rounded-lg shrink-0">
+                                <i data-lucide="clock" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold mb-1">Business Hours</h4>
+                                <p class="text-gray-400">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                <p class="text-gray-400">Saturday: 9:00 AM - 2:00 PM</p>
+                                <p class="text-gray-500">Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="tel:+15133137179" class="btn-primary inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-bold text-lg mt-8">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                        Call Now: (513) 313-7179
+                    </a>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-dark-800 rounded-2xl p-8 border border-dark-700">
+                    <h3 class="font-display text-2xl font-bold text-white mb-6">Request Service</h3>
+                    <form class="space-y-6">
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">First Name</label>
+                                <input type="text" 
+                                       class="w-full bg-dark-900 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-500 transition-colors" 
+                                       placeholder="John">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">Last Name</label>
+                                <input type="text" 
+                                       class="w-full bg-dark-900 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-500 transition-colors" 
+                                       placeholder="Doe">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Phone Number</label>
+                            <input type="tel" 
+                                   class="w-full bg-dark-900 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-500 transition-colors" 
+                                   placeholder="(513) 555-0000">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Vehicle Information</label>
+                            <input type="text" 
+                                   class="w-full bg-dark-900 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-500 transition-colors" 
+                                   placeholder="Year, Make, Model (e.g., 2020 Ford F-250)">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Service Needed</label>
+                            <select class="w-full bg-dark-900 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-500 transition-colors">
+                                <option value="">Select a service...</option>
+                                <option value="diesel">Diesel Repair</option>
+                                <option value="auto">Auto Repair</option>
+                                <option value="fleet">Fleet Services</option>
+                                <option value="diagnostic">Diagnostic</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 text-sm font-medium mb-2">Message</label>
+                            <textarea rows="4" 
+                                      class="w-full bg-dark-900 border border-dark-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-500 transition-colors resize-none" 
+                                      placeholder="Describe the issue you're experiencing..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary w-full py-4 rounded-full text-white font-bold text-lg">
+                            Request Service
+                        </button>
+
+                        <p class="text-gray-500 text-sm text-center">
+                            We'll call you back within 2 hours during business hours.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-dark-800 py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Logo & About -->
+                <div class="md:col-span-2">
+                    <a href="#" class="flex items-center gap-3 mb-4">
+                        <div class="icon-box p-2 rounded-lg">
+                            <i data-lucide="truck" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-lg font-bold text-white">SCHATZER</h3>
+                            <p class="text-xs text-primary-400 font-semibold tracking-wider">DIESEL & AUTO REPAIR</p>
+                        </div>
+                    </a>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Your trusted diesel and auto repair specialists in Morrow, OH. Keeping trucks rolling and families safe since 2010.
+                    </p>
+                    <a href="tel:+15133137179" class="text-primary-400 font-bold text-xl hover:text-primary-300 transition-colors">
+                        (513) 313-7179
+                    </a>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-400 hover:text-primary-400 transition-colors">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-primary-400 transition-colors">About Us</a></li>
+                        <li><a href="#why-us" class="text-gray-400 hover:text-primary-400 transition-colors">Why Choose Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-primary-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-white font-bold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><span class="text-gray-400">Diesel Repair</span></li>
+                        <li><span class="text-gray-400">Auto Repair</span></li>
+                        <li><span class="text-gray-400">Fleet Services</span></li>
+                        <li><span class="text-gray-400">Diagnostics</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-dark-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">
+                    © 2024 Schatzer Diesel & Auto Repair. All rights reserved.
+                </p>
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-2 text-gray-400 text-sm">
+                        <i data-lucide="map-pin" class="w-4 h-4"></i>
+                        Morrow, OH
+                    </div>
+                    <div class="flex items-center gap-2 text-primary-400 text-sm">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        (513) 313-7179
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+        <a href="tel:+15133137179" class="btn-primary p-4 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform">
+            <i data-lucide="phone" class="w-6 h-6 text-white"></i>
+        </a>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Close menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your request! We will call you back within 2 hours.');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
