@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildflower Café and Wine Shop - Farm-to-Table Dining in Mason, OH</title>
+    <meta name="description" content="Experience farm-to-table dining at Wildflower Café and Wine Shop. Located in a historic 1800s farmhouse in Mason, Ohio. Fresh ingredients, curated wines, unforgettable moments.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --burgundy: #722F37;
+            --burgundy-dark: #5a252c;
+            --cream: #F5F1E8;
+            --cream-light: #FAF8F3;
+            --sage: #8B9D77;
+            --sage-dark: #6B7D5A;
+            --warm-white: #FFFCF8;
+            --charcoal: #2C2C2C;
+            --gold: #C9A962;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--warm-white);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 252, 248, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--burgundy);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--burgundy);
+        }
+        
+        .nav-cta {
+            background: var(--burgundy);
+            color: white !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+        
+        .nav-cta:hover {
+            background: var(--burgundy-dark);
+        }
+        
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background: var(--burgundy);
+            transition: 0.3s;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(114, 47, 55, 0.85) 0%, rgba(44, 44, 44, 0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            color: white;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--gold);
+            color: var(--charcoal);
+        }
+        
+        .btn-primary:hover {
+            background: #b89a52;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--burgundy);
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        /* About Section */
+        .about {
+            padding: 8rem 5%;
+            background: var(--cream-light);
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--burgundy);
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--sage);
+            border-radius: 15px;
+            z-index: -1;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--burgundy);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            color: #555;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--sage);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        /* Menu/Experience Section */
+        .experience {
+            padding: 8rem 5%;
+            background: white;
+        }
+        
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .experience-card {
+            background: var(--cream-light);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .experience-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .experience-content {
+            padding: 2rem;
+        }
+        
+        .experience-content h3 {
+            color: var(--burgundy);
+            margin-bottom: 0.75rem;
+            font-size: 1.5rem;
+        }
+        
+        .experience-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .price-tag {
+            display: inline-block;
+            background: var(--burgundy);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Wine Selection Section */
+        .wine-section {
+            padding: 8rem 5%;
+            background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .wine-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+        
+        .wine-section p {
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .wine-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 8rem 5%;
+            background: var(--cream-light);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--burgundy);
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--sage);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+            color: var(--charcoal);
+        }
+        
+        .contact-details p {
+            color: #666;
+        }
+        
+        .hours-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+        }
+        
+        .hours-box h4 {
+            color: var(--burgundy);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .hours-row:last-child {
+            border-bottom: none;
+        }
+        
+        .hours-row span:first-child {
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+        
+        .hours-row span:last-child {
+            color: var(--sage-dark);
+            font-weight: 500;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 5%;
+            background: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--burgundy);
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-large {
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+        
+        .footer-brand p {
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+        
+        /* Demo Banner */
+        .demo-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .demo-banner a {
+            color: #FFD700;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .experience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .wine-stats {
+                gap: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+        🎨 This is a demo mockup by <a href="https://skyconsult.dev">SkyConsult</a> — Redesign your restaurant website for $500. Call 513-341-7415
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">🌸 Wildflower</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#wine">Wine</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="tel:5134927514" class="nav-cta">Call Now</a></li>
+        </ul>
+        <div class="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🌿 Farm-to-Table Since 2008</div>
+            <h1>Where Fresh Ingredients Meet Timeless Charm</h1>
+            <p>Experience farm-to-table dining in a historic 1800s farmhouse. Seasonal menus, curated wines, and unforgettable moments in the heart of Mason, Ohio.</p>
+            <div class="hero-buttons">
+                <a href="tel:5134927514" class="btn btn-primary">📞 Call to Reserve</a>
+                <a href="#experience" class="btn btn-secondary">Explore Our Menu</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Our Story</h2>
+                <p>A labor of love nestled in a charming 1800s farmhouse, where every dish tells a story of local farmers and passionate craftsmanship.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800" alt="Wildflower Café Interior">
+                </div>
+                <div class="about-text">
+                    <h3>Farm-Fresh, Heartfelt Dining</h3>
+                    <p>Wildflower Café began with a simple vision: to create a gathering place where the community could experience the true taste of locally-sourced, seasonal ingredients. Set in a beautifully restored 1800s farmhouse, our restaurant honors the rich agricultural heritage of Mason, Ohio.</p>
+                    <p>We partner with local farmers and artisans who share our commitment to quality and sustainability. From our morning pastries to our evening entrées, every dish reflects the best of what the season has to offer.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <div class="feature-icon">🌾</div>
+                            <span>Local Farm Partners</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🍷</div>
+                            <span>Curated Wine Selection</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🏡</div>
+                            <span>Historic Farmhouse Setting</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">👨‍🍳</div>
+                            <span>Chef-Crafted Menus</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Curated Experiences</h2>
+                <p>From intimate dinners to celebratory gatherings, discover the perfect culinary journey for every occasion.</p>
+            </div>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600" alt="Seasonal Dinner">
+                    <div class="experience-content">
+                        <h3>Seasonal Tasting Menu</h3>
+                        <p>A journey through the seasons with 5 thoughtfully crafted courses featuring the freshest local ingredients.</p>
+                        <span class="price-tag">$85 per person</span>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600" alt="Wine Pairing">
+                    <div class="experience-content">
+                        <h3>Wine & Dine Experience</h3>
+                        <p>Expert sommelier-selected wine pairings to complement each course of your meal. Reservations recommended.</p>
+                        <span class="price-tag">$125 per person</span>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=600" alt="Private Dining">
+                    <div class="experience-content">
+                        <h3>Private Farmhouse Events</h3>
+                        <p>Host your special celebration in our intimate private dining room. Custom menus available for groups of 8-24.</p>
+                        <span class="price-tag">Custom Quote</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wine Section -->
+    <section class="wine-section" id="wine">
+        <div class="section-container">
+            <h2>A World of Wine in Mason</h2>
+            <p>Our carefully curated wine collection features over 150 selections from boutique wineries around the world, with a special focus on sustainable and biodynamic producers. Let our sommelier guide you to the perfect pairing.</p>
+            <a href="tel:5134927514" class="btn btn-primary btn-large">Reserve a Wine Tasting</a>
+            
+            <div class="wine-stats">
+                <div class="stat">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Wine Selections</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Countries Represented</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">30</div>
+                    <div class="stat-label">By-the-Glass Options</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Visit Us</h2>
+                <p>We'd love to welcome you to our farmhouse. Reservations recommended for dinner service.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>207 E Main St<br>Mason, OH 45040</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p><a href="tel:5134927514" style="color: #666; text-decoration: none;">(513) 492-7514</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>hello@wildflowercafe.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="hours-box">
+                        <h4>🕒 Hours of Operation</h4>
+                        <div class="hours-row">
+                            <span>Monday - Thursday</span>
+                            <span>11:00 AM - 9:00 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span>Friday - Saturday</span>
+                            <span>11:00 AM - 10:00 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span>Sunday</span>
+                            <span>10:00 AM - 8:00 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span>Happy Hour</span>
+                            <span>Mon-Fri 4:00 - 6:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3078.999!2d-84.3102!3d39.3601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8840fc8a5e5d5e9d%3A0x5d5d5d5d5d5d5d5d!2s207%20E%20Main%20St%2C%20Mason%2C%20OH%2045040!5e0!3m2!1sen!2sus!4v1234567890"
+                        width="100%" 
+                        height="500" 
+                        style="border:0; border-radius: 15px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Experience Wildflower?</h2>
+        <p>Join us for an unforgettable farm-to-table dining experience. Whether it's a casual lunch, romantic dinner, or special celebration, we're here to make it memorable.</p>
+        <div class="cta-buttons">
+            <a href="tel:5134927514" class="btn btn-primary btn-large">📞 Call (513) 492-7514</a>
+            <a href="#contact" class="btn btn-secondary btn-large" style="border-color: var(--burgundy); color: var(--burgundy);">📍 Get Directions</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>🌸 Wildflower Café</h3>
+                <p>Farm-to-table dining in a historic 1800s farmhouse. Experience the best of local, seasonal ingredients in the heart of Mason, Ohio.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#experience">Menu</a></li>
+                    <li><a href="#wine">Wine Shop</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Visit Us</h4>
+                <ul>
+                    <li><a href="https://maps.google.com/?q=207+E+Main+St,+Mason,+OH+45040" target="_blank">207 E Main St</a></li>
+                    <li><a href="https://maps.google.com/?q=207+E+Main+St,+Mason,+OH+45040" target="_blank">Mason, OH 45040</a></li>
+                    <li><a href="tel:5134927514">(513) 492-7514</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Hours</h4>
+                <ul>
+                    <li>Mon-Thu: 11AM-9PM</li>
+                    <li>Fri-Sat: 11AM-10PM</li>
+                    <li>Sun: 10AM-8PM</li>
+                    <li><em>Happy Hour: M-F 4-6PM</em></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Wildflower Café and Wine Shop. All rights reserved. | Demo by SkyConsult</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.boxShadow = '0 2px 30px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
