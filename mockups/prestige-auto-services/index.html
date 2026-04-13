@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestige Auto Services LLC | Premium Auto Care in Morrow, OH</title>
+    <meta name="description" content="Experience premium auto repair and maintenance services in Morrow, OH. Expert diagnostics, honest pricing, and quality you can trust. Call (513) 899-7002 today.">
+    <meta name="keywords" content="auto repair, car maintenance, diagnostics, oil change, brake service, Morrow OH, Prestige Auto Services">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        prestige: {
+                            black: '#0a0a0a',
+                            dark: '#1a1a1a',
+                            darker: '#0f0f0f',
+                            gold: '#d4af37',
+                            goldLight: '#f4d03f',
+                            goldDark: '#b8860b',
+                            silver: '#c0c0c0',
+                            silverLight: '#e8e8e8'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Gold gradient text */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Animated underline */
+        .hover-underline {
+            position: relative;
+        }
+        
+        .hover-underline::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, #d4af37, #f4d03f);
+            transition: width 0.3s ease;
+        }
+        
+        .hover-underline:hover::after {
+            width: 100%;
+        }
+        
+        /* Gold button glow */
+        .btn-gold {
+            background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-gold:hover {
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        /* Service card hover */
+        .service-card {
+            transition: all 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .service-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+        }
+        
+        /* Animated background gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Gold accent line */
+        .gold-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #d4af37, #f4d03f);
+        }
+        
+        /* Trust badge */
+        .trust-badge {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* Parallax effect */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 4px;
+        }
+        
+        /* Floating CTA animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .floating-cta {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-prestige-black text-white antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-prestige-black/95 backdrop-blur-md border-b border-prestige-gold/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="flex items-center space-x-2">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-prestige-gold to-prestige-goldDark flex items-center justify-center">
+                            <i class="fas fa-crown text-prestige-black text-lg"></i>
+                        </div>
+                        <div class="hidden sm:block">
+                            <span class="font-display text-xl font-bold text-gold-gradient">Prestige</span>
+                            <span class="text-xs text-prestige-silver block -mt-1 tracking-widest">AUTO SERVICES</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-prestige-silver hover:text-prestige-goldLight transition-colors hover-underline text-sm font-medium">Home</a>
+                    <a href="#about" class="text-prestige-silver hover:text-prestige-goldLight transition-colors hover-underline text-sm font-medium">About</a>
+                    <a href="#services" class="text-prestige-silver hover:text-prestige-goldLight transition-colors hover-underline text-sm font-medium">Services</a>
+                    <a href="#why-us" class="text-prestige-silver hover:text-prestige-goldLight transition-colors hover-underline text-sm font-medium">Why Prestige</a>
+                    <a href="#contact" class="btn-gold text-prestige-black px-6 py-2.5 rounded-full font-semibold text-sm">Get a Quote</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-prestige-gold p-2">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-prestige-dark border-l border-prestige-gold/20 md:hidden">
+            <div class="p-6">
+                <button id="close-menu" class="absolute top-6 right-6 text-prestige-gold">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+                <div class="mt-12 space-y-6">
+                    <a href="#home" class="block text-prestige-silver hover:text-prestige-goldLight text-lg font-medium">Home</a>
+                    <a href="#about" class="block text-prestige-silver hover:text-prestige-goldLight text-lg font-medium">About</a>
+                    <a href="#services" class="block text-prestige-silver hover:text-prestige-goldLight text-lg font-medium">Services</a>
+                    <a href="#why-us" class="block text-prestige-silver hover:text-prestige-goldLight text-lg font-medium">Why Prestige</a>
+                    <a href="#contact" class="block text-prestige-silver hover:text-prestige-goldLight text-lg font-medium">Contact</a>
+                    <a href="tel:5138997002" class="btn-gold block text-center text-prestige-black px-6 py-3 rounded-full font-semibold mt-8">
+                        <i class="fas fa-phone mr-2"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center pt-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Content -->
+                <div class="fade-in">
+                    <div class="trust-badge inline-flex items-center px-4 py-2 rounded-full mb-6">
+                        <i class="fas fa-star text-prestige-gold mr-2"></i>
+                        <span class="text-prestige-silver text-sm font-medium">Premium Auto Care in Morrow, OH</span>
+                    </div>
+                    
+                    <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+                        Experience the <br>
+                        <span class="text-gold-gradient">Prestige</span> Difference
+                    </h1>
+                    
+                    <p class="text-prestige-silver text-lg sm:text-xl mb-8 max-w-xl leading-relaxed">
+                        Premium auto repair and maintenance services where quality meets integrity. Your vehicle deserves the best care from certified experts who treat every car like their own.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="tel:5138997002" class="btn-gold text-prestige-black px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center">
+                            <i class="fas fa-phone mr-3"></i> Call (513) 899-7002
+                        </a>
+                        <a href="#services" class="border-2 border-prestige-gold text-prestige-goldLight px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center hover:bg-prestige-gold/10 transition-all">
+                            <i class="fas fa-wrench mr-3"></i> Our Services
+                        </a>
+                    </div>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="mt-12 grid grid-cols-3 gap-6 pt-8 border-t border-prestige-gold/20">
+                        <div class="text-center">
+                            <div class="text-3xl font-display font-bold text-prestige-gold mb-1">15+</div>
+                            <div class="text-prestige-silver text-sm">Years Experience</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-display font-bold text-prestige-gold mb-1">5★</div>
+                            <div class="text-prestige-silver text-sm">Rated Service</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-display font-bold text-prestige-gold mb-1">100%</div>
+                            <div class="text-prestige-silver text-sm">Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Visual -->
+                <div class="fade-in relative hidden lg:block">
+                    <div class="relative">
+                        <!-- Decorative circles -->
+                        <div class="absolute -top-10 -right-10 w-72 h-72 bg-gradient-to-br from-prestige-gold/20 to-transparent rounded-full blur-3xl"></div>
+                        <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-gradient-to-tr from-prestige-gold/15 to-transparent rounded-full blur-3xl"></div>
+                        
+                        <!-- Main visual -->
+                        <div class="relative bg-gradient-to-br from-prestige-dark to-prestige-black rounded-2xl p-8 border border-prestige-gold/20 shadow-2xl">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-prestige-darker rounded-xl p-6 text-center">
+                                    <i class="fas fa-oil-can text-4xl text-prestige-gold mb-3"></i>
+                                    <div class="text-prestige-silverLight font-semibold">Oil Change</div>
+                                    <div class="text-prestige-gold text-sm">Premium Oils</div>
+                                </div>
+                                <div class="bg-prestige-darker rounded-xl p-6 text-center">
+                                    <i class="fas fa-car-battery text-4xl text-prestige-gold mb-3"></i>
+                                    <div class="text-prestige-silverLight font-semibold">Diagnostics</div>
+                                    <div class="text-prestige-gold text-sm">Advanced Tech</div>
+                                </div>
+                                <div class="bg-prestige-darker rounded-xl p-6 text-center">
+                                    <i class="fas fa-car text-4xl text-prestige-gold mb-3"></i>
+                                    <div class="text-prestige-silverLight font-semibold">Full Service</div>
+                                    <div class="text-prestige-gold text-sm">Complete Care</div>
+                                </div>
+                                <div class="bg-prestige-darker rounded-xl p-6 text-center">
+                                    <i class="fas fa-shield-alt text-4xl text-prestige-gold mb-3"></i>
+                                    <div class="text-prestige-silverLight font-semibold">Protection</div>
+                                    <div class="text-prestige-gold text-sm">Warranty Included</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-prestige-dark relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-prestige-gold/30 to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Visual -->
+                <div class="fade-in relative order-2 lg:order-1">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-br from-prestige-gold/20 to-prestige-gold/5 rounded-2xl blur-xl"></div>
+                        <div class="relative bg-prestige-black rounded-2xl p-8 border border-prestige-gold/20">
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="space-y-6">
+                                    <div class="bg-prestige-darker rounded-xl p-6 border-l-4 border-prestige-gold">
+                                        <div class="text-prestige-gold text-2xl font-display font-bold mb-2">ASE</div>
+                                        <div class="text-prestige-silver text-sm">Certified Technicians</div>
+                                    </div>
+                                    <div class="bg-prestige-darker rounded-xl p-6 border-l-4 border-prestige-gold">
+                                        <div class="text-prestige-gold text-2xl font-display font-bold mb-2">24/7</div>
+                                        <div class="text-prestige-silver text-sm">Emergency Support</div>
+                                    </div>
+                                </div>
+                                <div class="space-y-6 pt-8">
+                                    <div class="bg-prestige-darker rounded-xl p-6 border-l-4 border-prestige-gold">
+                                        <div class="text-prestige-gold text-2xl font-display font-bold mb-2">Fast</div>
+                                        <div class="text-prestige-silver text-sm">Turnaround Time</div>
+                                    </div>
+                                    <div class="bg-prestige-darker rounded-xl p-6 border-l-4 border-prestige-gold">
+                                        <div class="text-prestige-gold text-2xl font-display font-bold mb-2">Local</div>
+                                        <div class="text-prestige-silver text-sm">Morrow, OH</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div class="fade-in order-1 lg:order-2">
+                    <div class="gold-line mb-6"></div>
+                    <h2 class="font-display text-4xl sm:text-5xl font-bold mb-6">
+                        Where <span class="text-gold-gradient">Excellence</span> Meets Integrity
+                    </h2>
+                    <p class="text-prestige-silver text-lg leading-relaxed mb-6">
+                        At Prestige Auto Services LLC, we believe your vehicle deserves nothing less than the best. Located in the heart of Morrow, Ohio, we've built our reputation on delivering premium automotive care with an unwavering commitment to honesty and quality.
+                    </p>
+                    <p class="text-prestige-silver leading-relaxed mb-8">
+                        Our team of ASE-certified technicians brings decades of combined experience to every vehicle we service. From routine maintenance to complex diagnostics, we approach each job with meticulous attention to detail and a passion for automotive excellence.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-prestige-gold/20 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-check text-prestige-gold text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Premium Quality Parts</h4>
+                                <p class="text-prestige-silver text-sm">Only OEM and top-tier aftermarket components</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-prestige-gold/20 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-check text-prestige-gold text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Transparent Pricing</h4>
+                                <p class="text-prestige-silver text-sm">No surprises, no hidden fees—ever</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-prestige-gold/20 flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-check text-prestige-gold text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Customer First</h4>
+                                <p class="text-prestige-silver text-sm">Your satisfaction is our guarantee</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn-gold text-prestige-black px-8 py-4 rounded-full font-semibold inline-flex items-center">
+                        <i class="fas fa-calendar-check mr-3"></i> Schedule Service
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-prestige-black relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <div class="gold-line mx-auto mb-6"></div>
+                <h2 class="font-display text-4xl sm:text-5xl font-bold mb-6">
+                    Premium <span class="text-gold-gradient">Services</span>
+                </h2>
+                <p class="text-prestige-silver text-lg max-w-2xl mx-auto">
+                    Comprehensive automotive solutions delivered with precision and care
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card bg-prestige-dark rounded-2xl p-8 fade-in">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-prestige-gold/20 to-prestige-gold/5 flex items-center justify-center mb-6">
+                        <i class="fas fa-car text-3xl text-prestige-gold"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-4">Full-Service Auto Care</h3>
+                    <p class="text-prestige-silver leading-relaxed mb-6">
+                        Complete vehicle maintenance and repair services. From tune-ups to major overhauls, we handle it all with expertise and precision.
+                    </p>
+                    <ul class="space-y-2 text-prestige-silver text-sm">
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Engine repair & replacement</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Transmission services</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Brake system repair</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Suspension work</li>
+                    </ul>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="service-card bg-prestige-dark rounded-2xl p-8 fade-in">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-prestige-gold/20 to-prestige-gold/5 flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-3xl text-prestige-gold"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-4">Advanced Diagnostics</h3>
+                    <p class="text-prestige-silver leading-relaxed mb-6">
+                        State-of-the-art computer diagnostics to identify issues quickly and accurately. We find problems others miss.
+                    </p>
+                    <ul class="space-y-2 text-prestige-silver text-sm">
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Check engine light analysis</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Computer system scans</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Electrical diagnostics</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Performance testing</li>
+                    </ul>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="service-card bg-prestige-dark rounded-2xl p-8 fade-in">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-prestige-gold/20 to-prestige-gold/5 flex items-center justify-center mb-6">
+                        <i class="fas fa-oil-can text-3xl text-prestige-gold"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-4">Maintenance Services</h3>
+                    <p class="text-prestige-silver leading-relaxed mb-6">
+                        Preventive maintenance to keep your vehicle running smoothly and extend its lifespan. Regular care saves money long-term.
+                    </p>
+                    <ul class="space-y-2 text-prestige-silver text-sm">
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Oil & filter changes</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Fluid flushes</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Tire rotation & alignment</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Multi-point inspections</li>
+                    </ul>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="service-card bg-prestige-dark rounded-2xl p-8 fade-in">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-prestige-gold/20 to-prestige-gold/5 flex items-center justify-center mb-6">
+                        <i class="fas fa-snowflake text-3xl text-prestige-gold"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-4">A/C & Heating</h3>
+                    <p class="text-prestige-silver leading-relaxed mb-6">
+                        Complete climate control services. Stay comfortable year-round with our expert HVAC system repairs and recharges.
+                    </p>
+                    <ul class="space-y-2 text-prestige-silver text-sm">
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> A/C recharge & repair</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Heater core service</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Climate control diagnostics</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Ventilation cleaning</li>
+                    </ul>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="service-card bg-prestige-dark rounded-2xl p-8 fade-in">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-prestige-gold/20 to-prestige-gold/5 flex items-center justify-center mb-6">
+                        <i class="fas fa-car-battery text-3xl text-prestige-gold"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-4">Electrical Systems</h3>
+                    <p class="text-prestige-silver leading-relaxed mb-6">
+                        Expert electrical repairs for all vehicle makes and models. From batteries to complex wiring, we've got you covered.
+                    </p>
+                    <ul class="space-y-2 text-prestige-silver text-sm">
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Battery testing & replacement</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Alternator & starter repair</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Wiring diagnostics</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Lighting system repairs</li>
+                    </ul>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="service-card bg-prestige-dark rounded-2xl p-8 fade-in">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-prestige-gold/20 to-prestige-gold/5 flex items-center justify-center mb-6">
+                        <i class="fas fa-tachometer-alt text-3xl text-prestige-gold"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-4">Performance Upgrades</h3>
+                    <p class="text-prestige-silver leading-relaxed mb-6">
+                        Enhance your vehicle's performance with our upgrade services. More power, better handling, improved efficiency.
+                    </p>
+                    <ul class="space-y-2 text-prestige-silver text-sm">
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Exhaust system upgrades</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Intake system improvements</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Tuning & programming</li>
+                        <li class="flex items-center"><i class="fas fa-check text-prestige-gold mr-2 text-xs"></i> Custom modifications</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in">
+                <a href="tel:5138997002" class="btn-gold text-prestige-black px-10 py-4 rounded-full font-semibold text-lg inline-flex items-center">
+                    <i class="fas fa-phone mr-3"></i> Call for a Free Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Prestige Section -->
+    <section id="why-us" class="py-24 bg-prestige-dark relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-prestige-black/50 to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <div class="gold-line mx-auto mb-6"></div>
+                <h2 class="font-display text-4xl sm:text-5xl font-bold mb-6">
+                    Why Choose <span class="text-gold-gradient">Prestige</span>
+                </h2>
+                <p class="text-prestige-silver text-lg max-w-2xl mx-auto">
+                    Experience the difference that premium service and genuine care make
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="fade-in bg-gradient-to-br from-prestige-black to-prestige-darker rounded-2xl p-8 border border-prestige-gold/10 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-prestige-gold/5 rounded-full -mr-16 -mt-16 transition-all group-hover:scale-150"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-prestige-gold to-prestige-goldDark flex items-center justify-center mb-6 shadow-lg shadow-prestige-gold/20">
+                            <i class="fas fa-award text-3xl text-prestige-black"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-white mb-4">Premium Quality</h3>
+                        <p class="text-prestige-silver leading-relaxed">
+                            We use only OEM and premium aftermarket parts. Every repair meets manufacturer specifications. Quality isn't just a promise—it's our standard.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="fade-in bg-gradient-to-br from-prestige-black to-prestige-darker rounded-2xl p-8 border border-prestige-gold/10 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-prestige-gold/5 rounded-full -mr-16 -mt-16 transition-all group-hover:scale-150"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-prestige-gold to-prestige-goldDark flex items-center justify-center mb-6 shadow-lg shadow-prestige-gold/20">
+                            <i class="fas fa-hand-holding-usd text-3xl text-prestige-black"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-white mb-4">Honest Pricing</h3>
+                        <p class="text-prestige-silver leading-relaxed">
+                            No hidden fees. No surprises. We provide upfront, transparent quotes and explain every recommendation. Your trust is our most valuable asset.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="fade-in bg-gradient-to-br from-prestige-black to-prestige-darker rounded-2xl p-8 border border-prestige-gold/10 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-prestige-gold/5 rounded-full -mr-16 -mt-16 transition-all group-hover:scale-150"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-prestige-gold to-prestige-goldDark flex items-center justify-center mb-6 shadow-lg shadow-prestige-gold/20">
+                            <i class="fas fa-user-graduate text-3xl text-prestige-black"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-white mb-4">Expert Mechanics</h3>
+                        <p class="text-prestige-silver leading-relaxed">
+                            ASE-certified technicians with years of experience. Continuous training on the latest automotive technology. Experience you can rely on.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Benefits -->
+            <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
+                <div class="flex items-center space-x-4 bg-prestige-black/50 rounded-xl p-4 border border-prestige-gold/10">
+                    <i class="fas fa-clock text-prestige-gold text-2xl"></i>
+                    <div>
+                        <div class="text-white font-semibold">Fast Service</div>
+                        <div class="text-prestige-silver text-sm">Quick turnaround times</div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 bg-prestige-black/50 rounded-xl p-4 border border-prestige-gold/10">
+                    <i class="fas fa-shield-alt text-prestige-gold text-2xl"></i>
+                    <div>
+                        <div class="text-white font-semibold">Warranty</div>
+                        <div class="text-prestige-silver text-sm">All work guaranteed</div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 bg-prestige-black/50 rounded-xl p-4 border border-prestige-gold/10">
+                    <i class="fas fa-heart text-prestige-gold text-2xl"></i>
+                    <div>
+                        <div class="text-white font-semibold">Family Owned</div>
+                        <div class="text-prestige-silver text-sm">Local Morrow business</div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 bg-prestige-black/50 rounded-xl p-4 border border-prestige-gold/10">
+                    <i class="fas fa-comments text-prestige-gold text-2xl"></i>
+                    <div>
+                        <div class="text-white font-semibold">Communication</div>
+                        <div class="text-prestige-silver text-sm">We keep you informed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-prestige-black relative">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-prestige-gold/5 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 fade-in">
+            <div class="trust-badge inline-flex items-center px-6 py-3 rounded-full mb-8">
+                <i class="fas fa-phone-alt text-prestige-gold mr-3"></i>
+                <span class="text-prestige-silverLight font-medium">24/7 Emergency Service Available</span>
+            </div>
+            
+            <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+                Ready to Experience <br>
+                <span class="text-gold-gradient">Prestige Service?</span>
+            </h2>
+            
+            <p class="text-prestige-silver text-xl mb-10 max-w-2xl mx-auto">
+                Don't wait until a small issue becomes a major problem. Schedule your service today and give your vehicle the care it deserves.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:5138997002" class="btn-gold text-prestige-black px-10 py-5 rounded-full font-bold text-xl inline-flex items-center justify-center shadow-2xl shadow-prestige-gold/30">
+                    <i class="fas fa-phone-alt mr-3"></i> (513) 899-7002
+                </a>
+                <a href="#contact" class="border-2 border-prestige-gold text-prestige-goldLight px-10 py-5 rounded-full font-bold text-xl inline-flex items-center justify-center hover:bg-prestige-gold/10 transition-all">
+                    <i class="fas fa-envelope mr-3"></i> Get a Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-prestige-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Info -->
+                <div class="fade-in">
+                    <div class="gold-line mb-6"></div>
+                    <h2 class="font-display text-4xl sm:text-5xl font-bold mb-6">
+                        Get in <span class="text-gold-gradient">Touch</span>
+                    </h2>
+                    <p class="text-prestige-silver text-lg leading-relaxed mb-8">
+                        We're here to help with all your automotive needs. Reach out today and discover why Prestige Auto Services is Morrow's trusted choice for premium auto care.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-prestige-gold/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone-alt text-prestige-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-lg mb-1">Phone</h4>
+                                <a href="tel:5138997002" class="text-prestige-goldLight text-lg hover:text-prestige-gold transition-colors">(513) 899-7002</a>
+                                <p class="text-prestige-silver text-sm mt-1">Call for immediate assistance</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-prestige-gold/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-prestige-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-lg mb-1">Location</h4>
+                                <p class="text-prestige-silverLight text-lg">Morrow, OH 45152</p>
+                                <p class="text-prestige-silver text-sm mt-1">Conveniently located in Warren County</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-prestige-gold/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-clock text-prestige-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-lg mb-1">Hours</h4>
+                                <p class="text-prestige-silverLight">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                <p class="text-prestige-silverLight">Saturday: 8:00 AM - 4:00 PM</p>
+                                <p class="text-prestige-silver text-sm mt-1">24/7 Emergency Service Available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="fade-in">
+                    <div class="bg-prestige-black rounded-2xl p-8 border border-prestige-gold/20 shadow-2xl">
+                        <h3 class="font-display text-2xl font-bold text-white mb-6">Request a Quote</h3>
+                        <form id="contact-form" class="space-y-5">
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-prestige-silver text-sm mb-2">First Name</label>
+                                    <input type="text" class="w-full bg-prestige-dark border border-prestige-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-prestige-gold transition-colors" placeholder="John" required>
+                                </div>
+                                <div>
+                                    <label class="block text-prestige-silver text-sm mb-2">Last Name</label>
+                                    <input type="text" class="w-full bg-prestige-dark border border-prestige-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-prestige-gold transition-colors" placeholder="Doe" required>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-prestige-silver text-sm mb-2">Phone Number</label>
+                                <input type="tel" class="w-full bg-prestige-dark border border-prestige-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-prestige-gold transition-colors" placeholder="(513) 555-0123" required>
+                            </div>
+                            <div>
+                                <label class="block text-prestige-silver text-sm mb-2">Vehicle Information</label>
+                                <input type="text" class="w-full bg-prestige-dark border border-prestige-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-prestige-gold transition-colors" placeholder="Year, Make, Model (e.g., 2020 Honda Accord)">
+                            </div>
+                            <div>
+                                <label class="block text-prestige-silver text-sm mb-2">Service Needed</label>
+                                <select class="w-full bg-prestige-dark border border-prestige-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-prestige-gold transition-colors">
+                                    <option value="">Select a service...</option>
+                                    <option value="diagnostics">Diagnostics</option>
+                                    <option value="maintenance">Routine Maintenance</option>
+                                    <option value="repair">Repair Service</option>
+                                    <option value="ac">A/C & Heating</option>
+                                    <option value="electrical">Electrical Systems</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-prestige-silver text-sm mb-2">Message</label>
+                                <textarea rows="4" class="w-full bg-prestige-dark border border-prestige-gold/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-prestige-gold transition-colors resize-none" placeholder="Describe the issue or service you need..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full btn-gold text-prestige-black py-4 rounded-xl font-bold text-lg">
+                                <i class="fas fa-paper-plane mr-2"></i> Send Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-prestige-black border-t border-prestige-gold/10 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="lg:col-span-1">
+                    <a href="#" class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-prestige-gold to-prestige-goldDark flex items-center justify-center">
+                            <i class="fas fa-crown text-prestige-black text-lg"></i>
+                        </div>
+                        <div>
+                            <span class="font-display text-xl font-bold text-gold-gradient">Prestige</span>
+                            <span class="text-xs text-prestige-silver block -mt-1 tracking-widest">AUTO SERVICES</span>
+                        </div>
+                    </a>
+                    <p class="text-prestige-silver text-sm leading-relaxed mb-6">
+                        Premium auto care in Morrow, OH. Experience the difference that quality service and genuine expertise make.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-prestige-dark border border-prestige-gold/30 flex items-center justify-center text-prestige-gold hover:bg-prestige-gold hover:text-prestige-black transition-all">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-prestige-dark border border-prestige-gold/30 flex items-center justify-center text-prestige-gold hover:bg-prestige-gold hover:text-prestige-black transition-all">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-prestige-dark border border-prestige-gold/30 flex items-center justify-center text-prestige-gold hover:bg-prestige-gold hover:text-prestige-black transition-all">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-prestige-silver hover:text-prestige-goldLight transition-colors text-sm">Home</a></li>
+                        <li><a href="#about" class="text-prestige-silver hover:text-prestige-goldLight transition-colors text-sm">About Us</a></li>
+                        <li><a href="#services" class="text-prestige-silver hover:text-prestige-goldLight transition-colors text-sm">Services</a></li>
+                        <li><a href="#why-us" class="text-prestige-silver hover:text-prestige-goldLight transition-colors text-sm">Why Prestige</a></li>
+                        <li><a href="#contact" class="text-prestige-silver hover:text-prestige-goldLight transition-colors text-sm">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-prestige-silver hover:text-prestige-goldLight transition-colors text-sm">Full-Service Care</a></li>
+                        <li><a href="#services" class="text-prestige-silver hover:text-prestige-goldLight transition-colors text-sm">Diagnostics</a></li>
+                        <li><a href="#services" class="text-prestige-silver hover:text-prestige-goldLight transition-colors text-sm">Maintenance</a></li>
+                        <li><a href="#services" class="text-prestige-silver hover:text-prestige-goldLight transition-colors text-sm">A/C & Heating</a></li>
+                        <li><a href="#services" class="text-prestige-silver hover:text-prestige-goldLight transition-colors text-sm">Electrical Systems</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-phone-alt text-prestige-gold mt-1"></i>
+                            <a href="tel:5138997002" class="text-prestige-silverLight hover:text-prestige-gold transition-colors">(513) 899-7002</a>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-prestige-gold mt-1"></i>
+                            <span class="text-prestige-silver">Morrow, OH 45152</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-clock text-prestige-gold mt-1"></i>
+                            <span class="text-prestige-silver text-sm">Mon-Fri: 8AM-6PM<br>Sat: 8AM-4PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-prestige-gold/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-prestige-silver text-sm">
+                    © 2025 Prestige Auto Services LLC. All rights reserved.
+                </p>
+                <div class="flex items-center space-x-2 mt-4 md:mt-0">
+                    <span class="text-prestige-silver text-sm">Website by</span>
+                    <span class="text-prestige-gold font-semibold">SkyConsult</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div class="fixed bottom-6 right-6 z-50 floating-cta">
+        <a href="tel:5138997002" class="btn-gold text-prestige-black w-14 h-14 rounded-full flex items-center justify-center shadow-2xl shadow-prestige-gold/40">
+            <i class="fas fa-phone-alt text-xl"></i>
+        </a>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+        
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+        
+        // Close menu when clicking on a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+        
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Scroll Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Form Submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your request! We will contact you shortly at (513) 899-7002 or by email to discuss your service needs.');
+            this.reset();
+        });
+        
+        // Navbar scroll effect
+        let lastScroll = 0;
+        const nav = document.querySelector('nav');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.classList.add('shadow-lg');
+                nav.classList.add('bg-prestige-black/98');
+            } else {
+                nav.classList.remove('shadow-lg');
+                nav.classList.remove('bg-prestige-black/98');
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
