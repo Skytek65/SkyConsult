@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S.W. Clyborne Co. Provision & Spirits | Victorian Steampunk Gastropub | Mason, OH</title>
+  <meta name="description" content="Experience a unique chef-driven Victorian steampunk gastropub in Mason, OH. S.W. Clyborne Co. offers craft cocktails, artisanal cuisine, and an unforgettable atmosphere.">
+  <meta name="keywords" content="gastropub, Mason Ohio, Victorian steampunk restaurant, craft cocktails, chef-driven, S.W. Clyborne, provision and spirits">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            steampunk: {
+              900: '#1a1512',
+              800: '#2d241e',
+              700: '#3d3028',
+              600: '#4a3a30',
+              500: '#5c4a3d',
+              400: '#7a6252',
+              300: '#9a8472',
+              200: '#b8a090',
+              100: '#d4c4b8',
+              50: '#f0e8e0',
+            },
+            brass: {
+              DEFAULT: '#b8860b',
+              light: '#daa520',
+              dark: '#8b6914',
+            },
+            copper: {
+              DEFAULT: '#b87333',
+              light: '#cd853f',
+              dark: '#8b4513',
+            },
+          },
+          fontFamily: {
+            'display': ['Cinzel', 'serif'],
+            'heading': ['Playfair Display', 'serif'],
+            'body': ['Crimson Text', 'serif'],
+          },
+          backgroundImage: {
+            'steampunk-gradient': 'linear-gradient(135deg, #1a1512 0%, #2d241e 50%, #1a1512 100%)',
+            'brass-gradient': 'linear-gradient(135deg, #b8860b 0%, #daa520 50%, #b8860b 100%)',
+            'copper-gradient': 'linear-gradient(135deg, #b87333 0%, #cd853f 50%, #b87333 100%)',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Crimson Text', Georgia, serif;
+      background: #0f0c0a;
+      color: #f0e8e0;
+    }
+    
+    /* Steampunk Pattern Background */
+    .steampunk-pattern {
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(184, 134, 11, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(184, 115, 51, 0.03) 0%, transparent 50%),
+        linear-gradient(135deg, #1a1512 0%, #0f0c0a 100%);
+    }
+    
+    /* Victorian Ornamentation */
+    .victorian-border {
+      border: 2px solid #b8860b;
+      position: relative;
+    }
+    
+    .victorian-border::before,
+    .victorian-border::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #b8860b;
+    }
+    
+    .victorian-border::before {
+      top: -2px;
+      left: -2px;
+      border-right: none;
+      border-bottom: none;
+    }
+    
+    .victorian-border::after {
+      bottom: -2px;
+      right: -2px;
+      border-left: none;
+      border-top: none;
+    }
+    
+    /* Gear Animation */
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    @keyframes rotate-reverse {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+    
+    .gear-spin {
+      animation: rotate 20s linear infinite;
+    }
+    
+    .gear-spin-reverse {
+      animation: rotate-reverse 15s linear infinite;
+    }
+    
+    /* Steam Effect */
+    @keyframes steam {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-100px) scale(1.5);
+        opacity: 0;
+      }
+    }
+    
+    .steam-particle {
+      animation: steam 3s ease-out infinite;
+    }
+    
+    /* Hover Effects */
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(184, 134, 11, 0.2);
+    }
+    
+    /* Menu Item Hover */
+    .menu-item {
+      transition: all 0.3s ease;
+    }
+    
+    .menu-item:hover {
+      background: rgba(184, 134, 11, 0.1);
+      border-color: #b8860b;
+    }
+    
+    /* Button Styles */
+    .btn-primary {
+      background: linear-gradient(135deg, #b8860b 0%, #daa520 50%, #b8860b 100%);
+      color: #1a1512;
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 1rem 2rem;
+      border: none;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+    
+    .btn-primary:hover {
+      box-shadow: 0 0 30px rgba(184, 134, 11, 0.5);
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: #b8860b;
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 1rem 2rem;
+      border: 2px solid #b8860b;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      background: #b8860b;
+      color: #1a1512;
+      box-shadow: 0 0 20px rgba(184, 134, 11, 0.3);
+    }
+    
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #1a1512;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #b8860b;
+      border-radius: 5px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #daa520;
+    }
+    
+    /* Text Gradient */
+    .text-gradient {
+      background: linear-gradient(135deg, #daa520 0%, #b8860b 50%, #cd853f 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Decorative Lines */
+    .decorative-line {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #b8860b, transparent);
+    }
+    
+    /* Floating Animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .float-animation {
+      animation: float 4s ease-in-out infinite;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+    
+    /* Glass Effect */
+    .glass {
+      background: rgba(45, 36, 30, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    
+    /* Image Overlay */
+    .image-overlay {
+      background: linear-gradient(to bottom, rgba(15, 12, 10, 0.3), rgba(15, 12, 10, 0.8));
+    }
+    
+    /* Custom Selection */
+    ::selection {
+      background: #b8860b;
+      color: #1a1512;
+    }
+  </style>
+</head>
+<body class="steampunk-pattern antialiased overflow-x-hidden">
+  
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+    <div class="glass border-b border-steampunk-700/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Logo -->
+          <a href="#" class="flex items-center space-x-3">
+            <div class="relative w-12 h-12">
+              <svg class="w-full h-full text-brass gear-spin" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="50" cy="50" r="15" fill="currentColor" fill-opacity="0.2"/>
+                <circle cx="50" cy="50" r="35"/>
+                <path d="M50 10 L50 0 M50 90 L50 100 M10 50 L0 50 M90 50 L100 50 M22 22 L15 15 M78 78 L85 85 M22 78 L15 85 M78 22 L85 15" stroke-width="3"/>
+              </svg>
+            </div>
+            <div class="hidden sm:block">
+              <span class="text-xl font-display font-bold text-brass-light">S.W. CLYBORNE</span>
+              <span class="block text-xs text-steampunk-300 tracking-widest uppercase">Provision & Spirits</span>
+            </div>
+          </a>
+          
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#about" class="text-steampunk-200 hover:text-brass transition-colors font-display text-sm tracking-wider uppercase">Our Story</a>
+            <a href="#menu" class="text-steampunk-200 hover:text-brass transition-colors font-display text-sm tracking-wider uppercase">Menu</a>
+            <a href="#experience" class="text-steampunk-200 hover:text-brass transition-colors font-display text-sm tracking-wider uppercase">Experience</a>
+            <a href="#reservations" class="text-steampunk-200 hover:text-brass transition-colors font-display text-sm tracking-wider uppercase">Reservations</a>
+            <a href="#contact" class="btn-primary rounded-sm">Book a Table</a>
+          </div>
+          
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden text-brass hover:text-brass-light transition-colors" id="mobile-menu-btn">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu fixed inset-y-0 right-0 w-80 bg-steampunk-900 border-l border-steampunk-700 z-50 md:hidden" id="mobile-menu">
+    <div class="p-6">
+      <button class="absolute top-6 right-6 text-brass hover:text-brass-light" id="close-mobile-menu">
+        <i class="fas fa-times text-2xl"></i>
+      </button>
+      <div class="mt-16 space-y-6">
+        <a href="#about" class="block text-xl text-steampunk-200 hover:text-brass transition-colors font-display">Our Story</a>
+        <a href="#menu" class="block text-xl text-steampunk-200 hover:text-brass transition-colors font-display">Menu</a>
+        <a href="#experience" class="block text-xl text-steampunk-200 hover:text-brass transition-colors font-display">Experience</a>
+        <a href="#reservations" class="block text-xl text-steampunk-200 hover:text-brass transition-colors font-display">Reservations</a>
+        <a href="#contact" class="block text-xl text-steampunk-200 hover:text-brass transition-colors font-display">Contact</a>
+        <a href="#reservations" class="btn-primary block text-center rounded-sm mt-8">Book a Table</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1920&q=80')] bg-cover bg-center"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-steampunk-900/80 via-steampunk-900/60 to-steampunk-900/95"></div>
+    </div>
+    
+    <!-- Decorative Gears -->
+    <div class="absolute top-20 left-10 w-32 h-32 opacity-10 gear-spin hidden lg:block">
+      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1" class="text-brass">
+        <circle cx="50" cy="50" r="45"/>
+        <circle cx="50" cy="50" r="25"/>
+        <path d="M50 5 L50 0 M50 95 L50 100 M5 50 L0 50 M95 50 L100 50" stroke-width="2"/>
+      </svg>
+    </div>
+    
+    <div class="absolute bottom-20 right-10 w-48 h-48 opacity-10 gear-spin-reverse hidden lg:block">
+      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1" class="text-copper">
+        <circle cx="50" cy="50" r="40"/>
+        <circle cx="50" cy="50" r="20"/>
+        <path d="M50 10 L50 0 M50 90 L50 100 M10 50 L0 50 M90 50 L100 50" stroke-width="2"/>
+      </svg>
+    </div>
+    
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+      <!-- Decorative Top Element -->
+      <div class="flex items-center justify-center mb-8">
+        <div class="decorative-line w-16"></div>
+        <div class="mx-4">
+          <svg class="w-8 h-8 text-brass float-animation" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="20" cy="20" r="15"/>
+            <path d="M20 5 L20 0 M20 35 L20 40 M5 20 L0 20 M35 20 L40 20"/>
+          </svg>
+        </div>
+        <div class="decorative-line w-16"></div>
+      </div>
+      
+      <p class="text-brass font-display text-sm tracking-[0.3em] uppercase mb-4">Est. 2024 • Mason, Ohio</p>
+      
+      <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gradient mb-6 leading-tight">
+        S.W. Clyborne
+      </h1>
+      
+      <h2 class="font-heading italic text-2xl sm:text-3xl md:text-4xl text-steampunk-200 mb-4">
+        Provision & Spirits
+      </h2>
+      
+      <p class="font-body text-lg sm:text-xl text-steampunk-300 max-w-2xl mx-auto mb-6 italic">
+        Where Victorian elegance meets industrial innovation
+      </p>
+      
+      <p class="text-steampunk-400 max-w-xl mx-auto mb-12 text-base">
+        A chef-driven gastropub experience crafted in the heart of Mason, Ohio. 
+        Immerse yourself in an atmosphere of brass, steam, and culinary artistry.
+      </p>
+      
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#reservations" class="btn-primary rounded-sm text-lg px-8 py-4">
+          <i class="fas fa-calendar-alt mr-2"></i>Reserve Your Experience
+        </a>
+        <a href="#menu" class="btn-secondary rounded-sm text-lg px-8 py-4">
+          <i class="fas fa-utensils mr-2"></i>Explore Our Menu
+        </a>
+      </div>
+      
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+        <a href="#about" class="text-steampunk-400 hover:text-brass transition-colors animate-bounce">
+          <i class="fas fa-chevron-down text-2xl"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Section -->
+  <section id="about" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Image Side -->
+        <div class="relative">
+          <div class="relative aspect-[4/5] overflow-hidden victorian-border">
+            <img 
+              src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" 
+              alt="Victorian steampunk gastropub interior with brass fixtures and warm lighting"
+              class="w-full h-full object-cover"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-steampunk-900/60 to-transparent"></div>
+          </div>
+          
+          <!-- Decorative Frame Corners -->
+          <div class="absolute -top-4 -left-4 w-16 h-16 border-t-4 border-l-4 border-brass"></div>
+          <div class="absolute -bottom-4 -right-4 w-16 h-16 border-b-4 border-r-4 border-brass"></div>
+          
+          <!-- Floating Badge -->
+          <div class="absolute -bottom-8 -right-8 bg-steampunk-800 border-2 border-brass p-6 victorian-border max-w-xs">
+            <p class="font-display text-brass text-3xl font-bold text-center">15+</p>
+            <p class="text-steampunk-300 text-sm text-center uppercase tracking-wider">Years Culinary Excellence</p>
+          </div>
+        </div>
+        
+        <!-- Content Side -->
+        <div class="lg:pl-8">
+          <p class="text-brass font-display text-sm tracking-[0.2em] uppercase mb-4">Our Story</p>
+          
+          <h2 class="font-display text-4xl sm:text-5xl font-bold text-steampunk-100 mb-6">
+            A Culinary Journey Through Time
+          </h2>
+          
+          <div class="decorative-line w-24 mb-8"></div>
+          
+          <p class="text-steampunk-300 text-lg leading-relaxed mb-6">
+            S.W. Clyborne Co. Provision & Spirits was born from a vision to create something truly extraordinary in Mason, Ohio. Our founders, inspired by the innovation of the Victorian era and the industrial revolution, set out to craft a dining experience unlike any other.
+          </p>
+          
+          <p class="text-steampunk-300 text-lg leading-relaxed mb-8">
+            Every corner of our gastropub tells a story—from the hand-selected brass fixtures to the carefully curated provisions on your plate. We believe that dining should be an adventure, a journey that engages all your senses and leaves you with memories as lasting as the golden age that inspires us.
+          </p>
+          
+          <!-- Feature Cards -->
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="glass p-6 border border-steampunk-700 hover-lift">
+              <div class="w-12 h-12 bg-brass/20 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-fire text-brass text-xl"></i>
+              </div>
+              <h3 class="font-display text-steampunk-100 font-semibold mb-2">Chef-Driven Cuisine</h3>
+              <p class="text-steampunk-400 text-sm">Every dish crafted with passion and precision by our culinary artisans.</p>
+            </div>
+            
+            <div class="glass p-6 border border-steampunk-700 hover-lift">
+              <div class="w-12 h-12 bg-copper/20 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-cocktail text-copper text-xl"></i>
+              </div>
+              <h3 class="font-display text-steampunk-100 font-semibold mb-2">Artisan Cocktails</h3>
+              <p class="text-steampunk-400 text-sm">Hand-crafted libations using house-made bitters and vintage techniques.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Menu Preview Section -->
+  <section id="menu" class="py-24 relative bg-steampunk-900/50">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-20"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <p class="text-brass font-display text-sm tracking-[0.2em] uppercase mb-4">Culinary Excellence</p>
+        <h2 class="font-display text-4xl sm:text-5xl font-bold text-steampunk-100 mb-6">
+          Our Menu
+        </h2>
+        <div class="decorative-line w-32 mx-auto mb-6"></div>
+        <p class="text-steampunk-300 text-lg max-w-2xl mx-auto">
+          A chef-driven approach to modern gastropub fare, featuring locally sourced provisions and innovative preparations.
+        </p>
+      </div>
+      
+      <!-- Menu Categories -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Starters -->
+        <div class="glass border border-steampunk-700 hover-lift overflow-hidden">
+          <div class="relative h-48 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1541014741259-de529411b96a?w=600&q=80" 
+              alt="Gourmet appetizer with artistic plating"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-steampunk-900 to-transparent"></div>
+            <div class="absolute bottom-4 left-4">
+              <i class="fas fa-leaf text-brass text-2xl"></i>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl text-steampunk-100 mb-4">Starters & Small Plates</h3>
+            <div class="space-y-4">
+              <div class="menu-item border-b border-steampunk-700 pb-4">
+                <div class="flex justify-between items-start mb-1">
+                  <h4 class="font-heading text-steampunk-200 font-semibold">Copper Kettle Mussels</h4>
+                  <span class="text-brass font-display">$16</span>
+                </div>
+                <p class="text-steampunk-400 text-sm">White wine, garlic, herbs, house-made sourdough</p>
+              </div>
+              
+              <div class="menu-item border-b border-steampunk-700 pb-4">
+                <div class="flex justify-between items-start mb-1">
+                  <h4 class="font-heading text-steampunk-200 font-semibold">Bison Tartare</h4>
+                  <span class="text-brass font-display">$18</span>
+                </div>
+                <p class="text-steampunk-400 text-sm">Pickled shallots, quail egg, bone marrow toast</p>
+              </div>
+              
+              <div class="menu-item">
+                <div class="flex justify-between items-start mb-1">
+                  <h4 class="font-heading text-steampunk-200 font-semibold">Steam Punk Shrimp</h4>
+                  <span class="text-brass font-display">$15</span>
+                </div>
+                <p class="text-steampunk-400 text-sm">Beer-battered, smoked paprika aioli</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Mains -->
+        <div class="glass border border-steampunk-700 hover-lift overflow-hidden">
+          <div class="relative h-48 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" 
+              alt="Gourmet main course with artistic presentation"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-steampunk-900 to-transparent"></div>
+            <div class="absolute bottom-4 left-4">
+              <i class="fas fa-drumstick-bite text-brass text-2xl"></i>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl text-steampunk-100 mb-4">Mains & Provisions</h3>
+            <div class="space-y-4">
+              <div class="menu-item border-b border-steampunk-700 pb-4">
+                <div class="flex justify-between items-start mb-1">
+                  <h4 class="font-heading text-steampunk-200 font-semibold">Brass & Bone Ribeye</h4>
+                  <span class="text-brass font-display">$42</span>
+                </div>
+                <p class="text-steampunk-400 text-sm">16oz bone-in, herb butter, roasted marrow</p>
+              </div>
+              
+              <div class="menu-item border-b border-steampunk-700 pb-4">
+                <div class="flex justify-between items-start mb-1">
+                  <h4 class="font-heading text-steampunk-200 font-semibold">Steam Engine Duck</h4>
+                  <span class="text-brass font-display">$34</span>
+                </div>
+                <p class="text-steampunk-400 text-sm">Confit leg, cherry reduction, parsnip purée</p>
+              </div>
+              
+              <div class="menu-item">
+                <div class="flex justify-between items-start mb-1">
+                  <h4 class="font-heading text-steampunk-200 font-semibold">Cog & Gear Risotto</h4>
+                  <span class="text-brass font-display">$28</span>
+                </div>
+                <p class="text-steampunk-400 text-sm">Wild mushrooms, truffle oil, aged parmesan</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Desserts -->
+        <div class="glass border border-steampunk-700 hover-lift overflow-hidden">
+          <div class="relative h-48 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&q=80" 
+              alt="Artisan dessert with elegant presentation"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-steampunk-900 to-transparent"></div>
+            <div class="absolute bottom-4 left-4">
+              <i class="fas fa-ice-cream text-brass text-2xl"></i>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl text-steampunk-100 mb-4">Sweet Confections</h3>
+            <div class="space-y-4">
+              <div class="menu-item border-b border-steampunk-700 pb-4">
+                <div class="flex justify-between items-start mb-1">
+                  <h4 class="font-heading text-steampunk-200 font-semibold">Chocolate Gearworks</h4>
+                  <span class="text-brass font-display">$12</span>
+                </div>
+                <p class="text-steampunk-400 text-sm">Dark chocolate mousse, gold leaf, caramel</p>
+              </div>
+              
+              <div class="menu-item border-b border-steampunk-700 pb-4">
+                <div class="flex justify-between items-start mb-1">
+                  <h4 class="font-heading text-steampunk-200 font-semibold">Steam Punk Sundae</h4>
+                  <span class="text-brass font-display">$11</span>
+                </div>
+                <p class="text-steampunk-400 text-sm">Bourbon ice cream, candied bacon, smoked salt</p>
+              </div>
+              
+              <div class="menu-item">
+                <div class="flex justify-between items-start mb-1">
+                  <h4 class="font-heading text-steampunk-200 font-semibold">Victorian Cheesecake</h4>
+                  <span class="text-brass font-display">$10</span>
+                </div>
+                <p class="text-steampunk-400 text-sm">Lavender honey, berry compote, shortbread</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- View Full Menu CTA -->
+      <div class="text-center mt-12">
+        <button class="btn-secondary rounded-sm text-lg px-8 py-4" onclick="showComingSoon()">
+          <i class="fas fa-book-open mr-2"></i>View Full Menu
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Cocktails Section -->
+  <section id="cocktails" class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Content Side -->
+        <div class="order-2 lg:order-1">
+          <p class="text-brass font-display text-sm tracking-[0.2em] uppercase mb-4">Liquid Alchemy</p>
+          
+          <h2 class="font-display text-4xl sm:text-5xl font-bold text-steampunk-100 mb-6">
+            Craft Cocktails
+          </h2>
+          
+          <div class="decorative-line w-24 mb-8"></div>
+          
+          <p class="text-steampunk-300 text-lg leading-relaxed mb-8">
+            Our bar program celebrates the art of mixology with house-made bitters, infused spirits, and theatrical presentations that echo the innovation of the Victorian era.
+          </p>
+          
+          <!-- Featured Cocktails -->
+          <div class="space-y-6">
+            <div class="flex items-start space-x-4 menu-item p-4 border border-steampunk-700">
+              <div class="w-16 h-16 bg-brass/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-flask text-brass text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="font-heading text-xl text-steampunk-100 mb-1">The Inventor's Elixir</h3>
+                <p class="text-steampunk-400 text-sm mb-2">Rye whiskey, smoked maple syrup, orange bitters, flamed cinnamon</p>
+                <span class="text-brass font-display">$14</span>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4 menu-item p-4 border border-steampunk-700">
+              <div class="w-16 h-16 bg-copper/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-fire-alt text-copper text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="font-heading text-xl text-steampunk-100 mb-1">Steam Pressure</h3>
+                <p class="text-steampunk-400 text-sm mb-2">Mezcal, ginger beer, lime, habanero tincture, smoked salt rim</p>
+                <span class="text-brass font-display">$13</span>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4 menu-item p-4 border border-steampunk-700">
+              <div class="w-16 h-16 bg-brass/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-clock text-brass text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="font-heading text-xl text-steampunk-100 mb-1">Chronos Martini</h3>
+                <p class="text-steampunk-400 text-sm mb-2">Gin, elderflower liqueur, lavender bitters, edible gold dust</p>
+                <span class="text-brass font-display">$15</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Image Side -->
+        <div class="order-1 lg:order-2 relative">
+          <div class="relative aspect-square overflow-hidden victorian-border">
+            <img 
+              src="https://images.unsplash.com/photo-1575023782549-62ca0d244b39?w=800&q=80" 
+              alt="Craft cocktail with steam effect in Victorian steampunk glassware"
+              class="w-full h-full object-cover"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-steampunk-900/40 to-transparent"></div>
+          </div>
+          
+          <!-- Decorative Elements -->
+          <div class="absolute -top-6 -right-6 w-24 h-24 border-2 border-brass rounded-full gear-spin opacity-30"></div>
+          <div class="absolute -bottom-4 -left-4 w-32 h-32 border border-copper rounded-full gear-spin-reverse opacity-20"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Experience Section -->
+  <section id="experience" class="py-24 relative bg-steampunk-900/50">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <p class="text-brass font-display text-sm tracking-[0.2em] uppercase mb-4">The Atmosphere</p>
+        <h2 class="font-display text-4xl sm:text-5xl font-bold text-steampunk-100 mb-6">
+          An Experience Like No Other
+        </h2>
+        <div class="decorative-line w-32 mx-auto"></div>
+      </div>
+      
+      <!-- Feature Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Feature 1 -->
+        <div class="glass border border-steampunk-700 p-8 text-center hover-lift">
+          <div class="w-20 h-20 mx-auto bg-brass/10 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-cogs text-brass text-3xl gear-spin" style="animation-duration: 30s;"></i>
+          </div>
+          <h3 class="font-display text-xl text-steampunk-100 mb-3">Victorian Aesthetic</h3>
+          <p class="text-steampunk-400 text-sm">
+            Intricate brass fixtures, exposed gears, and vintage industrial design create an immersive atmosphere.
+          </p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="glass border border-steampunk-700 p-8 text-center hover-lift">
+          <div class="w-20 h-20 mx-auto bg-copper/10 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-utensils text-copper text-3xl"></i>
+          </div>
+          <h3 class="font-display text-xl text-steampunk-100 mb-3">Chef-Driven Menu</h3>
+          <p class="text-steampunk-400 text-sm">
+            Every dish is crafted with passion using locally sourced, seasonal ingredients and innovative techniques.
+          </p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="glass border border-steampunk-700 p-8 text-center hover-lift">
+          <div class="w-20 h-20 mx-auto bg-brass/10 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-wine-glass-alt text-brass text-3xl"></i>
+          </div>
+          <h3 class="font-display text-xl text-steampunk-100 mb-3">Curated Spirits</h3>
+          <p class="text-steampunk-400 text-sm">
+            An extensive selection of rare whiskeys, craft cocktails, and vintage wines from around the world.
+          </p>
+        </div>
+        
+        <!-- Feature 4 -->
+        <div class="glass border border-steampunk-700 p-8 text-center hover-lift">
+          <div class="w-20 h-20 mx-auto bg-copper/10 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-music text-copper text-3xl"></i>
+          </div>
+          <h3 class="font-display text-xl text-steampunk-100 mb-3">Live Ambiance</h3>
+          <p class="text-steampunk-400 text-sm">
+            Live jazz and acoustic performances create the perfect soundtrack for your evening.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Photo Gallery -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="relative aspect-square overflow-hidden group">
+          <img 
+            src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=400&q=80" 
+            alt="Vintage bar interior with warm lighting"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          >
+          <div class="absolute inset-0 bg-steampunk-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <i class="fas fa-search-plus text-brass text-2xl"></i>
+          </div>
+        </div>
+        
+        <div class="relative aspect-square overflow-hidden group">
+          <img 
+            src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=400&q=80" 
+            alt="Craft cocktail preparation"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          >
+          <div class="absolute inset-0 bg-steampunk-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <i class="fas fa-search-plus text-brass text-2xl"></i>
+          </div>
+        </div>
+        
+        <div class="relative aspect-square overflow-hidden group">
+          <img 
+            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80" 
+            alt="Elegant dining experience"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          >
+          <div class="absolute inset-0 bg-steampunk-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <i class="fas fa-search-plus text-brass text-2xl"></i>
+          </div>
+        </div>
+        
+        <div class="relative aspect-square overflow-hidden group">
+          <img 
+            src="https://images.unsplash.com/photo-1550966871-3ed3c47e7a9c?w=400&q=80" 
+            alt="Chef plating gourmet dish"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          >
+          <div class="absolute inset-0 bg-steampunk-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <i class="fas fa-search-plus text-brass text-2xl"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonials Section -->
+  <section class="py-24 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <p class="text-brass font-display text-sm tracking-[0.2em] uppercase mb-4">Guest Experiences</p>
+        <h2 class="font-display text-4xl sm:text-5xl font-bold text-steampunk-100 mb-6">
+          What Our Guests Say
+        </h2>
+        <div class="decorative-line w-32 mx-auto"></div>
+      </div>
+      
+      <!-- Testimonials Carousel -->
+      <div class="relative">
+        <div class="glass border border-steampunk-700 p-8 md:p-12 text-center">
+          <!-- Quote Icon -->
+          <div class="mb-6">
+            <i class="fas fa-quote-left text-brass text-4xl opacity-50"></i>
+          </div>
+          
+          <!-- Testimonial Content -->
+          <div id="testimonial-container">
+            <p class="font-heading text-xl md:text-2xl text-steampunk-200 italic mb-8 leading-relaxed">
+              "An absolutely unforgettable dining experience. The attention to detail in both the atmosphere and the cuisine is remarkable. S.W. Clyborne has set a new standard for gastropubs in Ohio."
+            </p>
+            
+            <div class="flex items-center justify-center space-x-4">
+              <div class="w-16 h-16 bg-brass/20 rounded-full flex items-center justify-center">
+                <i class="fas fa-user text-brass text-2xl"></i>
+              </div>
+              <div class="text-left">
+                <p class="font-display text-steampunk-100 font-semibold">Sarah Mitchell</p>
+                <p class="text-steampunk-400 text-sm">Food Critic, Cincinnati Enquirer</p>
+                <div class="flex text-brass mt-1">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Navigation Dots -->
+          <div class="flex justify-center space-x-2 mt-8">
+            <button class="w-3 h-3 rounded-full bg-brass testimonial-dot active" data-index="0"></button>
+            <button class="w-3 h-3 rounded-full bg-steampunk-600 testimonial-dot" data-index="1"></button>
+            <button class="w-3 h-3 rounded-full bg-steampunk-600 testimonial-dot" data-index="2"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Reservations Section -->
+  <section id="reservations" class="py-24 relative bg-steampunk-900/50">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-10"></div>
+    
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <!-- Section Header -->
+      <div class="text-center mb-12">
+        <p class="text-brass font-display text-sm tracking-[0.2em] uppercase mb-4">Book Your Visit</p>
+        <h2 class="font-display text-4xl sm:text-5xl font-bold text-steampunk-100 mb-6">
+          Reserve Your Table
+        </h2>
+        <div class="decorative-line w-32 mx-auto mb-6"></div>
+        <p class="text-steampunk-300 text-lg max-w-2xl mx-auto">
+          Secure your place in our Victorian steampunk sanctuary. For parties larger than 8, please call us directly.
+        </p>
+      </div>
+      
+      <!-- Reservation Form -->
+      <div class="glass border-2 border-brass p-8 md:p-12 victorian-border">
+        <form id="reservation-form" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- Name -->
+            <div>
+              <label class="block text-steampunk-200 text-sm font-display uppercase tracking-wider mb-2">Full Name</label>
+              <input 
+                type="text" 
+                name="name" 
+                required
+                class="w-full bg-steampunk-800 border border-steampunk-600 text-steampunk-100 px-4 py-3 focus:outline-none focus:border-brass transition-colors"
+                placeholder="Your Name"
+              >
+            </div>
+            
+            <!-- Email -->
+            <div>
+              <label class="block text-steampunk-200 text-sm font-display uppercase tracking-wider mb-2">Email Address</label>
+              <input 
+                type="email" 
+                name="email" 
+                required
+                class="w-full bg-steampunk-800 border border-steampunk-600 text-steampunk-100 px-4 py-3 focus:outline-none focus:border-brass transition-colors"
+                placeholder="your@email.com"
+              >
+            </div>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- Phone -->
+            <div>
+              <label class="block text-steampunk-200 text-sm font-display uppercase tracking-wider mb-2">Phone Number</label>
+              <input 
+                type="tel" 
+                name="phone" 
+                required
+                class="w-full bg-steampunk-800 border border-steampunk-600 text-steampunk-100 px-4 py-3 focus:outline-none focus:border-brass transition-colors"
+                placeholder="(513) 555-0123"
+              >
+            </div>
+            
+            <!-- Party Size -->
+            <div>
+              <label class="block text-steampunk-200 text-sm font-display uppercase tracking-wider mb-2">Party Size</label>
+              <select 
+                name="partySize" 
+                required
+                class="w-full bg-steampunk-800 border border-steampunk-600 text-steampunk-100 px-4 py-3 focus:outline-none focus:border-brass transition-colors"
+              >
+                <option value="">Select Size</option>
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5 Guests</option>
+                <option value="6">6 Guests</option>
+                <option value="7">7 Guests</option>
+                <option value="8">8 Guests</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- Date -->
+            <div>
+              <label class="block text-steampunk-200 text-sm font-display uppercase tracking-wider mb-2">Preferred Date</label>
+              <input 
+                type="date" 
+                name="date" 
+                required
+                class="w-full bg-steampunk-800 border border-steampunk-600 text-steampunk-100 px-4 py-3 focus:outline-none focus:border-brass transition-colors"
+              >
+            </div>
+            
+            <!-- Time -->
+            <div>
+              <label class="block text-steampunk-200 text-sm font-display uppercase tracking-wider mb-2">Preferred Time</label>
+              <select 
+                name="time" 
+                required
+                class="w-full bg-steampunk-800 border border-steampunk-600 text-steampunk-100 px-4 py-3 focus:outline-none focus:border-brass transition-colors"
+              >
+                <option value="">Select Time</option>
+                <option value="17:00">5:00 PM</option>
+                <option value="17:30">5:30 PM</option>
+                <option value="18:00">6:00 PM</option>
+                <option value="18:30">6:30 PM</option>
+                <option value="19:00">7:00 PM</option>
+                <option value="19:30">7:30 PM</option>
+                <option value="20:00">8:00 PM</option>
+                <option value="20:30">8:30 PM</option>
+                <option value="21:00">9:00 PM</option>
+              </select>
+            </div>
+          </div>
+          
+          <!-- Special Requests -->
+          <div>
+            <label class="block text-steampunk-200 text-sm font-display uppercase tracking-wider mb-2">Special Requests</label>
+            <textarea 
+              name="requests" 
+              rows="3"
+              class="w-full bg-steampunk-800 border border-steampunk-600 text-steampunk-100 px-4 py-3 focus:outline-none focus:border-brass transition-colors"
+              placeholder="Allergies, special occasions, seating preferences..."
+            ></textarea>
+          </div>
+          
+          <!-- Submit Button -->
+          <button type="submit" class="btn-primary w-full rounded-sm text-lg py-4">
+            <i class="fas fa-calendar-check mr-2"></i>Request Reservation
+          </button>
+          
+          <p class="text-steampunk-400 text-sm text-center">
+            You will receive a confirmation email within 24 hours. For same-day reservations, please call us directly.
+          </p>
+        </form>
+      </div>
+      
+      <!-- Hours & Contact Info -->
+      <div class="mt-12 grid md:grid-cols-2 gap-8">
+        <div class="glass border border-steampunk-700 p-6">
+          <h3 class="font-display text-xl text-steampunk-100 mb-4 flex items-center">
+            <i class="fas fa-clock text-brass mr-3"></i>Hours of Operation
+          </h3>
+          <div class="space-y-2 text-steampunk-300">
+            <div class="flex justify-between">
+              <span>Monday - Thursday</span>
+              <span class="text-steampunk-100">4:00 PM - 10:00 PM</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Friday - Saturday</span>
+              <span class="text-steampunk-100">4:00 PM - 11:00 PM</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Sunday</span>
+              <span class="text-steampunk-100">4:00 PM - 9:00 PM</span>
+            </div>
+            <div class="pt-2 border-t border-steampunk-700">
+              <span class="text-brass text-sm">Happy Hour: Mon-Fri 4:00 PM - 6:00 PM</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass border border-steampunk-700 p-6">
+          <h3 class="font-display text-xl text-steampunk-100 mb-4 flex items-center">
+            <i class="fas fa-phone text-brass mr-3"></i>Contact Us
+          </h3>
+          <div class="space-y-3 text-steampunk-300">
+            <p class="flex items-start">
+              <i class="fas fa-map-marker-alt text-brass mt-1 mr-3"></i>
+              <span>123 Main Street<br>Mason, OH 45040</span>
+            </p>
+            <p class="flex items-center">
+              <i class="fas fa-phone-alt text-brass mr-3"></i>
+              <a href="tel:+15135550123" class="hover:text-brass transition-colors">(513) 555-0123</a>
+            </p>
+            <p class="flex items-center">
+              <i class="fas fa-envelope text-brass mr-3"></i>
+              <a href="mailto:info@swclyborne.com" class="hover:text-brass transition-colors">info@swclyborne.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16">
+        <!-- Contact Form -->
+        <div>
+          <p class="text-brass font-display text-sm tracking-[0.2em] uppercase mb-4">Get In Touch</p>
+          <h2 class="font-display text-4xl font-bold text-steampunk-100 mb-6">Send Us a Message</h2>
+          <div class="decorative-line w-24 mb-8"></div>
+          
+          <form id="contact-form" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-steampunk-200 text-sm font-display uppercase tracking-wider mb-2">Name</label>
+                <input 
+                  type="text" 
+                  name="contactName" 
+                  required
+                  class="w-full bg-steampunk-800 border border-steampunk-600 text-steampunk-100 px-4 py-3 focus:outline-none focus:border-brass transition-colors"
+                  placeholder="Your Name"
+                >
+              </div>
+              <div>
+                <label class="block text-steampunk-200 text-sm font-display uppercase tracking-wider mb-2">Email</label>
+                <input 
+                  type="email" 
+                  name="contactEmail" 
+                  required
+                  class="w-full bg-steampunk-800 border border-steampunk-600 text-steampunk-100 px-4 py-3 focus:outline-none focus:border-brass transition-colors"
+                  placeholder="your@email.com"
+                >
+              </div>
+            </div>
+            
+            <div>
+              <label class="block text-steampunk-200 text-sm font-display uppercase tracking-wider mb-2">Subject</label>
+              <select 
+                name="subject" 
+                required
+                class="w-full bg-steampunk-800 border border-steampunk-600 text-steampunk-100 px-4 py-3 focus:outline-none focus:border-brass transition-colors"
+              >
+                <option value="">Select a Topic</option>
+                <option value="general">General Inquiry</option>
+                <option value="private">Private Events</option>
+                <option value="catering">Catering</option>
+                <option value="feedback">Feedback</option>
+                <option value="careers">Careers</option>
+              </select>
+            </div>
+            
+            <div>
+              <label class="block text-steampunk-200 text-sm font-display uppercase tracking-wider mb-2">Message</label>
+              <textarea 
+                name="message" 
+                rows="5" 
+                required
+                class="w-full bg-steampunk-800 border border-steampunk-600 text-steampunk-100 px-4 py-3 focus:outline-none focus:border-brass transition-colors"
+                placeholder="Tell us how we can help..."
+              ></textarea>
+            </div>
+            
+            <button type="submit" class="btn-primary rounded-sm text-lg px-8 py-4">
+              <i class="fas fa-paper-plane mr-2"></i>Send Message
+            </button>
+          </form>
+        </div>
+        
+        <!-- Map & Info -->
+        <div>
+          <div class="glass border border-steampunk-700 p-6 mb-8">
+            <h3 class="font-display text-xl text-steampunk-100 mb-4">Visit Our Establishment</h3>
+            <p class="text-steampunk-300 mb-4">
+              Located in the heart of Mason, Ohio, S.W. Clyborne Co. is easily accessible with ample parking available.
+            </p>
+            <div class="aspect-video bg-steampunk-800 rounded overflow-hidden">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49232.47805483417!2d-84.3767!3d39.3601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8840574b6b5f6b65%3A0x9f3c5c8a8b8b8b8b!2sMason%2C%20OH!5e0!3m2!1sen!2sus!4v1234567890"
+                width="100%" 
+                height="100%" 
+                style="border:0; filter: grayscale(100%) invert(92%) contrast(83%);" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="S.W. Clyborne Location Map"
+              ></iframe>
+            </div>
+          </div>
+          
+          <!-- Social Links -->
+          <div class="glass border border-steampunk-700 p-6">
+            <h3 class="font-display text-xl text-steampunk-100 mb-4">Follow Our Journey</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="w-12 h-12 bg-brass/20 rounded-full flex items-center justify-center hover:bg-brass hover:text-steampunk-900 transition-all duration-300">
+                <i class="fab fa-facebook-f text-brass hover:text-steampunk-900"></i>
+              </a>
+              <a href="#" class="w-12 h-12 bg-brass/20 rounded-full flex items-center justify-center hover:bg-brass hover:text-steampunk-900 transition-all duration-300">
+                <i class="fab fa-instagram text-brass hover:text-steampunk-900"></i>
+              </a>
+              <a href="#" class="w-12 h-12 bg-brass/20 rounded-full flex items-center justify-center hover:bg-brass hover:text-steampunk-900 transition-all duration-300">
+                <i class="fab fa-twitter text-brass hover:text-steampunk-900"></i>
+              </a>
+              <a href="#" class="w-12 h-12 bg-brass/20 rounded-full flex items-center justify-center hover:bg-brass hover:text-steampunk-900 transition-all duration-300">
+                <i class="fab fa-yelp text-brass hover:text-steampunk-900"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="bg-steampunk-900 border-t border-steampunk-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid md:grid-cols-4 gap-8 mb-12">
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="relative w-12 h-12">
+              <svg class="w-full h-full text-brass gear-spin" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="50" cy="50" r="15" fill="currentColor" fill-opacity="0.2"/>
+                <circle cx="50" cy="50" r="35"/>
+                <path d="M50 10 L50 0 M50 90 L50 100 M10 50 L0 50 M90 50 L100 50" stroke-width="3"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-xl font-display font-bold text-brass-light">S.W. CLYBORNE</span>
+              <span class="block text-xs text-steampunk-300 tracking-widest uppercase">Provision & Spirits</span>
+            </div>
+          </div>
+          <p class="text-steampunk-400 max-w-md mb-6">
+            A Victorian steampunk gastropub experience in the heart of Mason, Ohio. Where culinary artistry meets industrial innovation.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 bg-steampunk-800 rounded-full flex items-center justify-center hover:bg-brass hover:text-steampunk-900 transition-all">
+              <i class="fab fa-facebook-f text-steampunk-300"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-steampunk-800 rounded-full flex items-center justify-center hover:bg-brass hover:text-steampunk-900 transition-all">
+              <i class="fab fa-instagram text-steampunk-300"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-steampunk-800 rounded-full flex items-center justify-center hover:bg-brass hover:text-steampunk-900 transition-all">
+              <i class="fab fa-twitter text-steampunk-300"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-display text-steampunk-100 font-semibold mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#about" class="text-steampunk-400 hover:text-brass transition-colors text-sm">Our Story</a></li>
+            <li><a href="#menu" class="text-steampunk-400 hover:text-brass transition-colors text-sm">Menu</a></li>
+            <li><a href="#reservations" class="text-steampunk-400 hover:text-brass transition-colors text-sm">Reservations</a></li>
+            <li><a href="#contact" class="text-steampunk-400 hover:text-brass transition-colors text-sm">Contact</a></li>
+            <li><a href="#" class="text-steampunk-400 hover:text-brass transition-colors text-sm" onclick="showComingSoon()">Gift Cards</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div>
+          <h4 class="font-display text-steampunk-100 font-semibold mb-4 uppercase tracking-wider text-sm">Contact</h4>
+          <ul class="space-y-2 text-steampunk-400 text-sm">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-2 text-brass"></i>
+              123 Main Street<br>Mason, OH 45040
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone-alt mr-2 text-brass"></i>
+              <a href="tel:+15135550123" class="hover:text-brass transition-colors">(513) 555-0123</a>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-2 text-brass"></i>
+              <a href="mailto:info@swclyborne.com" class="hover:text-brass transition-colors">info@swclyborne.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Bottom Bar -->
+      <div class="border-t border-steampunk-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-steampunk-500 text-sm mb-4 md:mb-0">
+          © 2024 S.W. Clyborne Co. Provision & Spirits. All rights reserved.
+        </p>
+        <div class="flex space-x-6 text-sm">
+          <a href="#" class="text-steampunk-500 hover:text-brass transition-colors" onclick="showComingSoon()">Privacy Policy</a>
+          <a href="#" class="text-steampunk-500 hover:text-brass transition-colors" onclick="showComingSoon()">Terms of Service</a>
+          <a href="#" class="text-steampunk-500 hover:text-brass transition-colors" onclick="showComingSoon()">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Floating CTA Button -->
+  <div class="fixed bottom-6 right-6 z-40 hidden md:block">
+    <a href="#reservations" class="btn-primary rounded-full shadow-lg flex items-center space-x-2 px-6 py-3">
+      <i class="fas fa-calendar-alt"></i>
+      <span class="font-display text-sm">Book Now</span>
+    </a>
+  </div>
+  
+  <!-- Coming Soon Modal -->
+  <div id="coming-soon-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-steampunk-900/90 backdrop-blur-sm">
+    <div class="glass border-2 border-brass p-8 max-w-md mx-4 text-center victorian-border relative">
+      <button onclick="closeComingSoon()" class="absolute top-4 right-4 text-steampunk-400 hover:text-brass">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+      <div class="w-20 h-20 mx-auto bg-brass/20 rounded-full flex items-center justify-center mb-6 gear-spin">
+        <i class="fas fa-cog text-brass text-3xl"></i>
+      </div>
+      <h3 class="font-display text-2xl text-steampunk-100 mb-4">Coming Soon</h3>
+      <p class="text-steampunk-400 mb-6">This feature is currently under construction. Please check back soon!</p>
+      <button onclick="closeComingSoon()" class="btn-secondary rounded-sm">Close</button>
+    </div>
+  </div>
+  
+  <!-- JavaScript -->
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-lg');
+      } else {
+        navbar.classList.remove('shadow-lg');
+      }
+    });
+    
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+    });
+    
+    closeMobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+    
+    // Close mobile menu when clicking on links
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+    
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Coming soon modal
+    function showComingSoon() {
+      const modal = document.getElementById('coming-soon-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+    
+    function closeComingSoon() {
+      const modal = document.getElementById('coming-soon-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+    
+    // Close modal on outside click
+    document.getElementById('coming-soon-modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeComingSoon();
+      }
+    });
+    
+    // Form submissions
+    document.getElementById('reservation-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+      
+      // Show success message
+      alert('Thank you for your reservation request! We will contact you within 24 hours to confirm your booking.');
+      
+      // Reset form
+      this.reset();
+    });
+    
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+      
+      // Show success message
+      alert('Thank you for your message! We will get back to you as soon as possible.');
+      
+      // Reset form
+      this.reset();
+    });
+    
+    // Testimonials data
+    const testimonials = [
+      {
+        quote: "An absolutely unforgettable dining experience. The attention to detail in both the atmosphere and the cuisine is remarkable. S.W. Clyborne has set a new standard for gastropubs in Ohio.",
+        name: "Sarah Mitchell",
+        title: "Food Critic, Cincinnati Enquirer",
+        rating: 5
+      },
+      {
+        quote: "The Victorian steampunk ambiance is mesmerizing, but it's the food that truly steals the show. Every dish is a masterpiece. The Brass & Bone Ribeye is simply perfection.",
+        name: "James Thornton",
+        title: "Local Food Blogger",
+        rating: 5
+      },
+      {
+        quote: "We celebrated our anniversary here and it couldn't have been more perfect. The staff made us feel special, and the cocktails are absolutely inventive and delicious.",
+        name: "Emily & Michael Chen",
+        title: "Regular Guests",
+        rating: 5
+      }
+    ];
+    
+    let currentTestimonial = 0;
+    
+    // Testimonial navigation
+    function updateTestimonial(index) {
+      const container = document.getElementById('testimonial-container');
+      const testimonial = testimonials[index];
+      
+      container.innerHTML = `
+        <p class="font-heading text-xl md:text-2xl text-steampunk-200 italic mb-8 leading-relaxed">
+          "${testimonial.quote}"
+        </p>
+        
+        <div class="flex items-center justify-center space-x-4">
+          <div class="w-16 h-16 bg-brass/20 rounded-full flex items-center justify-center">
+            <i class="fas fa-user text-brass text-2xl"></i>
+          </div>
+          <div class="text-left">
+            <p class="font-display text-steampunk-100 font-semibold">${testimonial.name}</p>
+            <p class="text-steampunk-400 text-sm">${testimonial.title}</p>
+            <div class="flex text-brass mt-1">
+              ${Array(testimonial.rating).fill('<i class="fas fa-star"></i>').join('')}
+            </div>
+          </div>
+        </div>
+      `;
+      
+      // Update dots
+      document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.add('bg-brass');
+          dot.classList.remove('bg-steampunk-600');
+        } else {
+          dot.classList.remove('bg-brass');
+          dot.classList.add('bg-steampunk-600');
+        }
+      });
+    }
+    
+    // Testimonial dot click handlers
+    document.querySelectorAll('.testimonial-dot').forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentTestimonial = index;
+        updateTestimonial(index);
+      });
+    });
+    
+    // Auto-rotate testimonials
+    setInterval(() => {
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      updateTestimonial(currentTestimonial);
+    }, 6000);
+    
+    // Set minimum date for reservation to today
+    const today = new Date().toISOString().split('T')[0];
+    document.querySelector('input[name="date"]').setAttribute('min', today);
+  </script>
+</body>
+</html>
