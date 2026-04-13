@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circle Restaurant | Family Style Dining at Its Best | Deerfield, OH</title>
+  <meta name="description" content="Circle Restaurant in Deerfield, OH - Family style dining with giant pancakes, all-day breakfast, homemade pies & classic American comfort food. Open 7 days.">
+  <meta name="keywords" content="Circle Restaurant, Deerfield Ohio, breakfast, family dining, pancakes, comfort food">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'americana-red': '#C41E3A',
+            'americana-dark-red': '#8B0000',
+            'americana-blue': '#1E3A5F',
+            'americana-cream': '#FFF8E7',
+            'americana-gold': '#D4AF37',
+            'warm-brown': '#8B4513',
+          },
+          fontFamily: {
+            'display': ['Playfair Display', 'serif'],
+            'body': ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    .hero-pattern {
+      background-image: 
+        linear-gradient(135deg, rgba(196, 30, 58, 0.1) 25%, transparent 25%),
+        linear-gradient(225deg, rgba(196, 30, 58, 0.1) 25%, transparent 25%),
+        linear-gradient(45deg, rgba(196, 30, 58, 0.1) 25%, transparent 25%),
+        linear-gradient(315deg, rgba(196, 30, 58, 0.1) 25%, transparent 25%);
+      background-size: 60px 60px;
+      background-position: 0 0, 30px 0, 30px -30px, 0px 30px;
+    }
+    
+    .gold-border {
+      border: 3px solid #D4AF37;
+    }
+    
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .star-rating {
+      color: #FFD700;
+    }
+    
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    
+    .scroll-reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(196, 30, 58, 0.4);
+    }
+    
+    .floating-cta {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .ken-burns {
+      animation: kenBurns 20s ease-in-out infinite alternate;
+    }
+    
+    @keyframes kenBurns {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
+    }
+  </style>
+</head>
+<body class="font-body antialiased bg-americana-cream">
+  
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-lg z-50 transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <div class="w-12 h-12 bg-americana-red rounded-full flex items-center justify-center">
+            <i class="fas fa-circle-notch text-white text-2xl"></i>
+          </div>
+          <div>
+            <h1 class="font-display text-2xl font-bold text-americana-blue">Circle</h1>
+            <p class="text-xs text-americana-red font-semibold tracking-wider">RESTAURANT</p>
+          </div>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#home" class="text-gray-700 hover:text-americana-red font-medium transition">Home</a>
+          <a href="#about" class="text-gray-700 hover:text-americana-red font-medium transition">About</a>
+          <a href="#menu" class="text-gray-700 hover:text-americana-red font-medium transition">Menu</a>
+          <a href="#reviews" class="text-gray-700 hover:text-americana-red font-medium transition">Reviews</a>
+          <a href="#contact" class="text-gray-700 hover:text-americana-red font-medium transition">Contact</a>
+          <a href="tel:3305841963" class="btn-primary text-white px-6 py-3 rounded-full font-semibold flex items-center space-x-2">
+            <i class="fas fa-phone"></i>
+            <span>Call Now</span>
+          </a>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden text-americana-blue" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+      <div class="px-4 py-4 space-y-3">
+        <a href="#home" class="block text-gray-700 hover:text-americana-red font-medium py-2">Home</a>
+        <a href="#about" class="block text-gray-700 hover:text-americana-red font-medium py-2">About</a>
+        <a href="#menu" class="block text-gray-700 hover:text-americana-red font-medium py-2">Menu</a>
+        <a href="#reviews" class="block text-gray-700 hover:text-americana-red font-medium py-2">Reviews</a>
+        <a href="#contact" class="block text-gray-700 hover:text-americana-red font-medium py-2">Contact</a>
+        <a href="tel:3305841963" class="block btn-primary text-white px-6 py-3 rounded-full font-semibold text-center mt-4">
+          <i class="fas fa-phone mr-2"></i> (330) 584-1963
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="https://s3-media0.fl.yelpcdn.com/bphoto/UhHqH3Qv4mH4x0-KBqfKvw/o.jpg" 
+        alt="Circle Restaurant Interior" 
+        class="w-full h-full object-cover ken-burns"
+      >
+      <div class="absolute inset-0 bg-gradient-to-b from-americana-blue/80 via-americana-blue/60 to-americana-red/40"></div>
+    </div>
+    
+    <!-- Decorative Pattern -->
+    <div class="absolute inset-0 hero-pattern opacity-30 z-0"></div>
+    
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+        <i class="fas fa-star text-yellow-400"></i>
+        <span class="text-white font-semibold">4.3 ★★★★★ (2,396 Reviews)</span>
+        <span class="text-white/80">|</span>
+        <span class="text-white font-medium">6,700+ Facebook Followers</span>
+      </div>
+      
+      <!-- Main Headline -->
+      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 text-shadow leading-tight">
+        Family Style Dining<br>
+        <span class="text-americana-gold">At Its Best</span>
+      </h1>
+      
+      <!-- Subheadline -->
+      <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto font-light">
+        Deerfield's favorite spot for giant pancakes, all-day breakfast & homemade comfort food since 1963
+      </p>
+      
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+        <a href="tel:3305841963" class="btn-primary text-white px-8 py-4 rounded-full font-bold text-lg flex items-center space-x-3 shadow-2xl">
+          <i class="fas fa-phone-alt"></i>
+          <span>Call (330) 584-1963</span>
+        </a>
+        <a href="#menu" class="bg-white text-americana-red px-8 py-4 rounded-full font-bold text-lg flex items-center space-x-3 hover:bg-americana-cream transition shadow-2xl">
+          <i class="fas fa-utensils"></i>
+          <span>View Our Menu</span>
+        </a>
+      </div>
+      
+      <!-- Trust Indicators -->
+      <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+          <i class="fas fa-clock text-americana-gold text-3xl mb-2"></i>
+          <p class="text-white font-semibold">All-Day Breakfast</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+          <i class="fas fa-utensils text-americana-gold text-3xl mb-2"></i>
+          <p class="text-white font-semibold">Family Style</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+          <i class="fas fa-pie-chart text-americana-gold text-3xl mb-2"></i>
+          <p class="text-white font-semibold">Homemade Pies</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+          <i class="fas fa-heart text-americana-gold text-3xl mb-2"></i>
+          <p class="text-white font-semibold">Local Favorite</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <i class="fas fa-chevron-down text-white text-2xl"></i>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 md:py-32 bg-white scroll-reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Image Side -->
+        <div class="relative">
+          <div class="absolute -top-4 -left-4 w-full h-full bg-americana-red/20 rounded-2xl"></div>
+          <div class="relative gold-border rounded-2xl overflow-hidden">
+            <img 
+              src="https://s3-media0.fl.yelpcdn.com/bphoto/3Kd3rj-PBqO2aX7ZtMh3oQ/o.jpg" 
+              alt="Delicious breakfast at Circle Restaurant" 
+              class="w-full h-96 object-cover"
+            >
+          </div>
+          <!-- Floating Badge -->
+          <div class="absolute -bottom-6 -right-6 bg-americana-blue text-white px-6 py-4 rounded-lg shadow-xl">
+            <p class="text-3xl font-bold font-display">60+</p>
+            <p class="text-sm">Years of Service</p>
+          </div>
+        </div>
+        
+        <!-- Content Side -->
+        <div>
+          <div class="inline-block bg-americana-red/10 px-4 py-2 rounded-full mb-4">
+            <span class="text-americana-red font-semibold text-sm tracking-wider uppercase">About Us</span>
+          </div>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-americana-blue mb-6">
+            A Deerfield Tradition Since 1963
+          </h2>
+          <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+            Nestled at the heart of Deerfield on Route 14, Circle Restaurant has been serving up hearty, homestyle meals that bring families together. We're known throughout Northeast Ohio for our massive pancakes that hang over the plate, our famous "He Man" breakfast, and our commitment to good old-fashioned American comfort food.
+          </p>
+          <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+            Whether you're starting your day with our all-day breakfast, enjoying a leisurely lunch with friends, or bringing the family for dinner, you'll find the same warm welcome and generous portions that have made us a local institution for over six decades.
+          </p>
+          
+          <!-- Features -->
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-americana-gold/20 rounded-full flex items-center justify-center">
+                <i class="fas fa-check text-americana-gold"></i>
+              </div>
+              <span class="text-gray-700 font-medium">All-Day Breakfast</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-americana-gold/20 rounded-full flex items-center justify-center">
+                <i class="fas fa-check text-americana-gold"></i>
+              </div>
+              <span class="text-gray-700 font-medium">Family Style Dining</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-americana-gold/20 rounded-full flex items-center justify-center">
+                <i class="fas fa-check text-americana-gold"></i>
+              </div>
+              <span class="text-gray-700 font-medium">Homemade Pies Daily</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 bg-americana-gold/20 rounded-full flex items-center justify-center">
+                <i class="fas fa-check text-americana-gold"></i>
+              </div>
+              <span class="text-gray-700 font-medium">Daily Specials</span>
+            </div>
+          </div>
+          
+          <a href="#menu" class="inline-flex items-center space-x-2 text-americana-red font-bold hover:underline">
+            <span>Explore Our Menu</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-16 bg-americana-blue scroll-reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-4xl md:text-5xl font-bold text-americana-gold font-display mb-2">6,700+</p>
+          <p class="text-white/80">Facebook Followers</p>
+        </div>
+        <div>
+          <p class="text-4xl md:text-5xl font-bold text-americana-gold font-display mb-2">2,396</p>
+          <p class="text-white/80">Reviews</p>
+        </div>
+        <div>
+          <p class="text-4xl md:text-5xl font-bold text-americana-gold font-display mb-2">4.3★</p>
+          <p class="text-white/80">Average Rating</p>
+        </div>
+        <div>
+          <p class="text-4xl md:text-5xl font-bold text-americana-gold font-display mb-2">60+</p>
+          <p class="text-white/80">Years Serving Ohio</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="py-20 md:py-32 bg-americana-cream scroll-reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <div class="inline-block bg-americana-red/10 px-4 py-2 rounded-full mb-4">
+          <span class="text-americana-red font-semibold text-sm tracking-wider uppercase">Our Menu</span>
+        </div>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-americana-blue mb-4">
+          Classic American Comfort Food
+        </h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          From our famous giant pancakes to hearty dinner plates, everything is made with love and served with a smile
+        </p>
+      </div>
+      
+      <!-- Menu Tabs -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <button onclick="showMenu('breakfast')" class="menu-tab active px-6 py-3 rounded-full font-semibold transition-all bg-americana-red text-white" data-tab="breakfast">
+          <i class="fas fa-coffee mr-2"></i>Breakfast
+        </button>
+        <button onclick="showMenu('lunch')" class="menu-tab px-6 py-3 rounded-full font-semibold transition-all bg-white text-gray-700 hover:bg-americana-red/10" data-tab="lunch">
+          <i class="fas fa-hamburger mr-2"></i>Lunch
+        </button>
+        <button onclick="showMenu('dinner')" class="menu-tab px-6 py-3 rounded-full font-semibold transition-all bg-white text-gray-700 hover:bg-americana-red/10" data-tab="dinner">
+          <i class="fas fa-drumstick-bite mr-2"></i>Dinner
+        </button>
+      </div>
+      
+      <!-- Breakfast Menu -->
+      <div id="menu-breakfast" class="menu-content grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-red/20 to-americana-gold/20 flex items-center justify-center">
+            <i class="fas fa-egg text-6xl text-americana-red/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">The "He Man" Breakfast</h3>
+              <span class="text-americana-red font-bold text-lg">$9.85</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Three eggs, two pieces of bacon, two sausage links, home fries and toast. Our most popular breakfast!</p>
+            <div class="flex items-center text-sm text-americana-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span class="text-gray-500 ml-2">Customer Favorite</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-red/20 to-americana-gold/20 flex items-center justify-center">
+            <i class="fas fa-bacon text-6xl text-americana-red/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Farmer's Breakfast</h3>
+              <span class="text-americana-red font-bold text-lg">$9.65</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Fried potatoes mixed with onions, green peppers, sausage, and eggs. A hearty start to your day.</p>
+            <div class="flex items-center text-sm text-americana-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="text-gray-500 ml-2">Highly Rated</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-red/20 to-americana-gold/20 flex items-center justify-center">
+            <i class="fas fa-circle text-6xl text-americana-red/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Circle Hash</h3>
+              <span class="text-americana-red font-bold text-lg">$8.20</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Corned beef hash with onions, peppers, and eggs. Our signature hash that started it all.</p>
+            <div class="flex items-center text-sm text-americana-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span class="text-gray-500 ml-2">Signature Dish</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-red/20 to-americana-gold/20 flex items-center justify-center">
+            <i class="fas fa-bread-slice text-6xl text-americana-red/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Giant Pancakes</h3>
+              <span class="text-americana-red font-bold text-lg">$7.20</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Two eggs and one pancake. Our pancakes are famous for hanging over the plate! Add blueberries or chocolate chips.</p>
+            <div class="flex items-center text-sm text-americana-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span class="text-gray-500 ml-2">Must Try!</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-red/20 to-americana-gold/20 flex items-center justify-center">
+            <i class="fas fa-cookie text-6xl text-americana-red/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Biscuits & Gravy</h3>
+              <span class="text-americana-red font-bold text-lg">$6.95</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Homemade gravy featuring DiRusso's sausage. A Ohio favorite that's pure comfort in every bite.</p>
+            <div class="flex items-center text-sm text-americana-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span class="text-gray-500 ml-2">Local Favorite</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-red/20 to-americana-gold/20 flex items-center justify-center">
+            <i class="fas fa-pepper-hot text-6xl text-americana-red/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Omelets</h3>
+              <span class="text-americana-red font-bold text-lg">$8.50+</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Packed with ingredients! Choose from cheese, ham, bacon, sausage, peppers, onions, tomatoes, and more.</p>
+            <div class="flex items-center text-sm text-americana-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="text-gray-500 ml-2">Build Your Own</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Lunch Menu -->
+      <div id="menu-lunch" class="menu-content hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-blue/20 to-americana-gold/20 flex items-center justify-center">
+            <i class="fas fa-drumstick-bite text-6xl text-americana-blue/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Slow Roasted Turkey</h3>
+              <span class="text-americana-red font-bold text-lg">$12.95</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Tender turkey, mashed potatoes, stuffing, cranberry sauce, and gravy. Just like Thanksgiving!</p>
+          </div>
+        </div>
+        
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-blue/20 to-americana-gold/20 flex items-center justify-center">
+            <i class="fas fa-cheeseburger text-6xl text-americana-blue/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Philly Steak Sandwich</h3>
+              <span class="text-americana-red font-bold text-lg">$11.50</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Thinly sliced steak with grilled onions, peppers, and melted cheese on a toasted hoagie roll.</p>
+          </div>
+        </div>
+        
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-blue/20 to-americana-gold/20 flex items-center justify-center">
+            <i class="fas fa-leaf text-6xl text-americana-blue/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Philly Steak Salad</h3>
+              <span class="text-americana-red font-bold text-lg">$11.95</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Fresh greens topped with Philly steak, tomatoes, onions, peppers, and your choice of dressing.</p>
+          </div>
+        </div>
+        
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-blue/20 to-americana-gold/20 flex items-center justify-center">
+            <i class="fas fa-hamburger text-6xl text-americana-blue/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Homemade Meatloaf</h3>
+              <span class="text-americana-red font-bold text-lg">$11.95</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Our secret recipe meatloaf with mashed potatoes, gravy, and vegetables.</p>
+          </div>
+        </div>
+        
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-blue/20 to-americana-gold/20 flex items-center justify-center">
+            <i class="fas fa-bread-slice text-6xl text-americana-blue/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Club Sandwich</h3>
+              <span class="text-americana-red font-bold text-lg">$10.95</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Triple decker with turkey, ham, bacon, lettuce, tomato, and mayo on toasted bread.</p>
+          </div>
+        </div>
+        
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-blue/20 to-americana-gold/20 flex items-center justify-center">
+            <i class="fas fa-bowl-food text-6xl text-americana-blue/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Soup & Sandwich Combo</h3>
+              <span class="text-americana-red font-bold text-lg">$9.95</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Cup of homemade soup with your choice of half sandwich. Perfect lighter lunch option.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Dinner Menu -->
+      <div id="menu-dinner" class="menu-content hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-red/20 to-americana-blue/20 flex items-center justify-center">
+            <i class="fas fa-drumstick-bite text-6xl text-americana-red/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Chicken Parmesan</h3>
+              <span class="text-americana-red font-bold text-lg">$14.95</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Breaded chicken breast topped with marinara and melted cheese, served with spaghetti.</p>
+            <div class="flex items-center text-sm text-americana-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span class="text-gray-500 ml-2">Customer Favorite</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-red/20 to-americana-blue/20 flex items-center justify-center">
+            <i class="fas fa-cow text-6xl text-americana-red/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Roast Beef Dinner</h3>
+              <span class="text-americana-red font-bold text-lg">$15.95</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Slow-roasted beef with mashed potatoes, gravy, and vegetables. Tender and flavorful.</p>
+            <div class="flex items-center text-sm text-americana-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="text-gray-500 ml-2">Popular Choice</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-red/20 to-americana-blue/20 flex items-center justify-center">
+            <i class="fas fa-fish text-6xl text-americana-red/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Fried Fish Platter</h3>
+              <span class="text-americana-red font-bold text-lg">$13.95</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Beer-battered fish with fries, coleslaw, and tartar sauce. Friday night favorite!</p>
+          </div>
+        </div>
+        
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-red/20 to-americana-blue/20 flex items-center justify-center">
+            <i class="fas fa-bacon text-6xl text-americana-red/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Pork Chops</h3>
+              <span class="text-americana-red font-bold text-lg">$14.50</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Two center-cut pork chops grilled or fried, with applesauce, potatoes, and vegetables.</p>
+          </div>
+        </div>
+        
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-red/20 to-americana-blue/20 flex items-center justify-center">
+            <i class="fas fa-utensils text-6xl text-americana-red/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Combo Platter</h3>
+              <span class="text-americana-red font-bold text-lg">$10.85</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Appetizer sampler featuring cheese sticks, chicken fingers, and mozzarella sticks. Great for sharing!</p>
+          </div>
+        </div>
+        
+        <div class="menu-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="h-48 bg-gradient-to-br from-americana-red/20 to-americana-blue/20 flex items-center justify-center">
+            <i class="fas fa-pie-chart text-6xl text-americana-red/40"></i>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-americana-blue">Homemade Pie</h3>
+              <span class="text-americana-red font-bold text-lg">$4.95</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Daily selection of fresh-baked pies. Apple, cherry, blueberry, coconut cream, and more!</p>
+            <div class="flex items-center text-sm text-americana-gold">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span class="text-gray-500 ml-2">Save Room!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <p class="text-gray-500 mb-4">* Prices subject to change. Daily specials available!</p>
+        <a href="tel:3305841963" class="inline-flex items-center space-x-2 btn-primary text-white px-8 py-4 rounded-full font-bold text-lg">
+          <i class="fas fa-phone"></i>
+          <span>Call for Daily Specials</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews" class="py-20 md:py-32 bg-white scroll-reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <div class="inline-block bg-americana-gold/20 px-4 py-2 rounded-full mb-4">
+          <span class="text-warm-brown font-semibold text-sm tracking-wider uppercase">What People Say</span>
+        </div>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-americana-blue mb-4">
+          Loved by Locals & Travelers Alike
+        </h2>
+        <div class="flex items-center justify-center space-x-4 mb-4">
+          <div class="flex text-americana-gold text-2xl">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <span class="text-2xl font-bold text-americana-blue">4.3</span>
+          <span class="text-gray-600">out of 5</span>
+        </div>
+        <p class="text-gray-600">Based on 2,396 reviews • 86% recommend us</p>
+      </div>
+      
+      <!-- Review Cards -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-americana-cream rounded-xl p-8 shadow-lg">
+          <div class="flex text-americana-gold mb-4">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-700 mb-6 italic">"Pancakes cover the entire plate! Great service, sizeable portions, good coffee. Omelets are packed with ingredients. ALL good, basic rib-stickin good food!"</p>
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-americana-red rounded-full flex items-center justify-center text-white font-bold">JD</div>
+            <div>
+              <p class="font-semibold text-americana-blue">John D.</p>
+              <p class="text-sm text-gray-500">Local Guide • 12 reviews</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-americana-cream rounded-xl p-8 shadow-lg">
+          <div class="flex text-americana-gold mb-4">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-700 mb-6 italic">"Had an excellent breakfast, portions were generous. Sausage gravy and service were excellent too. I love riding my motorcycle out here early in the day. Circle is a must-stop!"</p>
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-americana-blue rounded-full flex items-center justify-center text-white font-bold">MR</div>
+            <div>
+              <p class="font-semibold text-americana-blue">Mike R.</p>
+              <p class="text-sm text-gray-500">Yelp Reviewer</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-americana-cream rounded-xl p-8 shadow-lg">
+          <div class="flex text-americana-gold mb-4">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p class="text-gray-700 mb-6 italic">"We were seated quickly. The service was excellent and the chicken parmesan was incredible. My wife had the slow roasted turkey and she loved it. Will definitely be back!"</p>
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-americana-gold rounded-full flex items-center justify-center text-white font-bold">S</div>
+            <div>
+              <p class="font-semibold text-americana-blue">Sarah M.</p>
+              <p class="text-sm text-gray-500">TripAdvisor</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Review Platforms -->
+      <div class="mt-12 flex flex-wrap justify-center gap-8">
+        <a href="https://www.facebook.com/CircleDRestaurant" target="_blank" class="flex items-center space-x-3 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">
+          <i class="fab fa-facebook-f text-xl"></i>
+          <span>6,700+ Followers</span>
+        </a>
+        <a href="https://www.yelp.com/biz/circle-restaurant-deerfield-3" target="_blank" class="flex items-center space-x-3 bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition">
+          <i class="fab fa-yelp text-xl"></i>
+          <span>Read Yelp Reviews</span>
+        </a>
+        <a href="https://www.tripadvisor.com/Restaurant_Review-g50339-d433332-Reviews-Circle_Restaurant-Deerfield_Ohio.html" target="_blank" class="flex items-center space-x-3 bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition">
+          <i class="fab fa-tripadvisor text-xl"></i>
+          <span>TripAdvisor</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Location Section -->
+  <section id="contact" class="py-20 md:py-32 bg-americana-blue scroll-reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Contact Info -->
+        <div>
+          <div class="inline-block bg-americana-gold/20 px-4 py-2 rounded-full mb-4">
+            <span class="text-americana-gold font-semibold text-sm tracking-wider uppercase">Visit Us</span>
+          </div>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+            Come Hungry, Leave Happy
+          </h2>
+          <p class="text-white/80 text-lg mb-8">
+            Located right on Route 14 in Deerfield, we're easy to find and even easier to love. Whether you're a local or just passing through, we'd love to serve you!
+          </p>
+          
+          <!-- Contact Details -->
+          <div class="space-y-6 mb-8">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-americana-red rounded-full flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-map-marker-alt text-white text-xl"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-lg mb-1">Address</h4>
+                <p class="text-white/80">1290 OH-14, Deerfield, OH 44411</p>
+                <p class="text-americana-gold text-sm mt-1">On the traffic circle on Route 14</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-americana-red rounded-full flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-phone text-white text-xl"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-lg mb-1">Phone</h4>
+                <a href="tel:3305841963" class="text-americana-gold text-xl font-bold hover:underline">(330) 584-1963</a>
+                <p class="text-white/80 text-sm mt-1">Call for reservations & daily specials!</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-americana-red rounded-full flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-clock text-white text-xl"></i>
+              </div>
+              <div>
+                <h4 class="text-white font-bold text-lg mb-1">Hours</h4>
+                <div class="text-white/80 space-y-1">
+                  <p><span class="text-white font-semibold">Monday:</span> 7:00 AM - 8:00 PM</p>
+                  <p><span class="text-white font-semibold">Tuesday:</span> 7:00 AM - 2:00 PM</p>
+                  <p><span class="text-white font-semibold">Wednesday:</span> 7:00 AM - 8:00 PM</p>
+                  <p><span class="text-white font-semibold">Thursday:</span> 7:00 AM - 8:00 PM</p>
+                  <p><span class="text-white font-semibold">Friday:</span> 7:00 AM - 8:00 PM</p>
+                  <p><span class="text-white font-semibold">Saturday:</span> 6:00 AM - 8:00 PM</p>
+                  <p><span class="text-white font-semibold">Sunday:</span> 6:00 AM - 8:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Social Links -->
+          <div class="flex space-x-4">
+            <a href="https://www.facebook.com/CircleDRestaurant" target="_blank" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition transform hover:scale-110">
+              <i class="fab fa-facebook-f text-xl"></i>
+            </a>
+            <a href="tel:3305841963" class="w-12 h-12 bg-americana-red rounded-full flex items-center justify-center text-white hover:bg-americana-dark-red transition transform hover:scale-110">
+              <i class="fas fa-phone text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Map Placeholder -->
+        <div class="relative">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-2xl h-full min-h-[400px]">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.858558532318!2d-81.0523!3d41.0244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8831d5a7a5f5f5f5%3A0x5f5f5f5f5f5f5f5f!2s1290%20OH-14%2C%20Deerfield%2C%20OH%2044411!5e0!3m2!1sen!2sus!4v1234567890"
+              width="100%" 
+              height="100%" 
+              style="border:0; min-height: 400px;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              class="w-full h-full"
+            ></iframe>
+          </div>
+          <!-- Floating Card -->
+          <div class="absolute -bottom-6 -left-6 bg-americana-red text-white px-6 py-4 rounded-lg shadow-xl hidden md:block">
+            <p class="font-bold text-lg">Find Us on Rt. 14</p>
+            <p class="text-sm text-white/80">Right on the Circle!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <!-- Logo & About -->
+        <div class="md:col-span-2">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="w-10 h-10 bg-americana-red rounded-full flex items-center justify-center">
+              <i class="fas fa-circle-notch text-white text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-display text-xl font-bold">Circle Restaurant</h3>
+              <p class="text-xs text-americana-gold">Family Style Dining at Its Best</p>
+            </div>
+          </div>
+          <p class="text-gray-400 mb-4 max-w-md">
+            Serving Deerfield and Northeast Ohio with hearty, homestyle meals since 1963. Famous for our giant pancakes, all-day breakfast, and welcoming atmosphere.
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://www.facebook.com/CircleDRestaurant" target="_blank" class="text-gray-400 hover:text-blue-500 transition">
+              <i class="fab fa-facebook-f text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#home" class="hover:text-americana-gold transition">Home</a></li>
+            <li><a href="#about" class="hover:text-americana-gold transition">About Us</a></li>
+            <li><a href="#menu" class="hover:text-americana-gold transition">Our Menu</a></li>
+            <li><a href="#reviews" class="hover:text-americana-gold transition">Reviews</a></li>
+            <li><a href="#contact" class="hover:text-americana-gold transition">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h4 class="font-bold text-lg mb-4">Contact</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li class="flex items-center space-x-2">
+              <i class="fas fa-map-marker-alt text-americana-red"></i>
+              <span>1290 OH-14, Deerfield, OH</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <i class="fas fa-phone text-americana-red"></i>
+              <a href="tel:3305841963" class="hover:text-white transition">(330) 584-1963</a>
+            </li>
+            <li class="flex items-center space-x-2">
+              <i class="fas fa-clock text-americana-red"></i>
+              <span>Open 7 Days</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 text-sm">
+          © 2026 Circle Restaurant. All rights reserved.
+        </p>
+        <p class="text-gray-500 text-sm mt-2 md:mt-0">
+          Family Style Dining at Its Best • Deerfield, Ohio
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating CTA Button -->
+  <a href="tel:3305841963" class="fixed bottom-6 right-6 z-50 btn-primary text-white px-6 py-4 rounded-full font-bold shadow-2xl floating-cta flex items-center space-x-2 md:hidden">
+    <i class="fas fa-phone"></i>
+    <span>Call Now</span>
+  </a>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+    
+    // Menu Tab Switching
+    function showMenu(menuType) {
+      // Hide all menu content
+      document.querySelectorAll('.menu-content').forEach(content => {
+        content.classList.add('hidden');
+      });
+      
+      // Show selected menu
+      document.getElementById('menu-' + menuType).classList.remove('hidden');
+      
+      // Update tab styles
+      document.querySelectorAll('.menu-tab').forEach(tab => {
+        tab.classList.remove('bg-americana-red', 'text-white');
+        tab.classList.add('bg-white', 'text-gray-700');
+      });
+      
+      // Set active tab
+      document.querySelector('[data-tab="' + menuType + '"]').classList.remove('bg-white', 'text-gray-700');
+      document.querySelector('[data-tab="' + menuType + '"]').classList.add('bg-americana-red', 'text-white');
+    }
+    
+    // Scroll Reveal Animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      observer.observe(el);
+    });
+    
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-xl');
+      } else {
+        navbar.classList.remove('shadow-xl');
+      }
+    });
+    
+    // Smooth Scroll for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // Close mobile menu if open
+          document.getElementById('mobile-menu').classList.add('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
