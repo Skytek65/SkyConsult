@@ -1,983 +1,838 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Trompo Mexican Grill | Authentic Mexican Cuisine in Mason, OH</title>
-  <meta name="description" content="El Trompo Mexican Grill serves authentic Mexican cuisine in Mason, OH. Fresh ingredients, traditional recipes, and a vibrant atmosphere. Dine-in, takeout, and catering available. (513) 204-7506">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'brand-red': '#B91C1C',
-            'brand-orange': '#F97316',
-            'brand-green': '#166534',
-            'brand-gold': '#EAB308',
-            'brand-dark': '#1C1917',
-            'brand-cream': '#FEF3C7',
-          },
-          fontFamily: {
-            'display': ['Playfair Display', 'serif'],
-            'sans': ['Inter', 'sans-serif'],
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Trompo Mexican Grill Mason | Authentic Mexican Cuisine</title>
+    <meta name="description" content="El Trompo Mexican Grill in Mason, OH serves authentic Mexican cuisine with fresh ingredients, traditional recipes, and bold flavors. Dine-in, takeout & delivery available. Call (513) 701-9000">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'trompo': {
+                            900: '#8B0000',
+                            800: '#A52A2A',
+                            700: '#C41E3A',
+                            600: '#DC143C',
+                            500: '#FF6B35',
+                            400: '#FF8C42',
+                            300: '#FFB347',
+                            100: '#FFF8DC',
+                            50: '#FFFAF0',
+                        },
+                        'sage': {
+                            900: '#2F4F4F',
+                            800: '#556B2F',
+                            700: '#6B8E23',
+                            600: '#808000',
+                            500: '#9ACD32',
+                        }
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
-  <style>
-    .gradient-mesh {
-      background: linear-gradient(135deg, #B91C1C 0%, #F97316 50%, #166534 100%);
-    }
-    .text-shadow {
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
-    .text-shadow-lg {
-      text-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    }
-    .hover-lift {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .hover-lift:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    }
-    .menu-card {
-      background: linear-gradient(135deg, #FEF3C7 0%, #ffffff 100%);
-    }
-    .pattern-bg {
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23eab308' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .clip-diagonal {
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-    .float-animation {
-      animation: float 6s ease-in-out infinite;
-    }
-    .scroll-indicator {
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-10px); }
-      60% { transform: translateY(-5px); }
-    }
-  </style>
+    </script>
+    <style>
+        .hero-pattern {
+            background-image: linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(165, 42, 42, 0.9) 50%, rgba(255, 107, 53, 0.85) 100%),
+            url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(139, 0, 0, 0.15);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #FF6B35 0%, #DC143C 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+        .btn-secondary {
+            border: 2px solid #FF6B35;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: #FF6B35;
+            color: white;
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .floating-cta {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .texture-bg {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+        }
+    </style>
 </head>
-<body class="font-sans antialiased bg-stone-50">
-  
-  <!-- Announcement Bar -->
-  <div class="bg-brand-red text-white py-2 px-4 text-center text-sm font-medium">
-    <span class="hidden sm:inline">🌮 Dine-in & Takeout Available • Open Daily 11AM-10PM</span>
-    <span class="sm:hidden">🌮 Open Daily 11AM-10PM</span>
-  </div>
-
-  <!-- Navigation -->
-  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-20">
-        <!-- Logo -->
-        <div class="flex-shrink-0 flex items-center">
-          <a href="#" class="flex items-center space-x-3">
-            <div class="w-12 h-12 bg-gradient-to-br from-brand-red to-brand-orange rounded-full flex items-center justify-center shadow-lg">
-              <i data-lucide="flame" class="w-6 h-6 text-white"></i>
-            </div>
-            <div>
-              <h1 class="font-display text-2xl font-bold text-brand-dark">El Trompo</h1>
-              <p class="text-xs text-brand-orange font-medium tracking-wider">MEXICAN GRILL</p>
-            </div>
-          </a>
-        </div>
-
-        <!-- Desktop Menu -->
-        <div class="hidden lg:flex items-center space-x-8">
-          <a href="#about" class="text-stone-600 hover:text-brand-red font-medium transition-colors">Our Story</a>
-          <a href="#menu" class="text-stone-600 hover:text-brand-red font-medium transition-colors">Menu</a>
-          <a href="#specialties" class="text-stone-600 hover:text-brand-red font-medium transition-colors">Specialties</a>
-          <a href="#location" class="text-stone-600 hover:text-brand-red font-medium transition-colors">Location</a>
-          <a href="tel:5132047506" class="flex items-center space-x-2 bg-brand-red text-white px-6 py-3 rounded-full font-semibold hover:bg-red-700 transition-all hover:scale-105 shadow-lg">
-            <i data-lucide="phone" class="w-4 h-4"></i>
-            <span>(513) 204-7506</span>
-          </a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md text-stone-600 hover:text-brand-red focus:outline-none">
-          <i data-lucide="menu" class="w-6 h-6"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="lg:hidden hidden bg-white border-t">
-      <div class="px-4 py-4 space-y-4">
-        <a href="#about" class="block text-stone-600 hover:text-brand-red font-medium py-2">Our Story</a>
-        <a href="#menu" class="block text-stone-600 hover:text-brand-red font-medium py-2">Menu</a>
-        <a href="#specialties" class="block text-stone-600 hover:text-brand-red font-medium py-2">Specialties</a>
-        <a href="#location" class="block text-stone-600 hover:text-brand-red font-medium py-2">Location</a>
-        <a href="tel:5132047506" class="flex items-center justify-center space-x-2 bg-brand-red text-white px-6 py-3 rounded-full font-semibold">
-          <i data-lucide="phone" class="w-4 h-4"></i>
-          <span>Call Now</span>
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-    <!-- Background -->
-    <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-gradient-to-br from-brand-red/90 via-brand-orange/80 to-brand-green/90"></div>
-      <div class="absolute inset-0 pattern-bg opacity-50"></div>
-    </div>
-
-    <!-- Floating Decorative Elements -->
-    <div class="absolute top-20 right-10 w-24 h-24 bg-brand-gold/20 rounded-full float-animation" style="animation-delay: 0s;"></div>
-    <div class="absolute bottom-40 left-20 w-16 h-16 bg-white/10 rounded-full float-animation" style="animation-delay: 2s;"></div>
-    <div class="absolute top-1/3 left-10 w-20 h-20 bg-brand-green/20 rounded-full float-animation" style="animation-delay: 4s;"></div>
-
-    <!-- Content -->
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-      <div class="reveal active">
-        <div class="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-white/30">
-          <i data-lucide="map-pin" class="w-4 h-4"></i>
-          <span>Mason, Ohio</span>
-          <span class="text-brand-gold">•</span>
-          <span>Authentic Mexican Cuisine</span>
-        </div>
-        
-        <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white text-shadow-lg mb-6 leading-tight">
-          Taste the Heart<br>of <span class="text-brand-gold">Mexico</span>
-        </h1>
-        
-        <p class="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
-          Where traditional recipes meet modern flavor. Fresh ingredients, hand-crafted salsas, and the warmest hospitality in Mason.
-        </p>
-
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-          <a href="tel:5132047506" class="w-full sm:w-auto flex items-center justify-center space-x-3 bg-white text-brand-red px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-cream transition-all hover:scale-105 shadow-2xl">
-            <i data-lucide="phone-call" class="w-5 h-5"></i>
-            <span>Call to Order</span>
-          </a>
-          <a href="#menu" class="w-full sm:w-auto flex items-center justify-center space-x-3 bg-brand-gold text-brand-dark px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-all hover:scale-105 shadow-2xl">
-            <i data-lucide="utensils" class="w-5 h-5"></i>
-            <span>View Menu</span>
-          </a>
-        </div>
-
-        <!-- Trust Bar -->
-        <div class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-            <div class="flex items-center justify-center space-x-1 mb-2">
-              <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-              <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-              <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-              <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-              <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-            </div>
-            <p class="text-white/90 text-sm">Authentic Mexican Flavors</p>
-          </div>
-          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-            <div class="flex items-center justify-center mb-2">
-              <i data-lucide="leaf" class="w-5 h-5 text-brand-gold"></i>
-            </div>
-            <p class="text-white/90 text-sm">Fresh Daily Ingredients</p>
-          </div>
-          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-            <div class="flex items-center justify-center mb-2">
-              <i data-lucide="heart" class="w-5 h-5 text-brand-gold fill-current"></i>
-            </div>
-            <p class="text-white/90 text-sm">Family-Owned & Operated</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
-      <a href="#about" class="text-white/70 hover:text-white transition-colors">
-        <i data-lucide="chevron-down" class="w-8 h-8"></i>
-      </a>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-20 lg:py-32 bg-white pattern-bg relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <!-- Content -->
-        <div class="reveal order-2 lg:order-1">
-          <div class="inline-flex items-center space-x-2 bg-brand-red/10 text-brand-red px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <i data-lucide="users" class="w-4 h-4"></i>
-            <span>Family Tradition Since Day One</span>
-          </div>
-          
-          <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-dark mb-6 leading-tight">
-            Where Every Dish<br>Tells a <span class="text-brand-orange">Story</span>
-          </h2>
-          
-          <div class="space-y-4 text-lg text-stone-600 leading-relaxed mb-8">
-            <p>
-              At El Trompo Mexican Grill, we bring the vibrant flavors of Mexico to Mason, Ohio. Our recipes have been passed down through generations, each dish crafted with the same love and dedication that our abuela put into her cooking.
-            </p>
-            <p>
-              From our signature trompo-style tacos to our hand-made tortillas, every ingredient is carefully selected for quality and authenticity. We grind our own corn, slow-cook our meats, and create salsas that range from mild to "call the fire department."
-            </p>
-          </div>
-
-          <div class="flex flex-wrap gap-4">
-            <div class="flex items-center space-x-2 bg-brand-cream px-4 py-3 rounded-lg">
-              <i data-lucide="chef-hat" class="w-5 h-5 text-brand-orange"></i>
-              <span class="font-semibold text-brand-dark">House-Made Daily</span>
-            </div>
-            <div class="flex items-center space-x-2 bg-brand-cream px-4 py-3 rounded-lg">
-              <i data-lucide="beef" class="w-5 h-5 text-brand-red"></i>
-              <span class="font-semibold text-brand-dark">Premium Meats</span>
-            </div>
-            <div class="flex items-center space-x-2 bg-brand-cream px-4 py-3 rounded-lg">
-              <i data-lucide="droplet" class="w-5 h-5 text-brand-green"></i>
-              <span class="font-semibold text-brand-dark">Fresh Produce</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Visual -->
-        <div class="reveal order-1 lg:order-2 relative">
-          <div class="relative">
-            <!-- Decorative Circle -->
-            <div class="absolute -top-10 -right-10 w-40 h-40 bg-brand-orange/10 rounded-full"></div>
-            <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-brand-green/10 rounded-full"></div>
-            
-            <!-- Image Container -->
-            <div class="relative bg-gradient-to-br from-brand-red to-brand-orange rounded-3xl p-1 shadow-2xl">
-              <div class="bg-white rounded-3xl p-8">
-                <div class="grid grid-cols-2 gap-4">
-                  <div class="space-y-4">
-                    <div class="bg-brand-cream rounded-2xl p-6 text-center hover-lift">
-                      <i data-lucide="flame" class="w-8 h-8 text-brand-orange mx-auto mb-2"></i>
-                      <p class="font-display text-3xl font-bold text-brand-red">500°F</p>
-                      <p class="text-sm text-stone-600">Trompo Heat</p>
-                    </div>
-                    <div class="bg-brand-cream rounded-2xl p-6 text-center hover-lift">
-                      <i data-lucide="clock" class="w-8 h-8 text-brand-green mx-auto mb-2"></i>
-                      <p class="font-display text-3xl font-bold text-brand-red">24hr</p>
-                      <p class="text-sm text-stone-600">Marinated Meats</p>
-                    </div>
-                  </div>
-                  <div class="space-y-4 mt-8">
-                    <div class="bg-brand-cream rounded-2xl p-6 text-center hover-lift">
-                      <i data-lucide="sparkles" class="w-8 h-8 text-brand-gold mx-auto mb-2"></i>
-                      <p class="font-display text-3xl font-bold text-brand-red">100%</p>
-                      <p class="text-sm text-stone-600">Handmade</p>
-                    </div>
-                    <div class="bg-brand-cream rounded-2xl p-6 text-center hover-lift">
-                      <i data-lucide="award" class="w-8 h-8 text-brand-red mx-auto mb-2"></i>
-                      <p class="font-display text-3xl font-bold text-brand-red">15+</p>
-                      <p class="text-sm text-stone-600">Salsa Varieties</p>
-                    </div>
-                  </div>
+<body class="font-body bg-trompo-50 text-gray-800 antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <h1 class="font-display text-2xl md:text-3xl font-bold text-trompo-900">
+                        El Trompo <span class="text-trompo-500">Mexican Grill</span>
+                    </h1>
                 </div>
-              </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#menu" class="text-gray-700 hover:text-trompo-600 font-medium transition">Menu</a>
+                    <a href="#about" class="text-gray-700 hover:text-trompo-600 font-medium transition">About</a>
+                    <a href="#hours" class="text-gray-700 hover:text-trompo-600 font-medium transition">Hours</a>
+                    <a href="#contact" class="text-gray-700 hover:text-trompo-600 font-medium transition">Contact</a>
+                    <a href="tel:5137019000" class="btn-primary text-white px-6 py-3 rounded-full font-semibold">
+                        Call Now
+                    </a>
+                </div>
+                <button class="md:hidden text-trompo-900" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Menu Section -->
-  <section id="menu" class="py-20 lg:py-32 bg-stone-100 clip-diagonal">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-        <div class="inline-flex items-center space-x-2 bg-brand-green/10 text-brand-green px-4 py-2 rounded-full text-sm font-semibold mb-6">
-          <i data-lucide="scroll-text" class="w-4 h-4"></i>
-          <span>Our Menu</span>
-        </div>
-        <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-dark mb-6">
-          Flavors That <span class="text-brand-red">Transport</span>
-        </h2>
-        <p class="text-lg text-stone-600">
-          From street-style tacos to sizzling fajitas, every dish is a journey to Mexico. Made with traditional techniques and the freshest ingredients.
-        </p>
-      </div>
-
-      <!-- Menu Categories -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        <!-- Tacos -->
-        <div class="reveal menu-card rounded-3xl p-8 shadow-xl hover-lift border border-stone-200">
-          <div class="w-14 h-14 bg-brand-red/10 rounded-2xl flex items-center justify-center mb-6">
-            <i data-lucide="cookie" class="w-7 h-7 text-brand-red"></i>
-          </div>
-          <h3 class="font-display text-2xl font-bold text-brand-dark mb-4">Signature Tacos</h3>
-          <ul class="space-y-3 text-stone-600">
-            <li class="flex justify-between">
-              <span>Al Pastor Trompo</span>
-              <span class="text-brand-orange font-semibold">$3.50</span>
-            </li>
-            <li class="flex justify-between">
-              <span>Carne Asada</span>
-              <span class="text-brand-orange font-semibold">$4.00</span>
-            </li>
-            <li class="flex justify-between">
-              <span>Pollo Adobado</span>
-              <span class="text-brand-orange font-semibold">$3.75</span>
-            </li>
-            <li class="flex justify-between">
-              <span>Barbacoa</span>
-              <span class="text-brand-orange font-semibold">$4.25</span>
-            </li>
-            <li class="flex justify-between">
-              <span>Carnitas</span>
-              <span class="text-brand-orange font-semibold">$3.75</span>
-            </li>
-          </ul>
-          <p class="mt-4 text-sm text-stone-500 italic">Served on handmade corn tortillas with onions, cilantro & salsa</p>
-        </div>
-
-        <!-- Burritos -->
-        <div class="reveal menu-card rounded-3xl p-8 shadow-xl hover-lift border border-stone-200" style="transition-delay: 100ms;">
-          <div class="w-14 h-14 bg-brand-orange/10 rounded-2xl flex items-center justify-center mb-6">
-            <i data-lucide="rectangle-vertical" class="w-7 h-7 text-brand-orange"></i>
-          </div>
-          <h3 class="font-display text-2xl font-bold text-brand-dark mb-4">Burritos</h3>
-          <ul class="space-y-3 text-stone-600">
-            <li class="flex justify-between">
-              <span>El Trompo Supreme</span>
-              <span class="text-brand-orange font-semibold">$12.99</span>
-            </li>
-            <li class="flex justify-between">
-              <span>Carne Asada Burrito</span>
-              <span class="text-brand-orange font-semibold">$11.99</span>
-            </li>
-            <li class="flex justify-between">
-              <span>California Burrito</span>
-              <span class="text-brand-orange font-semibold">$13.99</span>
-            </li>
-            <li class="flex justify-between">
-              <span>Breakfast Burrito</span>
-              <span class="text-brand-orange font-semibold">$10.99</span>
-            </li>
-            <li class="flex justify-between">
-              <span>Veggie Delight</span>
-              <span class="text-brand-orange font-semibold">$9.99</span>
-            </li>
-          </ul>
-          <p class="mt-4 text-sm text-stone-500 italic">Wrapped in a 12" flour tortilla with rice, beans, cheese & sour cream</p>
-        </div>
-
-        <!-- Plates -->
-        <div class="reveal menu-card rounded-3xl p-8 shadow-xl hover-lift border border-stone-200" style="transition-delay: 200ms;">
-          <div class="w-14 h-14 bg-brand-green/10 rounded-2xl flex items-center justify-center mb-6">
-            <i data-lucide="layout-grid" class="w-7 h-7 text-brand-green"></i>
-          </div>
-          <h3 class="font-display text-2xl font-bold text-brand-dark mb-4">Plates</h3>
-          <ul class="space-y-3 text-stone-600">
-            <li class="flex justify-between">
-              <span>Fajita Platter</span>
-              <span class="text-brand-orange font-semibold">$16.99</span>
-            </li>
-            <li class="flex justify-between">
-              <span>Enchiladas Rojas</span>
-              <span class="text-brand-orange font-semibold">$14.99</span>
-            </li>
-            <li class="flex justify-between">
-              <span>Chile Relleno</span>
-              <span class="text-brand-orange font-semibold">$15.99</span>
-            </li>
-            <li class="flex justify-between">
-              <span>Pollo Mole Poblano</span>
-              <span class="text-brand-orange font-semibold">$16.99</span>
-            </li>
-            <li class="flex justify-between">
-              <span>Trompo Combo</span>
-              <span class="text-brand-orange font-semibold">$18.99</span>
-            </li>
-          </ul>
-          <p class="mt-4 text-sm text-stone-500 italic">Served with rice, beans, fresh salad & warm tortillas</p>
-        </div>
-      </div>
-
-      <!-- Appetizers & Sides -->
-      <div class="mt-12 grid md:grid-cols-2 gap-6 lg:gap-8">
-        <div class="reveal bg-white rounded-3xl p-8 shadow-lg border border-stone-200">
-          <div class="flex items-center space-x-4 mb-6">
-            <div class="w-12 h-12 bg-brand-gold/20 rounded-xl flex items-center justify-center">
-              <i data-lucide="soup" class="w-6 h-6 text-brand-gold"></i>
-            </div>
-            <h3 class="font-display text-2xl font-bold text-brand-dark">Appetizers</h3>
-          </div>
-          <div class="grid grid-cols-2 gap-4 text-stone-600">
-            <div class="flex justify-between border-b border-stone-100 pb-2">
-              <span>Guacamole Fresco</span>
-              <span class="text-brand-orange">$7.99</span>
-            </div>
-            <div class="flex justify-between border-b border-stone-100 pb-2">
-              <span>Queso Fundido</span>
-              <span class="text-brand-orange">$8.99</span>
-            </div>
-            <div class="flex justify-between border-b border-stone-100 pb-2">
-              <span>Street Corn</span>
-              <span class="text-brand-orange">$4.99</span>
-            </div>
-            <div class="flex justify-between border-b border-stone-100 pb-2">
-              <span>Chips & Salsa</span>
-              <span class="text-brand-orange">$4.99</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal bg-white rounded-3xl p-8 shadow-lg border border-stone-200" style="transition-delay: 100ms;">
-          <div class="flex items-center space-x-4 mb-6">
-            <div class="w-12 h-12 bg-brand-red/20 rounded-xl flex items-center justify-center">
-              <i data-lucide="cup-soda" class="w-6 h-6 text-brand-red"></i>
-            </div>
-            <h3 class="font-display text-2xl font-bold text-brand-dark">Beverages</h3>
-          </div>
-          <div class="grid grid-cols-2 gap-4 text-stone-600">
-            <div class="flex justify-between border-b border-stone-100 pb-2">
-              <span>Horchata</span>
-              <span class="text-brand-orange">$3.99</span>
-            </div>
-            <div class="flex justify-between border-b border-stone-100 pb-2">
-              <span>Jamaica</span>
-              <span class="text-brand-orange">$3.99</span>
-            </div>
-            <div class="flex justify-between border-b border-stone-100 pb-2">
-              <span>Mexican Coke</span>
-              <span class="text-brand-orange">$3.50</span>
-            </div>
-            <div class="flex justify-between border-b border-stone-100 pb-2">
-              <span>Margaritas</span>
-              <span class="text-brand-orange">$8.99</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Specialties Section -->
-  <section id="specialties" class="py-20 lg:py-32 bg-gradient-to-br from-brand-dark to-stone-900 text-white relative overflow-hidden">
-    <div class="absolute inset-0 pattern-bg opacity-30"></div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-        <div class="inline-flex items-center space-x-2 bg-brand-gold/20 text-brand-gold px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-brand-gold/30">
-          <i data-lucide="sparkles" class="w-4 h-4"></i>
-          <span>House Specialties</span>
-        </div>
-        <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-          What We're <span class="text-brand-orange">Famous</span> For
-        </h2>
-      </div>
-
-      <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
-        <!-- Featured Item 1 -->
-        <div class="reveal bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/10 transition-all group">
-          <div class="flex flex-col sm:flex-row items-start gap-6">
-            <div class="w-20 h-20 bg-brand-red rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-              <i data-lucide="flame" class="w-10 h-10 text-white"></i>
-            </div>
-            <div class="flex-1">
-              <h3 class="font-display text-3xl font-bold mb-3">Al Pastor Trompo</h3>
-              <p class="text-white/80 leading-relaxed mb-4">
-                Our signature dish! Pork marinated for 24 hours in a blend of guajillo chiles, achiote, and pineapple. Cooked on our vertical trompo rotisserie and shaved fresh for each order. Served with pineapple, cilantro, onions, and our secret salsa verde.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-brand-red/30 rounded-full text-sm">Trompo Style</span>
-                <span class="px-3 py-1 bg-brand-orange/30 rounded-full text-sm">24hr Marinated</span>
-                <span class="px-3 py-1 bg-brand-green/30 rounded-full text-sm">Spicy & Sweet</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Featured Item 2 -->
-        <div class="reveal bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/10 transition-all group" style="transition-delay: 100ms;">
-          <div class="flex flex-col sm:flex-row items-start gap-6">
-            <div class="w-20 h-20 bg-brand-green rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-              <i data-lucide="leaf" class="w-10 h-10 text-white"></i>
-            </div>
-            <div class="flex-1">
-              <h3 class="font-display text-3xl font-bold mb-3">Mole Poblano</h3>
-              <p class="text-white/80 leading-relaxed mb-4">
-                A rich, complex sauce made from over 20 ingredients including chocolate, chilies, nuts, and spices. Served over tender chicken breast. This traditional dish from Puebla takes hours to prepare but seconds to fall in love with.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-brand-green/30 rounded-full text-sm">Traditional Recipe</span>
-                <span class="px-3 py-1 bg-brand-gold/30 rounded-full text-sm">20+ Ingredients</span>
-                <span class="px-3 py-1 bg-brand-red/30 rounded-full text-sm">All-Day Prep</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Featured Item 3 -->
-        <div class="reveal bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/10 transition-all group" style="transition-delay: 200ms;">
-          <div class="flex flex-col sm:flex-row items-start gap-6">
-            <div class="w-20 h-20 bg-brand-orange rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-              <i data-lucide="beef" class="w-10 h-10 text-white"></i>
-            </div>
-            <div class="flex-1">
-              <h3 class="font-display text-3xl font-bold mb-3">Carne Asada</h3>
-              <p class="text-white/80 leading-relaxed mb-4">
-                Premium skirt steak marinated in citrus and Mexican spices, then grilled to perfection over an open flame. Served with roasted jalapeños, nopales, fresh guacamole, and hand-made tortillas. A carnivore's dream come true.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-brand-red/30 rounded-full text-sm">Premium Steak</span>
-                <span class="px-3 py-1 bg-brand-orange/30 rounded-full text-sm">Open Flame</span>
-                <span class="px-3 py-1 bg-brand-green/30 rounded-full text-sm">Citrus Marinade</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Featured Item 4 -->
-        <div class="reveal bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/10 transition-all group" style="transition-delay: 300ms;">
-          <div class="flex flex-col sm:flex-row items-start gap-6">
-            <div class="w-20 h-20 bg-brand-gold rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-              <i data-lucide="crown" class="w-10 h-10 text-brand-dark"></i>
-            </div>
-            <div class="flex-1">
-              <h3 class="font-display text-3xl font-bold mb-3">El Trompo Special</h3>
-              <p class="text-white/80 leading-relaxed mb-4">
-                The ultimate feast! A sizzling combination of al pastor, carne asada, and grilled chicken served on a hot skillet with peppers and onions. Includes rice, beans, guacamole, sour cream, pico de gallo, and 6 tortillas. Perfect for sharing!
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-brand-gold/30 rounded-full text-sm text-brand-gold">Sizzling Skillet</span>
-                <span class="px-3 py-1 bg-brand-red/30 rounded-full text-sm">Triple Meat</span>
-                <span class="px-3 py-1 bg-brand-orange/30 rounded-full text-sm">Shareable Size</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us -->
-  <section class="py-20 lg:py-32 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-        <h2 class="font-display text-4xl sm:text-5xl font-bold text-brand-dark mb-6">
-          Why El Trompo?
-        </h2>
-        <p class="text-lg text-stone-600">
-          We're not just another Mexican restaurant. We're passionate about bringing authentic flavors to Mason.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="reveal text-center p-6">
-          <div class="w-16 h-16 bg-brand-red/10 rounded-2xl flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform">
-            <i data-lucide="clock" class="w-8 h-8 text-brand-red"></i>
-          </div>
-          <h3 class="font-display text-xl font-bold text-brand-dark mb-2">Made Fresh Daily</h3>
-          <p class="text-stone-600">Tortillas pressed by hand. Salsas made fresh every morning. Never frozen, always authentic.</p>
-        </div>
-
-        <div class="reveal text-center p-6" style="transition-delay: 100ms;">
-          <div class="w-16 h-16 bg-brand-orange/10 rounded-2xl flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform">
-            <i data-lucide="truck" class="w-8 h-8 text-brand-orange"></i>
-          </div>
-          <h3 class="font-display text-xl font-bold text-brand-dark mb-2">Fast Service</h3>
-          <p class="text-stone-600">Quick lunch options, easy online ordering, and speedy takeout. Great food doesn't mean long waits.</p>
-        </div>
-
-        <div class="reveal text-center p-6" style="transition-delay: 200ms;">
-          <div class="w-16 h-16 bg-brand-green/10 rounded-2xl flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform">
-            <i data-lucide="heart-handshake" class="w-8 h-8 text-brand-green"></i>
-          </div>
-          <h3 class="font-display text-xl font-bold text-brand-dark mb-2">Family Owned</h3>
-          <p class="text-stone-600">We're a local, family-run business serving the Mason community with pride and passion.</p>
-        </div>
-
-        <div class="reveal text-center p-6" style="transition-delay: 300ms;">
-          <div class="w-16 h-16 bg-brand-gold/20 rounded-2xl flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform">
-            <i data-lucide="calendar-heart" class="w-8 h-8 text-brand-gold"></i>
-          </div>
-          <h3 class="font-display text-xl font-bold text-brand-dark mb-2">Catering Available</h3>
-          <p class="text-stone-600">From office lunches to family fiestas. We cater events of all sizes with customizable menus.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="py-20 lg:py-32 bg-brand-cream relative overflow-hidden">
-    <div class="absolute inset-0 pattern-bg opacity-50"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-        <div class="inline-flex items-center space-x-2 bg-brand-green/10 text-brand-green px-4 py-2 rounded-full text-sm font-semibold mb-6">
-          <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span>Customer Love</span>
-        </div>
-        <h2 class="font-display text-4xl sm:text-5xl font-bold text-brand-dark mb-6">
-          What Our <span class="text-brand-red">Guests</span> Say
-        </h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="reveal bg-white rounded-3xl p-8 shadow-lg">
-          <div class="flex items-center space-x-1 mb-4">
-            <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-            <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-            <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-            <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-            <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-          </div>
-          <p class="text-stone-600 mb-6 leading-relaxed">"Best tacos in Mason, hands down! The al pastor is incredible and the house-made tortillas make all the difference. Our new go-to spot!"</p>
-          <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 bg-brand-red/10 rounded-full flex items-center justify-center">
-              <span class="text-brand-red font-bold">S</span>
-            </div>
-            <div>
-              <p class="font-semibold text-brand-dark">Sarah M.</p>
-              <p class="text-sm text-stone-500">Local Guide</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal bg-white rounded-3xl p-8 shadow-lg" style="transition-delay: 100ms;">
-          <div class="flex items-center space-x-1 mb-4">
-            <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-            <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-            <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-            <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-            <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-          </div>
-          <p class="text-stone-600 mb-6 leading-relaxed">"Finally, authentic Mexican food in Mason! The mole is just like my abuela used to make. Friendly staff and great portions too. Highly recommend!"</p>
-          <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 bg-brand-green/10 rounded-full flex items-center justify-center">
-              <span class="text-brand-green font-bold">M</span>
-            </div>
-            <div>
-              <p class="font-semibold text-brand-dark">Maria G.</p>
-              <p class="text-sm text-stone-500">Mason Resident</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal bg-white rounded-3xl p-8 shadow-lg" style="transition-delay: 200ms;">
-          <div class="flex items-center space-x-1 mb-4">
-            <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-            <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-            <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-            <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-            <i data-lucide="star" class="w-5 h-5 text-brand-gold fill-current"></i>
-          </div>
-          <p class="text-stone-600 mb-6 leading-relaxed">"Ordered catering for our office party of 40 people. Everything was perfect, on time, and delicious. The guacamole was gone in minutes! Will definitely use again."</p>
-          <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 bg-brand-orange/10 rounded-full flex items-center justify-center">
-              <span class="text-brand-orange font-bold">J</span>
-            </div>
-            <div>
-              <p class="font-semibold text-brand-dark">James K.</p>
-              <p class="text-sm text-stone-500">Business Owner</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Location & Hours -->
-  <section id="location" class="py-20 lg:py-32 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div class="reveal">
-          <div class="inline-flex items-center space-x-2 bg-brand-red/10 text-brand-red px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <i data-lucide="map-pin" class="w-4 h-4"></i>
-            <span>Visit Us</span>
-          </div>
-          
-          <h2 class="font-display text-4xl sm:text-5xl font-bold text-brand-dark mb-6">
-            Find Us in <span class="text-brand-orange">Mason</span>
-          </h2>
-          
-          <div class="space-y-6">
-            <div class="flex items-start space-x-4">
-              <div class="w-12 h-12 bg-brand-red/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i data-lucide="map-pin" class="w-6 h-6 text-brand-red"></i>
-              </div>
-              <div>
-                <h3 class="font-display text-xl font-bold text-brand-dark mb-1">Address</h3>
-                <p class="text-stone-600">5271 Kings Mills Rd Suite A<br>Mason, OH 45040</p>
-                <a href="https://maps.google.com/?q=5271+Kings+Mills+Rd+Mason+OH+45040" target="_blank" class="inline-flex items-center space-x-1 text-brand-orange hover:text-brand-red font-semibold mt-2">
-                  <span>Get Directions</span>
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-white border-t" id="mobile-menu">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#menu" class="block text-gray-700 hover:text-trompo-600 font-medium py-2">Menu</a>
+                <a href="#about" class="block text-gray-700 hover:text-trompo-600 font-medium py-2">About</a>
+                <a href="#hours" class="block text-gray-700 hover:text-trompo-600 font-medium py-2">Hours</a>
+                <a href="#contact" class="block text-gray-700 hover:text-trompo-600 font-medium py-2">Contact</a>
+                <a href="tel:5137019000" class="block btn-primary text-white px-6 py-3 rounded-full font-semibold text-center mt-4">
+                    Call (513) 701-9000
                 </a>
-              </div>
             </div>
+        </div>
+    </nav>
 
-            <div class="flex items-start space-x-4">
-              <div class="w-12 h-12 bg-brand-orange/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i data-lucide="clock" class="w-6 h-6 text-brand-orange"></i>
-              </div>
-              <div>
-                <h3 class="font-display text-xl font-bold text-brand-dark mb-1">Hours</h3>
-                <div class="text-stone-600">
-                  <p>Monday - Thursday: 11:00 AM - 9:00 PM</p>
-                  <p>Friday - Saturday: 11:00 AM - 10:00 PM</p>
-                  <p>Sunday: 11:00 AM - 9:00 PM</p>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center hero-pattern pt-20">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-96 h-96 bg-trompo-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-sage-600/20 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left scroll-reveal">
+                    <div class="inline-block mb-4 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full">
+                        <span class="text-trompo-100 font-semibold text-sm tracking-wider uppercase">Authentic Mexican Cuisine</span>
+                    </div>
+                    <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                        Taste the <span class="text-trompo-300">Tradition</span> of Mexico
+                    </h1>
+                    <p class="text-xl text-trompo-100 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        Fresh ingredients. Bold flavors. Authentic recipes passed down through generations. 
+                        Experience the true taste of Mexico right here in Mason, Ohio.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#menu" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg text-center">
+                            View Our Menu
+                        </a>
+                        <a href="tel:5137019000" class="btn-secondary text-white px-8 py-4 rounded-full font-semibold text-lg text-center">
+                            Order Now
+                        </a>
+                    </div>
+                    <div class="mt-8 flex items-center justify-center lg:justify-start space-x-6 text-trompo-100">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            <span class="font-medium">4.8 Rating</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="font-medium">Mason, OH</span>
+                        </div>
+                    </div>
                 </div>
-              </div>
+                <div class="relative scroll-reveal">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-trompo-400/30 to-sage-600/30 rounded-3xl transform rotate-3"></div>
+                        <div class="relative bg-white/10 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-white/20">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white rounded-2xl p-4 shadow-lg transform hover:scale-105 transition duration-300">
+                                    <div class="w-full h-32 bg-gradient-to-br from-trompo-100 to-trompo-200 rounded-xl flex items-center justify-center mb-3">
+                                        <span class="text-4xl">🌮</span>
+                                    </div>
+                                    <h3 class="font-display font-bold text-trompo-900">Street Tacos</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Corn tortillas with your choice of meat</p>
+                                </div>
+                                <div class="bg-white rounded-2xl p-4 shadow-lg transform hover:scale-105 transition duration-300 mt-8">
+                                    <div class="w-full h-32 bg-gradient-to-br from-sage-100 to-sage-200 rounded-xl flex items-center justify-center mb-3">
+                                        <span class="text-4xl">🌯</span>
+                                    </div>
+                                    <h3 class="font-display font-bold text-trompo-900">Burritos</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Stuffed with rice, beans & meat</p>
+                                </div>
+                                <div class="bg-white rounded-2xl p-4 shadow-lg transform hover:scale-105 transition duration-300">
+                                    <div class="w-full h-32 bg-gradient-to-br from-yellow-100 to-orange-100 rounded-xl flex items-center justify-center mb-3">
+                                        <span class="text-4xl">🥑</span>
+                                    </div>
+                                    <h3 class="font-display font-bold text-trompo-900">Fresh Guac</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Made fresh daily in-house</p>
+                                </div>
+                                <div class="bg-white rounded-2xl p-4 shadow-lg transform hover:scale-105 transition duration-300 mt-8">
+                                    <div class="w-full h-32 bg-gradient-to-br from-red-100 to-pink-100 rounded-xl flex items-center justify-center mb-3">
+                                        <span class="text-4xl">🌶️</span>
+                                    </div>
+                                    <h3 class="font-display font-bold text-trompo-900">Salsa Bar</h3>
+                                    <p class="text-sm text-gray-600 mt-1">House-made salsas & sauces</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="bg-white py-8 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="scroll-reveal">
+                    <p class="font-display text-3xl font-bold text-trompo-600">Fresh</p>
+                    <p class="text-gray-600 text-sm">Daily Ingredients</p>
+                </div>
+                <div class="scroll-reveal">
+                    <p class="font-display text-3xl font-bold text-trompo-600">Authentic</p>
+                    <p class="text-gray-600 text-sm">Family Recipes</p>
+                </div>
+                <div class="scroll-reveal">
+                    <p class="font-display text-3xl font-bold text-trompo-600">Fast</p>
+                    <p class="text-gray-600 text-sm">Quick Service</p>
+                </div>
+                <div class="scroll-reveal">
+                    <p class="font-display text-3xl font-bold text-trompo-600">Local</p>
+                    <p class="text-gray-600 text-sm">Mason Favorite</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-white relative">
+        <div class="absolute inset-0 texture-bg pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="inline-block px-4 py-2 bg-trompo-100 text-trompo-800 rounded-full text-sm font-semibold mb-4">
+                    Our Menu
+                </span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-trompo-900 mb-4">
+                    Flavors That Transport You to Mexico
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    From our signature tacos al pastor carved fresh from the trompo to sizzling fajitas and authentic enchiladas, 
+                    every dish is crafted with passion and tradition.
+                </p>
             </div>
 
-            <div class="flex items-start space-x-4">
-              <div class="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i data-lucide="phone" class="w-6 h-6 text-brand-green"></i>
-              </div>
-              <div>
-                <h3 class="font-display text-xl font-bold text-brand-dark mb-1">Phone</h3>
-                <a href="tel:5132047506" class="text-stone-600 hover:text-brand-red text-lg font-semibold">(513) 204-7506</a>
-              </div>
+            <!-- Menu Categories -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tacos -->
+                <div class="menu-card bg-white rounded-2xl shadow-lg overflow-hidden scroll-reveal transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-trompo-100 to-trompo-200 flex items-center justify-center">
+                        <span class="text-6xl">🌮</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-trompo-900 mb-3">Street Tacos</h3>
+                        <p class="text-gray-600 mb-4">Soft corn tortillas with onions, cilantro, and your choice of meat. Served with lime and salsa.</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex justify-between">
+                                <span>Al Pastor</span>
+                                <span class="font-semibold text-trompo-600">$2.99</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Carne Asada</span>
+                                <span class="font-semibold text-trompo-600">$3.49</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Carnitas</span>
+                                <span class="font-semibold text-trompo-600">$2.99</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Chicken</span>
+                                <span class="font-semibold text-trompo-600">$2.99</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Barbacoa</span>
+                                <span class="font-semibold text-trompo-600">$3.49</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Burritos -->
+                <div class="menu-card bg-white rounded-2xl shadow-lg overflow-hidden scroll-reveal transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-sage-100 to-sage-200 flex items-center justify-center">
+                        <span class="text-6xl">🌯</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-trompo-900 mb-3">Burritos</h3>
+                        <p class="text-gray-600 mb-4">Large flour tortilla stuffed with rice, beans, cheese, sour cream, and your choice of filling.</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex justify-between">
+                                <span>Classic Burrito</span>
+                                <span class="font-semibold text-trompo-600">$8.99</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>California Burrito</span>
+                                <span class="font-semibold text-trompo-600">$10.99</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Super Burrito</span>
+                                <span class="font-semibold text-trompo-600">$11.99</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Surf & Turf</span>
+                                <span class="font-semibold text-trompo-600">$12.99</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Specialties -->
+                <div class="menu-card bg-white rounded-2xl shadow-lg overflow-hidden scroll-reveal transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center">
+                        <span class="text-6xl">🍛</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-trompo-900 mb-3">House Specialties</h3>
+                        <p class="text-gray-600 mb-4">Our chef's signature dishes featuring authentic Mexican flavors and premium ingredients.</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex justify-between">
+                                <span>Tacos Al Pastor</span>
+                                <span class="font-semibold text-trompo-600">$10.99</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Chile Relleno</span>
+                                <span class="font-semibold text-trompo-600">$12.99</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Mole Poblano</span>
+                                <span class="font-semibold text-trompo-600">$13.99</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Fajitas (Chicken/Steak)</span>
+                                <span class="font-semibold text-trompo-600">$14.99</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Enchiladas -->
+                <div class="menu-card bg-white rounded-2xl shadow-lg overflow-hidden scroll-reveal transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-red-100 to-pink-100 flex items-center justify-center">
+                        <span class="text-6xl">🌶️</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-trompo-900 mb-3">Enchiladas</h3>
+                        <p class="text-gray-600 mb-4">Three corn tortillas rolled and filled, topped with your choice of sauce and melted cheese.</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex justify-between">
+                                <span>Suizas (Green)</span>
+                                <span class="font-semibold text-trompo-600">$11.99</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Rojas (Red)</span>
+                                <span class="font-semibold text-trompo-600">$11.99</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Mole Enchiladas</span>
+                                <span class="font-semibold text-trompo-600">$12.99</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Seafood Enchiladas</span>
+                                <span class="font-semibold text-trompo-600">$13.99</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Sides & Apps -->
+                <div class="menu-card bg-white rounded-2xl shadow-lg overflow-hidden scroll-reveal transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center">
+                        <span class="text-6xl">🥗</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-trompo-900 mb-3">Sides & Appetizers</h3>
+                        <p class="text-gray-600 mb-4">Perfect for sharing or adding to your meal. Made fresh daily with authentic ingredients.</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex justify-between">
+                                <span>Guacamole & Chips</span>
+                                <span class="font-semibold text-trompo-600">$6.99</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Queso Fundido</span>
+                                <span class="font-semibold text-trompo-600">$7.99</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Mexican Street Corn</span>
+                                <span class="font-semibold text-trompo-600">$4.99</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Nachos Supreme</span>
+                                <span class="font-semibold text-trompo-600">$9.99</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Beverages -->
+                <div class="menu-card bg-white rounded-2xl shadow-lg overflow-hidden scroll-reveal transition-all duration-300">
+                    <div class="h-48 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
+                        <span class="text-6xl">🥤</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-trompo-900 mb-3">Beverages</h3>
+                        <p class="text-gray-600 mb-4">Refreshing Mexican drinks including traditional aguas frescas and imported beers.</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex justify-between">
+                                <span>Horchata</span>
+                                <span class="font-semibold text-trompo-600">$3.49</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Jamaica (Hibiscus)</span>
+                                <span class="font-semibold text-trompo-600">$3.49</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Mexican Coca-Cola</span>
+                                <span class="font-semibold text-trompo-600">$3.99</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Imported Beers</span>
+                                <span class="font-semibold text-trompo-600">$4.99+</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
 
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a href="tel:5132047506" class="flex items-center space-x-2 bg-brand-red text-white px-6 py-3 rounded-full font-semibold hover:bg-red-700 transition-all hover:scale-105 shadow-lg">
-              <i data-lucide="phone" class="w-5 h-5"></i>
-              <span>Call to Order</span>
-            </a>
-            <a href="#menu" class="flex items-center space-x-2 bg-brand-gold text-brand-dark px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition-all hover:scale-105 shadow-lg">
-              <i data-lucide="utensils" class="w-5 h-5"></i>
-              <span>View Menu</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="reveal relative">
-          <div class="bg-gradient-to-br from-brand-red to-brand-orange rounded-3xl p-1 shadow-2xl">
-            <div class="bg-white rounded-3xl overflow-hidden h-96 lg:h-[500px]">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3078.0624646770655!2d-84.3083!3d39.3505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841a1234567890%3A0xabcdef1234567890!2s5271%20Kings%20Mills%20Rd%2C%20Mason%2C%20OH%2045040!5e0!3m2!1sen!2sus!4v1234567890"
-                width="100%" 
-                height="100%" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade"
-                class="grayscale-[20%] hover:grayscale-0 transition-all duration-500"
-              ></iframe>
+            <div class="text-center mt-12">
+                <a href="tel:5137019000" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg inline-block">
+                    Call to Order: (513) 701-9000
+                </a>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-brand-dark text-white py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-        <!-- Brand -->
-        <div>
-          <div class="flex items-center space-x-3 mb-6">
-            <div class="w-12 h-12 bg-gradient-to-br from-brand-red to-brand-orange rounded-full flex items-center justify-center">
-              <i data-lucide="flame" class="w-6 h-6 text-white"></i>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-trompo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="scroll-reveal">
+                    <span class="inline-block px-4 py-2 bg-trompo-100 text-trompo-800 rounded-full text-sm font-semibold mb-4">
+                        Our Story
+                    </span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-trompo-900 mb-6">
+                        Authentic Mexican Flavors in the Heart of Mason
+                    </h2>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        At El Trompo Mexican Grill, we bring the vibrant flavors and warm hospitality of Mexico to Mason, Ohio. 
+                        Our name comes from the traditional vertical rotisserie called "trompo" used to make our signature 
+                        Tacos Al Pastor – marinated pork stacked high and carved fresh to order.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        Every dish we serve is made with authentic recipes passed down through generations. From our handmade 
+                        tortillas and fresh guacamole to our slow-cooked meats and house-made salsas, we use only the finest 
+                        ingredients to create an unforgettable dining experience.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-trompo-100 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-trompo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <span class="font-semibold text-gray-800">Fresh Daily</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-trompo-100 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-trompo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <span class="font-semibold text-gray-800">Authentic Recipes</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-trompo-100 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-trompo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <span class="font-semibold text-gray-800">Family Owned</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-trompo-100 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-trompo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <span class="font-semibold text-gray-800">Local Favorite</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative scroll-reveal">
+                    <div class="absolute -top-4 -left-4 w-full h-full bg-trompo-300 rounded-2xl"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl">
+                        <div class="aspect-square bg-gradient-to-br from-trompo-100 to-sage-100 rounded-xl flex items-center justify-center">
+                            <div class="text-center">
+                                <span class="text-8xl mb-4 block">🏆</span>
+                                <p class="font-display text-2xl font-bold text-trompo-900">Voted Best</p>
+                                <p class="text-trompo-600 font-semibold">Mexican Restaurant</p>
+                                <p class="text-gray-600 mt-2">Mason Community Choice</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-              <h3 class="font-display text-xl font-bold">El Trompo</h3>
-              <p class="text-xs text-brand-orange">MEXICAN GRILL</p>
+        </div>
+    </section>
+
+    <!-- Hours Section -->
+    <section id="hours" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 scroll-reveal">
+                <span class="inline-block px-4 py-2 bg-trompo-100 text-trompo-800 rounded-full text-sm font-semibold mb-4">
+                    Visit Us
+                </span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-trompo-900 mb-4">
+                    Hours & Location
+                </h2>
+                <p class="text-xl text-gray-600">
+                    We're conveniently located in Mason, ready to serve you authentic Mexican cuisine.
+                </p>
             </div>
-          </div>
-          <p class="text-stone-400 leading-relaxed mb-6">
-            Authentic Mexican cuisine in the heart of Mason. Fresh ingredients, traditional recipes, and a welcoming atmosphere.
-          </p>
-          <div class="flex space-x-4">
-            <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-red transition-colors">
-              <i data-lucide="facebook" class="w-5 h-5"></i>
-            </a>
-            <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-orange transition-colors">
-              <i data-lucide="instagram" class="w-5 h-5"></i>
-            </a>
-            <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-green transition-colors">
-              <i data-lucide="twitter" class="w-5 h-5"></i>
-            </a>
-          </div>
+
+            <div class="grid md:grid-cols-2 gap-8 scroll-reveal">
+                <div class="bg-trompo-50 rounded-2xl p-8">
+                    <h3 class="font-display text-2xl font-bold text-trompo-900 mb-6">Opening Hours</h3>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between py-2 border-b border-trompo-200">
+                            <span class="font-medium text-gray-700">Sunday - Thursday</span>
+                            <span class="font-semibold text-trompo-600">11:00 AM - 10:00 PM</span>
+                        </li>
+                        <li class="flex justify-between py-2 border-b border-trompo-200">
+                            <span class="font-medium text-gray-700">Friday - Saturday</span>
+                            <span class="font-semibold text-trompo-600">11:00 AM - 11:00 PM</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 p-4 bg-white rounded-xl">
+                        <p class="text-sm text-gray-600">
+                            <span class="font-semibold text-trompo-600">Note:</span> Hours may vary on holidays. 
+                            Call ahead to confirm.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-sage-50 rounded-2xl p-8">
+                    <h3 class="font-display text-2xl font-bold text-trompo-900 mb-6">Find Us</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-trompo-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <svg class="w-5 h-5 text-trompo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Address</p>
+                                <p class="text-gray-600">5271 Kings Mills Rd Suite A<br>Mason, OH 45040</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-trompo-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <svg class="w-5 h-5 text-trompo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Phone</p>
+                                <a href="tel:5137019000" class="text-trompo-600 hover:text-trompo-800 font-medium">(513) 701-9000</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Quick Links -->
-        <div>
-          <h4 class="font-display text-lg font-bold mb-6">Quick Links</h4>
-          <ul class="space-y-3">
-            <li><a href="#about" class="text-stone-400 hover:text-brand-orange transition-colors">Our Story</a></li>
-            <li><a href="#menu" class="text-stone-400 hover:text-brand-orange transition-colors">Menu</a></li>
-            <li><a href="#specialties" class="text-stone-400 hover:text-brand-orange transition-colors">Specialties</a></li>
-            <li><a href="#location" class="text-stone-400 hover:text-brand-orange transition-colors">Location</a></li>
-          </ul>
+    <!-- Testimonials -->
+    <section class="py-20 bg-trompo-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm text-trompo-100 rounded-full text-sm font-semibold mb-4">
+                    What People Say
+                </span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+                    Loved by Our Community
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 scroll-reveal">
+                    <div class="flex text-trompo-300 mb-4">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-trompo-100 mb-6 italic">"The best tacos al pastor I've had outside of Mexico City! The meat is perfectly seasoned and the fresh pineapple is the cherry on top. This place is a gem in Mason!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-trompo-500 rounded-full flex items-center justify-center mr-4">
+                            <span class="font-bold text-white">JM</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold">Jennifer M.</p>
+                            <p class="text-trompo-300 text-sm">Local Customer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 scroll-reveal">
+                    <div class="flex text-trompo-300 mb-4">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-trompo-100 mb-6 italic">"El Trompo has become our family's go-to spot for Mexican food. The staff is so friendly, the portions are generous, and the horchata is absolutely delicious!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-sage-600 rounded-full flex items-center justify-center mr-4">
+                            <span class="font-bold text-white">RK</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold">Robert K.</p>
+                            <p class="text-trompo-300 text-sm">Mason Resident</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 scroll-reveal">
+                    <div class="flex text-trompo-300 mb-4">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-trompo-100 mb-6 italic">"Finally, authentic Mexican food in Mason! The guacamole is made fresh at your table, and the salsa bar has amazing variety. Worth every penny!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-trompo-400 rounded-full flex items-center justify-center mr-4">
+                            <span class="font-bold text-white">SL</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold">Sarah L.</p>
+                            <p class="text-trompo-300 text-sm">Food Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Services -->
-        <div>
-          <h4 class="font-display text-lg font-bold mb-6">Services</h4>
-          <ul class="space-y-3">
-            <li class="flex items-center space-x-2 text-stone-400">
-              <i data-lucide="check" class="w-4 h-4 text-brand-green"></i>
-              <span>Dine-In</span>
-            </li>
-            <li class="flex items-center space-x-2 text-stone-400">
-              <i data-lucide="check" class="w-4 h-4 text-brand-green"></i>
-              <span>Takeout</span>
-            </li>
-            <li class="flex items-center space-x-2 text-stone-400">
-              <i data-lucide="check" class="w-4 h-4 text-brand-green"></i>
-              <span>Curbside Pickup</span>
-            </li>
-            <li class="flex items-center space-x-2 text-stone-400">
-              <i data-lucide="check" class="w-4 h-4 text-brand-green"></i>
-              <span>Catering</span>
-            </li>
-            <li class="flex items-center space-x-2 text-stone-400">
-              <i data-lucide="check" class="w-4 h-4 text-brand-green"></i>
-              <span>Private Events</span>
-            </li>
-          </ul>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 scroll-reveal">
+                <span class="inline-block px-4 py-2 bg-trompo-100 text-trompo-800 rounded-full text-sm font-semibold mb-4">
+                    Get In Touch
+                </span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-trompo-900 mb-4">
+                    Ready to Order?
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Call us directly for pickup orders or catering inquiries. We're here to serve you!
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 scroll-reveal">
+                <a href="tel:5137019000" class="bg-trompo-50 rounded-2xl p-8 text-center hover:shadow-lg transition duration-300 group">
+                    <div class="w-16 h-16 bg-trompo-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-trompo-500 transition duration-300">
+                        <svg class="w-8 h-8 text-trompo-600 group-hover:text-white transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-trompo-900 mb-2">Call to Order</h3>
+                    <p class="text-trompo-600 font-semibold">(513) 701-9000</p>
+                    <p class="text-gray-600 text-sm mt-2">Pickup orders welcome</p>
+                </a>
+
+                <a href="https://maps.google.com/?q=5271+Kings+Mills+Rd+Suite+A+Mason+OH+45040" target="_blank" class="bg-sage-50 rounded-2xl p-8 text-center hover:shadow-lg transition duration-300 group">
+                    <div class="w-16 h-16 bg-sage-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-sage-600 transition duration-300">
+                        <svg class="w-8 h-8 text-sage-700 group-hover:text-white transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-trompo-900 mb-2">Visit Us</h3>
+                    <p class="text-sage-700 font-semibold">5271 Kings Mills Rd Suite A</p>
+                    <p class="text-gray-600 text-sm mt-2">Mason, OH 45040</p>
+                </a>
+
+                <div class="bg-trompo-50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-trompo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-trompo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-trompo-900 mb-2">Opening Hours</h3>
+                    <p class="text-gray-700 font-medium">Sun-Thu: 11AM - 10PM</p>
+                    <p class="text-gray-600 text-sm mt-2">Fri-Sat: 11AM - 11PM</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Contact -->
-        <div>
-          <h4 class="font-display text-lg font-bold mb-6">Contact Us</h4>
-          <ul class="space-y-4">
-            <li class="flex items-start space-x-3">
-              <i data-lucide="map-pin" class="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5"></i>
-              <span class="text-stone-400">5271 Kings Mills Rd Suite A<br>Mason, OH 45040</span>
-            </li>
-            <li class="flex items-center space-x-3">
-              <i data-lucide="phone" class="w-5 h-5 text-brand-orange flex-shrink-0"></i>
-              <a href="tel:5132047506" class="text-stone-400 hover:text-white transition-colors">(513) 204-7506</a>
-            </li>
-            <li class="flex items-start space-x-3">
-              <i data-lucide="clock" class="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5"></i>
-              <span class="text-stone-400">Open Daily<br>11:00 AM - 9:00 PM</span>
-            </li>
-          </ul>
+    <!-- Footer -->
+    <footer class="bg-trompo-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2">
+                    <h2 class="font-display text-3xl font-bold text-white mb-4">
+                        El Trompo <span class="text-trompo-300">Mexican Grill</span>
+                    </h2>
+                    <p class="text-trompo-100 mb-6 max-w-md">
+                        Authentic Mexican cuisine made with fresh ingredients and traditional recipes. 
+                        Experience the true flavors of Mexico right here in Mason, Ohio.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-trompo-500 transition duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-trompo-500 transition duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-display text-xl font-bold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#menu" class="text-trompo-100 hover:text-white transition">Our Menu</a></li>
+                        <li><a href="#about" class="text-trompo-100 hover:text-white transition">About Us</a></li>
+                        <li><a href="#hours" class="text-trompo-100 hover:text-white transition">Hours</a></li>
+                        <li><a href="#contact" class="text-trompo-100 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-display text-xl font-bold text-white mb-4">Contact Info</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-trompo-100">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            5271 Kings Mills Rd Suite A<br>Mason, OH 45040
+                        </li>
+                        <li class="flex items-center text-trompo-100">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <a href="tel:5137019000" class="hover:text-white transition">(513) 701-9000</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-trompo-100 text-sm">
+                    © 2026 El Trompo Mexican Grill. All rights reserved.
+                </p>
+                <p class="text-trompo-100 text-sm mt-4 md:mt-0">
+                    Made with ❤️ in Mason, Ohio
+                </p>
+            </div>
         </div>
-      </div>
+    </footer>
 
-      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
-        <p class="text-stone-500 text-sm mb-4 md:mb-0">
-          © 2026 El Trompo Mexican Grill. All rights reserved.
-        </p>
-        <p class="text-stone-600 text-sm flex items-center space-x-2">
-          <span>Made with</span>
-          <i data-lucide="heart" class="w-4 h-4 text-brand-red fill-current"></i>
-          <span>in Mason, OH</span>
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Floating CTA -->
-  <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
-    <a href="tel:5132047506" class="w-14 h-14 bg-brand-red text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform animate-pulse">
-      <i data-lucide="phone" class="w-6 h-6"></i>
+    <!-- Floating CTA -->
+    <a href="tel:5137019000" class="fixed bottom-6 right-6 z-50 btn-primary text-white px-6 py-4 rounded-full font-bold shadow-2xl floating-cta flex items-center space-x-2 md:hidden">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+        </svg>
+        <span>Call Now</span>
     </a>
-    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 bg-brand-dark text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform opacity-0 transition-opacity" id="back-to-top">
-      <i data-lucide="chevron-up" class="w-5 h-5"></i>
-    </button>
-  </div>
 
-  <script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
 
-    // Close mobile menu when clicking a link
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-      });
-    });
+        // Scroll reveal animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
 
-    // Navbar background on scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('shadow-md');
-      } else {
-        navbar.classList.remove('shadow-md');
-      }
-    });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
 
-    // Back to top button
-    const backToTop = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 500) {
-        backToTop.classList.remove('opacity-0');
-      } else {
-        backToTop.classList.add('opacity-0');
-      }
-    });
+        document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
 
-    // Intersection Observer for reveal animations
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.reveal').forEach(el => {
-      observer.observe(el);
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    // Add parallax effect to hero
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const hero = document.querySelector('section:first-of-type');
-      if (hero && scrolled < window.innerHeight) {
-        hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
-      }
-    });
-  </script>
+        // Navbar background on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
 </body>
 </html>
