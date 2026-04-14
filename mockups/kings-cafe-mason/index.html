@@ -3,518 +3,702 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kings Cafe | Fresh Coffee & Homestyle Cooking | Mason, OH</title>
-  <meta name="description" content="Kings Cafe in Mason, OH - Your local destination for fresh coffee, delicious breakfast, and homestyle comfort food. Call (513) 770-2333 for takeout or visit us today.">
+  <title>Kings Cafe | Mason, OH | Premium Coffee & Cafe</title>
+  <meta name="description" content="Kings Cafe in Mason, OH - Your neighborhood destination for premium coffee, fresh pastries, and delicious cafe fare. Call (513) 770-2333.">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            coffee: { 50: '#faf8f5', 100: '#f2ede4', 200: '#e8dcc9', 300: '#dbc4a4', 400: '#cba67e', 500: '#bf8b5a', 600: '#a67045', 700: '#855636', 800: '#6d4531', 900: '#583a2d', 950: '#321f18' },
-            cream: { 50: '#fefdfb', 100: '#fcf9f2', 200: '#f8f0e0', 300: '#f2e4c9', 400: '#ebd4a6', 500: '#e0c07f', 600: '#cba35c', 700: '#a68044', 800: '#856539', 900: '#6d5332' },
-            sage: { 50: '#f6f7f4', 100: '#e8ebe3', 200: '#d4dac9', 300: '#b8c2a8', 400: '#9aa584', 500: '#7d8966', 600: '#616d4e', 700: '#4d563e', 800: '#3f4633', 900: '#353b2d' }
+            'cafe-cream': '#F5F1E8',
+            'cafe-warm': '#E8DCC4',
+            'cafe-copper': '#B87333',
+            'cafe-brown': '#6B4423',
+            'cafe-dark': '#3D2914',
+            'cafe-accent': '#D4A574',
           },
-          fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Crimson Text', 'serif'] }
+          fontFamily: {
+            'display': ['Playfair Display', 'serif'],
+            'body': ['Inter', 'sans-serif'],
+          }
         }
       }
     }
   </script>
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    .font-serif { font-family: 'Crimson Text', serif; }
-    html { scroll-behavior: smooth; }
-    .hero-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23bf8b5a' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
-    .text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .animate-fadeInUp { animation: fadeInUp 0.8s ease forwards; }
-    .card-hover { transition: all 0.4s ease; }
-    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2); }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #faf8f5; }
-    ::-webkit-scrollbar-thumb { background: #bf8b5a; border-radius: 4px; }
+    .hero-gradient {
+      background: linear-gradient(135deg, #3D2914 0%, #6B4423 50%, #B87333 100%);
+    }
+    .text-shadow {
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .coffee-pattern {
+      background-image: radial-gradient(circle at 2px 2px, rgba(184, 115, 51, 0.15) 1px, transparent 0);
+      background-size: 32px 32px;
+    }
+    .menu-item-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(61, 41, 20, 0.15);
+    }
+    .smooth-scroll {
+      scroll-behavior: smooth;
+    }
+    .float-cta {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .steam-animation {
+      animation: steam 3s ease-in-out infinite;
+    }
+    @keyframes steam {
+      0%, 100% { opacity: 0.4; transform: translateY(0) scale(1); }
+      50% { opacity: 0.8; transform: translateY(-10px) scale(1.1); }
+    }
   </style>
 </head>
-<body class="bg-coffee-50 text-gray-800 antialiased">
+<body class="font-body bg-cafe-cream text-cafe-dark antialiased smooth-scroll">
 
   <!-- Navigation -->
-  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-20">
-        <div class="flex items-center">
-          <div class="w-12 h-12 bg-coffee-600 rounded-xl flex items-center justify-center mr-3">
-            <i data-lucide="coffee" class="w-7 h-7 text-white"></i>
+  <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+    <div class="glass-card">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Logo -->
+          <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 bg-cafe-copper rounded-full flex items-center justify-center">
+              <i data-lucide="crown" class="w-7 h-7 text-white"></i>
+            </div>
+            <div>
+              <span class="font-display text-2xl font-bold text-cafe-dark">Kings</span>
+              <span class="font-display text-2xl font-light text-cafe-copper">Cafe</span>
+            </div>
           </div>
-          <div>
-            <h1 class="font-serif text-2xl font-bold text-coffee-900">Kings Cafe</h1>
-            <p class="text-coffee-600 text-xs font-medium tracking-widest uppercase">Mason, Ohio</p>
+          
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#home" class="text-cafe-dark hover:text-cafe-copper transition-colors font-medium">Home</a>
+            <a href="#about" class="text-cafe-dark hover:text-cafe-copper transition-colors font-medium">About</a>
+            <a href="#menu" class="text-cafe-dark hover:text-cafe-copper transition-colors font-medium">Menu</a>
+            <a href="#visit" class="text-cafe-dark hover:text-cafe-copper transition-colors font-medium">Visit Us</a>
+            <a href="tel:+15137702333" class="bg-cafe-copper text-white px-6 py-3 rounded-full font-semibold hover:bg-cafe-brown transition-all shadow-lg hover:shadow-xl">
+              Call Now
+            </a>
           </div>
+          
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden p-2" id="mobile-menu-btn">
+            <i data-lucide="menu" class="w-6 h-6 text-cafe-dark"></i>
+          </button>
         </div>
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="#menu" class="text-gray-600 hover:text-coffee-600 transition-colors font-medium">Menu</a>
-          <a href="#about" class="text-gray-600 hover:text-coffee-600 transition-colors font-medium">About</a>
-          <a href="#location" class="text-gray-600 hover:text-coffee-600 transition-colors font-medium">Location</a>
-          <a href="tel:513-770-2333" class="bg-coffee-600 hover:bg-coffee-700 text-white px-6 py-3 rounded-lg font-semibold transition-all flex items-center gap-2">
-            <i data-lucide="phone" class="w-4 h-4"></i>
-            (513) 770-2333
-          </a>
-        </div>
-        <button id="mobile-menu-btn" class="md:hidden text-coffee-900 p-2">
-          <i data-lucide="menu" class="w-6 h-6"></i>
-        </button>
       </div>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
-      <div class="px-4 py-6 space-y-4">
-        <a href="#menu" class="block text-gray-600 hover:text-coffee-600 font-medium py-2">Menu</a>
-        <a href="#about" class="block text-gray-600 hover:text-coffee-600 font-medium py-2">About</a>
-        <a href="#location" class="block text-gray-600 hover:text-coffee-600 font-medium py-2">Location</a>
-        <a href="tel:513-770-2333" class="block bg-coffee-600 text-white px-6 py-3 rounded-lg font-semibold text-center">Call (513) 770-2333</a>
+    
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
+      <div class="px-4 py-4 space-y-4">
+        <a href="#home" class="block text-cafe-dark font-medium py-2">Home</a>
+        <a href="#about" class="block text-cafe-dark font-medium py-2">About</a>
+        <a href="#menu" class="block text-cafe-dark font-medium py-2">Menu</a>
+        <a href="#visit" class="block text-cafe-dark font-medium py-2">Visit Us</a>
+        <a href="tel:+15137702333" class="block bg-cafe-copper text-white px-6 py-3 rounded-full font-semibold text-center">
+          (513) 770-2333
+        </a>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="relative min-h-[90vh] flex items-center bg-coffee-900 overflow-hidden pt-20">
-    <div class="absolute inset-0 hero-pattern opacity-30"></div>
-    <div class="absolute inset-0 bg-gradient-to-br from-coffee-900 via-coffee-800 to-coffee-950"></div>
-    <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-coffee-900 to-transparent"></div>
+  <section id="home" class="hero-gradient min-h-screen flex items-center relative overflow-hidden">
+    <!-- Decorative Elements -->
+    <div class="absolute inset-0 coffee-pattern opacity-30"></div>
+    <div class="absolute top-20 right-10 w-64 h-64 bg-cafe-accent rounded-full blur-3xl opacity-20"></div>
+    <div class="absolute bottom-20 left-10 w-96 h-96 bg-cafe-copper rounded-full blur-3xl opacity-20"></div>
     
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div class="animate-fadeInUp">
-          <div class="inline-flex items-center gap-2 bg-coffee-700/50 backdrop-blur border border-coffee-600 px-4 py-2 rounded-full mb-6">
-            <i data-lucide="star" class="w-4 h-4 text-cream-400"></i>
-            <span class="text-cream-200 font-semibold text-sm">Local Favorite in Mason, OH</span>
+        <!-- Text Content -->
+        <div class="text-white">
+          <div class="flex items-center space-x-2 mb-6">
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <span class="text-cafe-warm ml-2 text-sm font-medium">Mason's Favorite Cafe</span>
           </div>
-          <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 text-shadow">
-            Where Good Food <span class="text-cream-400">Meets Great Company</span>
+          
+          <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight text-shadow">
+            Where Every<br/>
+            <span class="text-cafe-accent">Cup</span> is Royalty
           </h1>
-          <p class="text-xl text-coffee-200 mb-8 leading-relaxed max-w-lg">
-            Fresh coffee brewed daily. Homestyle breakfast and lunch served with a smile. Your neighborhood cafe in Mason.
+          
+          <p class="text-xl text-cafe-warm mb-8 max-w-lg leading-relaxed">
+            Experience the perfect blend of premium coffee, fresh-baked pastries, and warm hospitality in the heart of Mason, Ohio.
           </p>
+          
           <div class="flex flex-col sm:flex-row gap-4">
-            <a href="#menu" class="bg-cream-400 hover:bg-cream-300 text-coffee-900 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg flex items-center justify-center gap-3">
-              <i data-lucide="utensils" class="w-5 h-5"></i>
-              View Our Menu
+            <a href="#menu" class="bg-cafe-accent text-cafe-dark px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-xl hover:shadow-2xl text-center flex items-center justify-center space-x-2">
+              <i data-lucide="coffee" class="w-5 h-5"></i>
+              <span>View Our Menu</span>
             </a>
-            <a href="tel:513-770-2333" class="bg-transparent hover:bg-coffee-700 text-white border-2 border-coffee-600 px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-3">
-              <i data-lucide="phone" class="w-5 h-5"></i>
-              Call for Takeout
+            <a href="tel:+15137702333" class="border-2 border-cafe-accent text-cafe-accent px-8 py-4 rounded-full font-bold text-lg hover:bg-cafe-accent hover:text-cafe-dark transition-all text-center">
+              Call (513) 770-2333
             </a>
+          </div>
+          
+          <div class="flex items-center space-x-6 mt-10 text-cafe-warm">
+            <div class="flex items-center space-x-2">
+              <i data-lucide="clock" class="w-5 h-5"></i>
+              <span>Open Daily</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i data-lucide="map-pin" class="w-5 h-5"></i>
+              <span>Mason, OH</span>
+            </div>
           </div>
         </div>
-        <div class="hidden lg:block relative">
+        
+        <!-- Visual Element -->
+        <div class="hidden lg:flex justify-center relative">
           <div class="relative">
-            <div class="absolute -inset-4 bg-cream-400/20 rounded-3xl transform rotate-3"></div>
-            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80" alt="Fresh coffee and breakfast at Kings Cafe" class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
-            <div class="absolute -bottom-6 -left-6 bg-white rounded-xl p-6 shadow-xl">
-              <div class="flex items-center gap-3 mb-3">
-                <div class="w-12 h-12 bg-coffee-100 rounded-full flex items-center justify-center">
-                  <i data-lucide="clock" class="w-6 h-6 text-coffee-600"></i>
+            <!-- Main Coffee Cup Illustration -->
+            <div class="w-80 h-80 bg-gradient-to-br from-cafe-warm to-cafe-accent rounded-full flex items-center justify-center shadow-2xl relative">
+              <div class="text-center">
+                <i data-lucide="coffee" class="w-32 h-32 text-cafe-dark mx-auto mb-4"></i>
+                <div class="steam-animation">
+                  <i data-lucide="cloud" class="w-12 h-12 text-white/60 mx-auto"></i>
                 </div>
-                <div>
-                  <p class="font-semibold text-coffee-900">Open Daily</p>
-                  <p class="text-sm text-coffee-600">Early 'til Late</p>
-                </div>
+              </div>
+            </div>
+            
+            <!-- Floating Elements -->
+            <div class="absolute -top-4 -right-4 w-20 h-20 bg-white rounded-2xl shadow-xl flex items-center justify-center float-cta">
+              <i data-lucide="heart" class="w-10 h-10 text-red-500 fill-current"></i>
+            </div>
+            <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-cafe-copper rounded-2xl shadow-xl flex items-center justify-center">
+              <div class="text-center text-white">
+                <div class="text-2xl font-bold">5.0</div>
+                <div class="text-xs">★★★★★</div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- Features Bar -->
-  <section class="bg-cream-300 py-8 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div class="flex flex-col items-center">
-          <i data-lucide="coffee" class="w-8 h-8 text-coffee-700 mb-2"></i>
-          <p class="text-lg font-bold text-coffee-900">Fresh Coffee</p>
-          <p class="text-coffee-600 text-sm">Brewed Daily</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <i data-lucide="egg" class="w-8 h-8 text-coffee-700 mb-2"></i>
-          <p class="text-lg font-bold text-coffee-900">All-Day Breakfast</p>
-          <p class="text-coffee-600 text-sm">Your Way</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <i data-lucide="home" class="w-8 h-8 text-coffee-700 mb-2"></i>
-          <p class="text-lg font-bold text-coffee-900">Homestyle</p>
-          <p class="text-coffee-600 text-sm">Comfort Food</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <i data-lucide="heart" class="w-8 h-8 text-coffee-700 mb-2"></i>
-          <p class="text-lg font-bold text-coffee-900">Made with Love</p>
-          <p class="text-coffee-600 text-sm">Since Day One</p>
-        </div>
-      </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 animate-bounce">
+      <i data-lucide="chevron-down" class="w-8 h-8"></i>
     </div>
   </section>
 
-  <!-- Menu Preview Section -->
-  <section id="menu" class="py-24 bg-coffee-50">
+  <!-- Features/Trust Bar -->
+  <section class="bg-white py-12 shadow-lg relative z-20 -mt-4 rounded-t-3xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full mb-4 shadow-sm">
-          <i data-lucide="chef-hat" class="w-4 h-4 text-coffee-600"></i>
-          <span class="text-coffee-800 font-semibold text-sm">Our Menu</span>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="flex flex-col items-center">
+          <div class="w-16 h-16 bg-cafe-cream rounded-full flex items-center justify-center mb-3">
+            <i data-lucide="coffee" class="w-8 h-8 text-cafe-copper"></i>
+          </div>
+          <h3 class="font-display font-semibold text-cafe-dark">Premium Coffee</h3>
+          <p class="text-sm text-gray-600 mt-1">Expertly roasted beans</p>
         </div>
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-coffee-900 mb-4">Fresh & Delicious</h2>
-        <p class="text-xl text-coffee-600 max-w-3xl mx-auto">From hearty breakfasts to satisfying lunches, everything is made fresh when you order.</p>
-      </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Breakfast -->
-        <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
-          <div class="relative h-48">
-            <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=600&q=80" alt="Classic breakfast plate" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-coffee-900/70 to-transparent"></div>
-            <div class="absolute bottom-4 left-4">
-              <span class="bg-cream-400 text-coffee-900 px-3 py-1 rounded-full text-sm font-semibold">Popular</span>
-            </div>
+        <div class="flex flex-col items-center">
+          <div class="w-16 h-16 bg-cafe-cream rounded-full flex items-center justify-center mb-3">
+            <i data-lucide="croissant" class="w-8 h-8 text-cafe-copper"></i>
           </div>
-          <div class="p-6">
-            <h3 class="font-serif text-2xl font-bold text-coffee-900 mb-2">Classic Breakfast</h3>
-            <p class="text-coffee-600 mb-4">Eggs any style, bacon or sausage, home fries, and toast. The perfect way to start your day.</p>
-            <div class="flex justify-between items-center">
-              <span class="text-2xl font-bold text-coffee-800">$9.99</span>
-              <button class="text-coffee-600 hover:text-coffee-800 font-medium flex items-center gap-1">
-                <i data-lucide="plus-circle" class="w-5 h-5"></i>
-                Order
-              </button>
-            </div>
-          </div>
+          <h3 class="font-display font-semibold text-cafe-dark">Fresh Baked</h3>
+          <p class="text-sm text-gray-600 mt-1">Daily pastries & treats</p>
         </div>
-
-        <!-- Pancakes -->
-        <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
-          <div class="relative h-48">
-            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80" alt="Fluffy pancakes with syrup" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-coffee-900/70 to-transparent"></div>
+        <div class="flex flex-col items-center">
+          <div class="w-16 h-16 bg-cafe-cream rounded-full flex items-center justify-center mb-3">
+            <i data-lucide="wifi" class="w-8 h-8 text-cafe-copper"></i>
           </div>
-          <div class="p-6">
-            <h3 class="font-serif text-2xl font-bold text-coffee-900 mb-2">Fluffy Pancakes</h3>
-            <p class="text-coffee-600 mb-4">Three golden buttermilk pancakes served with butter and warm maple syrup.</p>
-            <div class="flex justify-between items-center">
-              <span class="text-2xl font-bold text-coffee-800">$8.49</span>
-              <button class="text-coffee-600 hover:text-coffee-800 font-medium flex items-center gap-1">
-                <i data-lucide="plus-circle" class="w-5 h-5"></i>
-                Order
-              </button>
-            </div>
-          </div>
+          <h3 class="font-display font-semibold text-cafe-dark">Free WiFi</h3>
+          <p class="text-sm text-gray-600 mt-1">Stay connected</p>
         </div>
-
-        <!-- Coffee -->
-        <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
-          <div class="relative h-48">
-            <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=600&q=80" alt="Fresh brewed coffee" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-coffee-900/70 to-transparent"></div>
-            <div class="absolute bottom-4 left-4">
-              <span class="bg-coffee-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Fresh Daily</span>
-            </div>
+        <div class="flex flex-col items-center">
+          <div class="w-16 h-16 bg-cafe-cream rounded-full flex items-center justify-center mb-3">
+            <i data-lucide="users" class="w-8 h-8 text-cafe-copper"></i>
           </div>
-          <div class="p-6">
-            <h3 class="font-serif text-2xl font-bold text-coffee-900 mb-2">Premium Coffee</h3>
-            <p class="text-coffee-600 mb-4">Freshly brewed coffee made from premium beans. Regular or decaf available.</p>
-            <div class="flex justify-between items-center">
-              <span class="text-2xl font-bold text-coffee-800">$2.49</span>
-              <button class="text-coffee-600 hover:text-coffee-800 font-medium flex items-center gap-1">
-                <i data-lucide="plus-circle" class="w-5 h-5"></i>
-                Order
-              </button>
-            </div>
-          </div>
+          <h3 class="font-display font-semibold text-cafe-dark">Cozy Atmosphere</h3>
+          <p class="text-sm text-gray-600 mt-1">Perfect for meetings</p>
         </div>
-
-        <!-- Lunch Special -->
-        <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
-          <div class="relative h-48">
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt="Gourmet burger" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-coffee-900/70 to-transparent"></div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-serif text-2xl font-bold text-coffee-900 mb-2">Gourmet Burger</h3>
-            <p class="text-coffee-600 mb-4">Half-pound fresh beef patty with lettuce, tomato, onion, and your choice of cheese.</p>
-            <div class="flex justify-between items-center">
-              <span class="text-2xl font-bold text-coffee-800">$11.99</span>
-              <button class="text-coffee-600 hover:text-coffee-800 font-medium flex items-center gap-1">
-                <i data-lucide="plus-circle" class="w-5 h-5"></i>
-                Order
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Salad -->
-        <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
-          <div class="relative h-48">
-            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="Fresh garden salad" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-coffee-900/70 to-transparent"></div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-serif text-2xl font-bold text-coffee-900 mb-2">Garden Fresh Salad</h3>
-            <p class="text-coffee-600 mb-4">Mixed greens, tomatoes, cucumbers, red onion, and your choice of dressing.</p>
-            <div class="flex justify-between items-center">
-              <span class="text-2xl font-bold text-coffee-800">$7.99</span>
-              <button class="text-coffee-600 hover:text-coffee-800 font-medium flex items-center gap-1">
-                <i data-lucide="plus-circle" class="w-5 h-5"></i>
-                Order
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Daily Special -->
-        <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover border-2 border-coffee-200">
-          <div class="relative h-48">
-            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="Homestyle soup" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-coffee-900/70 to-transparent"></div>
-            <div class="absolute bottom-4 left-4">
-              <span class="bg-sage-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Daily Special</span>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-serif text-2xl font-bold text-coffee-900 mb-2">Soup of the Day</h3>
-            <p class="text-coffee-600 mb-4">Homemade soup served with a side of fresh bread. Ask your server for today's selection.</p>
-            <div class="flex justify-between items-center">
-              <span class="text-2xl font-bold text-coffee-800">$5.99</span>
-              <button class="text-coffee-600 hover:text-coffee-800 font-medium flex items-center gap-1">
-                <i data-lucide="plus-circle" class="w-5 h-5"></i>
-                Order
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="mt-12 text-center">
-        <p class="text-coffee-600 mb-6">These are just a few of our favorites. Call us for the complete menu!</p>
-        <a href="tel:513-770-2333" class="inline-flex items-center gap-2 bg-coffee-600 hover:bg-coffee-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all">
-          <i data-lucide="phone" class="w-5 h-5"></i>
-          Call (513) 770-2333 for Full Menu
-        </a>
       </div>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-24 bg-white">
+  <section id="about" class="py-24 bg-cafe-cream coffee-pattern">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div class="order-2 lg:order-1">
-          <div class="inline-flex items-center gap-2 bg-coffee-100 px-4 py-2 rounded-full mb-6">
-            <i data-lucide="users" class="w-4 h-4 text-coffee-600"></i>
-            <span class="text-coffee-800 font-semibold text-sm">Our Story</span>
-          </div>
-          <h2 class="font-serif text-4xl md:text-5xl font-bold text-coffee-900 mb-6">
-            A Local Gathering Place
+        <!-- Left: Content -->
+        <div>
+          <span class="text-cafe-copper font-semibold tracking-wider uppercase text-sm">Our Story</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-cafe-dark mt-3 mb-6">
+            A Royal Experience in Mason
           </h2>
-          <p class="text-lg text-coffee-600 mb-6 leading-relaxed">
-            Kings Cafe has been a beloved part of the Mason community, serving up fresh coffee, hearty breakfasts, and warm hospitality. We're more than just a cafe – we're your neighborhood gathering spot.
+          <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+            Welcome to Kings Cafe, where we believe every guest deserves the royal treatment. Nestled in the heart of Mason, Ohio, we've created a warm, inviting space where friends gather, work gets done, and memories are made over exceptional coffee and delicious food.
           </p>
-          <p class="text-lg text-coffee-600 mb-8 leading-relaxed">
-            Whether you're stopping by for your morning coffee, meeting friends for lunch, or looking for a comfortable place to work, you'll always find a warm welcome at Kings Cafe.
+          <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+            Our commitment to quality starts with sourcing the finest coffee beans and extends to every pastry we bake fresh each morning. Whether you're looking for your morning caffeine fix, a quiet corner to work, or a place to catch up with friends, Kings Cafe is your destination.
           </p>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="flex items-center gap-3 bg-coffee-50 p-4 rounded-xl">
-              <i data-lucide="clock" class="w-5 h-5 text-coffee-600"></i>
-              <span class="text-coffee-800 font-medium">Open Early</span>
+          
+          <div class="grid grid-cols-3 gap-6 mb-8">
+            <div class="text-center">
+              <div class="text-3xl font-display font-bold text-cafe-copper">100%</div>
+              <div class="text-sm text-gray-600">Arabica Beans</div>
             </div>
-            <div class="flex items-center gap-3 bg-coffee-50 p-4 rounded-xl">
-              <i data-lucide="leaf" class="w-5 h-5 text-coffee-600"></i>
-              <span class="text-coffee-800 font-medium">Fresh Ingredients</span>
+            <div class="text-center">
+              <div class="text-3xl font-display font-bold text-cafe-copper">Fresh</div>
+              <div class="text-sm text-gray-600">Daily Baked</div>
             </div>
-            <div class="flex items-center gap-3 bg-coffee-50 p-4 rounded-xl">
-              <i data-lucide="truck" class="w-5 h-5 text-coffee-600"></i>
-              <span class="text-coffee-800 font-medium">Takeout Available</span>
-            </div>
-            <div class="flex items-center gap-3 bg-coffee-50 p-4 rounded-xl">
-              <i data-lucide="smile" class="w-5 h-5 text-coffee-600"></i>
-              <span class="text-coffee-800 font-medium">Friendly Service</span>
+            <div class="text-center">
+              <div class="text-3xl font-display font-bold text-cafe-copper">Local</div>
+              <div class="text-sm text-gray-600">Community</div>
             </div>
           </div>
+          
+          <a href="#visit" class="inline-flex items-center space-x-2 text-cafe-copper font-semibold hover:text-cafe-brown transition-colors">
+            <span>Visit Us Today</span>
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </a>
         </div>
-        <div class="order-1 lg:order-2 relative">
-          <div class="absolute -inset-4 bg-gradient-to-br from-coffee-200 via-cream-300 to-sage-200 rounded-3xl transform rotate-2"></div>
-          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80" alt="Cozy cafe atmosphere at Kings Cafe" class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
+        
+        <!-- Right: Visual Composition -->
+        <div class="relative">
+          <!-- Main Card -->
+          <div class="bg-white rounded-3xl p-8 shadow-2xl relative z-10">
+            <div class="bg-gradient-to-br from-cafe-warm to-cafe-accent rounded-2xl h-64 flex items-center justify-center mb-6">
+              <div class="text-center">
+                <i data-lucide="crown" class="w-20 h-20 text-cafe-dark mx-auto mb-2"></i>
+                <p class="font-display text-2xl font-bold text-cafe-dark">Kings Cafe</p>
+                <p class="text-cafe-dark/70">Mason, Ohio</p>
+              </div>
+            </div>
+            <h3 class="font-display text-2xl font-semibold text-cafe-dark mb-3">Why Choose Us?</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start space-x-3">
+                <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i>
+                <span class="text-gray-700">Locally sourced ingredients whenever possible</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i>
+                <span class="text-gray-700">Friendly, knowledgeable staff</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i>
+                <span class="text-gray-700">Comfortable seating for work or relaxation</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i>
+                <span class="text-gray-700">Daily specials and seasonal menu items</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Background Decorative Cards -->
+          <div class="absolute -top-6 -right-6 w-full h-full bg-cafe-copper/20 rounded-3xl"></div>
+          <div class="absolute -bottom-6 -left-6 w-full h-full bg-cafe-accent/20 rounded-3xl"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Location Section -->
-  <section id="location" class="py-24 bg-coffee-50">
+  <!-- Menu Section -->
+  <section id="menu" class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
       <div class="text-center mb-16">
-        <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full mb-4 shadow-sm">
-          <i data-lucide="map-pin" class="w-4 h-4 text-coffee-600"></i>
-          <span class="text-coffee-800 font-semibold text-sm">Visit Us</span>
-        </div>
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-coffee-900 mb-4">Come See Us</h2>
-        <p class="text-xl text-coffee-600 max-w-3xl mx-auto">Located in the heart of Mason, we're easy to find and always happy to see you.</p>
+        <span class="text-cafe-copper font-semibold tracking-wider uppercase text-sm">Our Offerings</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-cafe-dark mt-3 mb-4">
+          Menu Highlights
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          From our signature espresso drinks to freshly baked pastries, everything is crafted with care and served with a smile.
+        </p>
       </div>
       
-      <div class="grid lg:grid-cols-3 gap-8">
-        <div class="lg:col-span-1 space-y-6">
-          <div class="bg-white rounded-2xl p-6 shadow-sm">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-coffee-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i data-lucide="map-pin" class="w-6 h-6 text-coffee-600"></i>
+      <!-- Menu Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Coffee Card -->
+        <div class="menu-item-hover bg-cafe-cream rounded-3xl p-8 transition-all duration-300">
+          <div class="w-16 h-16 bg-cafe-copper rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="coffee" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="font-display text-2xl font-semibold text-cafe-dark mb-4">Signature Coffee</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex justify-between"><span>Espresso</span><span class="font-semibold text-cafe-copper">\$3.50</span></li>
+            <li class="flex justify-between"><span>Cappuccino</span><span class="font-semibold text-cafe-copper">\$4.50</span></li>
+            <li class="flex justify-between"><span>Cafe Latte</span><span class="font-semibold text-cafe-copper">\$4.75</span></li>
+            <li class="flex justify-between"><span>Americano</span><span class="font-semibold text-cafe-copper">\$3.75</span></li>
+            <li class="flex justify-between"><span>House Blend Drip</span><span class="font-semibold text-cafe-copper">\$3.00</span></li>
+          </ul>
+        </div>
+        
+        <!-- Specialty Drinks -->
+        <div class="menu-item-hover bg-cafe-cream rounded-3xl p-8 transition-all duration-300">
+          <div class="w-16 h-16 bg-cafe-copper rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="sparkles" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="font-display text-2xl font-semibold text-cafe-dark mb-4">Specialty Drinks</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex justify-between"><span>Vanilla Latte</span><span class="font-semibold text-cafe-copper">\$5.25</span></li>
+            <li class="flex justify-between"><span>Caramel Macchiato</span><span class="font-semibold text-cafe-copper">\$5.50</span></li>
+            <li class="flex justify-between"><span>Mocha</span><span class="font-semibold text-cafe-copper">\$5.25</span></li>
+            <li class="flex justify-between"><span>Matcha Latte</span><span class="font-semibold text-cafe-copper">\$5.75</span></li>
+            <li class="flex justify-between"><span>Chai Tea Latte</span><span class="font-semibold text-cafe-copper">\$5.25</span></li>
+          </ul>
+        </div>
+        
+        <!-- Cold Beverages -->
+        <div class="menu-item-hover bg-cafe-cream rounded-3xl p-8 transition-all duration-300">
+          <div class="w-16 h-16 bg-cafe-copper rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="snowflake" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="font-display text-2xl font-semibold text-cafe-dark mb-4">Cold Beverages</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex justify-between"><span>Iced Coffee</span><span class="font-semibold text-cafe-copper">\$3.75</span></li>
+            <li class="flex justify-between"><span>Cold Brew</span><span class="font-semibold text-cafe-copper">\$4.50</span></li>
+            <li class="flex justify-between"><span>Iced Latte</span><span class="font-semibold text-cafe-copper">\$5.25</span></li>
+            <li class="flex justify-between"><span>Frappes</span><span class="font-semibold text-cafe-copper">\$5.75</span></li>
+            <li class="flex justify-between"><span>Fresh Smoothies</span><span class="font-semibold text-cafe-copper">\$6.00</span></li>
+          </ul>
+        </div>
+        
+        <!-- Breakfast -->
+        <div class="menu-item-hover bg-cafe-cream rounded-3xl p-8 transition-all duration-300">
+          <div class="w-16 h-16 bg-cafe-copper rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="sun" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="font-display text-2xl font-semibold text-cafe-dark mb-4">Breakfast</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex justify-between"><span>Breakfast Sandwich</span><span class="font-semibold text-cafe-copper">\$7.50</span></li>
+            <li class="flex justify-between"><span>Avocado Toast</span><span class="font-semibold text-cafe-copper">\$8.50</span></li>
+            <li class="flex justify-between"><span>Yogurt Parfait</span><span class="font-semibold text-cafe-copper">\$6.50</span></li>
+            <li class="flex justify-between"><span>Bagel with Cream Cheese</span><span class="font-semibold text-cafe-copper">\$4.50</span></li>
+            <li class="flex justify-between"><span>Oatmeal Bowl</span><span class="font-semibold text-cafe-copper">\$5.50</span></li>
+          </ul>
+        </div>
+        
+        <!-- Pastries -->
+        <div class="menu-item-hover bg-cafe-cream rounded-3xl p-8 transition-all duration-300">
+          <div class="w-16 h-16 bg-cafe-copper rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="cake" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="font-display text-2xl font-semibold text-cafe-dark mb-4">Fresh Pastries</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex justify-between"><span>Croissants</span><span class="font-semibold text-cafe-copper">\$3.75</span></li>
+            <li class="flex justify-between"><span>Muffins</span><span class="font-semibold text-cafe-copper">\$3.50</span></li>
+            <li class="flex justify-between"><span>Danishes</span><span class="font-semibold text-cafe-copper">\$4.00</span></li>
+            <li class="flex justify-between"><span>Scones</span><span class="font-semibold text-cafe-copper">\$3.50</span></li>
+            <li class="flex justify-between"><span>Cinnamon Rolls</span><span class="font-semibold text-cafe-copper">\$4.50</span></li>
+          </ul>
+        </div>
+        
+        <!-- Lunch -->
+        <div class="menu-item-hover bg-cafe-cream rounded-3xl p-8 transition-all duration-300">
+          <div class="w-16 h-16 bg-cafe-copper rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="utensils" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="font-display text-2xl font-semibold text-cafe-dark mb-4">Lunch Favorites</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex justify-between"><span>Club Sandwich</span><span class="font-semibold text-cafe-copper">\$10.99</span></li>
+            <li class="flex justify-between"><span>Chicken Wrap</span><span class="font-semibold text-cafe-copper">\$9.99</span></li>
+            <li class="flex justify-between"><span>Caesar Salad</span><span class="font-semibold text-cafe-copper">\$8.99</span></li>
+            <li class="flex justify-between"><span>Soup of the Day</span><span class="font-semibold text-cafe-copper">\$5.99</span></li>
+            <li class="flex justify-between"><span>Quiche</span><span class="font-semibold text-cafe-copper">\$9.50</span></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Menu Note -->
+      <div class="text-center mt-12">
+        <p class="text-gray-600 mb-6">
+          <i data-lucide="info" class="w-4 h-4 inline mr-1"></i>
+          Prices subject to change. Daily specials available. Ask about our loyalty program!
+        </p>
+        <a href="tel:+15137702333" class="inline-flex items-center space-x-2 bg-cafe-copper text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-cafe-brown transition-all shadow-lg hover:shadow-xl">
+          <i data-lucide="phone" class="w-5 h-5"></i>
+          <span>Call for Daily Specials</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visit Section -->
+  <section id="visit" class="py-24 bg-cafe-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Contact Info -->
+        <div>
+          <span class="text-cafe-accent font-semibold tracking-wider uppercase text-sm">Visit Us</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold mt-3 mb-6">
+            Come Experience<br/>Kings Cafe
+          </h2>
+          <p class="text-cafe-warm text-lg mb-8 leading-relaxed">
+            We're conveniently located in Mason, Ohio, ready to serve you the perfect cup of coffee and a warm welcome. Whether you're starting your day or taking a well-deserved break, we're here for you.
+          </p>
+          
+          <div class="space-y-6">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-cafe-copper rounded-full flex items-center justify-center flex-shrink-0">
+                <i data-lucide="map-pin" class="w-6 h-6 text-white"></i>
               </div>
               <div>
-                <h3 class="font-semibold text-coffee-900 text-lg mb-1">Address</h3>
-                <p class="text-coffee-600">Mason, OH</p>
-                <p class="text-coffee-500 text-sm mt-1">Conveniently located in Mason</p>
+                <h4 class="font-semibold text-lg">Location</h4>
+                <p class="text-cafe-warm">Mason, OH</p>
+                <p class="text-sm text-cafe-warm/70 mt-1">Conveniently located in the heart of Mason</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-cafe-copper rounded-full flex items-center justify-center flex-shrink-0">
+                <i data-lucide="phone" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">Phone</h4>
+                <a href="tel:+15137702333" class="text-cafe-warm hover:text-white transition-colors text-xl font-semibold">(513) 770-2333</a>
+                <p class="text-sm text-cafe-warm/70 mt-1">Call for orders, questions, or catering</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-cafe-copper rounded-full flex items-center justify-center flex-shrink-0">
+                <i data-lucide="clock" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">Hours</h4>
+                <p class="text-cafe-warm">Open Daily</p>
+                <p class="text-sm text-cafe-warm/70 mt-1">Early morning to evening service</p>
               </div>
             </div>
           </div>
           
-          <div class="bg-white rounded-2xl p-6 shadow-sm">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-cream-200 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i data-lucide="phone" class="w-6 h-6 text-coffee-600"></i>
-              </div>
-              <div>
-                <h3 class="font-semibold text-coffee-900 text-lg mb-1">Phone</h3>
-                <a href="tel:513-770-2333" class="text-coffee-600 hover:text-coffee-800 font-medium text-lg">(513) 770-2333</a>
-                <p class="text-coffee-500 text-sm mt-1">Call for takeout or questions</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="bg-white rounded-2xl p-6 shadow-sm">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-coffee-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i data-lucide="clock" class="w-6 h-6 text-coffee-600"></i>
-              </div>
-              <div>
-                <h3 class="font-semibold text-coffee-900 text-lg mb-1">Hours</h3>
-                <p class="text-coffee-600">Monday - Sunday</p>
-                <p class="text-coffee-500 text-sm mt-1">Early morning to evening</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="bg-coffee-600 rounded-2xl p-6 shadow-lg text-white">
-            <h3 class="font-serif text-2xl font-bold mb-3">Daily Specials</h3>
-            <p class="text-coffee-100 mb-4">Ask about our rotating daily specials and seasonal menu items!</p>
-            <a href="tel:513-770-2333" class="inline-flex items-center gap-2 bg-white text-coffee-900 px-4 py-2 rounded-lg font-semibold hover:bg-cream-300 transition-all">
-              <i data-lucide="phone" class="w-4 h-4"></i>
-              Call to Inquire
+          <!-- CTA -->
+          <div class="mt-10 flex flex-col sm:flex-row gap-4">
+            <a href="tel:+15137702333" class="bg-cafe-accent text-cafe-dark px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-lg hover:shadow-xl text-center flex items-center justify-center space-x-2">
+              <i data-lucide="phone-call" class="w-5 h-5"></i>
+              <span>Call Now</span>
             </a>
+            <button onclick="alert('Thank you for your interest! Online ordering coming soon. Please call (513) 770-2333 to place your order.')" class="border-2 border-cafe-accent text-cafe-accent px-8 py-4 rounded-full font-bold text-lg hover:bg-cafe-accent hover:text-cafe-dark transition-all text-center flex items-center justify-center space-x-2">
+              <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+              <span>Order Online</span>
+            </button>
           </div>
         </div>
         
-        <div class="lg:col-span-2">
-          <div class="bg-white rounded-2xl shadow-xl overflow-hidden h-full min-h-[400px]">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3088.5!2d-84.31!3d39.36!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841a1b1b1b1b1b1%3A0x1a1a1a1a1a1a1a1a!2sMason%2C%20OH!5e0!3m2!1sen!2sus!4v1234567890" 
-              width="100%" 
-              height="100%" 
-              style="border:0; min-height: 500px;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+        <!-- Map/Visual -->
+        <div class="relative">
+          <div class="bg-white rounded-3xl p-2 shadow-2xl">
+            <div class="bg-gradient-to-br from-cafe-warm to-cafe-cream rounded-2xl h-96 flex items-center justify-center relative overflow-hidden">
+              <!-- Decorative Map Elements -->
+              <div class="absolute inset-0 opacity-20">
+                <div class="absolute top-10 left-10 w-32 h-32 bg-cafe-copper rounded-full blur-2xl"></div>
+                <div class="absolute bottom-10 right-10 w-48 h-48 bg-cafe-accent rounded-full blur-2xl"></div>
+                <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-cafe-warm rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+              </div>
+              
+              <!-- Center Pin -->
+              <div class="relative z-10 text-center">
+                <div class="w-24 h-24 bg-cafe-copper rounded-full flex items-center justify-center mb-4 mx-auto shadow-xl">
+                  <i data-lucide="crown" class="w-12 h-12 text-white"></i>
+                </div>
+                <div class="bg-white/90 backdrop-blur-sm rounded-xl px-6 py-3 shadow-lg">
+                  <p class="font-display font-bold text-cafe-dark text-lg">Kings Cafe</p>
+                  <p class="text-cafe-copper font-semibold">Mason, OH</p>
+                </div>
+                <div class="mt-4">
+                  <i data-lucide="map-pin" class="w-8 h-8 text-cafe-copper mx-auto"></i>
+                </div>
+              </div>
+              
+              <!-- Grid Pattern -->
+              <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#B87333 1px, transparent 1px), linear-gradient(90deg, #B87333 1px, transparent 1px); background-size: 40px 40px;"></div>
+            </div>
+          </div>
+          
+          <!-- Floating Badge -->
+          <div class="absolute -top-6 -right-6 bg-cafe-accent text-cafe-dark px-6 py-3 rounded-full font-bold shadow-xl">
+            <i data-lucide="heart" class="w-5 h-5 inline mr-1"></i>
+            Local Favorite
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-20 bg-coffee-900 relative overflow-hidden">
-    <div class="absolute inset-0 hero-pattern opacity-20"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-      <div class="w-20 h-20 bg-cream-400 rounded-full flex items-center justify-center mx-auto mb-8">
-        <i data-lucide="heart" class="w-10 h-10 text-coffee-900"></i>
+  <!-- Testimonials -->
+  <section class="py-24 bg-cafe-cream coffee-pattern">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="text-cafe-copper font-semibold tracking-wider uppercase text-sm">Reviews</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-cafe-dark mt-3">What Our Customers Say</h2>
       </div>
-      <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">
-        Hungry? We've Got You Covered.
-      </h2>
-      <p class="text-xl text-coffee-200 mb-10 max-w-2xl mx-auto">
-        Stop by for a fresh cup of coffee, stay for a delicious meal. We can't wait to serve you!
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="tel:513-770-2333" class="bg-cream-400 hover:bg-cream-300 text-coffee-900 px-10 py-5 rounded-xl font-bold text-lg transition-all shadow-lg flex items-center justify-center gap-3">
-          <i data-lucide="phone" class="w-6 h-6"></i>
-          Call (513) 770-2333
-        </a>
-        <a href="#location" class="bg-transparent hover:bg-coffee-700 text-white border-2 border-coffee-600 px-10 py-5 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-3">
-          <i data-lucide="map-pin" class="w-6 h-6"></i>
-          Get Directions
-        </a>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-3xl p-8 shadow-xl">
+          <div class="flex items-center space-x-1 mb-4">
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+          </div>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            "The best coffee in Mason! Kings Cafe has become my go-to spot every morning. The staff is incredibly friendly and the atmosphere is perfect for getting work done."
+          </p>
+          <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 bg-cafe-copper rounded-full flex items-center justify-center">
+              <i data-lucide="user" class="w-6 h-6 text-white"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-cafe-dark">Sarah M.</p>
+              <p class="text-sm text-gray-500">Regular Customer</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-3xl p-8 shadow-xl">
+          <div class="flex items-center space-x-1 mb-4">
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+          </div>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            "Amazing pastries and even better coffee! I love bringing my laptop here to work. The WiFi is fast and the environment is so welcoming. Highly recommend!"
+          </p>
+          <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 bg-cafe-copper rounded-full flex items-center justify-center">
+              <i data-lucide="user" class="w-6 h-6 text-white"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-cafe-dark">Michael R.</p>
+              <p class="text-sm text-gray-500">Local Resident</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-3xl p-8 shadow-xl">
+          <div class="flex items-center space-x-1 mb-4">
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+          </div>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            "Finally, a quality cafe in Mason! The breakfast sandwiches are delicious and the coffee is always perfect. Kings Cafe has exceeded all my expectations."
+          </p>
+          <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 bg-cafe-copper rounded-full flex items-center justify-center">
+              <i data-lucide="user" class="w-6 h-6 text-white"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-cafe-dark">Jennifer L.</p>
+              <p class="text-sm text-gray-500">Coffee Enthusiast</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-coffee-950 pt-16 pb-8">
+  <footer class="bg-cafe-dark text-white py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-4 gap-8 mb-12">
-        <div class="col-span-2">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 bg-coffee-600 rounded-lg flex items-center justify-center mr-3">
-              <i data-lucide="coffee" class="w-6 h-6 text-white"></i>
+      <div class="grid md:grid-cols-4 gap-12">
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="w-12 h-12 bg-cafe-copper rounded-full flex items-center justify-center">
+              <i data-lucide="crown" class="w-7 h-7 text-white"></i>
             </div>
             <div>
-              <h3 class="font-serif text-xl font-bold text-white">Kings Cafe</h3>
-              <p class="text-coffee-400 text-xs font-medium tracking-widest uppercase">Mason, Ohio</p>
+              <span class="font-display text-2xl font-bold">Kings</span>
+              <span class="font-display text-2xl font-light text-cafe-copper">Cafe</span>
             </div>
           </div>
-          <p class="text-coffee-300 mb-6 max-w-sm">
-            Your local cafe serving fresh coffee, delicious breakfast, and homestyle comfort food in the heart of Mason, OH.
+          <p class="text-cafe-warm mb-6 max-w-md leading-relaxed">
+            Your neighborhood destination for premium coffee, fresh pastries, and warm hospitality. Experience the royal treatment at Kings Cafe in Mason, Ohio.
           </p>
+          <div class="flex items-center space-x-4">
+            <a href="#" class="w-10 h-10 bg-cafe-copper rounded-full flex items-center justify-center hover:bg-cafe-accent transition-colors">
+              <i data-lucide="facebook" class="w-5 h-5 text-white"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-cafe-copper rounded-full flex items-center justify-center hover:bg-cafe-accent transition-colors">
+              <i data-lucide="instagram" class="w-5 h-5 text-white"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-cafe-copper rounded-full flex items-center justify-center hover:bg-cafe-accent transition-colors">
+              <i data-lucide="twitter" class="w-5 h-5 text-white"></i>
+            </a>
+          </div>
         </div>
+        
+        <!-- Quick Links -->
         <div>
-          <h4 class="font-serif text-lg font-bold text-white mb-4">Quick Links</h4>
-          <ul class="space-y-2">
-            <li><a href="#menu" class="text-coffee-300 hover:text-cream-400 transition-colors">Menu</a></li>
-            <li><a href="#about" class="text-coffee-300 hover:text-cream-400 transition-colors">About Us</a></li>
-            <li><a href="#location" class="text-coffee-300 hover:text-cream-400 transition-colors">Location</a></li>
-            <li><a href="tel:513-770-2333" class="text-coffee-300 hover:text-cream-400 transition-colors">Call Us</a></li>
+          <h4 class="font-display text-xl font-semibold mb-6">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="#home" class="text-cafe-warm hover:text-white transition-colors">Home</a></li>
+            <li><a href="#about" class="text-cafe-warm hover:text-white transition-colors">About Us</a></li>
+            <li><a href="#menu" class="text-cafe-warm hover:text-white transition-colors">Our Menu</a></li>
+            <li><a href="#visit" class="text-cafe-warm hover:text-white transition-colors">Visit Us</a></li>
           </ul>
         </div>
+        
+        <!-- Contact -->
         <div>
-          <h4 class="font-serif text-lg font-bold text-white mb-4">Contact</h4>
+          <h4 class="font-display text-xl font-semibold mb-6">Contact</h4>
           <ul class="space-y-3">
-            <li class="flex items-start gap-3">
-              <i data-lucide="map-pin" class="w-5 h-5 text-cream-400 flex-shrink-0 mt-0.5"></i>
-              <span class="text-coffee-300">Mason, OH</span>
+            <li class="flex items-center space-x-3">
+              <i data-lucide="map-pin" class="w-5 h-5 text-cafe-copper"></i>
+              <span class="text-cafe-warm">Mason, OH</span>
             </li>
-            <li class="flex items-center gap-3">
-              <i data-lucide="phone" class="w-5 h-5 text-cream-400 flex-shrink-0"></i>
-              <a href="tel:513-770-2333" class="text-coffee-300 hover:text-cream-400 transition-colors">(513) 770-2333</a>
+            <li class="flex items-center space-x-3">
+              <i data-lucide="phone" class="w-5 h-5 text-cafe-copper"></i>
+              <a href="tel:+15137702333" class="text-cafe-warm hover:text-white transition-colors">(513) 770-2333</a>
             </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="clock" class="w-5 h-5 text-cream-400 flex-shrink-0 mt-0.5"></i>
-              <span class="text-coffee-300">Open Daily<br>Early 'til Late</span>
+            <li class="flex items-center space-x-3">
+              <i data-lucide="clock" class="w-5 h-5 text-cafe-copper"></i>
+              <span class="text-cafe-warm">Open Daily</span>
             </li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-coffee-800 pt-8">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p class="text-coffee-400 text-sm">© 2024 Kings Cafe. All rights reserved.</p>
-          <div class="flex items-center gap-4">
-            <span class="text-coffee-400 text-sm flex items-center gap-2">
-              <i data-lucide="heart" class="w-4 h-4 text-cream-400"></i>
-              Made with love in Mason
-            </span>
-          </div>
-        </div>
+      
+      <!-- Bottom Bar -->
+      <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-cafe-warm/60 text-sm">© 2026 Kings Cafe. All rights reserved. Mason, Ohio.</p>
+        <p class="text-cafe-warm/60 text-sm mt-2 md:mt-0"><i data-lucide="heart" class="w-4 h-4 inline text-red-400"></i> Made with love in Mason, OH</p>
       </div>
     </div>
   </footer>
 
+  <!-- Floating CTA Button -->
+  <div class="fixed bottom-6 right-6 z-50 md:hidden">
+    <a href="tel:+15137702333" class="float-cta bg-cafe-copper text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:bg-cafe-brown transition-colors">
+      <i data-lucide="phone" class="w-6 h-6"></i>
+    </a>
+  </div>
+
   <script>
+    // Initialize Lucide icons
     lucide.createIcons();
     
     // Mobile menu toggle
@@ -525,6 +709,7 @@
       mobileMenu.classList.toggle('hidden');
     });
     
+    // Close mobile menu when clicking a link
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
@@ -533,12 +718,18 @@
     
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+    
     window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 100) {
-        navbar.classList.add('shadow-md');
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > 100) {
+        navbar.classList.add('shadow-lg');
       } else {
-        navbar.classList.remove('shadow-md');
+        navbar.classList.remove('shadow-lg');
       }
+      
+      lastScroll = currentScroll;
     });
     
     // Smooth scroll for anchor links
@@ -547,28 +738,12 @@
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         }
       });
-    });
-    
-    // Animation on scroll
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-    
-    document.querySelectorAll('.card-hover').forEach((el, index) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-      observer.observe(el);
     });
   </script>
 </body>
