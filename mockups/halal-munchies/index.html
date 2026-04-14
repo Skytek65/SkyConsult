@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halal Munchies | Premium Halal Restaurant & Catering</title>
+  <meta name="description" content="Experience the finest 100% halal cuisine at Halal Munchies. Fresh ingredients, authentic flavors, and 50+ locations nationwide. Order online or visit us today!">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              terracotta: '#E07A5F',
+              sage: '#81B29A',
+              cream: '#F4F1DE',
+              charcoal: '#3D405B',
+              gold: '#F2CC8F',
+              dark: '#2D3142'
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .font-display { font-family: 'Playfair Display', serif; }
+    .font-body { font-family: 'Inter', sans-serif; }
+    
+    /* Custom Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes pulse-soft {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+    
+    @keyframes slideInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate-float { animation: float 3s ease-in-out infinite; }
+    .animate-pulse-soft { animation: pulse-soft 2s ease-in-out infinite; }
+    .animate-slide-up { animation: slideInUp 0.6s ease-out forwards; }
+    
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Image hover zoom */
+    .img-zoom { transition: transform 0.5s ease; }
+    .img-zoom:hover { transform: scale(1.05); }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #F4F1DE; }
+    ::-webkit-scrollbar-thumb { background: #E07A5F; border-radius: 4px; }
+    
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #E07A5F 0%, #F2CC8F 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Glass effect */
+    .glass {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+<body class="font-body bg-brand-cream text-brand-charcoal antialiased overflow-x-hidden">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+    <div class="glass border-b border-brand-terracotta/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Logo -->
+          <div class="flex-shrink-0 flex items-center">
+            <a href="#" class="flex items-center gap-2">
+              <div class="w-10 h-10 bg-brand-terracotta rounded-full flex items-center justify-center">
+                <span class="text-white font-bold text-lg">H</span>
+              </div>
+              <span class="font-display text-2xl font-bold text-brand-charcoal">Halal <span class="text-brand-terracotta">Munchies</span></span>
+            </a>
+          </div>
+          
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#menu" class="text-brand-charcoal hover:text-brand-terracotta transition-colors font-medium">Menu</a>
+            <a href="#about" class="text-brand-charcoal hover:text-brand-terracotta transition-colors font-medium">Our Story</a>
+            <a href="#locations" class="text-brand-charcoal hover:text-brand-terracotta transition-colors font-medium">Locations</a>
+            <a href="#catering" class="text-brand-charcoal hover:text-brand-terracotta transition-colors font-medium">Catering</a>
+            <a href="#contact" class="text-brand-charcoal hover:text-brand-terracotta transition-colors font-medium">Contact</a>
+          </div>
+          
+          <!-- CTA Buttons -->
+          <div class="hidden md:flex items-center space-x-4">
+            <a href="tel:5132170013" class="text-brand-charcoal hover:text-brand-terracotta transition-colors">
+              <i class="fas fa-phone mr-2"></i>(513) 217-0013
+            </a>
+            <a href="#order" class="bg-brand-terracotta text-white px-6 py-3 rounded-full font-semibold hover:bg-brand-charcoal transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+              Order Now
+            </a>
+          </div>
+          
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center">
+            <button id="mobile-menu-btn" class="text-brand-charcoal hover:text-brand-terracotta focus:outline-none">
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+      <div class="px-4 pt-2 pb-6 space-y-2">
+        <a href="#menu" class="block px-3 py-2 text-brand-charcoal hover:text-brand-terracotta font-medium">Menu</a>
+        <a href="#about" class="block px-3 py-2 text-brand-charcoal hover:text-brand-terracotta font-medium">Our Story</a>
+        <a href="#locations" class="block px-3 py-2 text-brand-charcoal hover:text-brand-terracotta font-medium">Locations</a>
+        <a href="#catering" class="block px-3 py-2 text-brand-charcoal hover:text-brand-terracotta font-medium">Catering</a>
+        <a href="#contact" class="block px-3 py-2 text-brand-charcoal hover:text-brand-terracotta font-medium">Contact</a>
+        <div class="pt-4 border-t border-gray-100">
+          <a href="tel:5132170013" class="block px-3 py-2 text-brand-terracotta font-semibold">
+            <i class="fas fa-phone mr-2"></i>(513) 217-0013
+          </a>
+          <a href="#order" class="block mx-3 mt-2 bg-brand-terracotta text-white px-6 py-3 rounded-full text-center font-semibold">
+            Order Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Content -->
+        <div class="space-y-8 animate-slide-up">
+          <div class="inline-flex items-center gap-2 bg-brand-gold/20 text-brand-terracotta px-4 py-2 rounded-full text-sm font-semibold">
+            <i class="fas fa-star text-brand-gold"></i>
+            <span>100% Halal Certified</span>
+          </div>
+          
+          <h1 class="font-display text-5xl md:text-7xl font-bold leading-tight text-brand-charcoal">
+            Flavor That <br>
+            <span class="gradient-text">Speaks</span> to Your <br>
+            Soul
+          </h1>
+          
+          <p class="text-xl text-gray-600 max-w-lg leading-relaxed">
+            Experience the finest 100% halal cuisine crafted with passion. From our signature Chicken Over Rice to mouthwatering Gyros, every bite tells a story of quality and authenticity.
+          </p>
+          
+          <div class="flex flex-wrap gap-4">
+            <a href="#order" class="bg-brand-terracotta text-white px-8 py-4 rounded-full font-semibold hover:bg-brand-charcoal transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 flex items-center gap-2">
+              <i class="fas fa-utensils"></i>
+              Order Online
+            </a>
+            <a href="#menu" class="bg-white text-brand-charcoal border-2 border-brand-charcoal px-8 py-4 rounded-full font-semibold hover:bg-brand-charcoal hover:text-white transition-all duration-300 flex items-center gap-2">
+              <i class="fas fa-book-open"></i>
+              View Menu
+            </a>
+          </div>
+          
+          <!-- Trust Indicators -->
+          <div class="flex flex-wrap items-center gap-6 pt-4">
+            <div class="flex items-center gap-2">
+              <div class="flex -space-x-2">
+                <div class="w-8 h-8 bg-brand-sage rounded-full flex items-center justify-center text-white text-xs font-bold">5★</div>
+                <div class="w-8 h-8 bg-brand-terracotta rounded-full flex items-center justify-center text-white text-xs font-bold">50+</div>
+              </div>
+              <span class="text-sm text-gray-600">50+ Locations</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+              <i class="fas fa-award text-brand-gold"></i>
+              <span>2,000+ Five Star Reviews</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Content - Hero Image -->
+        <div class="relative lg:h-[600px] flex items-center justify-center">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-sage/20 to-brand-terracotta/20 rounded-3xl transform rotate-3"></div>
+          <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/10 to-brand-sage/10 rounded-3xl transform -rotate-3"></div>
+          <div class="relative bg-white p-4 rounded-3xl shadow-2xl animate-float">
+            <img src="https://www.halalmunchiesus.com/wp-content/uploads/2025/01/crispy-chicken-sandwich.png" alt="Crispy Chicken Sandwich - Halal Munchies Signature Dish" class="w-full h-auto max-w-md rounded-2xl img-zoom">
+            <div class="absolute -bottom-4 -right-4 bg-brand-terracotta text-white px-4 py-2 rounded-full font-bold shadow-lg">
+              <i class="fas fa-fire mr-1"></i> #1 Bestseller
+            </div>
+          </div>
+          
+          <!-- Floating Stats Cards -->
+          <div class="absolute -left-8 top-1/4 bg-white p-4 rounded-2xl shadow-xl animate-float" style="animation-delay: 0.5s;">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 bg-brand-sage/20 rounded-full flex items-center justify-center">
+                <i class="fas fa-leaf text-brand-sage text-xl"></i>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-brand-charcoal">100%</p>
+                <p class="text-sm text-gray-500">Halal</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="absolute -right-4 bottom-1/4 bg-white p-4 rounded-2xl shadow-xl animate-float" style="animation-delay: 1s;">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 bg-brand-gold/20 rounded-full flex items-center justify-center">
+                <i class="fas fa-clock text-brand-terracotta text-xl"></i>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-brand-charcoal">10+</p>
+                <p class="text-sm text-gray-500">Years</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#about" class="text-brand-terracotta hover:text-brand-charcoal transition-colors">
+        <i class="fas fa-chevron-down text-2xl"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <section class="bg-brand-charcoal py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="reveal">
+          <p class="text-4xl font-bold text-brand-terracotta">50+</p>
+          <p class="text-brand-cream/80 mt-1">Locations</p>
+        </div>
+        <div class="reveal" style="transition-delay: 0.1s;">
+          <p class="text-4xl font-bold text-brand-terracotta">10+</p>
+          <p class="text-brand-cream/80 mt-1">Years Experience</p>
+        </div>
+        <div class="reveal" style="transition-delay: 0.2s;">
+          <p class="text-4xl font-bold text-brand-terracotta">2,000+</p>
+          <p class="text-brand-cream/80 mt-1">5-Star Reviews</p>
+        </div>
+        <div class="reveal" style="transition-delay: 0.3s;">
+          <p class="text-4xl font-bold text-brand-terracotta">100%</p>
+          <p class="text-brand-cream/80 mt-1">Halal Certified</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Image Side -->
+        <div class="relative reveal">
+          <div class="absolute -inset-4 bg-brand-terracotta/10 rounded-3xl transform -rotate-2"></div>
+          <div class="relative bg-brand-cream p-6 rounded-3xl">
+            <img src="https://www.halalmunchiesus.com/wp-content/uploads/2025/01/platter.png" alt="Halal Munchies Fresh Ingredients and Food Preparation" class="w-full rounded-2xl shadow-lg img-zoom">
+          </div>
+          <div class="absolute -bottom-6 -right-6 bg-brand-terracotta text-white p-6 rounded-2xl shadow-xl max-w-xs">
+            <i class="fas fa-quote-left text-brand-gold text-2xl mb-2"></i>
+            <p class="text-sm italic">"This is how Halal should taste."</p>
+          </div>
+        </div>
+        
+        <!-- Content Side -->
+        <div class="space-y-6 reveal">
+          <span class="text-brand-terracotta font-semibold tracking-wider uppercase text-sm">Our Story</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-charcoal leading-tight">
+            This is How <span class="text-brand-terracotta">Halal</span> Should Taste
+          </h2>
+          <p class="text-lg text-gray-600 leading-relaxed">
+            At Halal Munchies, we believe that great food begins with purity, quality, and trust. Our name reflects our promise — to serve delicious food prepared with 100% halal ingredients, fresh produce, and honest cooking methods.
+          </p>
+          <p class="text-lg text-gray-600 leading-relaxed">
+            Every dish is crafted with care to deliver authentic flavors while maintaining the highest standards of hygiene and quality. From carefully sourcing halal-certified ingredients to preparing each meal fresh, we ensure every step aligns with our values.
+          </p>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6">
+            <div class="text-center p-4 bg-brand-cream rounded-xl">
+              <div class="w-14 h-14 bg-brand-sage/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                <i class="fas fa-leaf text-brand-sage text-2xl"></i>
+              </div>
+              <h3 class="font-semibold text-brand-charcoal">Fresh Ingredients</h3>
+              <p class="text-sm text-gray-500 mt-1">Daily produce & premium meat</p>
+            </div>
+            <div class="text-center p-4 bg-brand-cream rounded-xl">
+              <div class="w-14 h-14 bg-brand-terracotta/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                <i class="fas fa-utensils text-brand-terracotta text-2xl"></i>
+              </div>
+              <h3 class="font-semibold text-brand-charcoal">Signature Recipes</h3>
+              <p class="text-sm text-gray-500 mt-1">Authentic & tested flavors</p>
+            </div>
+            <div class="text-center p-4 bg-brand-cream rounded-xl">
+              <div class="w-14 h-14 bg-brand-gold/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                <i class="fas fa-shield-alt text-brand-gold text-2xl"></i>
+              </div>
+              <h3 class="font-semibold text-brand-charcoal">Hygiene & Safety</h3>
+              <p class="text-sm text-gray-500 mt-1">100% quality-checked kitchen</p>
+            </div>
+          </div>
+          
+          <a href="#menu" class="inline-flex items-center gap-2 text-brand-terracotta font-semibold hover:gap-4 transition-all">
+            Explore Our Menu <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Preview Section -->
+  <section id="menu" class="py-24 bg-brand-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <span class="text-brand-terracotta font-semibold tracking-wider uppercase text-sm">Discover</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-charcoal mt-3">
+          Our Popular <span class="text-brand-terracotta">Menu</span>
+        </h2>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">
+          From our famous platters to savory gyros, each dish is crafted with authentic flavors and 100% halal ingredients.
+        </p>
+      </div>
+      
+      <!-- Menu Categories Tabs -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12 reveal">
+        <button class="menu-tab active px-6 py-3 rounded-full bg-brand-terracotta text-white font-semibold transition-all" data-category="all">All Items</button>
+        <button class="menu-tab px-6 py-3 rounded-full bg-white text-brand-charcoal font-semibold hover:bg-brand-terracotta hover:text-white transition-all" data-category="platters">Platters</button>
+        <button class="menu-tab px-6 py-3 rounded-full bg-white text-brand-charcoal font-semibold hover:bg-brand-terracotta hover:text-white transition-all" data-category="gyros">Gyros</button>
+        <button class="menu-tab px-6 py-3 rounded-full bg-white text-brand-charcoal font-semibold hover:bg-brand-terracotta hover:text-white transition-all" data-category="sandwiches">Sandwiches</button>
+        <button class="menu-tab px-6 py-3 rounded-full bg-white text-brand-charcoal font-semibold hover:bg-brand-terracotta hover:text-white transition-all" data-category="heros">Heros</button>
+      </div>
+      
+      <!-- Menu Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-grid">
+        <!-- Platter Item -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 reveal" data-category="platters">
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://www.halalmunchiesus.com/wp-content/uploads/2025/01/chicken-over-rice.png" alt="Chicken Over Rice Platter" class="w-full h-full object-cover img-zoom">
+            <div class="absolute top-4 left-4 bg-brand-terracotta text-white px-3 py-1 rounded-full text-sm font-semibold">
+              Popular
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-brand-charcoal">Chicken Over Rice</h3>
+              <span class="text-brand-terracotta font-bold text-lg">$12.99</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Tender grilled chicken served over fragrant rice with our signature white and hot sauces.</p>
+            <button class="w-full bg-brand-cream text-brand-charcoal py-3 rounded-xl font-semibold hover:bg-brand-terracotta hover:text-white transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-plus"></i> Add to Order
+            </button>
+          </div>
+        </div>
+        
+        <!-- Gyro Item -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 reveal" data-category="gyros" style="transition-delay: 0.1s;">
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://www.halalmunchiesus.com/wp-content/uploads/2025/01/lamb-gyro.png" alt="Lamb Gyro" class="w-full h-full object-cover img-zoom">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-brand-charcoal">Lamb Gyro</h3>
+              <span class="text-brand-terracotta font-bold text-lg">$10.99</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Seasoned lamb wrapped in warm pita with fresh veggies and tzatziki sauce.</p>
+            <button class="w-full bg-brand-cream text-brand-charcoal py-3 rounded-xl font-semibold hover:bg-brand-terracotta hover:text-white transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-plus"></i> Add to Order
+            </button>
+          </div>
+        </div>
+        
+        <!-- Sandwich Item -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 reveal" data-category="sandwiches" style="transition-delay: 0.2s;">
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://www.halalmunchiesus.com/wp-content/uploads/2025/01/crispy-chicken-sandwich.png" alt="Crispy Chicken Sandwich" class="w-full h-full object-cover img-zoom">
+            <div class="absolute top-4 left-4 bg-brand-gold text-brand-charcoal px-3 py-1 rounded-full text-sm font-semibold">
+              #1 Seller
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-brand-charcoal">Crispy Chicken Sandwich</h3>
+              <span class="text-brand-terracotta font-bold text-lg">$8.99</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Crispy fried chicken breast with lettuce, tomato, and our special sauce on a toasted bun.</p>
+            <button class="w-full bg-brand-cream text-brand-charcoal py-3 rounded-xl font-semibold hover:bg-brand-terracotta hover:text-white transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-plus"></i> Add to Order
+            </button>
+          </div>
+        </div>
+        
+        <!-- Hero Item -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 reveal" data-category="heros">
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://www.halalmunchiesus.com/wp-content/uploads/2025/01/philly-cheesesteak.png" alt="Philly Cheesesteak Hero" class="w-full h-full object-cover img-zoom">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-brand-charcoal">Philly Cheesesteak</h3>
+              <span class="text-brand-terracotta font-bold text-lg">$11.99</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Thinly sliced steak with melted cheese, grilled onions, and peppers on a hoagie roll.</p>
+            <button class="w-full bg-brand-cream text-brand-charcoal py-3 rounded-xl font-semibold hover:bg-brand-terracotta hover:text-white transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-plus"></i> Add to Order
+            </button>
+          </div>
+        </div>
+        
+        <!-- Heart Attack Burger -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 reveal" data-category="sandwiches" style="transition-delay: 0.1s;">
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://www.halalmunchiesus.com/wp-content/uploads/2025/01/heart-attack.png" alt="Heart Attack Burger" class="w-full h-full object-cover img-zoom">
+            <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+              <i class="fas fa-fire"></i> Spicy
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-brand-charcoal">Heart Attack Burger</h3>
+              <span class="text-brand-terracotta font-bold text-lg">$13.99</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Double patty with crispy beef bacon, cheese, and all the fixings. Not for the faint of heart!</p>
+            <button class="w-full bg-brand-cream text-brand-charcoal py-3 rounded-xl font-semibold hover:bg-brand-terracotta hover:text-white transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-plus"></i> Add to Order
+            </button>
+          </div>
+        </div>
+        
+        <!-- Wings -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 reveal" data-category="platters" style="transition-delay: 0.2s;">
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://www.halalmunchiesus.com/wp-content/uploads/2025/01/wings.png" alt="Halal Wings" class="w-full h-full object-cover img-zoom">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-brand-charcoal">Wings (6 pcs)</h3>
+              <span class="text-brand-terracotta font-bold text-lg">$9.99</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Crispy halal wings tossed in your choice of BBQ, Buffalo, or Lemon Pepper sauce.</p>
+            <button class="w-full bg-brand-cream text-brand-charcoal py-3 rounded-xl font-semibold hover:bg-brand-terracotta hover:text-white transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-plus"></i> Add to Order
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12 reveal">
+        <a href="#order" class="inline-flex items-center gap-2 bg-brand-terracotta text-white px-8 py-4 rounded-full font-semibold hover:bg-brand-charcoal transition-all shadow-lg hover:shadow-xl">
+          <i class="fas fa-utensils"></i> View Full Menu & Order Online
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <span class="text-brand-terracotta font-semibold tracking-wider uppercase text-sm">Why Us</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-charcoal mt-3">
+          The Halal Munchies <span class="text-brand-terracotta">Difference</span>
+        </h2>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center p-8 bg-brand-cream rounded-3xl reveal">
+          <div class="w-20 h-20 bg-brand-terracotta/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-certificate text-brand-terracotta text-3xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold text-brand-charcoal mb-3">100% Halal Certified</h3>
+          <p class="text-gray-600">Every ingredient is carefully sourced and certified halal, ensuring purity and peace of mind.</p>
+        </div>
+        
+        <div class="text-center p-8 bg-brand-cream rounded-3xl reveal" style="transition-delay: 0.1s;">
+          <div class="w-20 h-20 bg-brand-sage/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-seedling text-brand-sage text-3xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold text-brand-charcoal mb-3">Fresh Daily</h3>
+          <p class="text-gray-600">We prepare our food fresh every day using premium ingredients and crisp produce.</p>
+        </div>
+        
+        <div class="text-center p-8 bg-brand-cream rounded-3xl reveal" style="transition-delay: 0.2s;">
+          <div class="w-20 h-20 bg-brand-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-fire-alt text-brand-gold text-3xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold text-brand-charcoal mb-3">Authentic Flavors</h3>
+          <p class="text-gray-600">Our signature recipes bring together the perfect blend of spices and traditional cooking methods.</p>
+        </div>
+        
+        <div class="text-center p-8 bg-brand-cream rounded-3xl reveal" style="transition-delay: 0.3s;">
+          <div class="w-20 h-20 bg-brand-charcoal/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-shipping-fast text-brand-charcoal text-3xl"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold text-brand-charcoal mb-3">Fast & Reliable</h3>
+          <p class="text-gray-600">Quick service without compromising on quality. Order online for pickup or delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catering Section -->
+  <section id="catering" class="py-24 bg-brand-charcoal relative overflow-hidden">
+    <!-- Decorative Elements -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-brand-terracotta/10 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-sage/10 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="space-y-6 reveal">
+          <span class="text-brand-terracotta font-semibold tracking-wider uppercase text-sm">Catering</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-white leading-tight">
+            Let Us Cater Your <span class="text-brand-terracotta">Next Event</span>
+          </h2>
+          <p class="text-xl text-gray-300 leading-relaxed">
+            From corporate meetings to family celebrations, bring the Halal Munchies experience to your guests. Our catering packages are designed to feed groups of any size with the same quality and flavor you love.
+          </p>
+          
+          <ul class="space-y-4">
+            <li class="flex items-center gap-3 text-gray-300">
+              <div class="w-8 h-8 bg-brand-terracotta/20 rounded-full flex items-center justify-center">
+                <i class="fas fa-check text-brand-terracotta"></i>
+              </div>
+              Customizable packages for any group size
+            </li>
+            <li class="flex items-center gap-3 text-gray-300">
+              <div class="w-8 h-8 bg-brand-terracotta/20 rounded-full flex items-center justify-center">
+                <i class="fas fa-check text-brand-terracotta"></i>
+              </div>
+              Fresh preparation for every event
+            </li>
+            <li class="flex items-center gap-3 text-gray-300">
+              <div class="w-8 h-8 bg-brand-terracotta/20 rounded-full flex items-center justify-center">
+                <i class="fas fa-check text-brand-terracotta"></i>
+              </div>
+              Delivery and setup available
+            </li>
+            <li class="flex items-center gap-3 text-gray-300">
+              <div class="w-8 h-8 bg-brand-terracotta/20 rounded-full flex items-center justify-center">
+                <i class="fas fa-check text-brand-terracotta"></i>
+              </div>
+              Dietary accommodations available
+            </li>
+          </ul>
+          
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a href="#contact" class="bg-brand-terracotta text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-brand-charcoal transition-all shadow-lg">
+              Request Catering Quote
+            </a>
+            <a href="tel:5132170013" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-brand-charcoal transition-all">
+              <i class="fas fa-phone mr-2"></i>Call Us
+            </a>
+          </div>
+        </div>
+        
+        <div class="relative reveal">
+          <div class="absolute inset-0 bg-brand-terracotta/20 rounded-3xl transform rotate-3"></div>
+          <div class="relative bg-white p-4 rounded-3xl shadow-2xl">
+            <img src="https://www.halalmunchiesus.com/wp-content/uploads/2025/01/catering.png" alt="Halal Munchies Catering - Perfect for Events" class="w-full rounded-2xl">
+            <div class="absolute -bottom-6 -left-6 bg-brand-terracotta text-white p-6 rounded-2xl shadow-xl">
+              <p class="text-3xl font-bold">50+</p>
+              <p class="text-sm">Locations Serving</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-24 bg-brand-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <span class="text-brand-terracotta font-semibold tracking-wider uppercase text-sm">Testimonials</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-charcoal mt-3">
+          What Our <span class="text-brand-terracotta">Customers</span> Say
+        </h2>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-3xl shadow-lg reveal">
+          <div class="flex items-center gap-1 mb-4">
+            <i class="fas fa-star text-brand-gold"></i>
+            <i class="fas fa-star text-brand-gold"></i>
+            <i class="fas fa-star text-brand-gold"></i>
+            <i class="fas fa-star text-brand-gold"></i>
+            <i class="fas fa-star text-brand-gold"></i>
+          </div>
+          <p class="text-gray-600 mb-6 italic">"I've ordered multiple times and the food is always fresh and full of flavor. Highly recommend Halal Munchies to anyone looking for quality halal food."</p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-brand-terracotta rounded-full flex items-center justify-center text-white font-bold">JW</div>
+            <div>
+              <p class="font-semibold text-brand-charcoal">James Walker</p>
+              <p class="text-sm text-gray-500">Virginia Beach, VA</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white p-8 rounded-3xl shadow-lg reveal" style="transition-delay: 0.1s;">
+          <div class="flex items-center gap-1 mb-4">
+            <i class="fas fa-star text-brand-gold"></i>
+            <i class="fas fa-star text-brand-gold"></i>
+            <i class="fas fa-star text-brand-gold"></i>
+            <i class="fas fa-star text-brand-gold"></i>
+            <i class="fas fa-star text-brand-gold"></i>
+          </div>
+          <p class="text-gray-600 mb-6 italic">"Great taste, generous portions, and fast service. You can tell they really care about quality. The Chicken Over Rice is my go-to order!"</p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-brand-sage rounded-full flex items-center justify-center text-white font-bold">EJ</div>
+            <div>
+              <p class="font-semibold text-brand-charcoal">Emily Johnson</p>
+              <p class="text-sm text-gray-500">Middletown, OH</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white p-8 rounded-3xl shadow-lg reveal" style="transition-delay: 0.2s;">
+          <div class="flex items-center gap-1 mb-4">
+            <i class="fas fa-star text-brand-gold"></i>
+            <i class="fas fa-star text-brand-gold"></i>
+            <i class="fas fa-star text-brand-gold"></i>
+            <i class="fas fa-star text-brand-gold"></i>
+            <i class="fas fa-star text-brand-gold"></i>
+          </div>
+          <p class="text-gray-600 mb-6 italic">"Everything was perfectly seasoned and served hot. One of the best halal food experiences I've had. The Crispy Chicken Sandwich is amazing!"</p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-brand-gold rounded-full flex items-center justify-center text-brand-charcoal font-bold">MB</div>
+            <div>
+              <p class="font-semibold text-brand-charcoal">Michael Brown</p>
+              <p class="text-sm text-gray-500">Berlin, CT</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner With Us Section -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-brand-terracotta rounded-3xl p-8 md:p-16 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+        
+        <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+          <div class="text-white reveal">
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+              Partner With Halal Munchies.<br>Grow With Purpose.
+            </h2>
+            <p class="text-xl text-white/90 mb-8">
+              Join our family of 50+ successful locations. We provide comprehensive support, proven systems, and a brand customers love. Start your journey to restaurant ownership today.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#contact" class="bg-white text-brand-terracotta px-8 py-4 rounded-full font-bold hover:bg-brand-charcoal hover:text-white transition-all shadow-lg">
+                Become a Partner
+              </a>
+              <a href="#" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-brand-terracotta transition-all">
+                Learn More
+              </a>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-6 reveal">
+            <div class="bg-white/10 backdrop-blur p-6 rounded-2xl text-center text-white">
+              <p class="text-4xl font-bold">50+</p>
+              <p class="text-white/80">Locations</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur p-6 rounded-2xl text-center text-white">
+              <p class="text-4xl font-bold">10+</p>
+              <p class="text-white/80">Years Experience</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur p-6 rounded-2xl text-center text-white">
+              <p class="text-4xl font-bold">2,000+</p>
+              <p class="text-white/80">5-Star Reviews</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur p-6 rounded-2xl text-center text-white">
+              <p class="text-4xl font-bold">100%</p>
+              <p class="text-white/80">Halal Quality</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locations Section -->
+  <section id="locations" class="py-24 bg-brand-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <span class="text-brand-terracotta font-semibold tracking-wider uppercase text-sm">Find Us</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-charcoal mt-3">
+          Our <span class="text-brand-terracotta">Locations</span>
+        </h2>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">
+          With 50+ locations across the country, there's always a Halal Munchies near you.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl shadow-lg reveal">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-brand-terracotta/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-map-marker-alt text-brand-terracotta text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-brand-charcoal text-lg">Virginia Beach, VA</h3>
+              <p class="text-gray-600 text-sm mt-1">123 Atlantic Avenue<br>Virginia Beach, VA 23451</p>
+              <a href="#" class="text-brand-terracotta text-sm font-semibold mt-2 inline-block">Get Directions →</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white p-6 rounded-2xl shadow-lg reveal" style="transition-delay: 0.1s;">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-brand-sage/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-map-marker-alt text-brand-sage text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-brand-charcoal text-lg">Middletown, OH</h3>
+              <p class="text-gray-600 text-sm mt-1">Main Street Location<br>Middletown, OH 45044</p>
+              <a href="#" class="text-brand-terracotta text-sm font-semibold mt-2 inline-block">Get Directions →</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white p-6 rounded-2xl shadow-lg reveal" style="transition-delay: 0.2s;">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-brand-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-map-marker-alt text-brand-gold text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-brand-charcoal text-lg">Berlin, CT</h3>
+              <p class="text-gray-600 text-sm mt-1">Berlin Turnpike<br>Berlin, CT 06037</p>
+              <a href="#" class="text-brand-terracotta text-sm font-semibold mt-2 inline-block">Get Directions →</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white p-6 rounded-2xl shadow-lg reveal">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-brand-terracotta/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-map-marker-alt text-brand-terracotta text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-brand-charcoal text-lg">Richmond, VA</h3>
+              <p class="text-gray-600 text-sm mt-1">Downtown Richmond<br>Richmond, VA 23219</p>
+              <a href="#" class="text-brand-terracotta text-sm font-semibold mt-2 inline-block">Get Directions →</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white p-6 rounded-2xl shadow-lg reveal" style="transition-delay: 0.1s;">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-brand-sage/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-map-marker-alt text-brand-sage text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-brand-charcoal text-lg">Briel Blvd, OH</h3>
+              <p class="text-gray-600 text-sm mt-1">Briel Boulevard<br>Columbus, OH 43235</p>
+              <a href="#" class="text-brand-terracotta text-sm font-semibold mt-2 inline-block">Get Directions →</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-brand-terracotta p-6 rounded-2xl shadow-lg reveal" style="transition-delay: 0.2s;">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-search-location text-white text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-lg">Find Your Location</h3>
+              <p class="text-white/80 text-sm mt-1">Search for your nearest Halal Munchies location and start your order.</p>
+              <a href="#" class="bg-white text-brand-terracotta px-4 py-2 rounded-full text-sm font-bold mt-3 inline-block">Find Location</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16">
+        <div class="space-y-8 reveal">
+          <div>
+            <span class="text-brand-terracotta font-semibold tracking-wider uppercase text-sm">Get In Touch</span>
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-brand-charcoal mt-3">
+              Let's <span class="text-brand-terracotta">Connect</span>
+            </h2>
+            <p class="text-gray-600 mt-4 text-lg">
+              Have questions about catering, partnerships, or just want to say hello? We'd love to hear from you.
+            </p>
+          </div>
+          
+          <div class="space-y-6">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 bg-brand-terracotta/10 rounded-full flex items-center justify-center">
+                <i class="fas fa-phone text-brand-terracotta text-xl"></i>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500">Call Us</p>
+                <a href="tel:5132170013" class="text-lg font-semibold text-brand-charcoal hover:text-brand-terracotta transition-colors">(513) 217-0013</a>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 bg-brand-sage/10 rounded-full flex items-center justify-center">
+                <i class="fas fa-envelope text-brand-sage text-xl"></i>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500">Email Us</p>
+                <a href="mailto:info@halalmunchiesus.com" class="text-lg font-semibold text-brand-charcoal hover:text-brand-terracotta transition-colors">info@halalmunchiesus.com</a>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 bg-brand-gold/10 rounded-full flex items-center justify-center">
+                <i class="fas fa-map-marked-alt text-brand-gold text-xl"></i>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500">Visit Us</p>
+                <p class="text-lg font-semibold text-brand-charcoal">50+ Locations Nationwide</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex gap-4 pt-4">
+            <a href="https://www.facebook.com/halalmunchiesus" target="_blank" class="w-12 h-12 bg-brand-charcoal rounded-full flex items-center justify-center text-white hover:bg-brand-terracotta transition-colors">
+              <i class="fab fa-facebook-f text-xl"></i>
+            </a>
+            <a href="#" class="w-12 h-12 bg-brand-charcoal rounded-full flex items-center justify-center text-white hover:bg-brand-terracotta transition-colors">
+              <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <a href="#" class="w-12 h-12 bg-brand-charcoal rounded-full flex items-center justify-center text-white hover:bg-brand-terracotta transition-colors">
+              <i class="fab fa-tiktok text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-brand-cream p-8 rounded-3xl reveal">
+          <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you for your message! We will get back to you soon.');">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-brand-terracotta focus:ring-2 focus:ring-brand-terracotta/20 outline-none transition-all" placeholder="John" required>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-brand-terracotta focus:ring-2 focus:ring-brand-terracotta/20 outline-none transition-all" placeholder="Doe" required>
+              </div>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+              <input type="email" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-brand-terracotta focus:ring-2 focus:ring-brand-terracotta/20 outline-none transition-all" placeholder="john@example.com" required>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+              <input type="tel" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-brand-terracotta focus:ring-2 focus:ring-brand-terracotta/20 outline-none transition-all" placeholder="(513) 217-0013">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Message Type</label>
+              <select class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-brand-terracotta focus:ring-2 focus:ring-brand-terracotta/20 outline-none transition-all">
+                <option>General Inquiry</option>
+                <option>Catering Request</option>
+                <option>Partnership Opportunity</option>
+                <option>Feedback</option>
+              </select>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+              <textarea rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-brand-terracotta focus:ring-2 focus:ring-brand-terracotta/20 outline-none transition-all resize-none" placeholder="How can we help you?" required></textarea>
+            </div>
+            
+            <button type="submit" class="w-full bg-brand-terracotta text-white py-4 rounded-xl font-semibold hover:bg-brand-charcoal transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Download Section -->
+  <section class="py-16 bg-brand-charcoal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="text-white reveal">
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">
+            Download Our Mobile App
+          </h2>
+          <p class="text-gray-300 text-lg mb-6">
+            Enjoy Halal Munchies at your fingertips. Order ahead, earn rewards, and get exclusive app-only deals.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#" class="bg-white text-brand-charcoal px-6 py-3 rounded-xl font-semibold flex items-center gap-3 hover:bg-brand-terracotta hover:text-white transition-all">
+              <i class="fab fa-apple text-2xl"></i>
+              <div class="text-left">
+                <p class="text-xs">Download on the</p>
+                <p class="font-bold">App Store</p>
+              </div>
+            </a>
+            <a href="#" class="bg-white text-brand-charcoal px-6 py-3 rounded-xl font-semibold flex items-center gap-3 hover:bg-brand-terracotta hover:text-white transition-all">
+              <i class="fab fa-google-play text-2xl"></i>
+              <div class="text-left">
+                <p class="text-xs">Get it on</p>
+                <p class="font-bold">Google Play</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="flex justify-center reveal">
+          <div class="bg-white/10 backdrop-blur p-8 rounded-3xl">
+            <i class="fas fa-mobile-alt text-8xl text-brand-terracotta animate-pulse-soft"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-brand-charcoal text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-2 mb-6">
+            <div class="w-10 h-10 bg-brand-terracotta rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-lg">H</span>
+            </div>
+            <span class="font-display text-2xl font-bold">Halal <span class="text-brand-terracotta">Munchies</span></span>
+          </div>
+          <p class="text-gray-400 mb-6">
+            Premium 100% halal cuisine with authentic flavors. 50+ locations serving quality you can taste.
+          </p>
+          <div class="flex gap-4">
+            <a href="https://www.facebook.com/halalmunchiesus" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-terracotta transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-terracotta transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-terracotta transition-colors">
+              <i class="fab fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h3 class="font-bold text-lg mb-6">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="#menu" class="text-gray-400 hover:text-brand-terracotta transition-colors">Our Menu</a></li>
+            <li><a href="#locations" class="text-gray-400 hover:text-brand-terracotta transition-colors">Locations</a></li>
+            <li><a href="#catering" class="text-gray-400 hover:text-brand-terracotta transition-colors">Catering</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-brand-terracotta transition-colors">Careers</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-brand-terracotta transition-colors">Partner With Us</a></li>
+          </ul>
+        </div>
+        
+        <!-- Menu Categories -->
+        <div>
+          <h3 class="font-bold text-lg mb-6">Menu</h3>
+          <ul class="space-y-3">
+            <li><a href="#menu" class="text-gray-400 hover:text-brand-terracotta transition-colors">Platters</a></li>
+            <li><a href="#menu" class="text-gray-400 hover:text-brand-terracotta transition-colors">Gyros</a></li>
+            <li><a href="#menu" class="text-gray-400 hover:text-brand-terracotta transition-colors">Sandwiches</a></li>
+            <li><a href="#menu" class="text-gray-400 hover:text-brand-terracotta transition-colors">Heros</a></li>
+            <li><a href="#menu" class="text-gray-400 hover:text-brand-terracotta transition-colors">Salads & Wings</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h3 class="font-bold text-lg mb-6">Contact</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-gray-400">
+              <i class="fas fa-phone text-brand-terracotta"></i>
+              <a href="tel:5132170013" class="hover:text-white transition-colors">(513) 217-0013</a>
+            </li>
+            <li class="flex items-center gap-3 text-gray-400">
+              <i class="fas fa-envelope text-brand-terracotta"></i>
+              <a href="mailto:info@halalmunchiesus.com" class="hover:text-white transition-colors">info@halalmunchiesus.com</a>
+            </li>
+            <li class="flex items-start gap-3 text-gray-400">
+              <i class="fas fa-map-marker-alt text-brand-terracotta mt-1"></i>
+              <span>50+ Locations<br>Nationwide</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-white/10 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-gray-400 text-sm">
+            © 2026 Halal Munchies. All Rights Reserved.
+          </p>
+          <div class="flex gap-6 text-sm">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">Accessibility Statement</a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">Partner With Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Order Button -->
+  <div class="fixed bottom-6 right-6 z-40 md:hidden">
+    <a href="#order" class="bg-brand-terracotta text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:bg-brand-charcoal transition-all animate-pulse-soft">
+      <i class="fas fa-utensils text-xl"></i>
+    </a>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-lg');
+      } else {
+        navbar.classList.remove('shadow-lg');
+      }
+    });
+    
+    // Scroll Reveal Animation
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      revealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+    
+    // Menu Category Filter
+    const menuTabs = document.querySelectorAll('.menu-tab');
+    const menuItems = document.querySelectorAll('.menu-item');
+    
+    menuTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Update active tab
+        menuTabs.forEach(t => {
+          t.classList.remove('active', 'bg-brand-terracotta', 'text-white');
+          t.classList.add('bg-white', 'text-brand-charcoal');
+        });
+        tab.classList.add('active', 'bg-brand-terracotta', 'text-white');
+        tab.classList.remove('bg-white', 'text-brand-charcoal');
+        
+        // Filter items
+        const category = tab.dataset.category;
+        menuItems.forEach(item => {
+          if (category === 'all' || item.dataset.category === category) {
+            item.style.display = 'block';
+            setTimeout(() => item.style.opacity = '1', 10);
+          } else {
+            item.style.opacity = '0';
+            setTimeout(() => item.style.display = 'none', 300);
+          }
+        });
+      });
+    });
+    
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // Close mobile menu if open
+          mobileMenu.classList.add('hidden');
+        }
+      });
+    });
+    
+    // Add to Order Button Animation
+    document.querySelectorAll('.menu-item button').forEach(button => {
+      button.addEventListener('click', function() {
+        const originalText = this.innerHTML;
+        this.innerHTML = '<i class="fas fa-check"></i> Added!';
+        this.classList.add('bg-brand-sage', 'text-white');
+        this.classList.remove('bg-brand-cream', 'text-brand-charcoal');
+        
+        setTimeout(() => {
+          this.innerHTML = originalText;
+          this.classList.remove('bg-brand-sage', 'text-white');
+          this.classList.add('bg-brand-cream', 'text-brand-charcoal');
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>
