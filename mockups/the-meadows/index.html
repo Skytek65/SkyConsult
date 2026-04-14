@@ -3,138 +3,176 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Meadows | Cozy Family-Owned Asian-American Cuisine | Middletown, OH</title>
-  <meta name="description" content="The Meadows is a cozy family-owned restaurant in Middletown, OH serving delicious Asian-American cuisine. Owned by Anna & Ricky. Open Friday & Saturday evenings. Reservations recommended.">
+  <title>The Meadows | Asian-American Cuisine in Middletown, OH</title>
+  <meta name="description" content="Discover The Meadows—a cozy family-owned restaurant in Middletown, OH offering delicious Asian-American cuisine, craft cocktails, and warm hospitality from our family to yours.">
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: {
-              50: '#fdf2f2',
-              100: '#fce7e7',
-              200: '#f9d5d5',
-              300: '#f4b5b5',
-              400: '#eb8a8a',
-              500: '#dc5e5e',
-              600: '#c43d3d',
-              700: '#a33030',
-              800: '#872c2c',
-              900: '#722a2a',
+            'meadows': {
+              50: '#fdf8f6',
+              100: '#f9ebe6',
+              200: '#f2d5cc',
+              300: '#e8b8a8',
+              400: '#da9178',
+              500: '#c96f52',
+              600: '#a8543a',
+              700: '#8a422f',
+              800: '#723829',
+              900: '#5c3025',
+              950: '#321813',
             },
-            burgundy: {
-              DEFAULT: '#722F37',
-              light: '#8B3A44',
-              dark: '#5A252C'
-            },
-            cream: {
-              DEFAULT: '#FDF8F3',
-              dark: '#F5EDE4',
-              warm: '#FAF6F0'
-            },
-            gold: {
-              DEFAULT: '#D4AF37',
-              light: '#E5C76B',
-              dark: '#B8941F'
+            'warm': {
+              cream: '#faf8f5',
+              beige: '#f5f0e8',
+              gold: '#c9a962',
+              charcoal: '#2d2d2d',
             }
           },
           fontFamily: {
-            display: ['Playfair Display', 'serif'],
-            body: ['Inter', 'sans-serif'],
+            'display': ['Playfair Display', 'serif'],
+            'sans': ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'fade-in': 'fadeIn 1s ease-out',
+            'slide-up': 'slideUp 0.8s ease-out',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
           }
         }
       }
     }
   </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      }
+    }
+  </style>
+  
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
+    * {
+      scroll-behavior: smooth;
     }
-    .font-display {
-      font-family: 'Playfair Display', serif;
-    }
-    .hero-gradient {
-      background: linear-gradient(135deg, rgba(114, 47, 55, 0.9) 0%, rgba(90, 37, 44, 0.85) 100%);
-    }
-    .text-shadow {
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-    }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.95);
+    
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      -webkit-backdrop-filter: blur(10px);
     }
-    .hover-lift {
+    
+    .menu-card:hover {
+      transform: translateY(-8px);
+    }
+    
+    .review-card {
       transition: all 0.3s ease;
     }
-    .hover-lift:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    
+    .review-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
-    .menu-item {
-      border-bottom: 1px dashed #e5e7eb;
+    
+    .gallery-item {
+      overflow: hidden;
     }
-    .menu-item:last-child {
-      border-bottom: none;
+    
+    .gallery-item img {
+      transition: transform 0.5s ease;
     }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    
+    .gallery-item:hover img {
+      transform: scale(1.1);
     }
-    .animate-fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #a8543a 0%, #8a422f 100%);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #8a422f 0%, #723829 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(168, 84, 58, 0.3);
+    }
+    
+    .gold-accent {
+      background: linear-gradient(135deg, #c9a962 0%, #b8944f 100%);
     }
   </style>
 </head>
-<body class="bg-cream font-body antialiased">
+<body class="font-sans antialiased bg-warm-cream text-gray-800">
+  
   <!-- Navigation -->
-  <nav class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm" id="navbar">
+  <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
-        <div class="flex items-center">
-          <a href="#" class="font-display text-3xl font-bold text-burgundy tracking-tight">
+        <!-- Logo -->
+        <div class="flex-shrink-0 flex items-center">
+          <a href="#" class="font-display text-2xl md:text-3xl font-semibold text-white tracking-wide">
             The Meadows
           </a>
         </div>
         
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-8">
-          <a href="#about" class="text-gray-700 hover:text-burgundy transition-colors font-medium">Our Story</a>
-          <a href="#menu" class="text-gray-700 hover:text-burgundy transition-colors font-medium">Menu</a>
-          <a href="#reviews" class="text-gray-700 hover:text-burgundy transition-colors font-medium">Reviews</a>
-          <a href="#hours" class="text-gray-700 hover:text-burgundy transition-colors font-medium">Hours</a>
-          <a href="#contact" class="bg-burgundy text-white px-6 py-3 rounded-full font-medium hover:bg-burgundy-dark transition-all hover:shadow-lg">
+          <a href="#about" class="text-white/90 hover:text-white transition-colors font-medium">Our Story</a>
+          <a href="#menu" class="text-white/90 hover:text-white transition-colors font-medium">Menu</a>
+          <a href="#gallery" class="text-white/90 hover:text-white transition-colors font-medium">Gallery</a>
+          <a href="#reviews" class="text-white/90 hover:text-white transition-colors font-medium">Reviews</a>
+          <a href="#contact" class="btn-primary text-white px-6 py-2.5 rounded-full font-medium">
             Reserve a Table
           </a>
         </div>
-
+        
         <!-- Mobile Menu Button -->
-        <button class="md:hidden text-gray-700 hover:text-burgundy" id="mobile-menu-btn">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" class="text-white p-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
-
+    
     <!-- Mobile Menu -->
-    <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
-      <div class="px-4 py-4 space-y-3">
-        <a href="#about" class="block text-gray-700 hover:text-burgundy py-2 font-medium">Our Story</a>
-        <a href="#menu" class="block text-gray-700 hover:text-burgundy py-2 font-medium">Menu</a>
-        <a href="#reviews" class="block text-gray-700 hover:text-burgundy py-2 font-medium">Reviews</a>
-        <a href="#hours" class="block text-gray-700 hover:text-burgundy py-2 font-medium">Hours</a>
-        <a href="#contact" class="block bg-burgundy text-white px-6 py-3 rounded-full text-center font-medium">Reserve a Table</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-meadows-900/95 backdrop-blur-lg">
+      <div class="px-4 pt-2 pb-6 space-y-2">
+        <a href="#about" class="block px-3 py-2 text-white/90 hover:text-white font-medium">Our Story</a>
+        <a href="#menu" class="block px-3 py-2 text-white/90 hover:text-white font-medium">Menu</a>
+        <a href="#gallery" class="block px-3 py-2 text-white/90 hover:text-white font-medium">Gallery</a>
+        <a href="#reviews" class="block px-3 py-2 text-white/90 hover:text-white font-medium">Reviews</a>
+        <a href="#contact" class="block px-3 py-2 text-meadows-200 font-medium">Reserve a Table</a>
       </div>
     </div>
   </nav>
@@ -143,128 +181,131 @@
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-gradient-to-br from-burgundy/90 via-burgundy/80 to-gray-900/90"></div>
-      <img 
-        src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1920&q=80" 
-        alt="Cozy restaurant interior with warm lighting" 
-        class="w-full h-full object-cover opacity-40"
-      >
+      <img src="https://static.goto-where.com/2592-albums-1.jpg" 
+           alt="The Meadows Restaurant Interior" 
+           class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
     </div>
     
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="animate-fade-in-up">
-        <!-- Rating Badge -->
-        <div class="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-8 border border-white/30">
-          <div class="flex text-gold mr-2">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-          </div>
-          <span class="text-white font-medium">4.7 ★ (55 Reviews)</span>
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect mb-6 animate-fade-in">
+        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+        <span class="text-white/90 text-sm font-medium">Open Fri-Sat: 5PM - 9PM</span>
+      </div>
+      
+      <!-- Main Headline -->
+      <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 text-shadow-lg leading-tight animate-slide-up">
+        A Cozy Family-Owned<br>
+        <span class="text-warm-gold">Asian-American</span> Experience
+      </h1>
+      
+      <!-- Subheadline -->
+      <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 text-shadow animate-slide-up" style="animation-delay: 0.2s">
+        Where tradition meets comfort. Fresh flavors, warm hospitality, and unforgettable dining moments in the heart of Middletown.
+      </p>
+      
+      <!-- Rating -->
+      <div class="flex items-center justify-center gap-4 mb-10 animate-slide-up" style="animation-delay: 0.3s">
+        <div class="flex items-center gap-1">
+          <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+          </svg>
+          <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+          </svg>
+          <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+          </svg>
+          <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+          </svg>
+          <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+          </svg>
         </div>
-
-        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 text-shadow leading-tight">
-          The Meadows
-        </h1>
-        <p class="text-xl md:text-2xl text-cream font-light mb-4 tracking-wide">
-          Cozy Family-Owned Asian-American Cuisine
-        </p>
-        <p class="text-lg text-white/90 max-w-2xl mx-auto mb-12 font-light">
-          Where Anna's Kitchen Meets Ricky's Heart. A hidden gem in Middletown serving handcrafted dishes with love since opening our doors.
-        </p>
-        
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#contact" class="bg-gold text-gray-900 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gold-light transition-all hover:shadow-xl hover:scale-105">
-            Reserve Your Table
-          </a>
-          <a href="#menu" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-burgundy transition-all">
-            View Our Menu
-          </a>
-        </div>
-
-        <div class="mt-12 flex flex-col md:flex-row items-center justify-center gap-8 text-white/80 text-sm">
-          <div class="flex items-center">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-            <span>2102 Yankee Rd, Middletown, OH</span>
-          </div>
-          <div class="flex items-center">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-            </svg>
-            <a href="tel:513-649-8168" class="hover:text-white">513-649-8168</a>
-          </div>
-          <div class="flex items-center">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span>Fri-Sat: 5PM - 9PM</span>
-          </div>
-        </div>
+        <span class="text-white font-semibold">4.7</span>
+        <span class="text-white/70">(163 reviews)</span>
+      </div>
+      
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style="animation-delay: 0.4s">
+        <a href="tel:+15136498168" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center justify-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          Call to Reserve
+        </a>
+        <a href="#menu" class="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transition-all flex items-center justify-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+          View Menu
+        </a>
       </div>
     </div>
-
+    
     <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <svg class="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-      </svg>
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-float">
+      <a href="#about" class="text-white/70 hover:text-white transition-colors">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+        </svg>
+      </a>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-24 bg-cream">
+  <section id="about" class="py-20 md:py-32 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div class="order-2 lg:order-1">
-          <div class="relative">
-            <div class="absolute -top-4 -left-4 w-full h-full border-2 border-gold rounded-2xl"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80" 
-              alt="Chef Anna preparing food in the kitchen" 
-              class="relative rounded-2xl shadow-2xl w-full h-[500px] object-cover"
-            >
-            <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl">
-              <p class="font-display text-2xl text-burgundy font-bold">15+ Years</p>
-              <p class="text-gray-600 text-sm">Of Family Recipes</p>
-            </div>
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Image Side -->
+        <div class="relative">
+          <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+            <img src="https://static.goto-where.com/2592-albums-2.jpg" 
+                 alt="Chef Anna preparing fresh Asian-American cuisine" 
+                 class="w-full h-full object-cover">
+          </div>
+          <!-- Floating Card -->
+          <div class="absolute -bottom-6 -right-6 bg-meadows-600 text-white p-6 rounded-xl shadow-xl max-w-xs">
+            <p class="font-display text-lg italic">"Every dish is made with love and served with a smile."</p>
+            <p class="text-meadows-200 mt-2 font-medium">— Anna, Chef & Owner</p>
           </div>
         </div>
         
-        <div class="order-1 lg:order-2">
-          <span class="text-gold-dark font-semibold tracking-wider uppercase text-sm">Our Story</span>
-          <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-6 leading-tight">
-            Where Family,<br>Food & Heart Meet
+        <!-- Content Side -->
+        <div>
+          <span class="text-meadows-600 font-semibold tracking-wider uppercase text-sm">Our Story</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-6">
+            Family, Food &<br><span class="text-meadows-600">Unforgettable Moments</span>
           </h2>
-          <p class="text-gray-600 text-lg leading-relaxed mb-6">
-            Welcome to The Meadows, a cozy haven nestled in Middletown where Asian-inspired comfort food meets family warmth. Owner Anna personally prepares each dish in our kitchen, ensuring every plate carries the authentic flavors and vibrant presentations that have made us a community favorite.
-          </p>
-          <p class="text-gray-600 text-lg leading-relaxed mb-8">
-            Beyond the food, host Ricky adds a personal touch that makes every meal feel like a gathering with friends. From our curated wine selection to handcrafted cocktails, we've created an inviting atmosphere where memories are made and exceptional dining experiences await.
-          </p>
           
-          <div class="grid grid-cols-2 gap-6">
-            <div class="bg-white p-6 rounded-xl shadow-sm hover-lift">
-              <div class="w-12 h-12 bg-burgundy/10 rounded-full flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-                </svg>
-              </div>
-              <h3 class="font-display text-xl font-semibold text-gray-900 mb-2">Made to Order</h3>
-              <p class="text-gray-600 text-sm">Every dish prepared fresh by Anna when you order</p>
+          <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+            <p>
+              Nestled in the heart of Middletown, OH, The Meadows is more than just a restaurant—it's a gathering place where friends become family and every meal tells a story.
+            </p>
+            <p>
+              Led by Chef Anna, each dish is thoughtfully prepared from scratch using fresh, quality ingredients. Her husband Ricky ensures every guest feels like part of the family, offering warm hospitality that keeps diners coming back.
+            </p>
+            <p>
+              Our Asian-American fusion celebrates the best of both worlds: traditional flavors with modern comfort, creating a dining experience that's as memorable as it is delicious.
+            </p>
+          </div>
+          
+          <!-- Stats -->
+          <div class="grid grid-cols-3 gap-6 mt-10 pt-10 border-t border-gray-200">
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-display font-bold text-meadows-600">4.7★</div>
+              <div class="text-gray-500 text-sm mt-1">Rating</div>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm hover-lift">
-              <div class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-gold-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                </svg>
-              </div>
-              <h3 class="font-display text-xl font-semibold text-gray-900 mb-2">Family Owned</h3>
-              <p class="text-gray-600 text-sm">Treated like family from the moment you walk in</p>
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-display font-bold text-meadows-600">163+</div>
+              <div class="text-gray-500 text-sm mt-1">Reviews</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-display font-bold text-meadows-600">$$</div>
+              <div class="text-gray-500 text-sm mt-1">Price Range</div>
             </div>
           </div>
         </div>
@@ -272,682 +313,473 @@
     </div>
   </section>
 
-  <!-- Menu Highlights -->
-  <section id="menu" class="py-24 bg-white">
+  <!-- Menu Highlights Section -->
+  <section id="menu" class="py-20 md:py-32 bg-warm-beige">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <span class="text-gold-dark font-semibold tracking-wider uppercase text-sm">Our Menu</span>
-        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-4">
-          Signature Dishes
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-meadows-600 font-semibold tracking-wider uppercase text-sm">Culinary Delights</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-6">
+          Guest Favorites
         </h2>
-        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-          Handcrafted by Anna using fresh ingredients and family recipes passed down through generations
+        <p class="text-gray-600 text-lg">
+          Discover the dishes our guests rave about. Each plate is crafted with care by Chef Anna using the freshest ingredients.
         </p>
       </div>
-
+      
+      <!-- Menu Grid -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Menu Item 1 -->
-        <div class="bg-cream rounded-2xl overflow-hidden shadow-lg hover-lift">
-          <div class="h-56 bg-gray-200 relative overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&q=80" 
-              alt="Crab Rangoons" 
-              class="w-full h-full object-cover"
-            >
-            <div class="absolute top-4 right-4 bg-gold text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">
-              Customer Favorite
-            </div>
+        <div class="menu-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://static.goto-where.com/2592-albums-3.jpg" 
+                 alt="Crab Rangoons - A crowd favorite appetizer" 
+                 class="w-full h-full object-cover">
           </div>
           <div class="p-6">
-            <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Crab Rangoons</h3>
-            <p class="text-gray-600 mb-4">Crispy golden pockets filled with creamy crab filling. Served with our signature dipping sauce.</p>
-            <div class="flex items-center justify-between">
-              <span class="text-gold-dark font-display text-xl font-bold">$8</span>
-              <span class="text-sm text-gray-500">Appetizer</span>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-semibold text-gray-900">Crab Rangoons</h3>
+              <span class="text-meadows-600 font-semibold">Appetizer</span>
+            </div>
+            <p class="text-gray-600 mb-4">Crispy, golden pockets filled with savory crab and cream cheese. Served with our signature dipping sauce.</p>
+            <div class="flex items-center gap-1 text-yellow-400 text-sm">
+              <span>★★★★★</span>
+              <span class="text-gray-400">(Most ordered)</span>
             </div>
           </div>
         </div>
-
+        
         <!-- Menu Item 2 -->
-        <div class="bg-cream rounded-2xl overflow-hidden shadow-lg hover-lift">
-          <div class="h-56 bg-gray-200 relative overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1552611052-33e04de081de?w=600&q=80" 
-              alt="Beef Udon Noodles" 
-              class="w-full h-full object-cover"
-            >
+        <div class="menu-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://static.goto-where.com/2592-albums-4.jpg" 
+                 alt="Beef Udon Noodle - A signature dish" 
+                 class="w-full h-full object-cover">
           </div>
           <div class="p-6">
-            <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Beef Udon Noodle</h3>
-            <p class="text-gray-600 mb-4">Succulent beef with thick udon noodles in rich, savory broth. A customer favorite.</p>
-            <div class="flex items-center justify-between">
-              <span class="text-gold-dark font-display text-xl font-bold">$16</span>
-              <span class="text-sm text-gray-500">Entrée</span>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-semibold text-gray-900">Beef Udon Noodles</h3>
+              <span class="text-meadows-600 font-semibold">Signature</span>
+            </div>
+            <p class="text-gray-600 mb-4">Succulent beef with thick udon noodles in a rich, flavorful broth. A comforting classic done right.</p>
+            <div class="flex items-center gap-1 text-yellow-400 text-sm">
+              <span>★★★★★</span>
+              <span class="text-gray-400">(Guest favorite)</span>
             </div>
           </div>
         </div>
-
+        
         <!-- Menu Item 3 -->
-        <div class="bg-cream rounded-2xl overflow-hidden shadow-lg hover-lift">
-          <div class="h-56 bg-gray-200 relative overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1541014741259-de529411b336?w=600&q=80" 
-              alt="Sweet and Sour Chicken" 
-              class="w-full h-full object-cover"
-            >
-            <div class="absolute top-4 right-4 bg-burgundy text-white px-3 py-1 rounded-full text-sm font-semibold">
-              Must Try
-            </div>
+        <div class="menu-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://static.goto-where.com/2592-albums-5.jpg" 
+                 alt="Sweet & Sour Chicken - Classic comfort" 
+                 class="w-full h-full object-cover">
           </div>
           <div class="p-6">
-            <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Sweet & Sour Chicken</h3>
-            <p class="text-gray-600 mb-4">Crispy chicken in tangy sweet & sour sauce with fresh bell peppers and pineapple.</p>
-            <div class="flex items-center justify-between">
-              <span class="text-gold-dark font-display text-xl font-bold">$15</span>
-              <span class="text-sm text-gray-500">Entrée</span>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-semibold text-gray-900">Sweet & Sour Chicken</h3>
+              <span class="text-meadows-600 font-semibold">Classic</span>
+            </div>
+            <p class="text-gray-600 mb-4">Crispy chicken in our house-made sweet and sour sauce with fresh vegetables. Perfect for the whole family.</p>
+            <div class="flex items-center gap-1 text-yellow-400 text-sm">
+              <span>★★★★★</span>
+              <span class="text-gray-400">(Family favorite)</span>
             </div>
           </div>
         </div>
-
+        
         <!-- Menu Item 4 -->
-        <div class="bg-cream rounded-2xl overflow-hidden shadow-lg hover-lift">
-          <div class="h-56 bg-gray-200 relative overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1432139509613-5c4255815697?w=600&q=80" 
-              alt="Pepper Steak" 
-              class="w-full h-full object-cover"
-            >
+        <div class="menu-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://static.goto-where.com/2592-albums-6.jpg" 
+                 alt="Buddha Delight - Vegetarian excellence" 
+                 class="w-full h-full object-cover">
           </div>
           <div class="p-6">
-            <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Pepper Steak</h3>
-            <p class="text-gray-600 mb-4">Tender steak with fresh peppers in rich brown sauce. Not overloaded with onions.</p>
-            <div class="flex items-center justify-between">
-              <span class="text-gold-dark font-display text-xl font-bold">$18</span>
-              <span class="text-sm text-gray-500">Entrée</span>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-semibold text-gray-900">Buddha Delight</h3>
+              <span class="text-meadows-600 font-semibold">Vegetarian</span>
+            </div>
+            <p class="text-gray-600 mb-4">A medley of fresh vegetables and tofu in a light, savory sauce. Exceptional flavors in every bite.</p>
+            <div class="flex items-center gap-1 text-yellow-400 text-sm">
+              <span>★★★★★</span>
+              <span class="text-gray-400">(Highly rated)</span>
             </div>
           </div>
         </div>
-
+        
         <!-- Menu Item 5 -->
-        <div class="bg-cream rounded-2xl overflow-hidden shadow-lg hover-lift">
-          <div class="h-56 bg-gray-200 relative overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1559742811-822873691df8?w=600&q=80" 
-              alt="Buddha Delight" 
-              class="w-full h-full object-cover"
-            >
-            <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-              Vegetarian
-            </div>
+        <div class="menu-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://static.goto-where.com/2592-albums-7.jpg" 
+                 alt="Premium Steaks - American classics" 
+                 class="w-full h-full object-cover">
           </div>
           <div class="p-6">
-            <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Buddha Delight</h3>
-            <p class="text-gray-600 mb-4">Fresh vegetables and tofu in light garlic sauce. Exceptional flavors, healthy choice.</p>
-            <div class="flex items-center justify-between">
-              <span class="text-gold-dark font-display text-xl font-bold">$14</span>
-              <span class="text-sm text-gray-500">Entrée</span>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-semibold text-gray-900">Premium Steaks</h3>
+              <span class="text-meadows-600 font-semibold">American</span>
+            </div>
+            <p class="text-gray-600 mb-4">Perfectly grilled steaks, cooked to your preference. Phenomenal quality that rivals the best steakhouses.</p>
+            <div class="flex items-center gap-1 text-yellow-400 text-sm">
+              <span>★★★★★</span>
+              <span class="text-gray-400">(Outstanding)</span>
             </div>
           </div>
         </div>
-
+        
         <!-- Menu Item 6 -->
-        <div class="bg-cream rounded-2xl overflow-hidden shadow-lg hover-lift">
-          <div class="h-56 bg-gray-200 relative overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1579306194872-64d3b7bac4c2?w=600&q=80" 
-              alt="Banana Cream Pie" 
-              class="w-full h-full object-cover"
-            >
-            <div class="absolute top-4 right-4 bg-gold text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">
-              Anna's Special
-            </div>
+        <div class="menu-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://static.goto-where.com/2592-albums-8.jpg" 
+                 alt="Banana Cream Pie - Homemade desserts" 
+                 class="w-full h-full object-cover">
           </div>
           <div class="p-6">
-            <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Banana Cream Pie</h3>
-            <p class="text-gray-600 mb-4">Homemade by Anna every morning. When it's gone, it's gone! Outstanding dessert.</p>
-            <div class="flex items-center justify-between">
-              <span class="text-gold-dark font-display text-xl font-bold">$7</span>
-              <span class="text-sm text-gray-500">Dessert</span>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-semibold text-gray-900">Banana Cream Pie</h3>
+              <span class="text-meadows-600 font-semibold">Dessert</span>
+            </div>
+            <p class="text-gray-600 mb-4">Anna's homemade banana cream pie, made fresh each morning. When it's gone, it's gone—so order early!</p>
+            <div class="flex items-center gap-1 text-yellow-400 text-sm">
+              <span>★★★★★</span>
+              <span class="text-gray-400">(Must try!)</span>
             </div>
           </div>
         </div>
       </div>
-
+      
+      <!-- CTA -->
       <div class="text-center mt-12">
-        <p class="text-gray-500 mb-4 italic">* Menu items made fresh to order. Please inform your server of any allergies.</p>
-        <a href="#contact" class="inline-block bg-burgundy text-white px-8 py-4 rounded-full font-semibold hover:bg-burgundy-dark transition-all hover:shadow-lg">
-          View Full Menu & Wine List
+        <a href="#contact" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-2">
+          Reserve Your Table
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Full Menu List -->
-  <section class="py-16 bg-cream-dark">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="glass-card rounded-3xl p-8 md:p-12 shadow-xl">
-        <h3 class="font-display text-3xl font-bold text-gray-900 text-center mb-8">Complete Menu</h3>
-        
-        <!-- Appetizers -->
-        <div class="mb-10">
-          <h4 class="font-display text-xl font-semibold text-burgundy mb-6 pb-2 border-b-2 border-burgundy/20">Appetizers</h4>
-          <div class="space-y-4">
-            <div class="menu-item flex justify-between items-baseline py-3">
-              <div>
-                <span class="font-semibold text-gray-900">Crab Rangoons</span>
-                <p class="text-sm text-gray-500 mt-1">Crispy pockets with creamy crab filling</p>
-              </div>
-              <span class="font-display font-bold text-burgundy">$8</span>
-            </div>
-            <div class="menu-item flex justify-between items-baseline py-3">
-              <div>
-                <span class="font-semibold text-gray-900">Egg Rolls (2)</span>
-                <p class="text-sm text-gray-500 mt-1">Crispy rolls filled with vegetables</p>
-              </div>
-              <span class="font-display font-bold text-burgundy">$6</span>
-            </div>
-            <div class="menu-item flex justify-between items-baseline py-3">
-              <div>
-                <span class="font-semibold text-gray-900">Stuffed Peppers</span>
-                <p class="text-sm text-gray-500 mt-1">Bell peppers with savory filling</p>
-              </div>
-              <span class="font-display font-bold text-burgundy">$9</span>
-            </div>
-          </div>
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-20 md:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-meadows-600 font-semibold tracking-wider uppercase text-sm">Visual Journey</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-6">
+          Inside The Meadows
+        </h2>
+        <p class="text-gray-600 text-lg">
+          Take a peek at our cozy atmosphere, delicious dishes, and the warm moments that make dining with us special.
+        </p>
+      </div>
+      
+      <!-- Gallery Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="gallery-item col-span-2 row-span-2 rounded-2xl overflow-hidden">
+          <img src="https://static.goto-where.com/2592-albums-1.jpg" 
+               alt="The Meadows restaurant interior atmosphere" 
+               class="w-full h-full object-cover min-h-[300px] md:min-h-[400px]">
         </div>
-
-        <!-- Entrees -->
-        <div class="mb-10">
-          <h4 class="font-display text-xl font-semibold text-burgundy mb-6 pb-2 border-b-2 border-burgundy/20">Entrees</h4>
-          <div class="space-y-4">
-            <div class="menu-item flex justify-between items-baseline py-3">
-              <div>
-                <span class="font-semibold text-gray-900">Sweet & Sour Chicken</span>
-                <p class="text-sm text-gray-500 mt-1">Crispy chicken with tangy sauce</p>
-              </div>
-              <span class="font-display font-bold text-burgundy">$15</span>
-            </div>
-            <div class="menu-item flex justify-between items-baseline py-3">
-              <div>
-                <span class="font-semibold text-gray-900">Beef Udon Noodle</span>
-                <p class="text-sm text-gray-500 mt-1">Thick noodles with succulent beef</p>
-              </div>
-              <span class="font-display font-bold text-burgundy">$16</span>
-            </div>
-            <div class="menu-item flex justify-between items-baseline py-3">
-              <div>
-                <span class="font-semibold text-gray-900">Pepper Steak</span>
-                <p class="text-sm text-gray-500 mt-1">Tender steak with fresh peppers</p>
-              </div>
-              <span class="font-display font-bold text-burgundy">$18</span>
-            </div>
-            <div class="menu-item flex justify-between items-baseline py-3">
-              <div>
-                <span class="font-semibold text-gray-900">Shrimp with Lobster Sauce</span>
-                <p class="text-sm text-gray-500 mt-1">Jumbo shrimp in rich lobster sauce</p>
-              </div>
-              <span class="font-display font-bold text-burgundy">$20</span>
-            </div>
-            <div class="menu-item flex justify-between items-baseline py-3">
-              <div>
-                <span class="font-semibold text-gray-900">Buddha Delight</span>
-                <span class="ml-2 text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded">Vegetarian</span>
-                <p class="text-sm text-gray-500 mt-1">Fresh vegetables and tofu</p>
-              </div>
-              <span class="font-display font-bold text-burgundy">$14</span>
-            </div>
-            <div class="menu-item flex justify-between items-baseline py-3">
-              <div>
-                <span class="font-semibold text-gray-900">Grilled Salmon</span>
-                <p class="text-sm text-gray-500 mt-1">Fresh salmon with seasonal vegetables</p>
-              </div>
-              <span class="font-display font-bold text-burgundy">$22</span>
-            </div>
-          </div>
+        <div class="gallery-item rounded-2xl overflow-hidden">
+          <img src="https://static.goto-where.com/2592-albums-9.jpg" 
+               alt="Beautiful plated dish at The Meadows" 
+               class="w-full h-full object-cover min-h-[180px]">
         </div>
-
-        <!-- Desserts -->
-        <div>
-          <h4 class="font-display text-xl font-semibold text-burgundy mb-6 pb-2 border-b-2 border-burgundy/20">Desserts <span class="text-sm font-normal text-gray-500">(Made fresh daily by Anna)</span></h4>
-          <div class="space-y-4">
-            <div class="menu-item flex justify-between items-baseline py-3">
-              <div>
-                <span class="font-semibold text-gray-900">Banana Cream Pie</span>
-                <span class="ml-2 text-xs bg-gold/30 text-gold-dark px-2 py-0.5 rounded">Popular</span>
-                <p class="text-sm text-gray-500 mt-1">Homemade fresh every morning</p>
-              </div>
-              <span class="font-display font-bold text-burgundy">$7</span>
-            </div>
-            <div class="menu-item flex justify-between items-baseline py-3">
-              <div>
-                <span class="font-semibold text-gray-900">Seasonal Dessert</span>
-                <p class="text-sm text-gray-500 mt-1">Ask your server for today's special</p>
-              </div>
-              <span class="font-display font-bold text-burgundy">$6</span>
-            </div>
-          </div>
+        <div class="gallery-item rounded-2xl overflow-hidden">
+          <img src="https://static.goto-where.com/2592-albums-10.jpg" 
+               alt="Elegant presentation of Asian-American cuisine" 
+               class="w-full h-full object-cover min-h-[180px]">
         </div>
-
-        <div class="mt-8 pt-6 border-t border-gray-200 text-center">
-          <p class="text-gray-600 mb-2"><span class="font-semibold">Wine & Cocktails:</span> Curated selection available</p>
-          <p class="text-sm text-gray-500">Prices subject to change. 18% gratuity added for parties of 6 or more.</p>
+        <div class="gallery-item rounded-2xl overflow-hidden">
+          <img src="https://static.goto-where.com/2592-albums-3.jpg" 
+               alt="Fresh ingredients and culinary artistry" 
+               class="w-full h-full object-cover min-h-[180px]">
+        </div>
+        <div class="gallery-item rounded-2xl overflow-hidden">
+          <img src="https://static.goto-where.com/2592-albums-6.jpg" 
+               alt="Colorful vegetarian dishes at The Meadows" 
+               class="w-full h-full object-cover min-h-[180px]">
         </div>
       </div>
     </div>
   </section>
 
   <!-- Reviews Section -->
-  <section id="reviews" class="py-24 bg-burgundy relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10">
-      <img 
-        src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80" 
-        alt="Restaurant background" 
-        class="w-full h-full object-cover"
-      >
-    </div>
-    
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <span class="text-gold font-semibold tracking-wider uppercase text-sm">What Our Guests Say</span>
-        <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-4">
-          Rave Reviews
+  <section id="reviews" class="py-20 md:py-32 bg-meadows-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-meadows-300 font-semibold tracking-wider uppercase text-sm">Guest Love</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold mt-3 mb-6">
+          What Our Guests Say
         </h2>
-        <div class="flex items-center justify-center gap-2 mb-4">
-          <div class="flex text-gold">
-            <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+        <div class="flex items-center justify-center gap-4">
+          <div class="flex items-center gap-1">
+            <svg class="w-6 h-6 text-yellow-400 fill-current" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-6 h-6 text-yellow-400 fill-current" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-6 h-6 text-yellow-400 fill-current" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-6 h-6 text-yellow-400 fill-current" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-6 h-6 text-yellow-400 fill-current" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
           </div>
-          <span class="text-white text-xl font-semibold">4.7 out of 5</span>
+          <span class="text-2xl font-bold">4.7</span>
+          <span class="text-meadows-300">Based on 163 reviews</span>
         </div>
-        <p class="text-white/80 text-lg">Based on 55+ verified reviews</p>
       </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Reviews Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Review 1 -->
-        <div class="glass-card rounded-2xl p-8">
-          <div class="flex text-gold mb-4">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+        <div class="review-card bg-meadows-800/50 backdrop-blur-sm p-6 rounded-xl">
+          <div class="flex items-center gap-1 text-yellow-400 mb-3">
+            ★★★★★
           </div>
-          <p class="text-gray-700 mb-6 italic leading-relaxed">"One of the best food experiences we've had in some time. We've been twice recently with family and everything has been amazing! The crab rangoons, sweet and sour chicken, and steaks were phenomenal!"</p>
-          <div class="flex items-center">
-            <div class="w-10 h-10 bg-burgundy/10 rounded-full flex items-center justify-center mr-3">
-              <span class="text-burgundy font-semibold">KS</span>
-            </div>
+          <p class="text-meadows-100 mb-4 italic">"One of the best food experiences we've had in some time. Everything has been amazing! I would highly recommend the crab ragoons, stuffed peppers, sweet and sour chicken, and shrimp with lobster sauce. The steaks were phenomenal!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-meadows-600 flex items-center justify-center font-semibold">K</div>
             <div>
-              <p class="font-semibold text-gray-900">K Schuler</p>
-              <p class="text-sm text-gray-500">March 2025</p>
+              <p class="font-semibold">K Schuler</p>
+              <p class="text-meadows-300 text-sm">March 2025</p>
             </div>
           </div>
         </div>
-
+        
         <!-- Review 2 -->
-        <div class="glass-card rounded-2xl p-8">
-          <div class="flex text-gold mb-4">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+        <div class="review-card bg-meadows-800/50 backdrop-blur-sm p-6 rounded-xl">
+          <div class="flex items-center gap-1 text-yellow-400 mb-3">
+            ★★★★★
           </div>
-          <p class="text-gray-700 mb-6 italic leading-relaxed">"Absolutely amazing little family run restaurant! The food was amazingly delicious, the presentation was gorgeous, the atmosphere relaxing, and the service and care was above and beyond. This is the best restaurant we have experienced in years."</p>
-          <div class="flex items-center">
-            <div class="w-10 h-10 bg-burgundy/10 rounded-full flex items-center justify-center mr-3">
-              <span class="text-burgundy font-semibold">KI</span>
-            </div>
+          <p class="text-meadows-100 mb-4 italic">"Food was great but the friendly service makes it special. As soon as we walked in we were treated like friends by the two gentlemen that own/run the restaurant. The egg rolls could have been a meal on their own!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-meadows-600 flex items-center justify-center font-semibold">B</div>
             <div>
-              <p class="font-semibold text-gray-900">Kinsan</p>
-              <p class="text-sm text-gray-500">February 2025</p>
+              <p class="font-semibold">Brenda Donley</p>
+              <p class="text-meadows-300 text-sm">February 2025</p>
             </div>
           </div>
         </div>
-
+        
         <!-- Review 3 -->
-        <div class="glass-card rounded-2xl p-8">
-          <div class="flex text-gold mb-4">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+        <div class="review-card bg-meadows-800/50 backdrop-blur-sm p-6 rounded-xl">
+          <div class="flex items-center gap-1 text-yellow-400 mb-3">
+            ★★★★★
           </div>
-          <p class="text-gray-700 mb-6 italic leading-relaxed">"A family owned restaurant and they treat you like one of their family. All food is made to order by Anna so be prepared to wait while she makes it special for you! Her food is so worth the wait. Desserts are awesome! Highly recommend."</p>
-          <div class="flex items-center">
-            <div class="w-10 h-10 bg-burgundy/10 rounded-full flex items-center justify-center mr-3">
-              <span class="text-burgundy font-semibold">KS</span>
-            </div>
+          <p class="text-meadows-100 mb-4 italic">"Absolutely amazing little family run restaurant! The food was amazingly delicious, the presentation was gorgeous, the atmosphere relaxing, and the service and care was above and beyond. This is the best restaurant we have experienced in years."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-meadows-600 flex items-center justify-center font-semibold">K</div>
             <div>
-              <p class="font-semibold text-gray-900">Katina Swartz</p>
-              <p class="text-sm text-gray-500">January 2025</p>
+              <p class="font-semibold">Kinsan</p>
+              <p class="text-meadows-300 text-sm">February 2025</p>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="text-center mt-12">
-        <a href="https://www.facebook.com/themeadows" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-white text-burgundy px-8 py-4 rounded-full font-semibold hover:bg-cream transition-all">
-          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
-          Read More Reviews on Facebook
-        </a>
+        
+        <!-- Review 4 -->
+        <div class="review-card bg-meadows-800/50 backdrop-blur-sm p-6 rounded-xl">
+          <div class="flex items-center gap-1 text-yellow-400 mb-3">
+            ★★★★★
+          </div>
+          <p class="text-meadows-100 mb-4 italic">"I loved this family restaurant. The banana cream pie was outstanding, nice wine selection too. If I lived here, I would come once a month."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-meadows-600 flex items-center justify-center font-semibold">K</div>
+            <div>
+              <p class="font-semibold">Kyle V.</p>
+              <p class="text-meadows-300 text-sm">February 2025</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Review 5 -->
+        <div class="review-card bg-meadows-800/50 backdrop-blur-sm p-6 rounded-xl">
+          <div class="flex items-center gap-1 text-yellow-400 mb-3">
+            ★★★★★
+          </div>
+          <p class="text-meadows-100 mb-4 italic">"We have been here several times and always have THE BEST service. We always feel so at home and taken care of. Everything we've had to eat or drink has been top tier and you can taste and feel the love behind each dish."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-meadows-600 flex items-center justify-center font-semibold">H</div>
+            <div>
+              <p class="font-semibold">Haley Shorten</p>
+              <p class="text-meadows-300 text-sm">January 2025</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Review 6 -->
+        <div class="review-card bg-meadows-800/50 backdrop-blur-sm p-6 rounded-xl">
+          <div class="flex items-center gap-1 text-yellow-400 mb-3">
+            ★★★★★
+          </div>
+          <p class="text-meadows-100 mb-4 italic">"Dinner was delicious. Ricky the owner was a great server and host. All food is made to order by his wife Anna so be prepared to wait while she makes it special for you! Her food is so worth the wait. Desserts are awesome!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-meadows-600 flex items-center justify-center font-semibold">K</div>
+            <div>
+              <p class="font-semibold">Katina Swartz</p>
+              <p class="text-meadows-300 text-sm">January 2025</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Hours & Location -->
-  <section id="hours" class="py-24 bg-cream">
+  <!-- Contact & Hours Section -->
+  <section id="contact" class="py-20 md:py-32 bg-warm-cream">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+        <!-- Contact Info -->
         <div>
-          <span class="text-gold-dark font-semibold tracking-wider uppercase text-sm">Visit Us</span>
+          <span class="text-meadows-600 font-semibold tracking-wider uppercase text-sm">Visit Us</span>
           <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-6">
-            Hours & Location
+            Ready to Dine?<br>We're Waiting.
           </h2>
           <p class="text-gray-600 text-lg mb-8">
-            Located in the heart of Middletown, The Meadows offers an intimate dining experience. We're open limited hours to ensure every dish receives Anna's full attention.
+            Join us for an unforgettable dining experience. Whether it's a casual lunch, romantic dinner, or special celebration, we're here to make it memorable.
           </p>
-
-          <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
-            <h3 class="font-display text-2xl font-bold text-burgundy mb-6">Opening Hours</h3>
-            <div class="space-y-3">
-              <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                <span class="font-medium text-gray-700">Monday - Thursday</span>
-                <span class="text-red-600 font-semibold">Closed</span>
-              </div>
-              <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                <span class="font-medium text-gray-700">Friday</span>
-                <span class="text-green-600 font-semibold">5:00 PM - 9:00 PM</span>
-              </div>
-              <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                <span class="font-medium text-gray-700">Saturday</span>
-                <span class="text-green-600 font-semibold">5:00 PM - 9:00 PM</span>
-              </div>
-              <div class="flex justify-between items-center py-2">
-                <span class="font-medium text-gray-700">Sunday</span>
-                <span class="text-red-600 font-semibold">Closed</span>
-              </div>
-            </div>
-            <div class="mt-6 p-4 bg-gold/10 rounded-xl">
-              <p class="text-sm text-gold-dark font-medium">
-                <span class="font-bold">Note:</span> Reservations are highly recommended due to limited seating and our exclusive weekend hours.
-              </p>
-            </div>
-          </div>
-
-          <div class="bg-white rounded-2xl p-8 shadow-lg">
-            <h3 class="font-display text-2xl font-bold text-burgundy mb-4">Contact Information</h3>
-            <div class="space-y-4">
-              <div class="flex items-start">
-                <svg class="w-6 h-6 text-burgundy mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          
+          <!-- Contact Details -->
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-meadows-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-meadows-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                 </svg>
-                <div>
-                  <p class="font-semibold text-gray-900">Address</p>
-                  <p class="text-gray-600">2102 Yankee Rd<br>Middletown, OH 45044</p>
-                </div>
               </div>
-              <div class="flex items-start">
-                <svg class="w-6 h-6 text-burgundy mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div>
+                <h3 class="font-semibold text-gray-900">Location</h3>
+                <p class="text-gray-600">2102 Yankee Rd<br>Middletown, OH 45044</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-meadows-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-meadows-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                 </svg>
-                <div>
-                  <p class="font-semibold text-gray-900">Phone</p>
-                  <a href="tel:513-649-8168" class="text-burgundy hover:underline">513-649-8168</a>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900">Phone</h3>
+                <a href="tel:+15136498168" class="text-meadows-600 hover:text-meadows-700 font-medium">(513) 649-8168</a>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-meadows-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-meadows-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900">Hours</h3>
+                <div class="text-gray-600 space-y-1">
+                  <p><span class="font-medium">Friday:</span> 5:00 PM - 9:00 PM</p>
+                  <p><span class="font-medium">Saturday:</span> 5:00 PM - 9:00 PM</p>
+                  <p><span class="text-gray-400">Sunday - Thursday: Closed</span></p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="relative">
-          <div class="bg-gray-200 rounded-2xl overflow-hidden shadow-2xl h-[600px]">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3078.1234567890123!2d-84.36412345678901!3d39.50123456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8840b123456789ab%3A0xcdef123456789012!2s2102%20Yankee%20Rd%2C%20Middletown%2C%20OH%2045044!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
-              width="100%" 
-              height="100%" 
-              style="border:0;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade"
-              class="w-full h-full"
-              title="The Meadows Location Map"
-            ></iframe>
-          </div>
-          <div class="absolute -bottom-6 -left-6 bg-burgundy text-white p-6 rounded-xl shadow-xl max-w-xs">
-            <p class="font-display text-xl font-bold mb-2">Free Parking Available</p>
-            <p class="text-sm text-white/80">Ample parking space in front of the restaurant</p>
+          
+          <!-- Social Links -->
+          <div class="mt-8 pt-8 border-t border-gray-200">
+            <h3 class="font-semibold text-gray-900 mb-4">Follow Us</h3>
+            <div class="flex gap-4">
+              <a href="https://www.facebook.com/themeadows" target="_blank" rel="noopener noreferrer" 
+                 class="w-12 h-12 bg-meadows-600 text-white rounded-full flex items-center justify-center hover:bg-meadows-700 transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact/Reservation Section -->
-  <section id="contact" class="py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <span class="text-gold-dark font-semibold tracking-wider uppercase text-sm">Reservations</span>
-        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-4">
-          Reserve Your Table
-        </h2>
-        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-          Due to our limited weekend hours and high demand, we recommend making reservations in advance. Walk-ins welcome based on availability.
-        </p>
-      </div>
-
-      <div class="bg-cream rounded-3xl p-8 md:p-12 shadow-xl">
-        <form class="space-y-6" id="reservation-form">
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                required
-                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-burgundy focus:border-burgundy outline-none transition-all"
-                placeholder="Your name"
-              >
-            </div>
-            <div>
-              <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
-              <input 
-                type="tel" 
-                id="phone" 
-                name="phone" 
-                required
-                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-burgundy focus:border-burgundy outline-none transition-all"
-                placeholder="(513) 000-0000"
-              >
-            </div>
-          </div>
-
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <label for="date" class="block text-sm font-medium text-gray-700 mb-2">Preferred Date *</label>
-              <input 
-                type="date" 
-                id="date" 
-                name="date" 
-                required
-                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-burgundy focus:border-burgundy outline-none transition-all"
-              >
-            </div>
-            <div>
-              <label for="time" class="block text-sm font-medium text-gray-700 mb-2">Preferred Time *</label>
-              <select 
-                id="time" 
-                name="time" 
-                required
-                class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-burgundy focus:border-burgundy outline-none transition-all"
-              >
-                <option value="">Select a time</option>
-                <option value="17:00">5:00 PM</option>
-                <option value="17:30">5:30 PM</option>
-                <option value="18:00">6:00 PM</option>
-                <option value="18:30">6:30 PM</option>
-                <option value="19:00">7:00 PM</option>
-                <option value="19:30">7:30 PM</option>
-                <option value="20:00">8:00 PM</option>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label for="guests" class="block text-sm font-medium text-gray-700 mb-2">Number of Guests *</label>
-            <select 
-              id="guests" 
-              name="guests" 
-              required
-              class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-burgundy focus:border-burgundy outline-none transition-all"
-            >
-              <option value="">Select party size</option>
-              <option value="1">1 Guest</option>
-              <option value="2">2 Guests</option>
-              <option value="3">3 Guests</option>
-              <option value="4">4 Guests</option>
-              <option value="5">5 Guests</option>
-              <option value="6">6 Guests</option>
-              <option value="7+">7+ Guests (Please call)</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Special Requests</label>
-            <textarea 
-              id="message" 
-              name="message" 
-              rows="4"
-              class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-burgundy focus:border-burgundy outline-none transition-all resize-none"
-              placeholder="Any dietary restrictions, special occasions, or seating preferences?"
-            ></textarea>
-          </div>
-
-          <div class="text-center">
-            <button 
-              type="submit" 
-              class="bg-burgundy text-white px-12 py-4 rounded-full font-semibold text-lg hover:bg-burgundy-dark transition-all hover:shadow-xl w-full md:w-auto"
-            >
-              Request Reservation
-            </button>
-          </div>
-
-          <div class="text-center mt-6">
-            <p class="text-sm text-gray-500">
-              Prefer to call? <a href="tel:513-649-8168" class="text-burgundy font-semibold hover:underline">513-649-8168</a>
-            </p>
-          </div>
-        </form>
-      </div>
-
-      <div class="mt-8 text-center">
-        <p class="text-sm text-gray-500">
-          * Reservations are confirmed via phone. Please allow 24 hours for confirmation.
-        </p>
+        
+        <!-- Map -->
+        <div class="rounded-2xl overflow-hidden shadow-xl h-full min-h-[400px]">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3078.970815382409!2d-84.39572319999999!3d39.49257359999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88405da0979db5a9%3A0x192abe54d6c77e87!2sThe%20Meadows!5e0!3m2!1sen!2s!4v1742004907039!5m2!1sen!2s"
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 400px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-16">
+  <footer class="bg-gray-900 text-white py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
         <!-- Brand -->
-        <div class="lg:col-span-1">
-          <h3 class="font-display text-3xl font-bold text-white mb-4">The Meadows</h3>
-          <p class="text-gray-400 mb-6">Cozy family-owned Asian-American cuisine in the heart of Middletown.</p>
-          <div class="flex space-x-4">
-            <a href="https://www.facebook.com/themeadows" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-burgundy rounded-full flex items-center justify-center hover:bg-burgundy-light transition-colors">
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-            </a>
-          </div>
+        <div>
+          <h3 class="font-display text-2xl font-semibold mb-4">The Meadows</h3>
+          <p class="text-gray-400">A cozy family-owned restaurant offering delicious Asian-American cuisine in Middletown, OH.</p>
         </div>
-
+        
         <!-- Quick Links -->
         <div>
-          <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
-          <ul class="space-y-3">
+          <h4 class="font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
             <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">Our Story</a></li>
             <li><a href="#menu" class="text-gray-400 hover:text-white transition-colors">Menu</a></li>
+            <li><a href="#gallery" class="text-gray-400 hover:text-white transition-colors">Gallery</a></li>
             <li><a href="#reviews" class="text-gray-400 hover:text-white transition-colors">Reviews</a></li>
-            <li><a href="#hours" class="text-gray-400 hover:text-white transition-colors">Hours</a></li>
-            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Reservations</a></li>
           </ul>
         </div>
-
-        <!-- Contact Info -->
+        
+        <!-- Contact -->
         <div>
-          <h4 class="font-semibold text-lg mb-4">Contact Us</h4>
-          <ul class="space-y-3 text-gray-400">
-            <li class="flex items-start">
-              <svg class="w-5 h-5 mr-2 mt-0.5 text-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-              </svg>
-              <span>2102 Yankee Rd<br>Middletown, OH 45044</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 mr-2 text-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-              </svg>
-              <a href="tel:513-649-8168" class="hover:text-white">513-649-8168</a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Hours -->
-        <div>
-          <h4 class="font-semibold text-lg mb-4">Opening Hours</h4>
+          <h4 class="font-semibold mb-4">Contact</h4>
           <ul class="space-y-2 text-gray-400">
-            <li class="flex justify-between">
-              <span>Mon - Thu</span>
-              <span class="text-red-400">Closed</span>
-            </li>
-            <li class="flex justify-between">
-              <span>Friday</span>
-              <span>5PM - 9PM</span>
-            </li>
-            <li class="flex justify-between">
-              <span>Saturday</span>
-              <span>5PM - 9PM</span>
-            </li>
-            <li class="flex justify-between">
-              <span>Sunday</span>
-              <span class="text-red-400">Closed</span>
-            </li>
+            <li>2102 Yankee Rd, Middletown, OH 45044</li>
+            <li><a href="tel:+15136498168" class="hover:text-white transition-colors">(513) 649-8168</a></li>
+            <li>Fri-Sat: 5PM - 9PM</li>
           </ul>
         </div>
       </div>
-
-      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-        <p class="text-gray-500 text-sm">
-          © 2025 The Meadows. All rights reserved.
-        </p>
-        <p class="text-gray-500 text-sm mt-4 md:mt-0">
-          Family-owned & operated with ❤️ in Middletown, OH
-        </p>
+      
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-500 text-sm">© 2025 The Meadows. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="https://www.facebook.com/themeadows" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+            <span class="sr-only">Facebook</span>
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Floating CTA Button (Mobile) -->
-  <div class="fixed bottom-6 right-6 md:hidden z-50">
-    <a href="tel:513-649-8168" class="bg-burgundy text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-burgundy-dark transition-all">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <!-- Floating CTA -->
+  <div class="fixed bottom-6 right-6 z-50 hidden md:block">
+    <a href="tel:+15136498168" 
+       class="btn-primary text-white px-6 py-3 rounded-full font-semibold shadow-lg flex items-center gap-2 hover:shadow-xl transition-all">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
       </svg>
+      Call Now
     </a>
   </div>
 
+  <!-- JavaScript -->
   <script>
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -956,57 +788,44 @@
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
-
+    
     // Close mobile menu when clicking a link
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
       });
     });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
+    
     // Navbar background on scroll
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        navbar.classList.add('shadow-md');
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-meadows-900/95', 'backdrop-blur-md', 'shadow-lg');
       } else {
-        navbar.classList.remove('shadow-md');
+        navbar.classList.remove('bg-meadows-900/95', 'backdrop-blur-md', 'shadow-lg');
       }
     });
-
-    // Form submission handler
-    const form = document.getElementById('reservation-form');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Thank you for your reservation request! We will call you within 24 hours to confirm your table.\n\nFor immediate assistance, please call us at 513-649-8168.');
-      form.reset();
-    });
-
-    // Date picker - only allow Friday and Saturday
-    const dateInput = document.getElementById('date');
-    dateInput.addEventListener('change', function() {
-      const date = new Date(this.value);
-      const day = date.getDay();
-      
-      // 5 is Friday, 6 is Saturday
-      if (day !== 5 && day !== 6) {
-        alert('Please select a Friday or Saturday. The Meadows is only open on weekends.');
-        this.value = '';
-      }
+    
+    // Intersection Observer for animations
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-slide-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all menu cards and review cards
+    document.querySelectorAll('.menu-card, .review-card').forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
     });
   </script>
 </body>
