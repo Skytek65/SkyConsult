@@ -7,29 +7,34 @@
   <meta name="description" content="Full service auto repair in Morrow, OH. Specializing in classic car restoration, muscle cars, and performance vehicles. ASE certified technicians with 12-month/12K mile nationwide warranty. Rated 5.0 stars by 105+ customers.">
   <meta name="keywords" content="auto repair Morrow OH, classic car restoration, muscle car repair, performance vehicles, ASE certified mechanics, antique car service">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             primary: {
-              50: '#eff6ff',
-              100: '#dbeafe',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-              800: '#1e40af',
-              900: '#1e3a8a',
-            },
-            accent: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              300: '#fdba74',
               400: '#fb923c',
               500: '#f97316',
               600: '#ea580c',
+              700: '#c2410c',
+              800: '#9a3412',
+              900: '#7c2d12',
+              950: '#431407',
             },
             dark: {
               800: '#1e293b',
               900: '#0f172a',
               950: '#020617',
+            },
+            accent: {
+              DEFAULT: '#ea580c',
+              light: '#fb923c',
+              dark: '#c2410c',
             }
           },
           fontFamily: {
@@ -41,13 +46,12 @@
     }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     .font-display { font-family: 'Oswald', Impact, sans-serif; }
     .font-sans { font-family: 'Inter', system-ui, sans-serif; }
     
     ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #1e293b; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
     ::-webkit-scrollbar-thumb { background: #ea580c; border-radius: 4px; }
     
     @keyframes fadeInUp {
@@ -55,24 +59,24 @@
       to { opacity: 1; transform: translateY(0); }
     }
     
-    @keyframes slideInLeft {
-      from { opacity: 0; transform: translateX(-50px); }
-      to { opacity: 1; transform: translateX(0); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
     }
     
-    @keyframes slideInRight {
-      from { opacity: 0; transform: translateX(50px); }
-      to { opacity: 1; transform: translateX(0); }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(234, 88, 12, 0.4); }
+      50% { box-shadow: 0 0 40px rgba(234, 88, 12, 0.6); }
     }
     
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     
     .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
-    .animate-slide-in-left { animation: slideInLeft 0.8s ease-out forwards; }
-    .animate-slide-in-right { animation: slideInRight 0.8s ease-out forwards; }
+    .animate-float { animation: float 6s ease-in-out infinite; }
     
     .hover-lift {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -83,14 +87,7 @@
     }
     
     .hero-gradient {
-      background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.85) 50%, rgba(30,58,138,0.7) 100%);
-    }
-    
-    .img-zoom {
-      transition: transform 0.5s ease;
-    }
-    .img-zoom-container:hover .img-zoom {
-      transform: scale(1.1);
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
     }
     
     .service-card {
@@ -136,6 +133,29 @@
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .grid-pattern {
+      background-image: radial-gradient(circle at 2px 2px, rgba(234, 88, 12, 0.15) 1px, transparent 0);
+      background-size: 40px 40px;
+    }
+    
+    .icon-pulse {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    .blob {
+      position: absolute;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: float 8s ease-in-out infinite;
+    }
   </style>
 </head>
 <body class="bg-dark-950 text-white font-sans antialiased overflow-x-hidden">
@@ -146,78 +166,72 @@
       <div class="flex justify-between items-center h-20">
         <div class="flex items-center">
           <a href="#" class="flex items-center space-x-3">
-            <div class="w-12 h-12 bg-accent-500 rounded-lg flex items-center justify-center">
-              <i class="fas fa-wrench text-white text-xl"></i>
+            <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
+              <i data-lucide="wrench" class="w-6 h-6 text-white"></i>
             </div>
             <div class="hidden sm:block">
               <h1 class="font-display text-2xl font-bold text-white tracking-wide">BRYSON'S</h1>
-              <p class="text-xs text-accent-400 tracking-widest">AUTO REPAIR & PERFORMANCE</p>
+              <p class="text-xs text-orange-400 tracking-widest">AUTO REPAIR & PERFORMANCE</p>
             </div>
           </a>
         </div>
         
         <div class="hidden lg:flex items-center space-x-8">
-          <a href="#services" class="text-gray-300 hover:text-accent-400 transition-colors font-medium">Services</a>
-          <a href="#about" class="text-gray-300 hover:text-accent-400 transition-colors font-medium">About</a>
-          <a href="#gallery" class="text-gray-300 hover:text-accent-400 transition-colors font-medium">Gallery</a>
-          <a href="#testimonials" class="text-gray-300 hover:text-accent-400 transition-colors font-medium">Reviews</a>
+          <a href="#services" class="text-gray-300 hover:text-orange-400 transition-colors font-medium">Services</a>
+          <a href="#about" class="text-gray-300 hover:text-orange-400 transition-colors font-medium">About</a>
+          <a href="#testimonials" class="text-gray-300 hover:text-orange-400 transition-colors font-medium">Reviews</a>
           <a href="#contact" class="btn-primary px-6 py-3 rounded-full font-semibold text-white flex items-center space-x-2">
-            <i class="fas fa-phone"></i>
+            <i data-lucide="phone" class="w-4 h-4"></i>
             <span>(513) 899-7204</span>
           </a>
         </div>
         
         <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none">
-          <i class="fas fa-bars text-2xl"></i>
+          <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
       </div>
     </div>
     
     <div id="mobile-menu" class="lg:hidden hidden bg-dark-900 border-t border-gray-800">
       <div class="px-4 pt-2 pb-6 space-y-2">
-        <a href="#services" class="block py-3 text-gray-300 hover:text-accent-400 font-medium">Services</a>
-        <a href="#about" class="block py-3 text-gray-300 hover:text-accent-400 font-medium">About</a>
-        <a href="#gallery" class="block py-3 text-gray-300 hover:text-accent-400 font-medium">Gallery</a>
-        <a href="#testimonials" class="block py-3 text-gray-300 hover:text-accent-400 font-medium">Reviews</a>
-        <a href="#contact" class="block py-3 text-accent-400 font-semibold">Contact Us</a>
+        <a href="#services" class="block py-3 text-gray-300 hover:text-orange-400 font-medium">Services</a>
+        <a href="#about" class="block py-3 text-gray-300 hover:text-orange-400 font-medium">About</a>
+        <a href="#testimonials" class="block py-3 text-gray-300 hover:text-orange-400 font-medium">Reviews</a>
+        <a href="#contact" class="block py-3 text-orange-400 font-semibold">Contact Us</a>
         <a href="tel:513-899-7204" class="block py-3 btn-primary text-center rounded-lg font-semibold">
-          <i class="fas fa-phone mr-2"></i>Call Now
+          <i data-lucide="phone" class="w-4 h-4 inline mr-2"></i>Call Now
         </a>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 z-0">
-      <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1920&q=80" 
-           alt="Classic car restoration workshop" 
-           class="w-full h-full object-cover">
-      <div class="hero-gradient absolute inset-0"></div>
-    </div>
+  <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient">
+    <!-- Animated Background Blobs -->
+    <div class="blob bg-orange-500 w-96 h-96 rounded-full top-20 left-10" style="animation-delay: 0s;"></div>
+    <div class="blob bg-red-600 w-80 h-80 rounded-full bottom-20 right-10" style="animation-delay: 2s;"></div>
+    <div class="blob bg-yellow-500 w-64 h-64 rounded-full top-1/2 left-1/2" style="animation-delay: 4s;"></div>
     
-    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-      <div class="absolute top-20 left-10 w-72 h-72 bg-accent-500/20 rounded-full blur-3xl animate-pulse"></div>
-      <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary-600/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
-    </div>
+    <!-- Grid Pattern Overlay -->
+    <div class="absolute inset-0 grid-pattern opacity-30"></div>
     
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div class="animate-fade-in-up">
           <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/20">
             <div class="flex text-yellow-400">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
             </div>
             <span class="text-sm font-semibold text-white">5.0 Rating • 105+ Reviews</span>
-            <span class="text-xs bg-accent-500 text-white px-2 py-1 rounded-full">Neighborhood Favorite 2024</span>
+            <span class="text-xs bg-orange-500 text-white px-2 py-1 rounded-full">Neighborhood Favorite</span>
           </div>
           
           <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-            Where <span class="text-accent-500">Classic Cars</span><br>
+            Where <span class="gradient-text">Classic Cars</span><br>
             Come Back to Life
           </h1>
           
@@ -228,44 +242,44 @@
           
           <div class="flex flex-col sm:flex-row gap-4">
             <a href="tel:513-899-7204" class="btn-primary px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center space-x-3">
-              <i class="fas fa-phone-alt"></i>
+              <i data-lucide="phone" class="w-5 h-5"></i>
               <span>Call (513) 899-7204</span>
             </a>
             <a href="#contact" class="btn-secondary px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center space-x-3">
-              <i class="fas fa-calendar-check"></i>
+              <i data-lucide="calendar" class="w-5 h-5"></i>
               <span>Request Service</span>
             </a>
           </div>
           
           <div class="mt-10 flex flex-wrap gap-6 text-gray-400 text-sm">
             <div class="flex items-center space-x-2">
-              <i class="fas fa-map-marker-alt text-accent-500"></i>
+              <i data-lucide="map-pin" class="w-4 h-4 text-orange-500"></i>
               <span>400 W Pike St, Morrow, OH</span>
             </div>
             <div class="flex items-center space-x-2">
-              <i class="fas fa-clock text-accent-500"></i>
+              <i data-lucide="clock" class="w-4 h-4 text-orange-500"></i>
               <span>Mon-Thu 8AM-5PM • Fri 8AM-4PM</span>
             </div>
           </div>
         </div>
         
-        <div class="hidden lg:block animate-slide-in-right">
-          <div class="glass rounded-2xl p-8 space-y-6">
+        <div class="hidden lg:block">
+          <div class="glass rounded-2xl p-8 space-y-6 animate-float">
             <div class="grid grid-cols-2 gap-6">
-              <div class="text-center p-4 bg-dark-800/50 rounded-xl">
-                <div class="text-4xl font-display font-bold text-accent-500">105+</div>
+              <div class="text-center p-4 bg-dark-800/50 rounded-xl border border-orange-500/20">
+                <div class="text-4xl font-display font-bold text-orange-500">105+</div>
                 <div class="text-sm text-gray-400 mt-1">5-Star Reviews</div>
               </div>
-              <div class="text-center p-4 bg-dark-800/50 rounded-xl">
-                <div class="text-4xl font-display font-bold text-accent-500">ASE</div>
+              <div class="text-center p-4 bg-dark-800/50 rounded-xl border border-orange-500/20">
+                <div class="text-4xl font-display font-bold text-orange-500">ASE</div>
                 <div class="text-sm text-gray-400 mt-1">Certified Techs</div>
               </div>
-              <div class="text-center p-4 bg-dark-800/50 rounded-xl">
-                <div class="text-4xl font-display font-bold text-accent-500">12K</div>
+              <div class="text-center p-4 bg-dark-800/50 rounded-xl border border-orange-500/20">
+                <div class="text-4xl font-display font-bold text-orange-500">12K</div>
                 <div class="text-sm text-gray-400 mt-1">Mile Warranty</div>
               </div>
-              <div class="text-center p-4 bg-dark-800/50 rounded-xl">
-                <div class="text-4xl font-display font-bold text-accent-500">10+</div>
+              <div class="text-center p-4 bg-dark-800/50 rounded-xl border border-orange-500/20">
+                <div class="text-4xl font-display font-bold text-orange-500">10+</div>
                 <div class="text-sm text-gray-400 mt-1">Years Car Shows</div>
               </div>
             </div>
@@ -275,12 +289,12 @@
                 "Outstanding service, great people to work with. When something needs done, they give you a reasonable price—no pressure."
               </p>
               <div class="flex justify-center mt-3">
-                <div class="flex text-yellow-400 text-sm">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+                <div class="flex text-yellow-400">
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                 </div>
               </div>
             </div>
@@ -288,23 +302,15 @@
         </div>
       </div>
     </div>
-    
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <a href="#services" class="text-white/50 hover:text-white transition-colors">
-        <i class="fas fa-chevron-down text-2xl"></i>
-      </a>
-    </div>
   </section>
 
   <!-- Services Section -->
   <section id="services" class="py-24 bg-dark-900 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-5">
-      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(234,88,12,0.3) 1px, transparent 0); background-size: 40px 40px;"></div>
-    </div>
+    <div class="absolute inset-0 grid-pattern opacity-20"></div>
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center mb-16 reveal">
-        <span class="text-accent-500 font-semibold tracking-widest uppercase text-sm">What We Do</span>
+        <span class="text-orange-400 font-semibold tracking-widest uppercase text-sm">What We Do</span>
         <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-4">
           Complete Auto Care
         </h2>
@@ -314,131 +320,103 @@
       </div>
       
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="service-card bg-dark-800 rounded-2xl overflow-hidden hover-lift reveal">
-          <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d9?w=600&q=80" 
-                 alt="Classic car engine restoration" 
-                 class="w-full h-full object-cover img-zoom">
+        <div class="service-card bg-gradient-to-br from-dark-800 to-dark-900 rounded-2xl p-8 hover-lift reveal">
+          <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 icon-pulse">
+            <i data-lucide="settings" class="w-8 h-8 text-white"></i>
           </div>
-          <div class="p-6">
-            <div class="w-14 h-14 bg-accent-500/20 rounded-xl flex items-center justify-center mb-4">
-              <i class="fas fa-cog text-2xl text-accent-500"></i>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-2">Classic Car Restoration</h3>
-            <p class="text-gray-400 text-sm mb-4">
-              Complete frame-off restorations for antique, classic, and muscle cars. We bring automotive history back to showroom condition.
-            </p>
-            <a href="#contact" class="text-accent-500 font-semibold text-sm hover:text-accent-400 flex items-center">
-              Learn More <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
+          <h3 class="font-display text-xl font-bold text-white mb-3">Classic Car Restoration</h3>
+          <p class="text-gray-400 mb-4">
+            Complete frame-off restorations for antique, classic, and muscle cars. We bring automotive history back to showroom condition.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-500">
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Frame-off restoration</li>
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>OEM parts sourcing</li>
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Showroom quality finish</li>
+          </ul>
         </div>
         
-        <div class="service-card bg-dark-800 rounded-2xl overflow-hidden hover-lift reveal">
-          <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1615887023516-9b6c7a93ab26?w=600&q=80" 
-                 alt="Performance tuning and modifications" 
-                 class="w-full h-full object-cover img-zoom">
+        <div class="service-card bg-gradient-to-br from-dark-800 to-dark-900 rounded-2xl p-8 hover-lift reveal" style="transition-delay: 0.1s;">
+          <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="zap" class="w-8 h-8 text-white"></i>
           </div>
-          <div class="p-6">
-            <div class="w-14 h-14 bg-accent-500/20 rounded-xl flex items-center justify-center mb-4">
-              <i class="fas fa-tachometer-alt text-2xl text-accent-500"></i>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-2">Performance Upgrades</h3>
-            <p class="text-gray-400 text-sm mb-4">
-              Engine modifications, suspension upgrades, and custom tuning to maximize horsepower, torque, and driving dynamics.
-            </p>
-            <a href="#contact" class="text-accent-500 font-semibold text-sm hover:text-accent-400 flex items-center">
-              Learn More <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
+          <h3 class="font-display text-xl font-bold text-white mb-3">Performance Upgrades</h3>
+          <p class="text-gray-400 mb-4">
+            Engine modifications, suspension upgrades, and custom tuning to maximize horsepower, torque, and driving dynamics.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-500">
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Engine tuning</li>
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Exhaust systems</li>
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Suspension upgrades</li>
+          </ul>
         </div>
         
-        <div class="service-card bg-dark-800 rounded-2xl overflow-hidden hover-lift reveal">
-          <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=600&q=80" 
-                 alt="General auto repair and maintenance" 
-                 class="w-full h-full object-cover img-zoom">
+        <div class="service-card bg-gradient-to-br from-dark-800 to-dark-900 rounded-2xl p-8 hover-lift reveal" style="transition-delay: 0.2s;">
+          <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="wrench" class="w-8 h-8 text-white"></i>
           </div>
-          <div class="p-6">
-            <div class="w-14 h-14 bg-accent-500/20 rounded-xl flex items-center justify-center mb-4">
-              <i class="fas fa-tools text-2xl text-accent-500"></i>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-2">General Auto Repair</h3>
-            <p class="text-gray-400 text-sm mb-4">
-              Full service maintenance and repairs for all makes and models. From oil changes to engine rebuilds—we handle it all.
-            </p>
-            <a href="#contact" class="text-accent-500 font-semibold text-sm hover:text-accent-400 flex items-center">
-              Learn More <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
+          <h3 class="font-display text-xl font-bold text-white mb-3">General Auto Repair</h3>
+          <p class="text-gray-400 mb-4">
+            Full service maintenance and repairs for all makes and models. From oil changes to engine rebuilds—we handle it all.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-500">
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Oil changes</li>
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Transmission service</li>
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Engine rebuilds</li>
+          </ul>
         </div>
         
-        <div class="service-card bg-dark-800 rounded-2xl overflow-hidden hover-lift reveal">
-          <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" 
-                 alt="Brake and suspension service" 
-                 class="w-full h-full object-cover img-zoom">
+        <div class="service-card bg-gradient-to-br from-dark-800 to-dark-900 rounded-2xl p-8 hover-lift reveal" style="transition-delay: 0.3s;">
+          <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="circle-stop" class="w-8 h-8 text-white"></i>
           </div>
-          <div class="p-6">
-            <div class="w-14 h-14 bg-accent-500/20 rounded-xl flex items-center justify-center mb-4">
-              <i class="fas fa-car-crash text-2xl text-accent-500"></i>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-2">Brake & Suspension</h3>
-            <p class="text-gray-400 text-sm mb-4">
-              Complete brake system overhauls, suspension tuning, and handling improvements for safety and performance.
-            </p>
-            <a href="#contact" class="text-accent-500 font-semibold text-sm hover:text-accent-400 flex items-center">
-              Learn More <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
+          <h3 class="font-display text-xl font-bold text-white mb-3">Brake & Suspension</h3>
+          <p class="text-gray-400 mb-4">
+            Complete brake system overhauls, suspension tuning, and handling improvements for safety and performance.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-500">
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Brake pad replacement</li>
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Rotor resurfacing</li>
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Suspension tuning</li>
+          </ul>
         </div>
         
-        <div class="service-card bg-dark-800 rounded-2xl overflow-hidden hover-lift reveal">
-          <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=80" 
-                 alt="Engine diagnostics and repair" 
-                 class="w-full h-full object-cover img-zoom">
+        <div class="service-card bg-gradient-to-br from-dark-800 to-dark-900 rounded-2xl p-8 hover-lift reveal" style="transition-delay: 0.4s;">
+          <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="cpu" class="w-8 h-8 text-white"></i>
           </div>
-          <div class="p-6">
-            <div class="w-14 h-14 bg-accent-500/20 rounded-xl flex items-center justify-center mb-4">
-              <i class="fas fa-microchip text-2xl text-accent-500"></i>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-2">Diagnostics & Repair</h3>
-            <p class="text-gray-400 text-sm mb-4">
-              Advanced computerized diagnostics and expert troubleshooting to identify and fix any issue quickly and correctly.
-            </p>
-            <a href="#contact" class="text-accent-500 font-semibold text-sm hover:text-accent-400 flex items-center">
-              Learn More <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
+          <h3 class="font-display text-xl font-bold text-white mb-3">Diagnostics & Repair</h3>
+          <p class="text-gray-400 mb-4">
+            Advanced computerized diagnostics and expert troubleshooting to identify and fix any issue quickly and correctly.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-500">
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Computer diagnostics</li>
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Check engine light</li>
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Electrical repair</li>
+          </ul>
         </div>
         
-        <div class="service-card bg-dark-800 rounded-2xl overflow-hidden hover-lift reveal">
-          <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80" 
-                 alt="Hot rod and custom builds" 
-                 class="w-full h-full object-cover img-zoom">
+        <div class="service-card bg-gradient-to-br from-dark-800 to-dark-900 rounded-2xl p-8 hover-lift reveal" style="transition-delay: 0.5s;">
+          <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="flame" class="w-8 h-8 text-white"></i>
           </div>
-          <div class="p-6">
-            <div class="w-14 h-14 bg-accent-500/20 rounded-xl flex items-center justify-center mb-4">
-              <i class="fas fa-fire text-2xl text-accent-500"></i>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-2">Hot Rod & Custom</h3>
-            <p class="text-gray-400 text-sm mb-4">
-              Custom fabrication, hot rod builds, and one-of-a-kind modifications. Turn your vision into a reality on four wheels.
-            </p>
-            <a href="#contact" class="text-accent-500 font-semibold text-sm hover:text-accent-400 flex items-center">
-              Learn More <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
+          <h3 class="font-display text-xl font-bold text-white mb-3">Hot Rod & Custom</h3>
+          <p class="text-gray-400 mb-4">
+            Custom fabrication, hot rod builds, and one-of-a-kind modifications. Turn your vision into a reality on four wheels.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-500">
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Custom fabrication</li>
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Hot rod builds</li>
+            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-500 mr-2"></i>Custom paint</li>
+          </ul>
         </div>
       </div>
       
       <div class="mt-16 glass rounded-2xl p-8 text-center reveal">
         <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
           <div class="flex items-center space-x-3">
-            <i class="fas fa-shield-alt text-4xl text-accent-500"></i>
+            <div class="w-14 h-14 bg-orange-500/20 rounded-xl flex items-center justify-center">
+              <i data-lucide="shield-check" class="w-7 h-7 text-orange-500"></i>
+            </div>
             <div class="text-left">
               <div class="font-display text-2xl font-bold text-white">12 Month / 12,000 Mile</div>
               <div class="text-gray-400">Nationwide Warranty on All Repairs</div>
@@ -446,7 +424,9 @@
           </div>
           <div class="hidden md:block w-px h-12 bg-gray-700"></div>
           <div class="flex items-center space-x-3">
-            <i class="fas fa-certificate text-4xl text-accent-500"></i>
+            <div class="w-14 h-14 bg-orange-500/20 rounded-xl flex items-center justify-center">
+              <i data-lucide="award" class="w-7 h-7 text-orange-500"></i>
+            </div>
             <div class="text-left">
               <div class="font-display text-2xl font-bold text-white">ASE Certified</div>
               <div class="text-gray-400">Advanced Level Technicians</div>
@@ -459,37 +439,32 @@
 
   <!-- About Section -->
   <section id="about" class="py-24 bg-dark-950 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Background decoration -->
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-orange-500/5 to-transparent"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div class="relative reveal">
+        <div class="reveal">
           <div class="grid grid-cols-2 gap-4">
             <div class="space-y-4">
-              <div class="img-zoom-container rounded-2xl overflow-hidden h-64">
-                <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=600&q=80" 
-                     alt="Mechanic working on classic car" 
-                     class="w-full h-full object-cover img-zoom">
+              <div class="bg-gradient-to-br from-dark-800 to-dark-900 rounded-2xl p-6 border border-orange-500/20 h-48 flex items-center justify-center">
+                <i data-lucide="car" class="w-20 h-20 text-orange-500/30"></i>
               </div>
-              <div class="img-zoom-container rounded-2xl overflow-hidden h-48">
-                <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&q=80" 
-                     alt="Car show event" 
-                     class="w-full h-full object-cover img-zoom">
+              <div class="bg-gradient-to-br from-dark-800 to-dark-900 rounded-2xl p-6 border border-orange-500/20 h-32 flex items-center justify-center">
+                <i data-lucide="wrench" class="w-16 h-16 text-orange-500/30"></i>
               </div>
             </div>
             <div class="space-y-4 pt-8">
-              <div class="img-zoom-container rounded-2xl overflow-hidden h-48">
-                <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&q=80" 
-                     alt="Restored classic car" 
-                     class="w-full h-full object-cover img-zoom">
+              <div class="bg-gradient-to-br from-dark-800 to-dark-900 rounded-2xl p-6 border border-orange-500/20 h-32 flex items-center justify-center">
+                <i data-lucide="gauge" class="w-16 h-16 text-orange-500/30"></i>
               </div>
-              <div class="img-zoom-container rounded-2xl overflow-hidden h-64">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" 
-                     alt="Auto repair shop" 
-                     class="w-full h-full object-cover img-zoom">
+              <div class="bg-gradient-to-br from-dark-800 to-dark-900 rounded-2xl p-6 border border-orange-500/20 h-48 flex items-center justify-center">
+                <i data-lucide="zap" class="w-20 h-20 text-orange-500/30"></i>
               </div>
             </div>
           </div>
           
-          <div class="absolute -bottom-6 -right-6 bg-accent-500 text-white p-6 rounded-2xl shadow-2xl">
+          <div class="absolute -bottom-6 -right-6 bg-gradient-to-br from-orange-500 to-red-600 text-white p-6 rounded-2xl shadow-2xl">
             <div class="text-center">
               <div class="font-display text-4xl font-bold">10+</div>
               <div class="text-sm">Annual Car Shows</div>
@@ -498,7 +473,7 @@
         </div>
         
         <div class="reveal">
-          <span class="text-accent-500 font-semibold tracking-widest uppercase text-sm">About Us</span>
+          <span class="text-orange-400 font-semibold tracking-widest uppercase text-sm">About Us</span>
           <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-6">
             Morrow's Trusted Auto Experts Since Day One
           </h2>
@@ -512,24 +487,24 @@
           </p>
           
           <div class="flex flex-wrap gap-4 mb-8">
-            <div class="flex items-center space-x-2 bg-dark-800 rounded-full px-4 py-2">
-              <i class="fas fa-award text-accent-500"></i>
+            <div class="flex items-center space-x-2 bg-dark-800 rounded-full px-4 py-2 border border-orange-500/30">
+              <i data-lucide="award" class="w-4 h-4 text-orange-500"></i>
               <span class="text-white font-semibold text-sm">Neighborhood Favorite 2024</span>
             </div>
-            <div class="flex items-center space-x-2 bg-dark-800 rounded-full px-4 py-2">
-              <i class="fas fa-award text-accent-500"></i>
+            <div class="flex items-center space-x-2 bg-dark-800 rounded-full px-4 py-2 border border-orange-500/30">
+              <i data-lucide="award" class="w-4 h-4 text-orange-500"></i>
               <span class="text-white font-semibold text-sm">Neighborhood Favorite 2023</span>
             </div>
-            <div class="flex items-center space-x-2 bg-dark-800 rounded-full px-4 py-2">
-              <i class="fas fa-award text-accent-500"></i>
+            <div class="flex items-center space-x-2 bg-dark-800 rounded-full px-4 py-2 border border-orange-500/30">
+              <i data-lucide="award" class="w-4 h-4 text-orange-500"></i>
               <span class="text-white font-semibold text-sm">Neighborhood Favorite 2021</span>
             </div>
           </div>
           
           <div class="space-y-4">
             <div class="flex items-start space-x-4">
-              <div class="w-10 h-10 bg-accent-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-check text-accent-500"></i>
+              <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i data-lucide="check" class="w-5 h-5 text-orange-500"></i>
               </div>
               <div>
                 <h4 class="font-semibold text-white">No Pressure, Ever</h4>
@@ -538,8 +513,8 @@
             </div>
             
             <div class="flex items-start space-x-4">
-              <div class="w-10 h-10 bg-accent-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-check text-accent-500"></i>
+              <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i data-lucide="check" class="w-5 h-5 text-orange-500"></i>
               </div>
               <div>
                 <h4 class="font-semibold text-white">ASE Certified Experts</h4>
@@ -548,8 +523,8 @@
             </div>
             
             <div class="flex items-start space-x-4">
-              <div class="w-10 h-10 bg-accent-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-check text-accent-500"></i>
+              <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i data-lucide="check" class="w-5 h-5 text-orange-500"></i>
               </div>
               <div>
                 <h4 class="font-semibold text-white">Nationwide Warranty</h4>
@@ -562,88 +537,15 @@
     </div>
   </section>
 
-  <!-- Gallery Section -->
-  <section id="gallery" class="py-24 bg-dark-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 reveal">
-        <span class="text-accent-500 font-semibold tracking-widest uppercase text-sm">Our Work</span>
-        <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-4">
-          Cars We've Brought Back to Life
-        </h2>
-        <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-          From frame-off restorations to performance builds—every project is a labor of love.
-        </p>
-      </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="img-zoom-container rounded-xl overflow-hidden h-64 reveal">
-          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80" 
-               alt="Classic American muscle car" 
-               class="w-full h-full object-cover img-zoom">
-        </div>
-        <div class="img-zoom-container rounded-xl overflow-hidden h-64 reveal lg:col-span-2 lg:row-span-2">
-          <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80" 
-               alt="Classic car restoration project" 
-               class="w-full h-full object-cover img-zoom">
-        </div>
-        <div class="img-zoom-container rounded-xl overflow-hidden h-64 reveal">
-          <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=600&q=80" 
-               alt="Vintage sports car" 
-               class="w-full h-full object-cover img-zoom">
-        </div>
-        <div class="img-zoom-container rounded-xl overflow-hidden h-64 reveal">
-          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" 
-               alt="Luxury sports car" 
-               class="w-full h-full object-cover img-zoom">
-        </div>
-        <div class="img-zoom-container rounded-xl overflow-hidden h-64 reveal">
-          <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80" 
-               alt="Hot rod car" 
-               class="w-full h-full object-cover img-zoom">
-        </div>
-        <div class="img-zoom-container rounded-xl overflow-hidden h-64 reveal">
-          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80" 
-               alt="American classic car" 
-               class="w-full h-full object-cover img-zoom">
-        </div>
-      </div>
-      
-      <div class="mt-12 glass rounded-2xl p-8 reveal">
-        <div class="grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <div class="flex items-center space-x-3 mb-4">
-              <i class="fas fa-calendar-star text-3xl text-accent-500"></i>
-              <span class="text-accent-500 font-semibold">Annual Event</span>
-            </div>
-            <h3 class="font-display text-3xl font-bold text-white mb-3">Morrow Car Show</h3>
-            <p class="text-gray-400 mb-4">
-              Join us every year on Main Street Morrow for our annual car show celebrating classic, muscle, and performance vehicles. Over a decade of bringing the community together through our shared love of automobiles.
-            </p>
-            <a href="https://www.facebook.com/brysonsauto" target="_blank" class="text-accent-500 font-semibold hover:text-accent-400 flex items-center">
-              <i class="fab fa-facebook mr-2"></i>
-              Follow for Event Updates
-            </a>
-          </div>
-          <div class="img-zoom-container rounded-xl overflow-hidden h-64">
-            <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&q=80" 
-                 alt="Car show event" 
-                 class="w-full h-full object-cover img-zoom">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Testimonials Section -->
-  <section id="testimonials" class="py-24 bg-dark-950 relative overflow-hidden">
-    <div class="absolute top-0 left-0 w-full h-full">
-      <div class="absolute top-20 right-20 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-20 left-20 w-64 h-64 bg-primary-600/10 rounded-full blur-3xl"></div>
-    </div>
+  <section id="testimonials" class="py-24 bg-dark-900 relative overflow-hidden">
+    <!-- Background blobs -->
+    <div class="blob bg-orange-500 w-64 h-64 rounded-full top-10 right-10 opacity-20"></div>
+    <div class="blob bg-red-600 w-48 h-48 rounded-full bottom-10 left-10 opacity-20" style="animation-delay: 3s;"></div>
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center mb-16 reveal">
-        <span class="text-accent-500 font-semibold tracking-widest uppercase text-sm">Testimonials</span>
+        <span class="text-orange-400 font-semibold tracking-widest uppercase text-sm">Testimonials</span>
         <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-4">
           What Our Customers Say
         </h2>
@@ -653,13 +555,17 @@
       </div>
       
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-dark-800 rounded-2xl p-8 hover-lift reveal">
+        <div class="glass rounded-2xl p-8 hover-lift reveal">
           <div class="flex text-yellow-400 mb-4">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
           </div>
           <p class="text-gray-300 mb-6 italic">"Outstanding service, great people to work with. When something needs done, they give you a reasonable price—no pressure."</p>
           <div class="flex items-center space-x-3">
-            <div class="w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center font-bold text-white">J</div>
+            <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center font-bold text-white">J</div>
             <div>
               <div class="font-semibold text-white">John D.</div>
               <div class="text-gray-500 text-sm">Verified Customer</div>
@@ -667,13 +573,17 @@
           </div>
         </div>
         
-        <div class="bg-dark-800 rounded-2xl p-8 hover-lift reveal">
+        <div class="glass rounded-2xl p-8 hover-lift reveal" style="transition-delay: 0.1s;">
           <div class="flex text-yellow-400 mb-4">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
           </div>
           <p class="text-gray-300 mb-6 italic">"Excellent customer service, scheduling availability, and prices. These guys really know their stuff when it comes to classic cars."</p>
           <div class="flex items-center space-x-3">
-            <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center font-bold text-white">M</div>
+            <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center font-bold text-white">M</div>
             <div>
               <div class="font-semibold text-white">Mike R.</div>
               <div class="text-gray-500 text-sm">Classic Car Owner</div>
@@ -681,13 +591,17 @@
           </div>
         </div>
         
-        <div class="bg-dark-800 rounded-2xl p-8 hover-lift reveal">
+        <div class="glass rounded-2xl p-8 hover-lift reveal" style="transition-delay: 0.2s;">
           <div class="flex text-yellow-400 mb-4">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
           </div>
           <p class="text-gray-300 mb-6 italic">"They restored my 1969 Camaro to better-than-new condition. The attention to detail was incredible. Highly recommend!"</p>
           <div class="flex items-center space-x-3">
-            <div class="w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center font-bold text-white">S</div>
+            <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center font-bold text-white">S</div>
             <div>
               <div class="font-semibold text-white">Steve K.</div>
               <div class="text-gray-500 text-sm">Restoration Client</div>
@@ -695,13 +609,17 @@
           </div>
         </div>
         
-        <div class="bg-dark-800 rounded-2xl p-8 hover-lift reveal">
+        <div class="glass rounded-2xl p-8 hover-lift reveal" style="transition-delay: 0.3s;">
           <div class="flex text-yellow-400 mb-4">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
           </div>
           <p class="text-gray-300 mb-6 italic">"Best auto shop in Morrow! Honest, fair pricing, and they actually explain what's wrong with your car in terms you can understand."</p>
           <div class="flex items-center space-x-3">
-            <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center font-bold text-white">L</div>
+            <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center font-bold text-white">L</div>
             <div>
               <div class="font-semibold text-white">Lisa M.</div>
               <div class="text-gray-500 text-sm">Regular Customer</div>
@@ -709,13 +627,17 @@
           </div>
         </div>
         
-        <div class="bg-dark-800 rounded-2xl p-8 hover-lift reveal">
+        <div class="glass rounded-2xl p-8 hover-lift reveal" style="transition-delay: 0.4s;">
           <div class="flex text-yellow-400 mb-4">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
           </div>
           <p class="text-gray-300 mb-6 italic">"Took my Mustang here for performance upgrades. The power gains were exactly what they promised. True professionals!"</p>
           <div class="flex items-center space-x-3">
-            <div class="w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center font-bold text-white">T</div>
+            <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center font-bold text-white">T</div>
             <div>
               <div class="font-semibold text-white">Tom B.</div>
               <div class="text-gray-500 text-sm">Performance Client</div>
@@ -723,13 +645,17 @@
           </div>
         </div>
         
-        <div class="bg-dark-800 rounded-2xl p-8 hover-lift reveal">
+        <div class="glass rounded-2xl p-8 hover-lift reveal" style="transition-delay: 0.5s;">
           <div class="flex text-yellow-400 mb-4">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
           </div>
           <p class="text-gray-300 mb-6 italic">"They've been taking care of my family's cars for years. Trustworthy, skilled, and always go above and beyond."</p>
           <div class="flex items-center space-x-3">
-            <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center font-bold text-white">A</div>
+            <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center font-bold text-white">A</div>
             <div>
               <div class="font-semibold text-white">Amy H.</div>
               <div class="text-gray-500 text-sm">Long-time Customer</div>
@@ -739,11 +665,15 @@
       </div>
       
       <div class="mt-12 text-center reveal">
-        <div class="inline-flex items-center space-x-4 bg-dark-800 rounded-full px-8 py-4">
+        <div class="inline-flex items-center space-x-4 glass rounded-full px-8 py-4">
           <div class="flex items-center space-x-2">
             <div class="text-3xl font-display font-bold text-white">5.0</div>
             <div class="flex text-yellow-400">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+              <i data-lucide="star" class="w-5 h-5 fill-current"></i>
             </div>
           </div>
           <div class="w-px h-8 bg-gray-700"></div>
@@ -756,11 +686,11 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-24 bg-dark-900">
+  <section id="contact" class="py-24 bg-dark-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16">
         <div class="reveal">
-          <span class="text-accent-500 font-semibold tracking-widest uppercase text-sm">Get In Touch</span>
+          <span class="text-orange-400 font-semibold tracking-widest uppercase text-sm">Get In Touch</span>
           <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-6">
             Ready to Get Your Car Running Like New?
           </h2>
@@ -770,37 +700,37 @@
           
           <div class="space-y-6">
             <div class="flex items-start space-x-4">
-              <div class="w-14 h-14 bg-accent-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-map-marker-alt text-2xl text-accent-500"></i>
+              <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i data-lucide="map-pin" class="w-7 h-7 text-white"></i>
               </div>
               <div>
                 <h4 class="font-semibold text-white text-lg">Visit Our Shop</h4>
                 <p class="text-gray-400">400 W Pike St<br>Morrow, OH 45152</p>
-                <a href="https://maps.google.com/?q=400+W+Pike+St+Morrow+OH+45152" target="_blank" class="text-accent-500 text-sm hover:text-accent-400 mt-1 inline-block">
-                  Get Directions <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                <a href="https://maps.google.com/?q=400+W+Pike+St+Morrow+OH+45152" target="_blank" class="text-orange-400 text-sm hover:text-orange-300 mt-1 inline-flex items-center">
+                  Get Directions <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
                 </a>
               </div>
             </div>
             
             <div class="flex items-start space-x-4">
-              <div class="w-14 h-14 bg-accent-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-phone-alt text-2xl text-accent-500"></i>
+              <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i data-lucide="phone" class="w-7 h-7 text-white"></i>
               </div>
               <div>
                 <h4 class="font-semibold text-white text-lg">Call Us</h4>
                 <p class="text-gray-400">Mon-Thu 8AM-5PM • Fri 8AM-4PM</p>
-                <a href="tel:513-899-7204" class="text-accent-500 font-semibold text-lg hover:text-accent-400">(513) 899-7204</a>
+                <a href="tel:513-899-7204" class="text-orange-500 font-semibold text-lg hover:text-orange-400">(513) 899-7204</a>
               </div>
             </div>
             
             <div class="flex items-start space-x-4">
-              <div class="w-14 h-14 bg-accent-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-envelope text-2xl text-accent-500"></i>
+              <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i data-lucide="mail" class="w-7 h-7 text-white"></i>
               </div>
               <div>
                 <h4 class="font-semibold text-white text-lg">Email Us</h4>
                 <p class="text-gray-400">We'll respond within 24 hours</p>
-                <a href="mailto:brysonsauto@gmail.com" class="text-accent-500 font-semibold hover:text-accent-400">brysonsauto@gmail.com</a>
+                <a href="mailto:brysonsauto@gmail.com" class="text-orange-500 font-semibold hover:text-orange-400">brysonsauto@gmail.com</a>
               </div>
             </div>
           </div>
@@ -808,53 +738,53 @@
           <div class="mt-8">
             <h4 class="font-semibold text-white mb-4">Follow Us</h4>
             <div class="flex space-x-4">
-              <a href="https://www.facebook.com/brysonsauto" target="_blank" class="w-12 h-12 bg-dark-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-accent-500 hover:text-white transition-all">
-                <i class="fab fa-facebook-f text-xl"></i>
+              <a href="https://www.facebook.com/brysonsauto" target="_blank" class="w-12 h-12 bg-dark-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-orange-500 hover:text-white transition-all border border-gray-700">
+                <i data-lucide="facebook" class="w-5 h-5"></i>
               </a>
-              <a href="#" class="w-12 h-12 bg-dark-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-accent-500 hover:text-white transition-all">
-                <i class="fab fa-instagram text-xl"></i>
+              <a href="#" class="w-12 h-12 bg-dark-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-orange-500 hover:text-white transition-all border border-gray-700">
+                <i data-lucide="instagram" class="w-5 h-5"></i>
               </a>
-              <a href="#" class="w-12 h-12 bg-dark-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-accent-500 hover:text-white transition-all">
-                <i class="fab fa-google text-xl"></i>
+              <a href="#" class="w-12 h-12 bg-dark-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-orange-500 hover:text-white transition-all border border-gray-700">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
               </a>
             </div>
           </div>
         </div>
         
         <div class="reveal">
-          <div class="bg-dark-800 rounded-2xl p-8">
+          <div class="glass rounded-2xl p-8">
             <h3 class="font-display text-2xl font-bold text-white mb-6">Request Service</h3>
             <form id="contact-form" class="space-y-6">
               <div class="grid md:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-gray-400 text-sm mb-2">First Name *</label>
-                  <input type="text" required class="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-accent-500 focus:outline-none transition-colors" placeholder="John">
+                  <input type="text" required class="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-orange-500 focus:outline-none transition-colors" placeholder="John">
                 </div>
                 <div>
                   <label class="block text-gray-400 text-sm mb-2">Last Name *</label>
-                  <input type="text" required class="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-accent-500 focus:outline-none transition-colors" placeholder="Doe">
+                  <input type="text" required class="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-orange-500 focus:outline-none transition-colors" placeholder="Doe">
                 </div>
               </div>
               
               <div class="grid md:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-gray-400 text-sm mb-2">Phone Number *</label>
-                  <input type="tel" required class="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-accent-500 focus:outline-none transition-colors" placeholder="(513) 000-0000">
+                  <input type="tel" required class="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-orange-500 focus:outline-none transition-colors" placeholder="(513) 000-0000">
                 </div>
                 <div>
                   <label class="block text-gray-400 text-sm mb-2">Email Address</label>
-                  <input type="email" class="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-accent-500 focus:outline-none transition-colors" placeholder="john@example.com">
+                  <input type="email" class="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-orange-500 focus:outline-none transition-colors" placeholder="john@example.com">
                 </div>
               </div>
               
               <div>
                 <label class="block text-gray-400 text-sm mb-2">Vehicle Information</label>
-                <input type="text" class="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-accent-500 focus:outline-none transition-colors" placeholder="Year, Make, Model (e.g., 1969 Chevrolet Camaro)">
+                <input type="text" class="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-orange-500 focus:outline-none transition-colors" placeholder="Year, Make, Model (e.g., 1969 Chevrolet Camaro)">
               </div>
               
               <div>
                 <label class="block text-gray-400 text-sm mb-2">Service Needed *</label>
-                <select required class="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-accent-500 focus:outline-none transition-colors">
+                <select required class="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-orange-500 focus:outline-none transition-colors">
                   <option value="">Select a service...</option>
                   <option value="general-repair">General Auto Repair</option>
                   <option value="classic-restoration">Classic Car Restoration</option>
@@ -868,11 +798,11 @@
               
               <div>
                 <label class="block text-gray-400 text-sm mb-2">Message</label>
-                <textarea rows="4" class="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-accent-500 focus:outline-none transition-colors resize-none" placeholder="Tell us about your vehicle and what you need..."></textarea>
+                <textarea rows="4" class="w-full bg-dark-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-orange-500 focus:outline-none transition-colors resize-none" placeholder="Tell us about your vehicle and what you need..."></textarea>
               </div>
               
               <button type="submit" class="w-full btn-primary py-4 rounded-lg font-bold text-lg flex items-center justify-center space-x-2">
-                <i class="fas fa-paper-plane"></i>
+                <i data-lucide="send" class="w-5 h-5"></i>
                 <span>Send Request</span>
               </button>
               
@@ -884,29 +814,28 @@
     </div>
   </section>
 
-  <!-- Map Section -->
-  <section class="h-96 bg-dark-950">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3078.1234567890123!2d-84.13234567890123!3d39.35456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8840c1234567890%3A0xabcd1234567890ef!2s400%20W%20Pike%20St%2C%20Morrow%2C%20OH%2045152!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(92%) contrast(83%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </section>
-
   <!-- Footer -->
   <footer class="bg-dark-950 border-t border-gray-800 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
         <div>
           <div class="flex items-center space-x-3 mb-4">
-            <div class="w-10 h-10 bg-accent-500 rounded-lg flex items-center justify-center">
-              <i class="fas fa-wrench text-white"></i>
+            <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
+              <i data-lucide="wrench" class="w-5 h-5 text-white"></i>
             </div>
             <div>
               <h3 class="font-display text-xl font-bold text-white">BRYSON'S</h3>
-              <p class="text-xs text-accent-400">AUTO REPAIR & PERFORMANCE</p>
+              <p class="text-xs text-orange-400">AUTO REPAIR & PERFORMANCE</p>
             </div>
           </div>
           <p class="text-gray-400 text-sm mb-4">Full service auto repair specializing in classic, muscle, and performance vehicles. ASE certified technicians serving Morrow, OH.</p>
           <div class="flex items-center space-x-2">
             <div class="flex text-yellow-400 text-sm">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
             </div>
             <span class="text-gray-400 text-sm">5.0 (105+ reviews)</span>
           </div>
@@ -915,22 +844,20 @@
         <div>
           <h4 class="font-semibold text-white mb-4">Quick Links</h4>
           <ul class="space-y-3">
-            <li><a href="#services" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">Our Services</a></li>
-            <li><a href="#about" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">About Us</a></li>
-            <li><a href="#gallery" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">Gallery</a></li>
-            <li><a href="#testimonials" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">Reviews</a></li>
-            <li><a href="#contact" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">Contact</a></li>
+            <li><a href="#services" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">Our Services</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">About Us</a></li>
+            <li><a href="#testimonials" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">Reviews</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">Contact</a></li>
           </ul>
         </div>
         
         <div>
           <h4 class="font-semibold text-white mb-4">Services</h4>
           <ul class="space-y-3">
-            <li><a href="#contact" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">Classic Restoration</a></li>
-            <li><a href="#contact" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">Performance Upgrades</a></li>
-            <li><a href="#contact" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">General Auto Repair</a></li>
-            <li><a href="#contact" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">Brake & Suspension</a></li>
-            <li><a href="#contact" class="text-gray-400 hover:text-accent-400 transition-colors text-sm">Diagnostics</a></li>
+            <li><a href="#services" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">Classic Restoration</a></li>
+            <li><a href="#services" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">Performance Upgrades</a></li>
+            <li><a href="#services" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">General Auto Repair</a></li>
+            <li><a href="#services" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">Brake & Suspension</a></li>
           </ul>
         </div>
         
@@ -938,32 +865,32 @@
           <h4 class="font-semibold text-white mb-4">Contact</h4>
           <ul class="space-y-3 text-sm">
             <li class="flex items-start space-x-3">
-              <i class="fas fa-map-marker-alt text-accent-500 mt-1"></i>
+              <i data-lucide="map-pin" class="w-4 h-4 text-orange-500 mt-1"></i>
               <span class="text-gray-400">400 W Pike St<br>Morrow, OH 45152</span>
             </li>
             <li class="flex items-center space-x-3">
-              <i class="fas fa-phone text-accent-500"></i>
-              <a href="tel:513-899-7204" class="text-gray-400 hover:text-accent-400">(513) 899-7204</a>
+              <i data-lucide="phone" class="w-4 h-4 text-orange-500"></i>
+              <a href="tel:513-899-7204" class="text-gray-400 hover:text-orange-400">(513) 899-7204</a>
             </li>
             <li class="flex items-center space-x-3">
-              <i class="fas fa-envelope text-accent-500"></i>
-              <a href="mailto:brysonsauto@gmail.com" class="text-gray-400 hover:text-accent-400">brysonsauto@gmail.com</a>
+              <i data-lucide="mail" class="w-4 h-4 text-orange-500"></i>
+              <a href="mailto:brysonsauto@gmail.com" class="text-gray-400 hover:text-orange-400">brysonsauto@gmail.com</a>
             </li>
             <li class="flex items-center space-x-3">
-              <i class="fas fa-clock text-accent-500"></i>
+              <i data-lucide="clock" class="w-4 h-4 text-orange-500"></i>
               <span class="text-gray-400">Mon-Thu: 8AM-5PM<br>Fri: 8AM-4PM</span>
             </li>
           </ul>
           
           <div class="flex space-x-3 mt-6">
-            <a href="https://www.facebook.com/brysonsauto" target="_blank" class="w-10 h-10 bg-dark-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-accent-500 hover:text-white transition-all">
-              <i class="fab fa-facebook-f"></i>
+            <a href="https://www.facebook.com/brysonsauto" target="_blank" class="w-10 h-10 bg-dark-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-orange-500 hover:text-white transition-all border border-gray-700">
+              <i data-lucide="facebook" class="w-4 h-4"></i>
             </a>
-            <a href="#" class="w-10 h-10 bg-dark-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-accent-500 hover:text-white transition-all">
-              <i class="fab fa-instagram"></i>
+            <a href="#" class="w-10 h-10 bg-dark-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-orange-500 hover:text-white transition-all border border-gray-700">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
             </a>
-            <a href="#" class="w-10 h-10 bg-dark-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-accent-500 hover:text-white transition-all">
-              <i class="fab fa-google"></i>
+            <a href="#" class="w-10 h-10 bg-dark-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-orange-500 hover:text-white transition-all border border-gray-700">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
             </a>
           </div>
         </div>
@@ -972,21 +899,25 @@
       <div class="border-t border-gray-800 pt-8">
         <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p class="text-gray-500 text-sm">© 2026 Bryson's Auto Repair and Performance LLC. All rights reserved.</p>
-          <p class="text-gray-500 text-sm">Designed with <i class="fas fa-heart text-accent-500 mx-1"></i> for car enthusiasts</p>
+          <p class="text-gray-500 text-sm">Built with <i data-lucide="heart" class="w-4 h-4 text-orange-500 inline mx-1"></i> for car enthusiasts</p>
         </div>
       </div>
     </div>
   </footer>
 
   <!-- Floating CTA Button -->
-  <div class="fixed bottom-6 right-6 z-50">
-    <a href="tel:513-899-7204" class="btn-primary w-16 h-16 rounded-full flex items-center justify-center shadow-2xl animate-pulse hover:animate-none">
-      <i class="fas fa-phone-alt text-2xl text-white"></i>
+  <div class="fixed bottom-6 right-6 z-50 md:hidden">
+    <a href="tel:513-899-7204" class="btn-primary w-14 h-14 rounded-full flex items-center justify-center shadow-2xl animate-pulse hover:animate-none">
+      <i data-lucide="phone" class="w-6 h-6 text-white"></i>
     </a>
   </div>
 
   <!-- JavaScript -->
   <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+    
+    // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     
@@ -994,6 +925,7 @@
       mobileMenu.classList.toggle('hidden');
     });
     
+    // Navbar scroll effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
@@ -1005,6 +937,7 @@
       }
     });
     
+    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -1016,6 +949,7 @@
       });
     });
     
+    // Scroll reveal animation
     const revealElements = document.querySelectorAll('.reveal');
     const revealOnScroll = () => {
       revealElements.forEach(element => {
@@ -1030,6 +964,7 @@
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
     
+    // Form submission
     const contactForm = document.getElementById('contact-form');
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -1037,8 +972,9 @@
       contactForm.reset();
     });
     
+    // Set staggered animation delays
     revealElements.forEach((element, index) => {
-      element.style.transitionDelay = `${index * 0.1}s`;
+      element.style.transitionDelay = `${(index % 6) * 0.1}s`;
     });
   </script>
 </body>
