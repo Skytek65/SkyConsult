@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A1 Indian Restaurant & Bar | Authentic Indian Cuisine in Mason, OH</title>
+  <meta name="description" content="Experience authentic Indian cuisine at A1 Indian Restaurant & Bar in Mason, OH. Traditional flavors, fresh ingredients, and a warm atmosphere. Dine-in, takeout & catering available.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            saffron: {
+              50: '#FFF8E7',
+              100: '#FFEFC4',
+              200: '#FFE094',
+              300: '#FFCA4F',
+              400: '#FFB520',
+              500: '#F99B07',
+              600: '#DD7602',
+              700: '#B75306',
+              800: '#94400C',
+              900: '#7A350D'
+            },
+            curry: {
+              50: '#FDF4F0',
+              100: '#FAE6DE',
+              200: '#F4CFC0',
+              300: '#EBAF96',
+              400: '#DE8662',
+              500: '#D1633D',
+              600: '#C24D28',
+              700: '#A13C21',
+              800: '#85331F',
+              900: '#6D2D1D'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(122, 53, 13, 0.85) 0%, rgba(194, 77, 40, 0.9) 100%);
+    }
+    .text-shadow {
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .menu-item:hover {
+      transform: translateY(-5px);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #F99B07 0%, #DD7602 100%);
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(249, 155, 7, 0.4);
+    }
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .pattern-bg {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F99B07' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+  </style>
+</head>
+<body class="bg-white antialiased">
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center">
+          <span class="text-2xl font-bold text-white" style="font-family: 'Playfair Display', serif;">A1 Indian Restaurant</span>
+          <span class="ml-2 text-saffron-400 text-sm hidden sm:inline">& Bar</span>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#home" class="text-white hover:text-saffron-300 transition-colors font-medium">Home</a>
+          <a href="#about" class="text-white hover:text-saffron-300 transition-colors font-medium">About</a>
+          <a href="#menu" class="text-white hover:text-saffron-300 transition-colors font-medium">Menu</a>
+          <a href="#services" class="text-white hover:text-saffron-300 transition-colors font-medium">Services</a>
+          <a href="#contact" class="btn-primary text-white px-6 py-2 rounded-full font-semibold">Order Now</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden mt-4 bg-white/95 backdrop-blur-sm rounded-lg p-4">
+        <a href="#home" class="block py-2 text-gray-800 hover:text-saffron-600">Home</a>
+        <a href="#about" class="block py-2 text-gray-800 hover:text-saffron-600">About</a>
+        <a href="#menu" class="block py-2 text-gray-800 hover:text-saffron-600">Menu</a>
+        <a href="#services" class="block py-2 text-gray-800 hover:text-saffron-600">Services</a>
+        <a href="#contact" class="block py-2 text-saffron-600 font-semibold">Order Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-curry-900/90 via-curry-800/85 to-saffron-800/80 z-10"></div>
+      <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1920&q=80" alt="Indian Food Spread" class="w-full h-full object-cover" />
+    </div>
+    
+    <!-- Decorative Elements -->
+    <div class="absolute top-20 left-10 w-32 h-32 bg-saffron-500/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 right-10 w-48 h-48 bg-curry-500/20 rounded-full blur-3xl"></div>
+    
+    <!-- Content -->
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="scroll-reveal">
+        <p class="text-saffron-300 font-semibold tracking-widest uppercase mb-4">Welcome to Mason's Finest</p>
+        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 text-shadow leading-tight">
+          Authentic Indian<br/>
+          <span class="text-saffron-300">Cuisine & Bar</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto font-light">
+          Experience the rich flavors of India with traditional recipes passed down through generations. Fresh ingredients, aromatic spices, and warm hospitality await.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="#menu" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
+            Explore Our Menu
+          </a>
+          <a href="tel:5137019010" class="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transition-all">
+            📞 (513) 701-9010
+          </a>
+        </div>
+      </div>
+      
+      <!-- Trust Indicators -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-white scroll-reveal" style="transition-delay: 0.2s">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-saffron-300 mb-1">15+</div>
+          <div class="text-sm text-white/80">Years Experience</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-saffron-300 mb-1">50+</div>
+          <div class="text-sm text-white/80">Menu Items</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-saffron-300 mb-1">⭐⭐⭐⭐⭐</div>
+          <div class="text-sm text-white/80">Customer Rating</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-saffron-300 mb-1">100%</div>
+          <div class="text-sm text-white/80">Halal Meat</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Image Side -->
+        <div class="relative scroll-reveal">
+          <div class="absolute -top-4 -left-4 w-full h-full bg-saffron-200 rounded-2xl"></div>
+          <div class="absolute -bottom-4 -right-4 w-full h-full bg-curry-200 rounded-2xl"></div>
+          <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=800&q=80" alt="Indian Restaurant Interior" class="relative rounded-2xl shadow-2xl w-full h-[500px] object-cover" />
+          <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-saffron-500 rounded-full flex items-center justify-center text-white text-xl">
+                🏆
+              </div>
+              <div>
+                <div class="font-bold text-gray-900">Award Winning</div>
+                <div class="text-sm text-gray-600">Best Indian Restaurant 2024</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Content Side -->
+        <div class="scroll-reveal">
+          <p class="text-saffron-600 font-semibold tracking-widest uppercase mb-4">Our Story</p>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            Bringing the Heart of India to Mason, Ohio
+          </h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            At A1 Indian Restaurant & Bar, we believe that great food is about more than just taste—it's about tradition, passion, and the joy of sharing a meal with loved ones. Our chefs bring decades of experience in authentic Indian cooking, using time-honored recipes and the freshest ingredients.
+          </p>
+          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            From our aromatic biryanis to our creamy butter chicken, every dish is prepared with care and attention to detail. We take pride in offering a warm, inviting atmosphere where families, friends, and food lovers can come together to enjoy the best Indian cuisine in Mason.
+          </p>
+          <div class="grid grid-cols-2 gap-6 mb-8">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-saffron-500 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 mt-1">✓</div>
+              <div>
+                <div class="font-semibold text-gray-900">Halal Certified</div>
+                <div class="text-sm text-gray-600">100% halal meat</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-saffron-500 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 mt-1">✓</div>
+              <div>
+                <div class="font-semibold text-gray-900">Fresh Daily</div>
+                <div class="text-sm text-gray-600">Made to order</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-saffron-500 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 mt-1">✓</div>
+              <div>
+                <div class="font-semibold text-gray-900">Authentic Spices</div>
+                <div class="text-sm text-gray-600">Imported from India</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-saffron-500 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 mt-1">✓</div>
+              <div>
+                <div class="font-semibold text-gray-900">Vegetarian Options</div>
+                <div class="text-sm text-gray-600">Wide selection</div>
+              </div>
+            </div>
+          </div>
+          <a href="#menu" class="inline-flex items-center gap-2 text-saffron-600 font-semibold hover:text-saffron-700 transition-colors">
+            View Full Menu 
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Preview Section -->
+  <section id="menu" class="py-24 pattern-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 scroll-reveal">
+        <p class="text-saffron-600 font-semibold tracking-widest uppercase mb-4">Our Menu</p>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Authentic Indian Delicacies
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Explore our carefully curated menu featuring traditional favorites and modern Indian fusion dishes
+        </p>
+      </div>
+      
+      <!-- Menu Categories -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Appetizers -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 scroll-reveal">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80" alt="Samosa" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Appetizers</h3>
+            <p class="text-gray-600 text-sm mb-4">Start your meal with our delicious appetizers</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><span class="text-gray-700">Vegetable Samosas (2)</span><span class="font-semibold text-saffron-600">$5.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Onion Bhaji</span><span class="font-semibold text-saffron-600">$6.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Paneer Tikka</span><span class="font-semibold text-saffron-600">$10.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Chicken Pakora</span><span class="font-semibold text-saffron-600">$8.99</span></li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Tandoori -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 scroll-reveal" style="transition-delay: 0.1s">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=600&q=80" alt="Tandoori Chicken" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Tandoori Specialties</h3>
+            <p class="text-gray-600 text-sm mb-4">Clay oven cooked to perfection</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><span class="text-gray-700">Chicken Tikka</span><span class="font-semibold text-saffron-600">$14.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Tandoori Chicken</span><span class="font-semibold text-saffron-600">$15.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Lamb Seekh Kebab</span><span class="font-semibold text-saffron-600">$16.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Tandoori Shrimp</span><span class="font-semibold text-saffron-600">$18.99</span></li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Curries -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 scroll-reveal" style="transition-delay: 0.2s">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=80" alt="Butter Chicken" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Curries</h3>
+            <p class="text-gray-600 text-sm mb-4">Rich, flavorful curry dishes</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><span class="text-gray-700">Butter Chicken</span><span class="font-semibold text-saffron-600">$16.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Chicken Tikka Masala</span><span class="font-semibold text-saffron-600">$16.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Lamb Rogan Josh</span><span class="font-semibold text-saffron-600">$18.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Paneer Butter Masala</span><span class="font-semibold text-saffron-600">$15.99</span></li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Biryani -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 scroll-reveal">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?w=600&q=80" alt="Biryani" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Biryani</h3>
+            <p class="text-gray-600 text-sm mb-4">Aromatic rice dishes</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><span class="text-gray-700">Vegetable Biryani</span><span class="font-semibold text-saffron-600">$14.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Chicken Biryani</span><span class="font-semibold text-saffron-600">$16.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Lamb Biryani</span><span class="font-semibold text-saffron-600">$18.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Shrimp Biryani</span><span class="font-semibold text-saffron-600">$19.99</span></li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Breads -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 scroll-reveal" style="transition-delay: 0.1s">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80" alt="Naan Bread" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Breads</h3>
+            <p class="text-gray-600 text-sm mb-4">Fresh from our tandoor</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><span class="text-gray-700">Naan</span><span class="font-semibold text-saffron-600">$2.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Garlic Naan</span><span class="font-semibold text-saffron-600">$3.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Butter Naan</span><span class="font-semibold text-saffron-600">$3.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Cheese Naan</span><span class="font-semibold text-saffron-600">$4.99</span></li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Desserts -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 scroll-reveal" style="transition-delay: 0.2s">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80" alt="Gulab Jamun" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Desserts</h3>
+            <p class="text-gray-600 text-sm mb-4">Sweet endings</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><span class="text-gray-700">Gulab Jamun (2)</span><span class="font-semibold text-saffron-600">$5.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Rasmalai</span><span class="font-semibold text-saffron-600">$6.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Mango Lassi</span><span class="font-semibold text-saffron-600">$4.99</span></li>
+              <li class="flex justify-between"><span class="text-gray-700">Kheer (Rice Pudding)</span><span class="font-semibold text-saffron-600">$5.99</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <p class="text-gray-500 text-sm mb-4">* Prices subject to change. Full menu available in-restaurant.</p>
+        <a href="#contact" class="btn-primary text-white px-8 py-4 rounded-full font-semibold inline-block">
+          Order Online Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-24 bg-gradient-to-br from-curry-900 to-curry-800 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 scroll-reveal">
+        <p class="text-saffron-300 font-semibold tracking-widest uppercase mb-4">Our Services</p>
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+          Dine-In • Takeout • Catering
+        </h2>
+        <p class="text-xl text-white/80 max-w-2xl mx-auto">
+          We offer multiple ways to enjoy our authentic Indian cuisine
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Dine-In -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300 scroll-reveal">
+          <div class="w-16 h-16 bg-saffron-500 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+            🍽️
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Dine-In</h3>
+          <p class="text-white/80 mb-6">
+            Enjoy our warm, inviting atmosphere perfect for family dinners, date nights, or gatherings with friends. Full bar available with Indian-inspired cocktails.
+          </p>
+          <ul class="text-left text-sm space-y-2 text-white/70">
+            <li class="flex items-center gap-2"><span class="text-saffron-300">✓</span> Comfortable seating</li>
+            <li class="flex items-center gap-2"><span class="text-saffron-300">✓</span> Full bar service</li>
+            <li class="flex items-center gap-2"><span class="text-saffron-300">✓</span> Family-friendly</li>
+            <li class="flex items-center gap-2"><span class="text-saffron-300">✓</span> Reservations accepted</li>
+          </ul>
+        </div>
+        
+        <!-- Takeout -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300 scroll-reveal" style="transition-delay: 0.1s">
+          <div class="w-16 h-16 bg-saffron-500 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+            🥡
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Takeout</h3>
+          <p class="text-white/80 mb-6">
+            Enjoy our delicious food in the comfort of your home. Quick, convenient, and always fresh. Call ahead or order online for pickup.
+          </p>
+          <ul class="text-left text-sm space-y-2 text-white/70">
+            <li class="flex items-center gap-2"><span class="text-saffron-300">✓</span> Quick preparation</li>
+            <li class="flex items-center gap-2"><span class="text-saffron-300">✓</span> Hot & fresh packaging</li>
+            <li class="flex items-center gap-2"><span class="text-saffron-300">✓</span> Online ordering</li>
+            <li class="flex items-center gap-2"><span class="text-saffron-300">✓</span> Curbside pickup</li>
+          </ul>
+        </div>
+        
+        <!-- Catering -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300 scroll-reveal" style="transition-delay: 0.2s">
+          <div class="w-16 h-16 bg-saffron-500 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+            🎉
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Catering</h3>
+          <p class="text-white/80 mb-6">
+            Make your next event memorable with our authentic Indian catering. Perfect for corporate events, weddings, parties, and special occasions.
+          </p>
+          <ul class="text-left text-sm space-y-2 text-white/70">
+            <li class="flex items-center gap-2"><span class="text-saffron-300">✓</span> Customizable menus</li>
+            <li class="flex items-center gap-2"><span class="text-saffron-300">✓</span> Party trays available</li>
+            <li class="flex items-center gap-2"><span class="text-saffron-300">✓</span> Delivery options</li>
+            <li class="flex items-center gap-2"><span class="text-saffron-300">✓</span> All group sizes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 scroll-reveal">
+        <p class="text-saffron-600 font-semibold tracking-widest uppercase mb-4">Testimonials</p>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          What Our Customers Say
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Don't just take our word for it - hear from our satisfied guests
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Review 1 -->
+        <div class="bg-saffron-50 rounded-2xl p-8 scroll-reveal">
+          <div class="flex gap-1 mb-4">
+            <span class="text-saffron-500">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-gray-700 mb-6 italic">
+            "Absolutely the best Indian food in Mason! The butter chicken is incredible, and the naan is always fresh and perfectly cooked. Our go-to spot for family dinners."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-saffron-200 rounded-full flex items-center justify-center text-saffron-700 font-bold">S</div>
+            <div>
+              <div class="font-semibold text-gray-900">Sarah M.</div>
+              <div class="text-sm text-gray-500">Mason, OH</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Review 2 -->
+        <div class="bg-saffron-50 rounded-2xl p-8 scroll-reveal" style="transition-delay: 0.1s">
+          <div class="flex gap-1 mb-4">
+            <span class="text-saffron-500">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-gray-700 mb-6 italic">
+            "We ordered catering for our office party and everyone loved it! The staff was so helpful in customizing the menu for our group. Highly recommend for any event."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-curry-200 rounded-full flex items-center justify-center text-curry-700 font-bold">J</div>
+            <div>
+              <div class="font-semibold text-gray-900">James K.</div>
+              <div class="text-sm text-gray-500">West Chester, OH</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Review 3 -->
+        <div class="bg-saffron-50 rounded-2xl p-8 scroll-reveal" style="transition-delay: 0.2s">
+          <div class="flex gap-1 mb-4">
+            <span class="text-saffron-500">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-gray-700 mb-6 italic">
+            "As someone from India, I'm always critical of Indian restaurants here. A1 is the real deal! Authentic flavors, proper spice levels, and great service. Feels like home."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-saffron-200 rounded-full flex items-center justify-center text-saffron-700 font-bold">R</div>
+            <div>
+              <div class="font-semibold text-gray-900">Raj P.</div>
+              <div class="text-sm text-gray-500">Mason, OH</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 bg-saffron-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16">
+        <!-- Contact Info -->
+        <div class="scroll-reveal">
+          <p class="text-saffron-600 font-semibold tracking-widest uppercase mb-4">Get In Touch</p>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Visit Us Today
+          </h2>
+          <p class="text-lg text-gray-600 mb-8">
+            We'd love to welcome you to A1 Indian Restaurant & Bar. Stop by for a meal, call for takeout, or contact us for catering inquiries.
+          </p>
+          
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-saffron-100 rounded-full flex items-center justify-center text-saffron-600 flex-shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900">Address</div>
+                <div class="text-gray-600">5579 A St, OH-741<br/>Mason, OH 45040</div>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-saffron-100 rounded-full flex items-center justify-center text-saffron-600 flex-shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900">Phone</div>
+                <a href="tel:5137019010" class="text-saffron-600 hover:text-saffron-700 font-semibold">(513) 701-9010</a>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-saffron-100 rounded-full flex items-center justify-center text-saffron-600 flex-shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900">Hours</div>
+                <div class="text-gray-600">
+                  Mon-Thu: 11:00 AM - 10:00 PM<br/>
+                  Fri-Sat: 11:00 AM - 11:00 PM<br/>
+                  Sunday: 12:00 PM - 9:00 PM
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Social Links -->
+          <div class="mt-8">
+            <div class="font-semibold text-gray-900 mb-4">Follow Us</div>
+            <div class="flex gap-4">
+              <a href="https://facebook.com/p" target="_blank" class="w-10 h-10 bg-saffron-100 rounded-full flex items-center justify-center text-saffron-600 hover:bg-saffron-500 hover:text-white transition-all">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+              <a href="#" class="w-10 h-10 bg-saffron-100 rounded-full flex items-center justify-center text-saffron-600 hover:bg-saffron-500 hover:text-white transition-all">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Map/Location -->
+        <div class="scroll-reveal" style="transition-delay: 0.1s">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-xl">
+            <div class="h-96 bg-gray-200 relative">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3080.0!2d-84.3100!3d39.3600!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDIxJzM2LjAiTiA4NMKwMTgnMzYuMCJX!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus"
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Find Us</h3>
+              <p class="text-gray-600 mb-4">
+                Conveniently located in Mason, OH. We're easily accessible from I-71 and offer plenty of parking.
+              </p>
+              <a 
+                href="https://www.google.com/maps/dir/?api=1&destination=5579+A+St,Mason,OH+45040" 
+                target="_blank" 
+                class="inline-flex items-center gap-2 text-saffron-600 font-semibold hover:text-saffron-700 transition-colors"
+              >
+                Get Directions
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-curry-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <!-- Brand -->
+        <div class="col-span-2">
+          <div class="text-2xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">A1 Indian Restaurant</div>
+          <p class="text-white/70 mb-4 max-w-sm">
+            Authentic Indian cuisine in the heart of Mason, Ohio. Experience traditional flavors, warm hospitality, and a memorable dining experience.
+          </p>
+          <div class="flex gap-4">
+            <a href="https://facebook.com/p" target="_blank" class="text-white/70 hover:text-saffron-300 transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <div class="font-semibold mb-4 text-saffron-300">Quick Links</div>
+          <ul class="space-y-2 text-white/70">
+            <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="#menu" class="hover:text-white transition-colors">Menu</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+            <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <div class="font-semibold mb-4 text-saffron-300">Contact</div>
+          <ul class="space-y-2 text-white/70">
+            <li>5579 A St, OH-741</li>
+            <li>Mason, OH 45040</li>
+            <li><a href="tel:5137019010" class="hover:text-white transition-colors">(513) 701-9010</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-white/60 text-sm">
+          © 2024 A1 Indian Restaurant & Bar. All rights reserved.
+        </div>
+        <div class="text-white/60 text-sm">
+          <span class="text-saffron-300">Halal Certified</span> • Authentic Indian Cuisine
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating CTA -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+    <a href="tel:5137019010" class="bg-saffron-500 hover:bg-saffron-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-110" title="Call Now">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+      </svg>
+    </a>
+    <a href="#contact" class="bg-curry-600 hover:bg-curry-700 text-white px-6 py-3 rounded-full font-semibold shadow-lg transition-all hover:scale-105 flex items-center gap-2" title="Order Online">
+      <span class="hidden md:inline">Order Now</span>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+      </svg>
+    </a>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('bg-curry-900/95', 'backdrop-blur-sm', 'shadow-lg');
+        navbar.classList.remove('bg-transparent', 'py-4');
+        navbar.classList.add('py-2');
+      } else {
+        navbar.classList.remove('bg-curry-900/95', 'backdrop-blur-sm', 'shadow-lg', 'py-2');
+        navbar.classList.add('bg-transparent', 'py-4');
+      }
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // Close mobile menu if open
+          mobileMenu.classList.add('hidden');
+        }
+      });
+    });
+    
+    // Scroll reveal animation
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
