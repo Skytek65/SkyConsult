@@ -1,300 +1,439 @@
-
-    <!-- Why Choose Us -->
-    <section id="why-us" class="py-24 gradient-hero pattern-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <span class="text-accent font-semibold tracking-wider uppercase text-sm">Why Bryson's</span>
-                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-2 mb-4">The Bryson's Difference</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto text-lg">What sets us apart from other auto repair shops in Morrow? It's our unwavering commitment to excellence.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center p-8 reveal">
-                    <div class="w-20 h-20 mx-auto mb-6 gradient-accent rounded-2xl flex items-center justify-center shadow-xl shadow-accent/20 transform rotate-3">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold text-white mb-3">ASE Certified Technicians</h3>
-                    <p class="text-gray-400">Our team undergoes rigorous certification and continuous training to stay ahead of evolving automotive technology. Your vehicle is in expert hands.</p>
-                </div>
-                <div class="text-center p-8 reveal">
-                    <div class="w-20 h-20 mx-auto mb-6 gradient-accent rounded-2xl flex items-center justify-center shadow-xl shadow-accent/20 transform -rotate-3">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold text-white mb-3">Honest Pricing</h3>
-                    <p class="text-gray-400">No hidden fees, no surprise charges. We provide detailed estimates before any work begins and explain every repair in plain English.</p>
-                </div>
-                <div class="text-center p-8 reveal">
-                    <div class="w-20 h-20 mx-auto mb-6 gradient-accent rounded-2xl flex items-center justify-center shadow-xl shadow-accent/20 transform rotate-3">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold text-white mb-3">12-Month Warranty</h3>
-                    <p class="text-gray-400">We stand behind our work. Every repair comes with a comprehensive 12-month/12,000-mile warranty for your peace of mind.</p>
-                </div>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bryson's Auto Repair & Performance | Morrow, OH | Classic & Modern Vehicle Experts</title>
+  <meta name="description" content="Bryson's Auto Repair and Performance in Morrow, OH - Full service auto repair shop specializing in classic cars, muscle cars, performance vehicles & hot rods. ASE certified techs. 5.0 rating.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: { DEFAULT: '#f97316', 600: '#ea580c' },
+            dark: { 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 700: '#334155', 800: '#1e293b', 900: '#0f172a', 950: '#020617' },
+            primary: { 400: '#38bdf8', 600: '#0284c7', 950: '#082f49' }
+          },
+          fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Oswald', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    .gradient-text { background: linear-gradient(135deg, #f97316 0%, #fb923c 50%, #fdba74 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(249, 115, 22, 0.2); }
+    .btn-primary { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); transition: all 0.3s ease; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4); }
+    .btn-secondary { background: transparent; border: 2px solid #f97316; transition: all 0.3s ease; }
+    .btn-secondary:hover { background: #f97316; transform: translateY(-2px); }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="font-sans antialiased bg-dark-950 text-white">
+  <nav class="fixed w-full z-50 bg-dark-950/95 backdrop-blur-md border-b border-dark-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex items-center">
+          <i data-lucide="wrench" class="h-8 w-8 text-accent mr-2"></i>
+          <span class="font-display text-2xl font-bold text-white">BRYSON'S</span>
         </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="reviews" class="py-24 bg-primary-light">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <span class="text-accent font-semibold tracking-wider uppercase text-sm">Testimonials</span>
-                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-2 mb-4">What Our Customers Say</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Don't just take our word for it. Here's what vehicle owners in Morrow are saying about Bryson's.</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-primary p-8 rounded-2xl border border-gray-800 reveal">
-                    <div class="flex text-accent mb-4">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    </div>
-                    <p class="text-gray-300 mb-6">"Outstanding service, great people to work with. They've been taking care of my family's cars for years. Honest, reliable, and fairly priced."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gradient-to-br from-accent to-accent-dark rounded-full flex items-center justify-center text-white font-bold text-lg">JD</div>
-                        <div class="ml-4"><p class="font-bold text-white">John D.</p><p class="text-gray-400 text-sm">Morrow, OH</p></div>
-                    </div>
-                </div>
-                <div class="bg-primary p-8 rounded-2xl border border-gray-800 reveal">
-                    <div class="flex text-accent mb-4">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    </div>
-                    <p class="text-gray-300 mb-6">"Excellent customer service, scheduling availability, and prices. They got my classic Mustang running better than ever. True professionals!"</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gradient-to-br from-accent to-accent-dark rounded-full flex items-center justify-center text-white font-bold text-lg">MS</div>
-                        <div class="ml-4"><p class="font-bold text-white">Mike S.</p><p class="text-gray-400 text-sm">Lebanon, OH</p></div>
-                    </div>
-                </div>
-                <div class="bg-primary p-8 rounded-2xl border border-gray-800 reveal">
-                    <div class="flex text-accent mb-4">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    </div>
-                    <p class="text-gray-300 mb-6">"When something needs done they give you a reasonable price with no pressure. They explained everything clearly and got the job done right the first time."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gradient-to-br from-accent to-accent-dark rounded-full flex items-center justify-center text-white font-bold text-lg">SR</div>
-                        <div class="ml-4"><p class="font-bold text-white">Sarah R.</p><p class="text-gray-400 text-sm">Morrow, OH</p></div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-12">
-                <a href="https://www.google.com/search?q=bryson's+auto+repair+morrow+oh" target="_blank" class="inline-flex items-center space-x-2 text-accent hover:text-accent-light transition-colors font-semibold">
-                    <span>Read More Reviews on Google</span>
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                </a>
-            </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#services" class="text-dark-300 hover:text-accent transition-colors font-medium">Services</a>
+          <a href="#about" class="text-dark-300 hover:text-accent transition-colors font-medium">About</a>
+          <a href="#reviews" class="text-dark-300 hover:text-accent transition-colors font-medium">Reviews</a>
+          <a href="#contact" class="text-dark-300 hover:text-accent transition-colors font-medium">Contact</a>
+          <a href="tel:513-899-7204" class="btn-primary px-6 py-3 rounded-full text-white font-semibold flex items-center">
+            <i data-lucide="phone" class="h-4 w-4 mr-2"></i>Call Now
+          </a>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 gradient-hero">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div class="reveal">
-                    <span class="text-accent font-semibold tracking-wider uppercase text-sm">Get In Touch</span>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-2 mb-6">Ready to Schedule Your Service?</h2>
-                    <p class="text-gray-400 text-lg mb-8">Contact us today to book your appointment. Walk-ins are welcome, but scheduling ahead ensures faster service.</p>
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-lg mb-1">Location</h4>
-                                <p class="text-gray-400">Morrow, OH</p>
-                                <p class="text-gray-500 text-sm mt-1">Conveniently located in the heart of Morrow</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-lg mb-1">Phone</h4>
-                                <a href="tel:+15138997204" class="text-accent hover:text-accent-light text-lg font-semibold transition-colors">(513) 899-7204</a>
-                                <p class="text-gray-500 text-sm mt-1">Available during business hours</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-lg mb-1">Business Hours</h4>
-                                <div class="text-gray-400 space-y-1">
-                                    <p><span class="text-gray-500">Mon - Fri:</span> 8:00 AM - 6:00 PM</p>
-                                    <p><span class="text-gray-500">Saturday:</span> 8:00 AM - 4:00 PM</p>
-                                    <p><span class="text-gray-500">Sunday:</span> Closed</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-10 p-6 bg-primary-light rounded-xl border border-gray-800">
-                        <p class="text-gray-300 mb-4 font-medium">Need emergency service?</p>
-                        <a href="tel:+15138997204" class="inline-flex items-center space-x-2 gradient-accent text-white px-6 py-3 rounded-full font-bold hover:shadow-lg transition-all">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                            <span>Call Now for Immediate Help</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="reveal">
-                    <div class="bg-primary-light rounded-2xl p-8 border border-gray-800">
-                        <h3 class="font-display text-2xl font-bold text-white mb-6">Request an Appointment</h3>
-                        <form id="contact-form" class="space-y-6">
-                            <div class="grid sm:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Full Name</label>
-                                    <input type="text" id="name" name="name" required class="w-full bg-primary border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors" placeholder="John Smith">
-                                </div>
-                                <div>
-                                    <label for="phone" class="block text-sm font-medium text-gray-400 mb-2">Phone Number</label>
-                                    <input type="tel" id="phone" name="phone" required class="w-full bg-primary border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors" placeholder="(513) 555-1234">
-                                </div>
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
-                                <input type="email" id="email" name="email" class="w-full bg-primary border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors" placeholder="john@example.com">
-                            </div>
-                            <div>
-                                <label for="service" class="block text-sm font-medium text-gray-400 mb-2">Service Needed</label>
-                                <select id="service" name="service" required class="w-full bg-primary border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors">
-                                    <option value="">Select a service...</option>
-                                    <option value="oil-change">Oil Change & Maintenance</option>
-                                    <option value="brakes">Brake Service</option>
-                                    <option value="diagnostics">Engine Diagnostics</option>
-                                    <option value="transmission">Transmission Service</option>
-                                    <option value="ac-heating">AC & Heating</option>
-                                    <option value="classic">Classic Car Restoration</option>
-                                    <option value="other">Other / Not Sure</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-gray-400 mb-2">Additional Details</label>
-                                <textarea id="message" name="message" rows="4" class="w-full bg-primary border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors resize-none" placeholder="Tell us about your vehicle and any issues you're experiencing..."></textarea>
-                            </div>
-                            <button type="submit" class="w-full gradient-accent text-white py-4 rounded-lg font-bold text-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">Request Appointment</button>
-                            <p class="text-gray-500 text-sm text-center">We'll contact you within 24 hours to confirm your appointment.</p>
-                        </form>
-                    </div>
-                </div>
-            </div>
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" class="text-white hover:text-accent transition-colors"><i data-lucide="menu" class="h-6 w-6"></i></button>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-primary-dark py-16 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <div class="md:col-span-2">
-                    <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-12 h-12 gradient-accent rounded-xl flex items-center justify-center">
-                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                        </div>
-                        <div>
-                            <span class="font-display text-2xl font-bold text-white">BRYSON'S</span>
-                            <p class="text-accent text-sm">Auto Repair & Performance</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-400 mb-6 max-w-md">Morrow's trusted auto repair specialists since 2009. ASE certified technicians, honest pricing, and guaranteed work. Your vehicle deserves the best.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-primary-light rounded-full flex items-center justify-center text-gray-400 hover:text-accent hover:bg-primary transition-all"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-                        <a href="#" class="w-10 h-10 bg-primary-light rounded-full flex items-center justify-center text-gray-400 hover:text-accent hover:bg-primary transition-all"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#services" class="text-gray-400 hover:text-accent transition-colors">Services</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-accent transition-colors">About Us</a></li>
-                        <li><a href="#why-us" class="text-gray-400 hover:text-accent transition-colors">Why Choose Us</a></li>
-                        <li><a href="#reviews" class="text-gray-400 hover:text-accent transition-colors">Reviews</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-accent transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4">Our Services</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-accent transition-colors">Oil Change</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-accent transition-colors">Brake Service</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-accent transition-colors">Engine Diagnostics</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-accent transition-colors">Classic Cars</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-accent transition-colors">AC & Heating</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                <p class="text-gray-500 text-sm">© 2026 Bryson's Auto Repair and Performance. All rights reserved.</p>
-                <div class="flex items-center space-x-6 text-sm text-gray-500">
-                    <span>ASE Certified</span><span class="w-1 h-1 bg-gray-600 rounded-full"></span><span>12-Month Warranty</span><span class="w-1 h-1 bg-gray-600 rounded-full"></span><span>Morrow, OH</span>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Floating CTA -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
-        <a href="tel:+15138997204" class="btn-pulse gradient-accent text-white p-4 rounded-full shadow-2xl shadow-accent/40 hover:shadow-accent/60 transition-all flex items-center justify-center group">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 whitespace-nowrap ml-0 group-hover:ml-2 font-semibold">Call Now</span>
-        </a>
-        <a href="#contact" class="bg-white text-primary-dark p-4 rounded-full shadow-2xl hover:shadow-xl transition-all flex items-center justify-center group">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-            <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 whitespace-nowrap ml-0 group-hover:ml-2 font-semibold">Book Appt</span>
-        </a>
+      </div>
     </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-dark-900 border-t border-dark-800">
+      <div class="px-4 pt-2 pb-6 space-y-2">
+        <a href="#services" class="block px-3 py-2 text-dark-300 hover:text-accent hover:bg-dark-800 rounded-md">Services</a>
+        <a href="#about" class="block px-3 py-2 text-dark-300 hover:text-accent hover:bg-dark-800 rounded-md">About</a>
+        <a href="#reviews" class="block px-3 py-2 text-dark-300 hover:text-accent hover:bg-dark-800 rounded-md">Reviews</a>
+        <a href="#contact" class="block px-3 py-2 text-dark-300 hover:text-accent hover:bg-dark-800 rounded-md">Contact</a>
+        <a href="tel:513-899-7204" class="block px-3 py-2 text-accent font-semibold">Call (513) 899-7204</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- JavaScript -->
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-        mobileMenu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }); });
-        
-        // Navbar background on scroll
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-primary/95', 'backdrop-blur-md', 'shadow-lg');
-                navbar.classList.remove('bg-transparent');
-            } else {
-                navbar.classList.remove('bg-primary/95', 'backdrop-blur-md', 'shadow-lg');
-                navbar.classList.add('bg-transparent');
-            }
-        });
-        
-        // Scroll Reveal Animation
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } });
-        }, { threshold: 0.1 });
-        revealElements.forEach(el => revealObserver.observe(el));
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-            });
-        });
-        
-        // Form Submission Handler
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const form = this;
-            const originalContent = form.innerHTML;
-            form.innerHTML = `<div class="text-center py-12"><div class="w-20 h-20 mx-auto mb-6 gradient-accent rounded-full flex items-center justify-center"><svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div><h3 class="font-display text-2xl font-bold text-white mb-2">Request Received!</h3><p class="text-gray-400">Thank you for contacting Bryson's Auto Repair. We'll contact you within 24 hours to confirm your appointment.</p></div>`;
-            setTimeout(() => { form.innerHTML = originalContent; form.reset(); }, 5000);
-        });
-    </script>
+  <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-dark-950 via-dark-900 to-primary-950"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 border border-accent/30 mb-6">
+            <i data-lucide="award" class="h-4 w-4 text-accent mr-2"></i>
+            <span class="text-accent font-semibold text-sm">ASE Certified Technicians</span>
+          </div>
+          <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            Morrow's Trusted<br><span class="gradient-text">Auto Repair</span> Experts
+          </h1>
+          <p class="text-xl text-dark-300 mb-8 leading-relaxed">
+            Full service auto repair & performance shop specializing in classic cars, muscle cars, and modern vehicles. Honest service, quality repairs since day one.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 mb-8">
+            <a href="tel:513-899-7204" class="btn-primary px-8 py-4 rounded-full text-white font-semibold text-lg flex items-center justify-center">
+              <i data-lucide="phone" class="h-5 w-5 mr-2"></i>(513) 899-7204
+            </a>
+            <a href="#services" class="btn-secondary px-8 py-4 rounded-full text-accent font-semibold text-lg flex items-center justify-center hover:text-white">
+              Our Services<i data-lucide="arrow-right" class="h-5 w-5 ml-2"></i>
+            </a>
+          </div>
+          <div class="flex items-center gap-6 text-dark-400">
+            <div class="flex items-center">
+              <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+              <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+              <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+              <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+              <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+              <span class="ml-2 font-semibold text-white">5.0</span>
+            </div>
+            <span class="text-sm">105+ Reviews on Facebook</span>
+          </div>
+        </div>
+        <div class="relative hidden lg:block">
+          <div class="relative bg-dark-800/50 backdrop-blur-sm rounded-3xl p-8 border border-dark-700">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="space-y-4">
+                <div class="bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl p-6 border border-accent/20">
+                  <i data-lucide="car" class="h-12 w-12 text-accent mb-3"></i>
+                  <h3 class="font-display text-xl font-semibold text-white mb-1">Classic Cars</h3>
+                  <p class="text-dark-400 text-sm">Restoration & repair</p>
+                </div>
+                <div class="bg-gradient-to-br from-primary-600/20 to-primary-600/5 rounded-2xl p-6 border border-primary-500/20">
+                  <i data-lucide="gauge" class="h-12 w-12 text-primary-400 mb-3"></i>
+                  <h3 class="font-display text-xl font-semibold text-white mb-1">Performance</h3>
+                  <p class="text-dark-400 text-sm">Upgrades & tuning</p>
+                </div>
+              </div>
+              <div class="space-y-4 pt-8">
+                <div class="bg-gradient-to-br from-dark-700/50 to-dark-800/50 rounded-2xl p-6 border border-dark-600">
+                  <i data-lucide="wrench" class="h-12 w-12 text-dark-300 mb-3"></i>
+                  <h3 class="font-display text-xl font-semibold text-white mb-1">General Repair</h3>
+                  <p class="text-dark-400 text-sm">All makes & models</p>
+                </div>
+                <div class="bg-gradient-to-br from-accent/10 to-primary-600/10 rounded-2xl p-6 border border-accent/10">
+                  <i data-lucide="shield-check" class="h-12 w-12 text-accent mb-3"></i>
+                  <h3 class="font-display text-xl font-semibold text-white mb-1">12K Warranty</h3>
+                  <p class="text-dark-400 text-sm">Nationwide coverage</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-dark-900 border-y border-dark-800 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div><div class="font-display text-4xl font-bold text-accent mb-1">5.0</div><div class="text-dark-400 text-sm">Star Rating</div></div>
+        <div><div class="font-display text-4xl font-bold text-white mb-1">105+</div><div class="text-dark-400 text-sm">Happy Customers</div></div>
+        <div><div class="font-display text-4xl font-bold text-white mb-1">ASE</div><div class="text-dark-400 text-sm">Certified Techs</div></div>
+        <div><div class="font-display text-4xl font-bold text-accent mb-1">12K</div><div class="text-dark-400 text-sm">Mile Warranty</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-24 bg-dark-950 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 rounded-full bg-accent/10 text-accent font-semibold text-sm mb-4">What We Do</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">Our Services</h2>
+        <p class="text-dark-400 text-xl max-w-3xl mx-auto">From daily drivers to classic show cars, we provide expert service for all your automotive needs</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card-hover bg-dark-900/50 backdrop-blur-sm rounded-2xl p-8 border border-dark-800">
+          <div class="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="car" class="h-8 w-8 text-accent"></i></div>
+          <h3 class="font-display text-2xl font-semibold text-white mb-3">Classic Car Restoration</h3>
+          <p class="text-dark-400 mb-4">Expert restoration, maintenance, and enhancement of antique, classic, muscle, and performance vehicles.</p>
+          <ul class="space-y-2 text-dark-300">
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-accent mr-2"></i>Full frame-off restorations</li>
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-accent mr-2"></i>Engine rebuilds & upgrades</li>
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-accent mr-2"></i>Bodywork & paint</li>
+          </ul>
+        </div>
+        <div class="card-hover bg-dark-900/50 backdrop-blur-sm rounded-2xl p-8 border border-dark-800">
+          <div class="w-16 h-16 bg-primary-600/20 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="wrench" class="h-8 w-8 text-primary-400"></i></div>
+          <h3 class="font-display text-2xl font-semibold text-white mb-3">General Auto Repair</h3>
+          <p class="text-dark-400 mb-4">Full service maintenance and repair for all makes and models of cars and light trucks.</p>
+          <ul class="space-y-2 text-dark-300">
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-primary-400 mr-2"></i>Oil changes & maintenance</li>
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-primary-400 mr-2"></i>Brake service & repair</li>
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-primary-400 mr-2"></i>Engine & transmission work</li>
+          </ul>
+        </div>
+        <div class="card-hover bg-dark-900/50 backdrop-blur-sm rounded-2xl p-8 border border-dark-800">
+          <div class="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="gauge" class="h-8 w-8 text-accent"></i></div>
+          <h3 class="font-display text-2xl font-semibold text-white mb-3">Performance Upgrades</h3>
+          <p class="text-dark-400 mb-4">Take your vehicle to the next level with performance modifications and enhancements.</p>
+          <ul class="space-y-2 text-dark-300">
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-accent mr-2"></i>Engine performance tuning</li>
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-accent mr-2"></i>Suspension upgrades</li>
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-accent mr-2"></i>Exhaust & intake systems</li>
+          </ul>
+        </div>
+        <div class="card-hover bg-dark-900/50 backdrop-blur-sm rounded-2xl p-8 border border-dark-800">
+          <div class="w-16 h-16 bg-primary-600/20 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="cpu" class="h-8 w-8 text-primary-400"></i></div>
+          <h3 class="font-display text-2xl font-semibold text-white mb-3">Diagnostics</h3>
+          <p class="text-dark-400 mb-4">Advanced computer diagnostics to quickly identify and resolve issues.</p>
+          <ul class="space-y-2 text-dark-300">
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-primary-400 mr-2"></i>Check engine light diagnosis</li>
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-primary-400 mr-2"></i>Computer system analysis</li>
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-primary-400 mr-2"></i>Electrical troubleshooting</li>
+          </ul>
+        </div>
+        <div class="card-hover bg-dark-900/50 backdrop-blur-sm rounded-2xl p-8 border border-dark-800">
+          <div class="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="zap" class="h-8 w-8 text-accent"></i></div>
+          <h3 class="font-display text-2xl font-semibold text-white mb-3">Hot Rod Customization</h3>
+          <p class="text-dark-400 mb-4">Custom builds and modifications for hot rods and unique vehicles.</p>
+          <ul class="space-y-2 text-dark-300">
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-accent mr-2"></i>Custom fabrication</li>
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-accent mr-2"></i>Engine swaps</li>
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-accent mr-2"></i>Interior & exterior mods</li>
+          </ul>
+        </div>
+        <div class="card-hover bg-dark-900/50 backdrop-blur-sm rounded-2xl p-8 border border-dark-800">
+          <div class="w-16 h-16 bg-primary-600/20 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="shield-check" class="h-8 w-8 text-primary-400"></i></div>
+          <h3 class="font-display text-2xl font-semibold text-white mb-3">Pre-Purchase Inspections</h3>
+          <p class="text-dark-400 mb-4">Comprehensive vehicle inspections before you buy.</p>
+          <ul class="space-y-2 text-dark-300">
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-primary-400 mr-2"></i>Complete mechanical check</li>
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-primary-400 mr-2"></i>Rust & frame inspection</li>
+            <li class="flex items-center"><i data-lucide="check" class="h-4 w-4 text-primary-400 mr-2"></i>Detailed condition report</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-24 bg-dark-900 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="inline-block px-4 py-1 rounded-full bg-accent/10 text-accent font-semibold text-sm mb-4">About Us</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">Morrow's Premier Auto Shop Since Day One</h2>
+          <p class="text-dark-300 text-lg mb-6 leading-relaxed">
+            At Bryson's Auto Repair and Performance, we're more than just a repair shop - we're automotive enthusiasts dedicated to keeping your vehicle running at its best. Located at 400 W Pike St in the heart of Morrow, Ohio, we've built our reputation on honest service, quality workmanship, and a passion for all things automotive.
+          </p>
+          <p class="text-dark-300 text-lg mb-8 leading-relaxed">
+            Our team of ASE certified advanced level technicians brings decades of combined experience to every job. Whether you're driving a daily commuter or a show-stopping muscle car, we have the expertise to handle it all.
+          </p>
+          <a href="tel:513-899-7204" class="btn-primary inline-flex items-center px-8 py-4 rounded-full text-white font-semibold text-lg">
+            <i data-lucide="phone" class="h-5 w-5 mr-2"></i>Schedule Service Today
+          </a>
+        </div>
+        <div class="relative">
+          <div class="relative bg-dark-800 rounded-3xl p-8 border border-dark-700">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="space-y-4">
+                <div class="bg-dark-900 rounded-2xl p-6 border border-dark-700 text-center">
+                  <i data-lucide="car" class="h-12 w-12 text-accent mx-auto mb-3"></i>
+                  <div class="font-display text-3xl font-bold text-white mb-1">1,400+</div>
+                  <div class="text-dark-400 text-sm">Facebook Followers</div>
+                </div>
+                <div class="bg-dark-900 rounded-2xl p-6 border border-dark-700 text-center">
+                  <i data-lucide="star" class="h-12 w-12 text-yellow-400 mx-auto mb-3"></i>
+                  <div class="font-display text-3xl font-bold text-white mb-1">5.0</div>
+                  <div class="text-dark-400 text-sm">Star Rating</div>
+                </div>
+              </div>
+              <div class="space-y-4 pt-8">
+                <div class="bg-dark-900 rounded-2xl p-6 border border-dark-700 text-center">
+                  <i data-lucide="map-pin" class="h-12 w-12 text-primary-400 mx-auto mb-3"></i>
+                  <div class="font-display text-3xl font-bold text-white mb-1">Morrow</div>
+                  <div class="text-dark-400 text-sm">OH 45152</div>
+                </div>
+                <div class="bg-dark-900 rounded-2xl p-6 border border-dark-700 text-center">
+                  <i data-lucide="calendar" class="h-12 w-12 text-accent mx-auto mb-3"></i>
+                  <div class="font-display text-3xl font-bold text-white mb-1">10th</div>
+                  <div class="text-dark-400 text-sm">Annual Car Show</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="py-24 bg-dark-950 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 rounded-full bg-accent/10 text-accent font-semibold text-sm mb-4">Testimonials</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">What Our Customers Say</h2>
+        <p class="text-dark-400 text-xl max-w-3xl mx-auto">Don't just take our word for it - hear from the automotive enthusiasts we've helped</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card-hover bg-dark-900/50 backdrop-blur-sm rounded-2xl p-8 border border-dark-800">
+          <div class="flex items-center mb-4">
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+          </div>
+          <p class="text-dark-300 mb-6 text-lg leading-relaxed">"Outstanding service, great people to work with. They take pride in their work and it shows. My classic Mustang has never run better!"</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center mr-4"><i data-lucide="user" class="h-6 w-6 text-accent"></i></div>
+            <div><div class="font-semibold text-white">Satisfied Customer</div><div class="text-dark-400 text-sm">Google Review</div></div>
+          </div>
+        </div>
+        <div class="card-hover bg-dark-900/50 backdrop-blur-sm rounded-2xl p-8 border border-dark-800">
+          <div class="flex items-center mb-4">
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+          </div>
+          <p class="text-dark-300 mb-6 text-lg leading-relaxed">"Excellent customer service, scheduling availability, and prices. When something needs done, they give you a reasonable price with no pressure."</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center mr-4"><i data-lucide="user" class="h-6 w-6 text-accent"></i></div>
+            <div><div class="font-semibold text-white">Facebook Reviewer</div><div class="text-dark-400 text-sm">5.0 Rating</div></div>
+          </div>
+        </div>
+        <div class="card-hover bg-dark-900/50 backdrop-blur-sm rounded-2xl p-8 border border-dark-800">
+          <div class="flex items-center mb-4">
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+          </div>
+          <p class="text-dark-300 mb-6 text-lg leading-relaxed">"If you need repairs done, performance upgrades, it doesn't matter - this is the place for you. Give these nice people a call."</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center mr-4"><i data-lucide="user" class="h-6 w-6 text-accent"></i></div>
+            <div><div class="font-semibold text-white">Yelp Reviewer</div><div class="text-dark-400 text-sm">Verified Customer</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-12 text-center">
+        <a href="https://www.facebook.com/brysonsauto" target="_blank" class="inline-flex items-center text-accent hover:text-white transition-colors font-semibold text-lg">
+          <i data-lucide="facebook" class="h-5 w-5 mr-2"></i>See All 105+ Reviews on Facebook<i data-lucide="external-link" class="h-5 w-5 ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-24 bg-dark-900 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16">
+        <div>
+          <span class="inline-block px-4 py-1 rounded-full bg-accent/10 text-accent font-semibold text-sm mb-4">Get In Touch</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">Visit Us Today</h2>
+          <p class="text-dark-300 text-lg mb-8 leading-relaxed">Ready to get your vehicle serviced? Contact us today to schedule an appointment. Walk-ins welcome!</p>
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="w-14 h-14 bg-accent/20 rounded-xl flex items-center justify-center mr-5 flex-shrink-0"><i data-lucide="map-pin" class="h-7 w-7 text-accent"></i></div>
+              <div><h4 class="font-semibold text-white text-lg mb-1">Address</h4><p class="text-dark-300">400 W Pike St<br>Morrow, OH 45152</p></div>
+            </div>
+            <div class="flex items-start">
+              <div class="w-14 h-14 bg-accent/20 rounded-xl flex items-center justify-center mr-5 flex-shrink-0"><i data-lucide="phone" class="h-7 w-7 text-accent"></i></div>
+              <div><h4 class="font-semibold text-white text-lg mb-1">Phone</h4><a href="tel:513-899-7204" class="text-dark-300 hover:text-accent transition-colors text-lg">(513) 899-7204</a></div>
+            </div>
+            <div class="flex items-start">
+              <div class="w-14 h-14 bg-accent/20 rounded-xl flex items-center justify-center mr-5 flex-shrink-0"><i data-lucide="mail" class="h-7 w-7 text-accent"></i></div>
+              <div><h4 class="font-semibold text-white text-lg mb-1">Email</h4><a href="mailto:brysonsauto@gmail.com" class="text-dark-300 hover:text-accent transition-colors">brysonsauto@gmail.com</a></div>
+            </div>
+            <div class="flex items-start">
+              <div class="w-14 h-14 bg-accent/20 rounded-xl flex items-center justify-center mr-5 flex-shrink-0"><i data-lucide="clock" class="h-7 w-7 text-accent"></i></div>
+              <div><h4 class="font-semibold text-white text-lg mb-1">Business Hours</h4><p class="text-dark-300">Monday - Friday: 8:00 AM - 4:00 PM<br>Saturday: By Appointment<br>Sunday: Closed</p></div>
+            </div>
+          </div>
+          <div class="mt-8">
+            <a href="https://www.facebook.com/brysonsauto" target="_blank" class="inline-flex items-center justify-center w-12 h-12 bg-blue-600 hover:bg-blue-700 rounded-full transition-colors mr-3"><i data-lucide="facebook" class="h-6 w-6 text-white"></i></a>
+            <a href="tel:513-899-7204" class="inline-flex items-center px-6 py-3 bg-accent hover:bg-accent-600 rounded-full text-white font-semibold transition-colors"><i data-lucide="phone" class="h-5 w-5 mr-2"></i>Call Now</a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="relative bg-dark-800 rounded-3xl p-8 border border-dark-700">
+            <h3 class="font-display text-2xl font-semibold text-white mb-6">Send Us a Message</h3>
+            <form class="space-y-4">
+              <div class="grid md:grid-cols-2 gap-4">
+                <div><label class="block text-dark-300 mb-2 text-sm">First Name</label><input type="text" class="w-full bg-dark-900 border border-dark-700 rounded-lg px-4 py-3 text-white placeholder-dark-500 focus:outline-none focus:border-accent transition-colors" placeholder="John"></div>
+                <div><label class="block text-dark-300 mb-2 text-sm">Last Name</label><input type="text" class="w-full bg-dark-900 border border-dark-700 rounded-lg px-4 py-3 text-white placeholder-dark-500 focus:outline-none focus:border-accent transition-colors" placeholder="Doe"></div>
+              </div>
+              <div><label class="block text-dark-300 mb-2 text-sm">Email</label><input type="email" class="w-full bg-dark-900 border border-dark-700 rounded-lg px-4 py-3 text-white placeholder-dark-500 focus:outline-none focus:border-accent transition-colors" placeholder="john@example.com"></div>
+              <div><label class="block text-dark-300 mb-2 text-sm">Phone</label><input type="tel" class="w-full bg-dark-900 border border-dark-700 rounded-lg px-4 py-3 text-white placeholder-dark-500 focus:outline-none focus:border-accent transition-colors" placeholder="(513) 000-0000"></div>
+              <div><label class="block text-dark-300 mb-2 text-sm">Service Needed</label><select class="w-full bg-dark-900 border border-dark-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors"><option value="">Select a service...</option><option value="general">General Repair</option><option value="classic">Classic Car Restoration</option><option value="performance">Performance Upgrades</option><option value="diagnostics">Diagnostics</option><option value="other">Other</option></select></div>
+              <div><label class="block text-dark-300 mb-2 text-sm">Message</label><textarea rows="4" class="w-full bg-dark-900 border border-dark-700 rounded-lg px-4 py-3 text-white placeholder-dark-500 focus:outline-none focus:border-accent transition-colors" placeholder="Tell us about your vehicle and what you need..."></textarea></div>
+              <button type="submit" class="w-full btn-primary px-6 py-4 rounded-lg text-white font-semibold text-lg"><i data-lucide="send" class="h-5 w-5 inline mr-2"></i>Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark-950 border-t border-dark-800 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center mb-4"><i data-lucide="wrench" class="h-8 w-8 text-accent mr-2"></i><span class="font-display text-2xl font-bold text-white">BRYSON'S</span></div>
+          <p class="text-dark-400 mb-6 max-w-md">Full service auto repair shop in Morrow, OH. Specializing in classic cars, muscle cars, and performance vehicles. ASE certified technicians with 12K mile warranty.</p>
+          <div class="flex space-x-4">
+            <a href="https://www.facebook.com/brysonsauto" target="_blank" class="w-10 h-10 bg-dark-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"><i data-lucide="facebook" class="h-5 w-5 text-dark-300"></i></a>
+            <a href="tel:513-899-7204" class="w-10 h-10 bg-dark-800 hover:bg-accent rounded-full flex items-center justify-center transition-colors"><i data-lucide="phone" class="h-5 w-5 text-dark-300"></i></a>
+            <a href="mailto:brysonsauto@gmail.com" class="w-10 h-10 bg-dark-800 hover:bg-accent rounded-full flex items-center justify-center transition-colors"><i data-lucide="mail" class="h-5 w-5 text-dark-300"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="#services" class="text-dark-400 hover:text-accent transition-colors">Services</a></li>
+            <li><a href="#about" class="text-dark-400 hover:text-accent transition-colors">About Us</a></li>
+            <li><a href="#reviews" class="text-dark-400 hover:text-accent transition-colors">Reviews</a></li>
+            <li><a href="#contact" class="text-dark-400 hover:text-accent transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white text-lg mb-4">Services</h4>
+          <ul class="space-y-3">
+            <li><a href="#services" class="text-dark-400 hover:text-accent transition-colors">Classic Car Restoration</a></li>
+            <li><a href="#services" class="text-dark-400 hover:text-accent transition-colors">General Auto Repair</a></li>
+            <li><a href="#services" class="text-dark-400 hover:text-accent transition-colors">Performance Upgrades</a></li>
+            <li><a href="#services" class="text-dark-400 hover:text-accent transition-colors">Diagnostics</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-dark-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-dark-500 text-sm mb-4 md:mb-0">© 2026 Bryson's Auto Repair and Performance. All rights reserved.</p>
+        <div class="flex items-center space-x-6 text-sm">
+          <span class="text-dark-500">400 W Pike St, Morrow, OH 45152</span>
+          <span class="text-dark-600">|</span>
+          <a href="tel:513-899-7204" class="text-accent hover:text-white transition-colors">(513) 899-7204</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="fixed bottom-6 right-6 z-50 md:hidden">
+    <a href="tel:513-899-7204" class="btn-primary w-14 h-14 rounded-full flex items-center justify-center shadow-lg"><i data-lucide="phone" class="h-6 w-6 text-white"></i></a>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+    mobileMenu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }); });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function (e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); });
+    document.querySelector('form').addEventListener('submit', function(e) { e.preventDefault(); alert('Thank you for your message! We\'ll get back to you soon. Call us at (513) 899-7204 for immediate assistance.'); });
+  </script>
 </body>
 </html>
