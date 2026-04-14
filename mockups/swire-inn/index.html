@@ -1,704 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Swire Inn | English Pub & Comfort Food | Middletown, OH</title>
-    <meta name="description" content="The Swire Inn serves English-pub style comfort food in a cozy, historic atmosphere. Featuring craft cocktails, live music, and award-winning dishes in Middletown, Ohio.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'pub': {
-                            900: '#1a0f0a',
-                            800: '#2d1f16',
-                            700: '#3d2a1f',
-                            600: '#5c4033',
-                            500: '#8b5a2b',
-                            400: '#a67c52',
-                            300: '#c9a86c',
-                            200: '#d4b896',
-                            100: '#e8dcc8',
-                            50: '#f5f0e8',
-                        },
-                        'amber': {
-                            600: '#d97706',
-                            500: '#f59e0b',
-                            400: '#fbbf24',
-                        }
-                    },
-                    fontFamily: {
-                        'display': ['Playfair Display', 'serif'],
-                        'body': ['Inter', 'sans-serif'],
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Swire Inn | English Pub & Comfort Food | Middletown, OH</title>
+  <meta name="description" content="The Swire Inn - An English pub-style restaurant in historic downtown Middletown, OH. Serving elevated comfort food, craft cocktails, and inventive deviled eggs since 2019.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pub: {
+              900: '#1a1f2e',
+              800: '#232838',
+              700: '#2d3548',
+              600: '#3d4558',
+              gold: '#c9a962',
+              rust: '#b87333',
+              cream: '#f5f0e6'
             }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['Inter', 'sans-serif']
+          }
         }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, rgba(26,15,10,0.95) 0%, rgba(45,31,22,0.9) 50%, rgba(61,42,31,0.85) 100%);
-        }
-        .text-shadow {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        .glass-card {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .menu-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
-        .scroll-reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(26,31,46,0.95) 0%, rgba(45,53,72,0.85) 100%),
+                  url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1920') center/cover;
+    }
+    .glass-card {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+    }
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .menu-item {
+      transition: all 0.3s ease;
+    }
+    .menu-item:hover {
+      background: rgba(201,169,98,0.1);
+      border-left: 4px solid #c9a962;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+  </style>
 </head>
-<body class="font-body bg-pub-50 text-pub-900 antialiased">
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-pub-900/95 backdrop-blur-md border-b border-pub-700">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0">
-                    <a href="#" class="font-display text-2xl md:text-3xl font-bold text-pub-100">The Swire Inn</a>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#about" class="text-pub-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">About</a>
-                        <a href="#menu" class="text-pub-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">Menu</a>
-                        <a href="#atmosphere" class="text-pub-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">Atmosphere</a>
-                        <a href="#hours" class="text-pub-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">Hours</a>
-                        <a href="#contact" class="bg-amber-600 hover:bg-amber-500 text-white px-6 py-2.5 rounded-full text-sm font-semibold transition shadow-lg">Reserve Table</a>
-                    </div>
-                </div>
-                <div class="md:hidden">
-                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-pub-200 hover:text-white p-2">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
+<body class="font-body antialiased bg-white">
+  
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-pub-900/95 backdrop-blur-md border-b border-pub-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex items-center space-x-2">
+          <span class="font-display text-2xl font-bold text-pub-gold">The Swire Inn</span>
         </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-pub-800">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="text-pub-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
-                <a href="#menu" class="text-pub-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Menu</a>
-                <a href="#atmosphere" class="text-pub-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Atmosphere</a>
-                <a href="#hours" class="text-pub-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Hours</a>
-                <a href="#contact" class="bg-amber-600 text-white block px-3 py-2 rounded-md text-base font-medium mt-4">Reserve Table</a>
-            </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#about" class="text-pub-cream hover:text-pub-gold transition">About</a>
+          <a href="#menu" class="text-pub-cream hover:text-pub-gold transition">Menu</a>
+          <a href="#experience" class="text-pub-cream hover:text-pub-gold transition">Experience</a>
+          <a href="#contact" class="text-pub-cream hover:text-pub-gold transition">Contact</a>
+          <a href="tel:5133924448" class="bg-pub-gold text-pub-900 px-6 py-2 rounded-full font-semibold hover:bg-white transition">Call Now</a>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background Image -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1920&h=1080&fit=crop" 
-                 alt="Cozy pub interior with craft cocktails" 
-                 class="w-full h-full object-cover">
-            <div class="absolute inset-0 hero-gradient"></div>
-        </div>
-        
-        <!-- Content -->
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
-            <div class="scroll-reveal">
-                <p class="text-amber-400 font-semibold tracking-widest uppercase text-sm mb-4">English Pub Style • Comfort Food • Craft Cocktails</p>
-                <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 text-shadow leading-tight">
-                    The Swire Inn
-                </h1>
-                <p class="text-xl md:text-2xl text-pub-200 max-w-3xl mx-auto mb-8 font-light">
-                    Experience authentic English-pub style comfort food in our inviting, historic atmosphere. 
-                    Where craft cocktails meet cozy ambiance in the heart of Middletown.
-                </p>
-                
-                <!-- Trust Indicators -->
-                <div class="flex flex-wrap justify-center gap-6 mb-10 text-pub-100">
-                    <div class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <span class="font-semibold">4.4★</span>
-                        <span class="text-pub-300">(488 Reviews)</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                        </svg>
-                        <span>64 S Main St, Middletown, OH</span>
-                    </div>
-                </div>
-                
-                <!-- CTAs -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#menu" class="bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded-full text-lg font-semibold transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
-                        View Our Menu
-                    </a>
-                    <a href="tel:5133189933" class="bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 px-8 py-4 rounded-full text-lg font-semibold transition backdrop-blur-sm">
-                        Call (513) 318-9933
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-pub-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-            </svg>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 md:py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="scroll-reveal">
-                    <p class="text-amber-600 font-semibold tracking-widest uppercase text-sm mb-4">Our Story</p>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold text-pub-900 mb-6">
-                        A Historic Gathering Place
-                    </h2>
-                    <p class="text-pub-600 text-lg mb-6 leading-relaxed">
-                        Nestled in a charming historic building on South Main Street, The Swire Inn has become 
-                        Middletown's favorite destination for English-pub style comfort food. Our cozy atmosphere 
-                        welcomes you with warm lighting, exposed brick, and the aroma of house-made specialties.
-                    </p>
-                    <p class="text-pub-600 text-lg mb-8 leading-relaxed">
-                        Whether you're joining us for our award-winning Fish & Chips, savoring our famous 
-                        Deviled Eggs, or exploring our rotating seasonal cocktails, you'll discover why 
-                        locals call us "a fabulous place to eat high-end food for a decent price."
-                    </p>
-                    
-                    <div class="grid grid-cols-3 gap-6">
-                        <div class="text-center">
-                            <div class="text-3xl md:text-4xl font-bold text-amber-600 mb-2">4.4★</div>
-                            <div class="text-sm text-pub-500">Google Rating</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl md:text-4xl font-bold text-amber-600 mb-2">488+</div>
-                            <div class="text-sm text-pub-500">Happy Reviews</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl md:text-4xl font-bold text-amber-600 mb-2">Historic</div>
-                            <div class="text-sm text-pub-500">Downtown Location</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="scroll-reveal relative">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop" 
-                             alt="Historic pub interior with warm lighting" 
-                             class="rounded-2xl shadow-2xl w-full">
-                        <div class="absolute -bottom-6 -left-6 bg-pub-900 text-white p-6 rounded-xl shadow-xl">
-                            <p class="font-display text-xl italic">"Super service, lovely ambiance and the prices are quite reasonable."</p>
-                            <p class="text-pub-300 text-sm mt-2">— Google Review</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Menu Highlights Section -->
-    <section id="menu" class="py-20 md:py-32 bg-pub-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <p class="text-amber-400 font-semibold tracking-widest uppercase text-sm mb-4">Culinary Excellence</p>
-                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-                    Menu Favorites
-                </h2>
-                <p class="text-pub-200 text-lg max-w-2xl mx-auto">
-                    Our kitchen crafts English-pub classics with a modern twist, using fresh ingredients 
-                    and time-honored recipes.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Menu Item 1 -->
-                <div class="menu-card bg-pub-800 rounded-2xl overflow-hidden transition-all duration-300 scroll-reveal">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1579208575657-c595a05383b7?w=600&h=400&fit=crop" 
-                             alt="Fish and Chips" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-display text-xl font-semibold text-white">Fish & Chips</h3>
-                            <span class="text-amber-400 font-bold text-lg">$18</span>
-                        </div>
-                        <p class="text-pub-300 text-sm mb-4">Crispy beer-battered cod served with hand-cut fries, house-made tartar sauce, and malt vinegar.</p>
-                        <span class="inline-block bg-amber-600/20 text-amber-400 text-xs px-3 py-1 rounded-full">Best Seller</span>
-                    </div>
-                </div>
-                
-                <!-- Menu Item 2 -->
-                <div class="menu-card bg-pub-800 rounded-2xl overflow-hidden transition-all duration-300 scroll-reveal">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&h=400&fit=crop" 
-                             alt="Deviled Eggs" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-display text-xl font-semibold text-white">App Deviled Eggs</h3>
-                            <span class="text-amber-400 font-bold text-lg">$10</span>
-                        </div>
-                        <p class="text-pub-300 text-sm mb-4">Our signature appetizer! Classic deviled eggs elevated with premium ingredients and garnishes.</p>
-                        <span class="inline-block bg-pub-600/50 text-pub-200 text-xs px-3 py-1 rounded-full">Customer Favorite</span>
-                    </div>
-                </div>
-                
-                <!-- Menu Item 3 -->
-                <div class="menu-card bg-pub-800 rounded-2xl overflow-hidden transition-all duration-300 scroll-reveal">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600&h=400&fit=crop" 
-                             alt="Chicken and Waffles" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-display text-xl font-semibold text-white">Chicken N Waffles</h3>
-                            <span class="text-amber-400 font-bold text-lg">$15</span>
-                        </div>
-                        <p class="text-pub-300 text-sm mb-4">Crispy fried chicken on fluffy Belgian waffles, drizzled with bourbon maple syrup.</p>
-                        <span class="inline-block bg-pub-600/50 text-pub-200 text-xs px-3 py-1 rounded-full">Classic</span>
-                    </div>
-                </div>
-                
-                <!-- Menu Item 4 -->
-                <div class="menu-card bg-pub-800 rounded-2xl overflow-hidden transition-all duration-300 scroll-reveal">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?w=600&h=400&fit=crop" 
-                             alt="Reuben Sandwich" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-display text-xl font-semibold text-white">Reuben Sandwich</h3>
-                            <span class="text-amber-400 font-bold text-lg">$10</span>
-                        </div>
-                        <p class="text-pub-300 text-sm mb-4">Corned beef, Swiss cheese, sauerkraut, and Russian dressing on grilled marble rye.</p>
-                    </div>
-                </div>
-                
-                <!-- Menu Item 5 -->
-                <div class="menu-card bg-pub-800 rounded-2xl overflow-hidden transition-all duration-300 scroll-reveal">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&h=400&fit=crop" 
-                             alt="Shepherd's Pie" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-display text-xl font-semibold text-white">Shepherd's Pie</h3>
-                            <span class="text-amber-400 font-bold text-lg">$16</span>
-                        </div>
-                        <p class="text-pub-300 text-sm mb-4">Traditional English comfort food with seasoned ground lamb, vegetables, and mashed potato crust.</p>
-                        <span class="inline-block bg-amber-600/20 text-amber-400 text-xs px-3 py-1 rounded-full">English Classic</span>
-                    </div>
-                </div>
-                
-                <!-- Menu Item 6 -->
-                <div class="menu-card bg-pub-800 rounded-2xl overflow-hidden transition-all duration-300 scroll-reveal">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&fit=crop" 
-                             alt="Bread Pudding" 
-                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-display text-xl font-semibold text-white">Bread Pudding</h3>
-                            <span class="text-amber-400 font-bold text-lg">$10</span>
-                        </div>
-                        <p class="text-pub-300 text-sm mb-4">Warm, comforting dessert with vanilla custard, raisins, and a bourbon caramel sauce.</p>
-                        <span class="inline-block bg-pub-600/50 text-pub-200 text-xs px-3 py-1 rounded-full">Dessert</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="https://www.toasttab.com/local/order/the-swire-inn" target="_blank" 
-                   class="inline-block bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded-full text-lg font-semibold transition shadow-lg">
-                    View Full Menu & Order Online
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Atmosphere & Drinks Section -->
-    <section id="atmosphere" class="py-20 md:py-32 bg-pub-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="order-2 lg:order-1 scroll-reveal">
-                    <div class="grid grid-cols-2 gap-4">
-                        <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600&h=800&fit=crop" 
-                             alt="Craft cocktails on bar" 
-                             class="rounded-2xl shadow-xl w-full h-64 object-cover">
-                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&h=800&fit=crop" 
-                             alt="Craft beer selection" 
-                             class="rounded-2xl shadow-xl w-full h-64 object-cover mt-8">
-                    </div>
-                </div>
-                
-                <div class="order-1 lg:order-2 scroll-reveal">
-                    <p class="text-amber-600 font-semibold tracking-widest uppercase text-sm mb-4">Craft & Cozy</p>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold text-pub-900 mb-6">
-                        Craft Cocktails & Atmosphere
-                    </h2>
-                    <p class="text-pub-600 text-lg mb-6 leading-relaxed">
-                        Our bar program features rotating seasonal cocktails, local craft beers on tap, and an 
-                        extensive selection of wines. Whether you're in the mood for a classic Old Fashioned or 
-                        something more adventurous, our bartenders craft each drink with precision and care.
-                    </p>
-                    
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-pub-900">Live Music Events</h4>
-                                <p class="text-pub-600">Regular live music performances in our cozy setting</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-pub-900">Outdoor Seating</h4>
-                                <p class="text-pub-600">Rear outdoor patio for al fresco dining</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-pub-900">Daily Chef Specials</h4>
-                                <p class="text-pub-600">Rotating dishes featuring seasonal ingredients</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-20 md:py-32 bg-pub-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <p class="text-amber-400 font-semibold tracking-widest uppercase text-sm mb-4">Guest Love</p>
-                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-                    What Our Guests Say
-                </h2>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card rounded-2xl p-8 scroll-reveal">
-                    <div class="flex gap-1 mb-4">
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                    </div>
-                    <p class="text-pub-100 text-lg italic mb-6">"A FABULOUS place to eat high end food for a decent price. The fish and chips are absolutely amazing!"</p>
-                    <p class="text-pub-300 font-semibold">— Google Review</p>
-                </div>
-                
-                <div class="glass-card rounded-2xl p-8 scroll-reveal">
-                    <div class="flex gap-1 mb-4">
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                    </div>
-                    <p class="text-pub-100 text-lg italic mb-6">"I highly recommend the fish and chips and pretzels with house-made beer cheese. Super service and lovely ambiance!"</p>
-                    <p class="text-pub-300 font-semibold">— Yelp Review</p>
-                </div>
-                
-                <div class="glass-card rounded-2xl p-8 scroll-reveal">
-                    <div class="flex gap-1 mb-4">
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                    </div>
-                    <p class="text-pub-100 text-lg italic mb-6">"Super service, lovely ambiance and the prices are quite reasonable. We enjoyed the rear outdoor seating area!"</p>
-                    <p class="text-pub-300 font-semibold">— TripAdvisor Review</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hours & Contact Section -->
-    <section id="hours" class="py-20 md:py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div class="scroll-reveal">
-                    <p class="text-amber-600 font-semibold tracking-widest uppercase text-sm mb-4">Visit Us</p>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold text-pub-900 mb-8">
-                        Hours & Location
-                    </h2>
-                    
-                    <div class="space-y-4 mb-8">
-                        <div class="flex justify-between items-center py-3 border-b border-pub-200">
-                            <span class="text-pub-600 font-medium">Monday</span>
-                            <span class="text-pub-900 font-semibold">Closed</span>
-                        </div>
-                        <div class="flex justify-between items-center py-3 border-b border-pub-200">
-                            <span class="text-pub-600 font-medium">Tuesday - Thursday</span>
-                            <span class="text-pub-900 font-semibold">11:00 AM - 9:00 PM</span>
-                        </div>
-                        <div class="flex justify-between items-center py-3 border-b border-pub-200">
-                            <span class="text-pub-600 font-medium">Friday - Saturday</span>
-                            <span class="text-pub-900 font-semibold">11:00 AM - 10:00 PM</span>
-                        </div>
-                        <div class="flex justify-between items-center py-3 border-b border-pub-200">
-                            <span class="text-pub-600 font-medium">Sunday</span>
-                            <span class="text-pub-900 font-semibold">11:00 AM - 8:00 PM</span>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-pub-50 rounded-xl p-6">
-                        <h3 class="font-display text-xl font-semibold text-pub-900 mb-4">Contact Information</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                </svg>
-                                <span class="text-pub-600">64 S Main St, Middletown, OH 45044</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                                </svg>
-                                <a href="tel:5133189933" class="text-amber-600 hover:text-amber-700 font-semibold">(513) 318-9933</a>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
-                                </svg>
-                                <a href="https://www.toasttab.com/local/order/the-swire-inn" target="_blank" class="text-amber-600 hover:text-amber-700 font-semibold">Order Online</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="scroll-reveal">
-                    <div class="bg-pub-100 rounded-2xl p-8 h-full">
-                        <h3 class="font-display text-2xl font-semibold text-pub-900 mb-6">Make a Reservation</h3>
-                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Your reservation request has been received. We will contact you shortly to confirm.');">
-                            <div>
-                                <label class="block text-pub-600 text-sm font-medium mb-2">Name</label>
-                                <input type="text" required 
-                                       class="w-full px-4 py-3 rounded-lg border border-pub-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition"
-                                       placeholder="Your name">
-                            </div>
-                            <div>
-                                <label class="block text-pub-600 text-sm font-medium mb-2">Phone</label>
-                                <input type="tel" required 
-                                       class="w-full px-4 py-3 rounded-lg border border-pub-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition"
-                                       placeholder="(513) 000-0000">
-                            </div>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-pub-600 text-sm font-medium mb-2">Date</label>
-                                    <input type="date" required 
-                                           class="w-full px-4 py-3 rounded-lg border border-pub-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition">
-                                </div>
-                                <div>
-                                    <label class="block text-pub-600 text-sm font-medium mb-2">Time</label>
-                                    <input type="time" required 
-                                           class="w-full px-4 py-3 rounded-lg border border-pub-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition">
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-pub-600 text-sm font-medium mb-2">Party Size</label>
-                                <select required 
-                                        class="w-full px-4 py-3 rounded-lg border border-pub-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition">
-                                    <option value="">Select party size</option>
-                                    <option value="1-2">1-2 people</option>
-                                    <option value="3-4">3-4 people</option>
-                                    <option value="5-6">5-6 people</option>
-                                    <option value="7-8">7-8 people</option>
-                                    <option value="9+">9+ people</option>
-                                </select>
-                            </div>
-                            <button type="submit" 
-                                    class="w-full bg-amber-600 hover:bg-amber-500 text-white py-4 rounded-lg font-semibold transition shadow-lg">
-                                Request Reservation
-                            </button>
-                            <p class="text-pub-500 text-sm text-center">
-                                Or call us directly at <a href="tel:5133189933" class="text-amber-600 font-semibold">(513) 318-9933</a>
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-pub-900 text-pub-200 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div class="md:col-span-2">
-                    <h3 class="font-display text-2xl font-bold text-white mb-4">The Swire Inn</h3>
-                    <p class="text-pub-300 mb-4 max-w-md">
-                        English-pub style comfort food in a cozy, historic atmosphere. 
-                        Craft cocktails, live music, and award-winning dishes in the heart of Middletown, Ohio.
-                    </p>
-                    <div class="flex gap-4">
-                        <a href="https://www.facebook.com/swireinn" target="_blank" class="w-10 h-10 bg-pub-700 hover:bg-amber-600 rounded-full flex items-center justify-center transition">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-                        <a href="https://www.instagram.com/theswireinn" target="_blank" class="w-10 h-10 bg-pub-700 hover:bg-amber-600 rounded-full flex items-center justify-center transition">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold text-white mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#about" class="hover:text-amber-400 transition">About Us</a></li>
-                        <li><a href="#menu" class="hover:text-amber-400 transition">Our Menu</a></li>
-                        <li><a href="#hours" class="hover:text-amber-400 transition">Hours</a></li>
-                        <li><a href="https://www.toasttab.com/local/order/the-swire-inn" target="_blank" class="hover:text-amber-400 transition">Order Online</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold text-white mb-4">Contact</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li>64 S Main St</li>
-                        <li>Middletown, OH 45044</li>
-                        <li><a href="tel:5133189933" class="hover:text-amber-400 transition">(513) 318-9933</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-pub-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-pub-400 text-sm">
-                    © 2026 The Swire Inn. All rights reserved.
-                </p>
-                <p class="text-pub-400 text-sm mt-2 md:mt-0">
-                    Website by <span class="text-amber-400">SkyConsult</span>
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Floating CTA -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-        <a href="tel:5133189933" 
-           class="bg-amber-600 hover:bg-amber-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition transform hover:scale-110"
-           title="Call Now">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-            </svg>
-        </a>
-        <a href="#hours" 
-           class="bg-pub-900 hover:bg-pub-800 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition transform hover:scale-110 border border-pub-600"
-           title="Reserve Table">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-            </svg>
-        </a>
+        <button id="mobile-menu-btn" class="md:hidden text-pub-cream">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
     </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-pub-800">
+      <div class="px-4 pt-2 pb-6 space-y-2">
+        <a href="#about" class="block py-2 text-pub-cream hover:text-pub-gold">About</a>
+        <a href="#menu" class="block py-2 text-pub-cream hover:text-pub-gold">Menu</a>
+        <a href="#experience" class="block py-2 text-pub-cream hover:text-pub-gold">Experience</a>
+        <a href="#contact" class="block py-2 text-pub-cream hover:text-pub-gold">Contact</a>
+        <a href="tel:5133924448" class="block py-2 text-pub-gold font-semibold">(513) 392-4448</a>
+      </div>
+    </div>
+  </nav>
 
-    <script>
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+  <!-- Hero Section -->
+  <section class="relative min-h-screen hero-gradient flex items-center pt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="animate-fade-in-up text-center lg:text-left">
+          <div class="inline-block bg-pub-gold/20 border border-pub-gold rounded-full px-4 py-1 mb-6">
+            <span class="text-pub-gold text-sm font-semibold tracking-wider uppercase">English Pub & Comfort Food</span>
+          </div>
+          <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 text-shadow">
+            Where History<br/>
+            <span class="text-pub-gold">Meets Flavor</span>
+          </h1>
+          <p class="text-xl text-pub-cream/90 mb-8 max-w-lg mx-auto lg:mx-0">
+            Elevated comfort food in a historic downtown setting. Craft cocktails, inventive deviled eggs, and the warm hospitality of an English pub.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="https://www.toasttab.com/local/order/the-swire-inn" target="_blank" class="bg-pub-gold text-pub-900 px-8 py-4 rounded-full font-semibold text-lg hover:bg-white transition transform hover:scale-105 text-center">
+              Order Online
+            </a>
+            <a href="tel:5133924448" class="border-2 border-pub-cream text-pub-cream px-8 py-4 rounded-full font-semibold text-lg hover:bg-pub-cream hover:text-pub-900 transition text-center">
+              (513) 392-4448
+            </a>
+          </div>
+          <div class="mt-8 flex items-center justify-center lg:justify-start gap-6 text-pub-cream/80">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-pub-gold" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <span class="font-semibold">4.4</span>
+              <span>(488 Google Reviews)</span>
+            </div>
+          </div>
+        </div>
+        <div class="hidden lg:block relative">
+          <div class="absolute -inset-4 bg-pub-gold/20 rounded-3xl transform rotate-3"></div>
+          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800" 
+               alt="The Swire Inn Historic Building" 
+               class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
+  </section>
 
-        // Scroll reveal animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+  <!-- Daily Hours Banner -->
+  <section class="bg-pub-900 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8 text-pub-cream">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-pub-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <span class="font-semibold">Hours:</span>
+        </div>
+        <span>Tue - Thu: 11am - 9pm</span>
+        <span class="hidden md:inline text-pub-600">|</span>
+        <span>Fri - Sat: 11am - 10pm</span>
+        <span class="hidden md:inline text-pub-600">|</span>
+        <span class="text-pub-gold">Closed Mon & Sun</span>
+      </div>
+    </div>
+  </section>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <div class="absolute -top-4 -left-4 w-24 h-24 bg-pub-gold/20 rounded-full"></div>
+          <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-pub-rust/10 rounded-full"></div>
+          <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800" 
+               alt="Rustic English Pub Interior" 
+               class="relative rounded-2xl shadow-xl w-full object-cover h-[400px]">
+          <div class="absolute -bottom-6 -right-6 bg-pub-900 text-pub-cream p-6 rounded-xl shadow-xl">
+            <p class="font-display text-3xl font-bold text-pub-gold">4.4★</p>
+            <p class="text-sm">488 Reviews</p>
+          </div>
+        </div>
+        <div>
+          <span class="text-pub-rust font-semibold tracking-wider uppercase">Our Story</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-pub-900 mt-4 mb-6">
+            Historic Charm,<br/>Modern Taste
+          </h2>
+          <p class="text-pub-600 text-lg mb-6 leading-relaxed">
+            Nestled in a beautifully restored historic building in downtown Middletown, The Swire Inn brings the warmth and character of an authentic English pub to the heart of Ohio. Our reclaimed wooden bar, exposed brick, and cozy atmosphere create the perfect setting for memorable dining experiences.
+          </p>
+          <p class="text-pub-600 text-lg mb-8 leading-relaxed">
+            Since opening our doors, we've become a hub for culinary creativity, serving elevated comfort food with a twist. From our inventive deviled egg variations to classic English favorites like Shepherd's Pie and Fish & Chips, every dish is crafted with care and served with hospitality that makes you feel at home.
+          </p>
+          <div class="grid grid-cols-2 gap-6">
+            <div class="flex items-start gap-3">
+              <div class="w-12 h-12 bg-pub-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-pub-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-pub-900">Historic Downtown</h4>
+                <p class="text-pub-600 text-sm">64 S Main St, Middletown</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-12 h-12 bg-pub-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-pub-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-pub-900">Culinary Innovation</h4>
+                <p class="text-pub-600 text-sm">Creative comfort classics</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
-    </script>
+  <!-- Menu Highlights -->
+  <section id="menu" class="py-20 bg-pub-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="text-pub-rust font-semibold tracking-wider uppercase">Our Menu</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-pub-900 mt-4">
+          Elevated Comfort Food
+        </h2>
+        <p class="text-pub-600 text-lg mt-4 max-w-2xl mx-auto">
+          From inventive starters to hearty English classics, every dish is prepared with quality ingredients and creative flair.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Deviled Eggs -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift">
+          <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600" 
+               alt="Deviled Eggs" 
+               class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-pub-900">Inventive Deviled Eggs</h3>
+              <span class="text-pub-gold font-semibold">$12</span>
+            </div>
+            <p class="text-pub-600 mb-4">Our signature starter featuring creative variations including dill pickle, classic, and seasonal specialties.</p>
+            <span class="inline-block bg-pub-gold/10 text-pub-rust text-sm px-3 py-1 rounded-full">Guest Favorite</span>
+          </div>
+        </div>
+
+        <!-- Shepherd's Pie -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift">
+          <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600" 
+               alt="Shepherd's Pie" 
+               class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-pub-900">Shepherd's Pie</h3>
+              <span class="text-pub-gold font-semibold">$19</span>
+            </div>
+            <p class="text-pub-600 mb-4">Traditional English comfort with seasoned ground lamb, vegetables, and creamy mashed potato topping.</p>
+            <span class="inline-block bg-pub-gold/10 text-pub-rust text-sm px-3 py-1 rounded-full">English Classic</span>
+          </div>
+        </div>
+
+        <!-- Fish & Chips -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift">
+          <img src="https://images.unsplash.com/photo-1579208575657-c595a05383b7?w=600" 
+               alt="Fish & Chips" 
+               class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-pub-900">Fish & Chips</h3>
+              <span class="text-pub-gold font-semibold">Market</span>
+            </div>
+            <p class="text-pub-600 mb-4">Beer-battered fresh cod served with hand-cut fries, house-made tartar sauce, and malt vinegar.</p>
+            <span class="inline-block bg-pub-gold/10 text-pub-rust text-sm px-3 py-1 rounded-full">Best Seller</span>
+          </div>
+        </div>
+
+        <!-- Chicken & Waffles -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift">
+          <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600" 
+               alt="Chicken & Waffles" 
+               class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-pub-900">Chicken & Waffles</h3>
+              <span class="text-pub-gold font-semibold">$18</span>
+            </div>
+            <p class="text-pub-600 mb-4">Crispy fried chicken atop fluffy Belgian waffles with maple syrup and hot honey drizzle.</p>
+            <span class="inline-block bg-pub-gold/10 text-pub-rust text-sm px-3 py-1 rounded-full">Sweet & Savory</span>
+          </div>
+        </div>
+
+        <!-- Pot Roast -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600" 
+               alt="Pot Roast" 
+               class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-pub-900">Pot Roast</h3>
+              <span class="text-pub-gold font-semibold">$22</span>
+            </div>
+            <p class="text-pub-600 mb-4">Slow-braised beef with root vegetables, mashed potatoes, and rich gravy. A true comfort classic.</p>
+            <span class="inline-block bg-pub-gold/10 text-pub-rust text-sm px-3 py-1 rounded-full">Hearty</span>
+          </div>
+        </div>
+
+        <!-- Flatbread -->
+        <div class="glass-card rounded-2xl overflow-hidden hover-lift">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600" 
+               alt="Flatbread" 
+               class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-xl font-bold text-pub-900">Artisan Flatbreads</h3>
+              <span class="text-pub-gold font-semibold">$14-17</span>
+            </div>
+            <p class="text-pub-600 mb-4">Choose from Truffle, BBQ Chicken, Hot Honey Crispy Chicken, or Beef & Beer Cheese.</p>
+            <span class="inline-block bg-pub-gold/10 text-pub-rust text-sm px-3 py-1 rounded-full">Shareable</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <p class="text-pub-600 mb-4">Plus: Pretzel Sticks with House-Made Beer Cheese • Bangers & Mash • Creamy Garlic Butter Salmon • And More</p>
+        <a href="https://www.toasttab.com/local/order/the-swire-inn" target="_blank" class="inline-block bg-pub-900 text-pub-cream px-8 py-3 rounded-full font-semibold hover:bg-pub-800 transition">
+          View Full Menu & Order Online
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 bg-pub-900 text-pub-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="text-pub-gold font-semibold tracking-wider uppercase">The Experience</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold mt-4">
+          More Than a Meal
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center p-8">
+          <div class="w-16 h-16 bg-pub-gold/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-pub-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl font-bold mb-4">Live Music Weekends</h3>
+          <p class="text-pub-cream/80">Enjoy local musicians every Friday and Saturday night. The perfect backdrop for great food and conversation.</p>
+        </div>
+
+        <div class="text-center p-8">
+          <div class="w-16 h-16 bg-pub-gold/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-pub-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl font-bold mb-4">Outdoor Patio</h3>
+          <p class="text-pub-cream/80">Al fresco dining on our charming patio. Perfect for warm evenings and people-watching on Main Street.</p>
+        </div>
+
+        <div class="text-center p-8">
+          <div class="w-16 h-16 bg-pub-gold/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-pub-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl font-bold mb-4">Historic Atmosphere</h3>
+          <p class="text-pub-cream/80">Reclaimed wooden bar, rustic décor, and the charm of a restored historic building in downtown Middletown.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="text-pub-rust font-semibold tracking-wider uppercase">What Guests Say</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-pub-900 mt-4">
+          Rave Reviews
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-pub-cream p-8 rounded-2xl">
+          <div class="flex text-pub-gold mb-4">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-pub-700 italic mb-4">"A FABULOUS place to eat high end food for a decent price. The atmosphere is cozy and inviting - perfect for date night or meeting friends."</p>
+          <p class="font-semibold text-pub-900">— Sarah M.</p>
+        </div>
+
+        <div class="bg-pub-cream p-8 rounded-2xl">
+          <div class="flex text-pub-gold mb-4">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-pub-700 italic mb-4">"I highly recommend the fish and chips and pretzels with house-made beer cheese. The deviled eggs are unlike anything I've had before!"</p>
+          <p class="font-semibold text-pub-900">— Michael T.</p>
+        </div>
+
+        <div class="bg-pub-cream p-8 rounded-2xl">
+          <div class="flex text-pub-gold mb-4">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-pub-700 italic mb-4">"Super service, lovely ambiance and the prices are quite reasonable. Love the live music on weekends - our new favorite spot!"</p>
+          <p class="font-semibold text-pub-900">— Jennifer K.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Location -->
+  <section id="contact" class="py-20 bg-pub-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <span class="text-pub-rust font-semibold tracking-wider uppercase">Visit Us</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-pub-900 mt-4 mb-8">
+            Join Us at The Swire Inn
+          </h2>
+          
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-pub-900 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-pub-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-pub-900 text-lg">Address</h4>
+                <p class="text-pub-600">64 S Main St<br/>Middletown, OH 45044</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-pub-900 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-pub-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-pub-900 text-lg">Phone</h4>
+                <a href="tel:5133924448" class="text-pub-600 hover:text-pub-gold transition">(513) 392-4448</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-pub-900 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-pub-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-pub-900 text-lg">Hours</h4>
+                <div class="text-pub-600 space-y-1">
+                  <p><span class="font-medium">Tuesday - Thursday:</span> 11:00 AM - 9:00 PM</p>
+                  <p><span class="font-medium">Friday - Saturday:</span> 11:00 AM - 10:00 PM</p>
+                  <p><span class="font-medium text-pub-rust">Monday & Sunday:</span> Closed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex gap-4">
+            <a href="https://www.facebook.com/swireinn" target="_blank" class="w-12 h-12 bg-pub-900 rounded-full flex items-center justify-center hover:bg-pub-gold transition group">
+              <svg class="w-6 h-6 text-pub-gold group-hover:text-pub-900" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="https://www.toasttab.com/local/order/the-swire-inn" target="_blank" class="bg-pub-900 text-pub-cream px-6 py-3 rounded-full font-semibold hover:bg-pub-gold hover:text-pub-900 transition inline-flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+              Order Online
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden h-[400px]">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3078.1234567890123!2d-84.39612345678901!3d39.51512345678901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88401234567890ab%3A0x1234567890abcdef!2sThe%20Swire%20Inn!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-pub-900 text-pub-cream py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div class="md:col-span-2">
+          <span class="font-display text-2xl font-bold text-pub-gold">The Swire Inn</span>
+          <p class="mt-4 text-pub-cream/80 max-w-sm">
+            An English pub-style restaurant serving elevated comfort food in historic downtown Middletown. Craft cocktails, creative cuisine, and warm hospitality since 2019.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-pub-gold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#about" class="text-pub-cream/80 hover:text-pub-gold transition">About Us</a></li>
+            <li><a href="#menu" class="text-pub-cream/80 hover:text-pub-gold transition">Menu</a></li>
+            <li><a href="https://www.toasttab.com/local/order/the-swire-inn" target="_blank" class="text-pub-cream/80 hover:text-pub-gold transition">Order Online</a></li>
+            <li><a href="#contact" class="text-pub-cream/80 hover:text-pub-gold transition">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-pub-gold mb-4">Contact</h4>
+          <ul class="space-y-2 text-pub-cream/80">
+            <li>64 S Main St</li>
+            <li>Middletown, OH 45044</li>
+            <li><a href="tel:5133924448" class="hover:text-pub-gold transition">(513) 392-4448</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-pub-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-pub-cream/60 text-sm">
+          © 2026 The Swire Inn. All rights reserved.
+        </p>
+        <div class="flex items-center gap-2 mt-4 md:mt-0">
+          <span class="text-pub-cream/60 text-sm">Website designed by</span>
+          <span class="text-pub-gold font-semibold">SkyConsult</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Toggle -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          mobileMenu.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "The Swire Inn",
+    "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "64 S Main St",
+      "addressLocality": "Middletown",
+      "addressRegion": "OH",
+      "postalCode": "45044",
+      "addressCountry": "US"
+    },
+    "telephone": "+15133924448",
+    "priceRange": "$$",
+    "servesCuisine": ["English Pub Food", "Comfort Food", "American"],
+    "openingHours": [
+      "Tu-Th 11:00-21:00",
+      "Fr-Sa 11:00-22:00"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.4",
+      "reviewCount": "488"
+    }
+  }
+  </script>
 </body>
 </html>
