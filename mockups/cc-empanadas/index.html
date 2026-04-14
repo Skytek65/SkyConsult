@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CC's Empanadas | Authentic Handcrafted Empanadas in Loveland, OH</title>
+  <meta name="description" content="CC's Empanadas serves authentic, handcrafted empanadas made fresh daily in Loveland, OH. Traditional recipes with modern flavors. Order online or visit us today!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#fff8f1',
+              100: '#ffefd6',
+              200: '#ffdca8',
+              300: '#ffc06a',
+              400: '#ff9c2a',
+              500: '#ff7f00',
+              600: '#e06000',
+              700: '#b84700',
+              800: '#963a08',
+              900: '#7a320d',
+            },
+            secondary: {
+              50: '#faf9f6',
+              100: '#f5f2eb',
+              200: '#ebe5d6',
+              300: '#ded4bd',
+              400: '#d0c2a3',
+              500: '#c4b38d',
+              600: '#b09b6e',
+              700: '#967f56',
+              800: '#7d6949',
+              900: '#66553e',
+            },
+            accent: {
+              50: '#fef2f2',
+              100: '#fee2e2',
+              200: '#fecaca',
+              300: '#fca5a5',
+              400: '#f87171',
+              500: '#ef4444',
+              600: '#dc2626',
+              700: '#b91c1c',
+              800: '#991b1b',
+              900: '#7f1d1d',
+            },
+          },
+          fontFamily: {
+            'display': ['Playfair Display', 'serif'],
+            'body': ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *::before, *::after {
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+    
+    h1, h2, h3, h4, h5, h6, p {
+      margin: 0;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+    
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    
+    .gradient-hero {
+      background: linear-gradient(135deg, #ff7f00 0%, #e06000 50%, #b84700 100%);
+    }
+    
+    .gradient-overlay {
+      background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%);
+    }
+    
+    .text-shadow-hero {
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #ff7f00 0%, #e06000 100%);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(224, 96, 0, 0.4);
+    }
+    
+    .btn-secondary {
+      border: 2px solid white;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      background: white;
+      color: #ff7f00;
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #ff7f00;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .floating-cta {
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+    
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .menu-item {
+      transition: all 0.3s ease;
+    }
+    
+    .menu-item:hover {
+      background: rgba(255, 127, 0, 0.05);
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .star-filled {
+      color: #ff7f00;
+    }
+    
+    @media (max-width: 768px) {
+      .text-shadow-hero {
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+      }
+    }
+  </style>
+</head>
+<body class="font-body text-gray-800 antialiased">
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex items-center">
+          <a href="#" class="flex items-center space-x-2">
+            <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center">
+              <span class="text-white font-display font-bold text-xl">CC</span>
+            </div>
+            <span class="font-display font-bold text-2xl text-gray-900">CC's Empanadas</span>
+          </a>
+        </div>
+        
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#menu" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Menu</a>
+          <a href="#about" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Our Story</a>
+          <a href="#reviews" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Reviews</a>
+          <a href="#location" class="nav-link text-gray-700 hover:text-primary-600 font-medium">Location</a>
+          <a href="tel:5132396700" class="btn-primary px-6 py-2.5 rounded-full text-white font-semibold">
+            Call to Order
+          </a>
+        </div>
+        
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+      <div class="px-4 py-4 space-y-3">
+        <a href="#menu" class="block py-2 text-gray-700 hover:text-primary-600 font-medium">Menu</a>
+        <a href="#about" class="block py-2 text-gray-700 hover:text-primary-600 font-medium">Our Story</a>
+        <a href="#reviews" class="block py-2 text-gray-700 hover:text-primary-600 font-medium">Reviews</a>
+        <a href="#location" class="block py-2 text-gray-700 hover:text-primary-600 font-medium">Location</a>
+        <a href="tel:5132396700" class="block w-full text-center btn-primary px-6 py-3 rounded-full text-white font-semibold mt-4">
+          Call (513) 239-6700
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 gradient-hero"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+      <div class="fade-in visible">
+        <div class="inline-block mb-6">
+          <span class="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold tracking-wide uppercase border border-white/30">
+            Now Open in Loveland!
+          </span>
+        </div>
+        
+        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 text-shadow-hero leading-tight">
+          Handcrafted<br>
+          <span class="text-primary-200">Empanadas</span>
+        </h1>
+        
+        <p class="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto text-shadow-hero font-light">
+          Authentic Latin American flavors made fresh daily. Golden, flaky pastry filled with the finest ingredients.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <a href="tel:5132396700" class="btn-primary px-8 py-4 rounded-full text-white font-bold text-lg shadow-xl hover:shadow-2xl flex items-center space-x-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            <span>Call to Order</span>
+          </a>
+          <a href="#menu" class="btn-secondary px-8 py-4 rounded-full text-white font-bold text-lg flex items-center space-x-2">
+            <span>View Menu</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </a>
+        </div>
+        
+        <div class="flex flex-wrap items-center justify-center gap-8 text-white/80 text-sm">
+          <div class="flex items-center space-x-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <span class="font-semibold">4.8</span>
+            <span>(150+ Reviews)</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>Open Today 11AM - 8PM</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span>Loveland, OH</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#menu" class="text-white/80 hover:text-white transition-colors">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="py-20 md:py-32 bg-secondary-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-primary-600 font-semibold tracking-wider uppercase text-sm">Our Menu</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-4">
+          Fresh Made Empanadas
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Each empanada is handcrafted with our signature flaky pastry and filled with authentic recipes passed down through generations.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Traditional Beef -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg card-hover fade-in">
+          <div class="h-48 bg-gradient-to-br from-red-700 to-red-900 flex items-center justify-center">
+            <div class="text-white text-center p-4">
+              <div class="text-5xl mb-2">🥟</div>
+              <div class="font-display font-bold text-xl">Classic Beef</div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-display text-xl font-bold text-gray-900">Traditional Beef</h3>
+              <span class="text-primary-600 font-bold text-lg">$4.50</span>
+            </div>
+            <p class="text-gray-600 mb-4">Seasoned ground beef with onions, peppers, olives, and hard-boiled egg wrapped in our golden pastry.</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs font-medium mr-2">Best Seller</span>
+              <span class="flex items-center">
+                <svg class="w-4 h-4 text-yellow-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+                4.9
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Chicken -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg card-hover fade-in">
+          <div class="h-48 bg-gradient-to-br from-yellow-600 to-orange-600 flex items-center justify-center">
+            <div class="text-white text-center p-4">
+              <div class="text-5xl mb-2">🍗</div>
+              <div class="font-display font-bold text-xl">Chicken</div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-display text-xl font-bold text-gray-900">Pollo Chicken</h3>
+              <span class="text-primary-600 font-bold text-lg">$4.50</span>
+            </div>
+            <p class="text-gray-600 mb-4">Tender shredded chicken with onions, peppers, and our secret blend of Latin spices.</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium mr-2">Popular</span>
+              <span class="flex items-center">
+                <svg class="w-4 h-4 text-yellow-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+                4.8
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Spinach & Cheese -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg card-hover fade-in">
+          <div class="h-48 bg-gradient-to-br from-green-600 to-emerald-700 flex items-center justify-center">
+            <div class="text-white text-center p-4">
+              <div class="text-5xl mb-2">🥬</div>
+              <div class="font-display font-bold text-xl">Vegetarian</div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-display text-xl font-bold text-gray-900">Spinach & Cheese</h3>
+              <span class="text-primary-600 font-bold text-lg">$4.00</span>
+            </div>
+            <p class="text-gray-600 mb-4">Fresh spinach sautéed with onions, garlic, and a blend of mozzarella and feta cheese.</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium mr-2">Vegetarian</span>
+              <span class="flex items-center">
+                <svg class="w-4 h-4 text-yellow-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+                4.7
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Ham & Cheese -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg card-hover fade-in">
+          <div class="h-48 bg-gradient-to-br from-pink-600 to-rose-700 flex items-center justify-center">
+            <div class="text-white text-center p-4">
+              <div class="text-5xl mb-2">🧀</div>
+              <div class="font-display font-bold text-xl">Classic</div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-display text-xl font-bold text-gray-900">Ham & Cheese</h3>
+              <span class="text-primary-600 font-bold text-lg">$4.00</span>
+            </div>
+            <p class="text-gray-600 mb-4">Premium ham with melted mozzarella and a touch of cream cheese for extra richness.</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium mr-2">Kids Love It</span>
+              <span class="flex items-center">
+                <svg class="w-4 h-4 text-yellow-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+                4.8
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Corn & Cheese -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg card-hover fade-in">
+          <div class="h-48 bg-gradient-to-br from-yellow-500 to-amber-600 flex items-center justify-center">
+            <div class="text-white text-center p-4">
+              <div class="text-5xl mb-2">🌽</div>
+              <div class="font-display font-bold text-xl">Humita</div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-display text-xl font-bold text-gray-900">Corn & Cheese</h3>
+              <span class="text-primary-600 font-bold text-lg">$4.00</span>
+            </div>
+            <p class="text-gray-600 mb-4">Sweet corn kernels with mozzarella, basil, and a hint of paprika. A sweet & savory delight!</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs font-medium mr-2">Unique</span>
+              <span class="flex items-center">
+                <svg class="w-4 h-4 text-yellow-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+                4.9
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- BBQ Pulled Pork -->
+        <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg card-hover fade-in">
+          <div class="h-48 bg-gradient-to-br from-amber-800 to-orange-900 flex items-center justify-center">
+            <div class="text-white text-center p-4">
+              <div class="text-5xl mb-2">🍖</div>
+              <div class="font-display font-bold text-xl">BBQ</div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-display text-xl font-bold text-gray-900">BBQ Pulled Pork</h3>
+              <span class="text-primary-600 font-bold text-lg">$5.00</span>
+            </div>
+            <p class="text-gray-600 mb-4">Slow-smoked pulled pork tossed in our tangy BBQ sauce with caramelized onions.</p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-medium mr-2">New!</span>
+              <span class="flex items-center">
+                <svg class="w-4 h-4 text-yellow-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+                4.8
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Combo Deals -->
+      <div class="mt-16 bg-white rounded-3xl p-8 md:p-12 shadow-xl fade-in">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <span class="text-primary-600 font-semibold tracking-wider uppercase text-sm">Special Offers</span>
+            <h3 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+              Combo Deals & Catering
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Perfect for lunch, dinner, or your next event. Mix and match your favorites and save!
+            </p>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-primary-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                3 Empanadas + Drink - $14.99
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-primary-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                6 Empanadas + 2 Drinks - $27.99
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-primary-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                Dozen Empanadas - $48 (Perfect for Parties!)
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-primary-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                Catering Available - Call for Quote
+              </li>
+            </ul>
+            <a href="tel:5132396700" class="btn-primary inline-flex items-center px-8 py-4 rounded-full text-white font-bold text-lg">
+              Order Now
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+          </div>
+          <div class="relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl transform rotate-3"></div>
+            <div class="relative bg-white p-8 rounded-2xl shadow-lg">
+              <div class="text-center">
+                <div class="text-6xl mb-4">🎉</div>
+                <h4 class="font-display text-2xl font-bold text-gray-900 mb-2">First-Time Customer?</h4>
+                <p class="text-gray-600 mb-4">Mention this website and get <span class="text-primary-600 font-bold">10% OFF</span> your first order!</p>
+                <div class="bg-primary-50 rounded-lg p-4">
+                  <p class="text-sm text-gray-600">Valid for dine-in or takeout. One per customer.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- About Section -->
+  <section id="about" class="py-20 md:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="fade-in">
+          <span class="text-primary-600 font-semibold tracking-wider uppercase text-sm">Our Story</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-6">
+            Authentic Recipes,<br>Local Heart
+          </h2>
+          <p class="text-lg text-gray-600 mb-6">
+            CC's Empanadas was born from a passion for authentic Latin American cuisine and a dream to share family recipes with the Loveland community.
+          </p>
+          <p class="text-lg text-gray-600 mb-6">
+            Every empanada is handcrafted fresh daily using time-honored techniques passed down through generations. We use only the finest ingredients, from premium meats to locally sourced vegetables when possible.
+          </p>
+          <p class="text-lg text-gray-600 mb-8">
+            What started as a small kitchen experiment has grown into a beloved local spot where families, friends, and food lovers gather to enjoy a taste of Latin America right here in Ohio.
+          </p>
+          
+          <div class="grid grid-cols-3 gap-6 mb-8">
+            <div class="text-center">
+              <div class="text-3xl font-display font-bold text-primary-600">5+</div>
+              <div class="text-sm text-gray-600">Years Serving Loveland</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-display font-bold text-primary-600">12+</div>
+              <div class="text-sm text-gray-600">Unique Flavors</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-display font-bold text-primary-600">50K+</div>
+              <div class="text-sm text-gray-600">Empanadas Sold</div>
+            </div>
+          </div>
+          
+          <div class="flex flex-wrap gap-4">
+            <div class="flex items-center bg-secondary-50 px-4 py-2 rounded-full">
+              <svg class="w-5 h-5 text-primary-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span class="text-gray-700 font-medium">Made Fresh Daily</span>
+            </div>
+            <div class="flex items-center bg-secondary-50 px-4 py-2 rounded-full">
+              <svg class="w-5 h-5 text-primary-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span class="text-gray-700 font-medium">Authentic Recipes</span>
+            </div>
+            <div class="flex items-center bg-secondary-50 px-4 py-2 rounded-full">
+              <svg class="w-5 h-5 text-primary-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span class="text-gray-700 font-medium">Family Owned</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative fade-in">
+          <div class="absolute -top-4 -right-4 w-24 h-24 bg-primary-100 rounded-full"></div>
+          <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary-200 rounded-full"></div>
+          <div class="relative bg-gradient-to-br from-primary-500 to-primary-700 rounded-3xl p-8 md:p-12 text-white">
+            <div class="text-6xl mb-6">👨‍🍳</div>
+            <h3 class="font-display text-2xl font-bold mb-4">From Our Kitchen to Your Table</h3>
+            <p class="text-white/90 mb-6">
+              We believe great food brings people together. That's why we put love into every empanada we make, using the same care and attention that our grandparents taught us.
+            </p>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+              <p class="text-sm text-white/80 italic">
+                "Our mission is simple: to make the best empanadas you've ever tasted, served with a smile."
+              </p>
+              <p class="text-sm font-semibold mt-2">— The CC's Team</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews" class="py-20 md:py-32 bg-secondary-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in">
+        <span class="text-primary-600 font-semibold tracking-wider uppercase text-sm">Testimonials</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-4">
+          What Our Customers Say
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Don't just take our word for it. Here's what the Loveland community has to say about CC's Empanadas.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Review 1 -->
+        <div class="testimonial-card fade-in">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <span class="ml-2 text-gray-600 font-semibold">5.0</span>
+          </div>
+          <p class="text-gray-700 mb-4 italic">
+            "The best empanadas I've had outside of Argentina! The beef empanada is absolutely incredible - perfectly seasoned, flaky crust, just amazing. I've brought all my friends here and everyone loves it!"
+          </p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 font-bold mr-3">
+              SM
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900">Sarah M.</p>
+              <p class="text-sm text-gray-500">Loveland, OH • 2 weeks ago</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-cream rounded-2xl p-8 shadow-lg scroll-reveal" style="animation-delay: 0.1s;">
+          <div class="flex gap-1 mb-4">
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+          </div>
+          <p class="text-gray-600 mb-6 italic">"We ordered catering for our office party and everyone LOVED it! The Pabellón empanadas were the hit of the day. Will definitely order again."</p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-venezuela-red rounded-full flex items-center justify-center">
+              <span class="text-white font-bold">JK</span>
+            </div>
+            <div>
+              <p class="font-bold text-charcoal">James K.</p>
+              <p class="text-gray-500 text-sm">Cincinnati, OH</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-cream rounded-2xl p-8 shadow-lg scroll-reveal" style="animation-delay: 0.2s;">
+          <div class="flex gap-1 mb-4">
+        <!-- Review 2 -->
+        <div class="testimonial-card fade-in">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <span class="ml-2 text-gray-600 font-semibold">5.0</span>
+          </div>
+          <p class="text-gray-700 mb-4 italic">
+            "We ordered a dozen for our office lunch and everyone was blown away! The variety of flavors is impressive and the quality is consistent. CC's is now our go-to for catering."
+          </p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-secondary-200 rounded-full flex items-center justify-center text-gray-700 font-bold mr-3">
+              MJ
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900">Michael J.</p>
+              <p class="text-sm text-gray-500">Cincinnati, OH • 1 month ago</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Review 3 -->
+        <div class="testimonial-card fade-in">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <span class="ml-2 text-gray-600 font-semibold">5.0</span>
+          </div>
+          <p class="text-gray-700 mb-4 italic">
+            "Finally, authentic empanadas in Loveland! The corn empanada is my favorite - sweet and savory perfection. The owner is so friendly and clearly passionate about the food. Highly recommend!"
+          </p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold mr-3">
+              ER
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900">Emily R.</p>
+              <p class="text-sm text-gray-500">Loveland, OH • 3 weeks ago</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Review 4 -->
+        <div class="testimonial-card fade-in">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <span class="ml-2 text-gray-600 font-semibold">5.0</span>
+          </div>
+          <p class="text-gray-700 mb-4 italic">
+            "My kids are obsessed with the ham and cheese empanadas! We make it a weekly tradition to stop by after school. The staff remembers our names and always has a smile. Love this place!"
+          </p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold mr-3">
+              DL
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900">David L.</p>
+              <p class="text-sm text-gray-500">Mason, OH • 2 months ago</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Review 5 -->
+        <div class="testimonial-card fade-in">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <span class="ml-2 text-gray-600 font-semibold">5.0</span>
+          </div>
+          <p class="text-gray-700 mb-4 italic">
+            "As someone from Colombia, I can tell you these are the real deal. The flavors, the texture of the dough, the fillings - everything is authentic. This place is a gem in Loveland!"
+          </p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600 font-bold mr-3">
+              AP
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900">Ana P.</p>
+              <p class="text-sm text-gray-500">Miami, FL • 1 week ago</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Review 6 -->
+        <div class="testimonial-card fade-in">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <span class="ml-2 text-gray-600 font-semibold">5.0</span>
+          </div>
+          <p class="text-gray-700 mb-4 italic">
+            "We hired CC's for our daughter's graduation party and it was the hit of the event! People couldn't stop talking about the empanadas. Professional, delicious, and great value."
+          </p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold mr-3">
+              RW
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900">Robert W.</p>
+              <p class="text-sm text-gray-500">Montgomery, OH • 1 month ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12 fade-in">
+        <a href="https://facebook.com/ccsempanadas/" target="_blank" class="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-full font-bold text-lg hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl">
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+          Follow Us on Facebook
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location & Hours Section -->
+  <section id="location" class="py-20 md:py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="fade-in">
+          <span class="text-primary-600 font-semibold tracking-wider uppercase text-sm">Visit Us</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-6">
+            Come Taste the Difference
+          </h2>
+          <p class="text-lg text-gray-600 mb-8">
+            We're conveniently located in Loveland, OH. Whether you're grabbing lunch, picking up dinner, or ordering for an event, we can't wait to serve you!
+          </p>
+          
+          <div class="space-y-6 mb-8">
+            <div class="flex items-start">
+              <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 mr-4 flex-shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 text-lg">Address</h4>
+                <p class="text-gray-600">12082 Montgomery Rd, Unit C<br>Loveland, OH 45140</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 mr-4 flex-shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 text-lg">Phone</h4>
+                <a href="tel:5132396700" class="text-primary-600 hover:text-primary-700 font-semibold">(513) 239-6700</a>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 mr-4 flex-shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 text-lg">Email</h4>
+                <a href="mailto:empanadas.cinci@gmail.com" class="text-primary-600 hover:text-primary-700">empanadas.cinci@gmail.com</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-secondary-50 rounded-2xl p-6 mb-8">
+            <h4 class="font-semibold text-gray-900 text-lg mb-4">Hours of Operation</h4>
+            <div class="space-y-2 text-gray-700">
+              <div class="flex justify-between">
+                <span>Monday - Thursday</span>
+                <span class="font-semibold">11:00 AM - 8:00 PM</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Friday - Saturday</span>
+                <span class="font-semibold">11:00 AM - 9:00 PM</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Sunday</span>
+                <span class="font-semibold">12:00 PM - 7:00 PM</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex gap-4">
+            <a href="https://facebook.com/ccsempanadas/" target="_blank" class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="fade-in">
+          <div class="bg-gray-200 rounded-3xl h-96 lg:h-full min-h-[400px] flex items-center justify-center overflow-hidden relative">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3089.841776380961!2d-84.3456!3d39.2456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884050d8e5b9a6a1%3A0x7e5a6a1a1a1a1a1a!2s12082%20Montgomery%20Rd%2C%20Loveland%2C%20OH%2045140!5e0!3m2!1sen!2sus!4v1234567890" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              class="absolute inset-0">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / CTA Section -->
+  <section class="py-20 md:py-32 gradient-hero text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full mix-blend-overlay filter blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-overlay filter blur-3xl"></div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="fade-in">
+        <h2 class="font-display text-4xl md:text-6xl font-bold mb-6 text-shadow-hero">
+          Ready to Order?
+        </h2>
+        <p class="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto">
+          Give us a call or stop by! Fresh empanadas are waiting for you. Perfect for lunch, dinner, parties, and events.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="tel:5132396700" class="bg-white text-primary-600 px-10 py-5 rounded-full font-bold text-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all flex items-center space-x-3">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            <span>(513) 239-6700</span>
+          </a>
+          <a href="mailto:empanadas.cinci@gmail.com" class="border-2 border-white text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-white hover:text-primary-600 transition-all flex items-center space-x-3">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span>Email Us</span>
+          </a>
+        </div>
+        
+        <div class="mt-12 text-white/80">
+          <p class="mb-2">Or visit us at:</p>
+          <p class="font-semibold text-lg">12082 Montgomery Rd, Unit C, Loveland, OH 45140</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center space-x-2 mb-4">
+            <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center">
+              <span class="text-white font-display font-bold text-xl">CC</span>
+            </div>
+            <span class="font-display font-bold text-2xl">CC's Empanadas</span>
+          </div>
+          <p class="text-gray-400 mb-6 max-w-md">
+            Authentic, handcrafted empanadas made with love in Loveland, OH. Using family recipes passed down through generations, we bring the flavors of Latin America to your table.
+          </p>
+          <div class="flex gap-4">
+            <a href="https://facebook.com/ccsempanadas/" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#menu" class="hover:text-primary-400 transition-colors">Menu</a></li>
+            <li><a href="#about" class="hover:text-primary-400 transition-colors">Our Story</a></li>
+            <li><a href="#reviews" class="hover:text-primary-400 transition-colors">Reviews</a></li>
+            <li><a href="#location" class="hover:text-primary-400 transition-colors">Location</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold text-lg mb-4">Contact</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>
+              <a href="tel:5132396700" class="hover:text-primary-400 transition-colors">
+                (513) 239-6700
+              </a>
+            </li>
+            <li>
+              <a href="mailto:empanadas.cinci@gmail.com" class="hover:text-primary-400 transition-colors">
+                empanadas.cinci@gmail.com
+              </a>
+            </li>
+            <li>12082 Montgomery Rd, Unit C</li>
+            <li>Loveland, OH 45140</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 text-sm">
+          © 2026 CC's Empanadas. All rights reserved.
+        </p>
+        <p class="text-gray-500 text-sm mt-2 md:mt-0">
+          Made with ❤️ in Loveland, OH
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating CTA Button -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <a href="tel:5132396700" class="floating-cta bg-primary-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:bg-primary-700 transition-colors">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+      </svg>
+    </a>
+  </div>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close mobile menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+    
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > 100) {
+        navbar.classList.add('shadow-md');
+      } else {
+        navbar.classList.remove('shadow-md');
+      }
+      
+      lastScroll = currentScroll;
+    });
+    
+    // Fade in animation on scroll
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
