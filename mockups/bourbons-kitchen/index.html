@@ -3,12 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bourbon's Kitchen | Craft Burgers, Bourbon & Handcrafted Cocktails | Middletown, OH</title>
-  <meta name="description" content="Elevated American pub grub with over 150 unique bourbons, craft burgers, chicken & waffles, and handcrafted cocktails in Middletown, OH. Best of Butler County Finalist.">
-  <meta name="keywords" content="bourbon bar, craft burgers, chicken and waffles, handcrafted cocktails, Middletown restaurant, Ohio dining">
+  <title>Bourbon's Kitchen | Craft Burgers, Bourbon Bar & Cocktails | Middletown, OH</title>
+  <meta name="description" content="Bourbon's Kitchen in Middletown, OH - Experience 150+ unique bourbons, handcrafted cocktails, and elevated American pub food including our famous Chicken & Waffles and signature steak burgers.">
+  <meta name="keywords" content="bourbon bar, craft burgers, chicken and waffles, cocktails, Middletown OH, restaurant">
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <script>
     tailwind.config = {
       theme: {
@@ -16,989 +22,1094 @@
           colors: {
             bourbon: {
               50: '#fdf8f3',
-              100: '#f8ebe0',
-              200: '#eed4bc',
-              300: '#e3b894',
-              400: '#d89a6e',
-              500: '#cd7b4c',
-              600: '#a65d38',
-              700: '#85482f',
-              800: '#6c3b2a',
-              900: '#583126',
+              100: '#f9e8d7',
+              200: '#f2d0a8',
+              300: '#e9b070',
+              400: '#d4903d',
+              500: '#b87333',
+              600: '#9a5a25',
+              700: '#7c451f',
+              800: '#65381d',
+              900: '#542f1b',
             },
-            dark: {
-              900: '#0a0a0a',
-              800: '#121212',
-              700: '#1a1a1a',
-              600: '#242424',
+            amber: {
+              450: '#d97706',
             }
           },
           fontFamily: {
-            serif: ['Playfair Display', 'serif'],
-            sans: ['Inter', 'sans-serif'],
+            'display': ['Playfair Display', 'serif'],
+            'sans': ['Inter', 'sans-serif'],
           }
         }
       }
     }
   </script>
+  
   <style>
-    .gradient-text {
-      background: linear-gradient(135deg, #e3b894 0%, #d89a6e 50%, #cd7b4c 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    /* Custom Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .hero-gradient {
-      background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(133,72,47,0.3) 50%, rgba(10,10,10,0.9) 100%),
-                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%230a0a0a" width="1200" height="800"/><text fill="%23222" font-family="serif" font-size="24" x="50%" y="50%" text-anchor="middle">Bourbon Bar Interior</text></svg>');
-      background-size: cover;
-      background-position: center;
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-    .glass-card {
-      background: rgba(36, 36, 36, 0.6);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(227, 184, 148, 0.1);
+    
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
-    .gold-border {
-      border: 1px solid rgba(227, 184, 148, 0.3);
+    
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
-    .animate-float {
-      animation: float 6s ease-in-out infinite;
-    }
+    
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
+      50% { transform: translateY(-10px); }
     }
-    .menu-item:hover .menu-price {
-      color: #e3b894;
-      transform: scale(1.1);
+    
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
     }
-    .menu-price {
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out forwards;
+    }
+    
+    .animate-slide-left {
+      animation: slideInLeft 0.8s ease-out forwards;
+    }
+    
+    .animate-slide-right {
+      animation: slideInRight 0.8s ease-out forwards;
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(120, 53, 15, 0.95) 0%, rgba(88, 28, 2, 0.9) 50%, rgba(69, 26, 3, 0.95) 100%);
+    }
+    
+    .section-gradient {
+      background: linear-gradient(180deg, #ffffff 0%, #fdf8f3 100%);
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .menu-item-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(184, 115, 51, 0.15);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #b87333 0%, #9a5a25 100%);
       transition: all 0.3s ease;
     }
-    .section-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #e3b894, transparent);
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(184, 115, 51, 0.4);
+    }
+    
+    .btn-secondary {
+      border: 2px solid #ffffff;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #b87333;
+      border-radius: 5px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9a5a25;
+    }
+    
+    /* Mobile menu animation */
+    .mobile-menu {
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    .mobile-menu.hidden {
+      transform: translateX(100%);
+    }
+    
+    .mobile-menu.visible {
+      transform: translateX(0);
     }
   </style>
 </head>
-<body class="font-sans bg-dark-900 text-white antialiased">
-
+<body class="font-sans antialiased text-gray-800 bg-white">
   <!-- Navigation -->
-  <nav class="fixed w-full z-50 bg-dark-900/95 backdrop-blur-md border-b border-bourbon-900/30">
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
-        <div class="flex-shrink-0">
-          <a href="#" class="font-serif text-2xl font-bold text-bourbon-300">Bourbon's Kitchen</a>
-        </div>
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="#about" class="text-gray-300 hover:text-bourbon-300 transition">About</a>
-          <a href="#menu" class="text-gray-300 hover:text-bourbon-300 transition">Menu</a>
-          <a href="#bourbons" class="text-gray-300 hover:text-bourbon-300 transition">Bourbons</a>
-          <a href="#reviews" class="text-gray-300 hover:text-bourbon-300 transition">Reviews</a>
-          <a href="#contact" class="text-gray-300 hover:text-bourbon-300 transition">Contact</a>
-          <a href="tel:5132170099" class="bg-bourbon-600 hover:bg-bourbon-500 text-white px-6 py-2 rounded-full font-medium transition">
-            <i class="fas fa-phone mr-2"></i>Call Now
+        <!-- Logo -->
+        <div class="flex-shrink-0 flex items-center">
+          <a href="#" class="font-display text-2xl font-bold text-white tracking-wide">
+            Bourbon's <span class="text-bourbon-300">Kitchen</span>
           </a>
         </div>
-        <div class="md:hidden">
-          <button id="mobile-menu-btn" class="text-gray-300 hover:text-white">
-            <i class="fas fa-bars text-2xl"></i>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#menu" class="text-white hover:text-bourbon-300 transition-colors font-medium">Menu</a>
+          <a href="#bourbons" class="text-white hover:text-bourbon-300 transition-colors font-medium">Bourbon Bar</a>
+          <a href="#about" class="text-white hover:text-bourbon-300 transition-colors font-medium">Experience</a>
+          <a href="#location" class="text-white hover:text-bourbon-300 transition-colors font-medium">Location</a>
+          <a href="tel:5132170099" class="btn-primary px-6 py-3 rounded-full text-white font-semibold flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            (513) 217-0099
+          </a>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" class="text-white hover:text-bourbon-300 focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
           </button>
         </div>
       </div>
     </div>
+    
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-t border-bourbon-900/30">
-      <div class="px-4 pt-2 pb-6 space-y-2">
-        <a href="#about" class="block px-3 py-2 text-gray-300 hover:text-bourbon-300">About</a>
-        <a href="#menu" class="block px-3 py-2 text-gray-300 hover:text-bourbon-300">Menu</a>
-        <a href="#bourbons" class="block px-3 py-2 text-gray-300 hover:text-bourbon-300">Bourbons</a>
-        <a href="#reviews" class="block px-3 py-2 text-gray-300 hover:text-bourbon-300">Reviews</a>
-        <a href="#contact" class="block px-3 py-2 text-gray-300 hover:text-bourbon-300">Contact</a>
-        <a href="tel:5132170099" class="block px-3 py-2 text-bourbon-300 font-medium">Call (513) 217-0099</a>
+    <div id="mobile-menu" class="mobile-menu hidden md:hidden fixed inset-0 bg-bourbon-900 z-50">
+      <div class="flex flex-col items-center justify-center h-full space-y-8">
+        <button id="close-menu" class="absolute top-6 right-6 text-white">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+        <a href="#menu" class="text-white text-2xl font-display hover:text-bourbon-300 transition-colors">Menu</a>
+        <a href="#bourbons" class="text-white text-2xl font-display hover:text-bourbon-300 transition-colors">Bourbon Bar</a>
+        <a href="#about" class="text-white text-2xl font-display hover:text-bourbon-300 transition-colors">Experience</a>
+        <a href="#location" class="text-white text-2xl font-display hover:text-bourbon-300 transition-colors">Location</a>
+        <a href="tel:5132170099" class="btn-primary px-8 py-4 rounded-full text-white font-semibold text-xl mt-4">
+          Call (513) 217-0099
+        </a>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-    <div class="absolute inset-0 bg-gradient-to-b from-dark-900/50 via-transparent to-dark-900"></div>
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1920&q=80" 
+        alt="Bourbon bar interior with warm lighting" 
+        class="w-full h-full object-cover"
+      >
+      <div class="hero-gradient absolute inset-0"></div>
+    </div>
     
-    <!-- Decorative Elements -->
-    <div class="absolute top-20 left-10 w-32 h-32 bg-bourbon-600/20 rounded-full blur-3xl animate-float"></div>
-    <div class="absolute bottom-20 right-10 w-48 h-48 bg-bourbon-500/10 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
-    
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center gap-2 bg-bourbon-900/50 border border-bourbon-400/30 rounded-full px-4 py-2 mb-8">
-        <i class="fas fa-award text-bourbon-300"></i>
-        <span class="text-bourbon-200 text-sm font-medium">Best of Butler County Finalist "Best Hidden Gem"</span>
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+      <div class="animate-fade-in-up">
+        <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-8">
+          <svg class="w-5 h-5 text-bourbon-300" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+          </svg>
+          <span class="text-white font-medium">4.7 Stars · 1,600+ Reviews · Middletown's Hidden Gem</span>
+        </div>
+        
+        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+          Where Bourbon<br>
+          <span class="text-bourbon-300">Meets Culinary</span> Excellence
+        </h1>
+        
+        <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto leading-relaxed">
+          Experience over <span class="text-bourbon-300 font-semibold">150 unique bourbons</span>, expertly crafted cocktails, 
+          and elevated American pub fare including our legendary Chicken & Waffles.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="#menu" class="btn-primary px-8 py-4 rounded-full text-white font-semibold text-lg flex items-center gap-2">
+            Explore Our Menu
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </a>
+          <a href="tel:5132170099" class="btn-secondary px-8 py-4 rounded-full text-white font-semibold text-lg">
+            Call to Reserve
+          </a>
+        </div>
       </div>
       
-      <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-        <span class="gradient-text">Craft Burgers</span><br>
-        <span class="text-white">& Bourbon Bar</span>
-      </h1>
-      
-      <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-        Elevated American pub grub with over <span class="text-bourbon-300 font-semibold">150 unique bourbons</span>, handcrafted cocktails, and signature chicken & waffles in the heart of Middletown.
-      </p>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-        <a href="#menu" class="bg-bourbon-600 hover:bg-bourbon-500 text-white px-8 py-4 rounded-full font-semibold text-lg transition transform hover:scale-105 shadow-lg shadow-bourbon-600/30">
-          <i class="fas fa-utensils mr-2"></i>View Menu
-        </a>
-        <a href="tel:5132170099" class="bg-transparent border-2 border-bourbon-400 hover:bg-bourbon-400/10 text-bourbon-300 px-8 py-4 rounded-full font-semibold text-lg transition">
-          <i class="fas fa-phone mr-2"></i>(513) 217-0099
-        </a>
-      </div>
-      
-      <!-- Trust Indicators -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-        <div class="glass-card rounded-2xl p-6 text-center">
-          <div class="text-3xl font-bold text-bourbon-300 mb-1">4.6</div>
-          <div class="flex justify-center text-bourbon-400 mb-2">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-          </div>
-          <div class="text-gray-400 text-sm">282 Yelp Reviews</div>
+      <!-- Floating Stats -->
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div class="glass-card rounded-2xl p-6 text-center animate-float" style="animation-delay: 0s;">
+          <div class="text-4xl font-bold text-bourbon-600 mb-2">150+</div>
+          <div class="text-gray-700 font-medium">Unique Bourbons</div>
         </div>
-        <div class="glass-card rounded-2xl p-6 text-center">
-          <div class="text-3xl font-bold text-bourbon-300 mb-1">150+</div>
-          <div class="text-bourbon-400 mb-2"><i class="fas fa-wine-bottle text-xl"></i></div>
-          <div class="text-gray-400 text-sm">Unique Bourbons</div>
+        <div class="glass-card rounded-2xl p-6 text-center animate-float" style="animation-delay: 0.5s;">
+          <div class="text-4xl font-bold text-bourbon-600 mb-2">4.7</div>
+          <div class="text-gray-700 font-medium">Google Rating</div>
         </div>
-        <div class="glass-card rounded-2xl p-6 text-center">
-          <div class="text-3xl font-bold text-bourbon-300 mb-1">4.7</div>
-          <div class="flex justify-center text-bourbon-400 mb-2">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-          </div>
-          <div class="text-gray-400 text-sm">Google Reviews</div>
-        </div>
-        <div class="glass-card rounded-2xl p-6 text-center">
-          <div class="text-3xl font-bold text-bourbon-300 mb-1">$</div>
-          <div class="text-bourbon-400 mb-2"><i class="fas fa-dollar-sign text-xl"></i><i class="fas fa-dollar-sign text-xl"></i></div>
-          <div class="text-gray-400 text-sm">$10-20 Per Person</div>
+        <div class="glass-card rounded-2xl p-6 text-center animate-float" style="animation-delay: 1s;">
+          <div class="text-4xl font-bold text-bourbon-600 mb-2">$10-20</div>
+          <div class="text-gray-700 font-medium">Per Person</div>
         </div>
       </div>
     </div>
     
     <!-- Scroll Indicator -->
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <i class="fas fa-chevron-down text-bourbon-400 text-2xl"></i>
+      <svg class="w-8 h-8 text-white opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      </svg>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-24 bg-dark-800">
+  <!-- Experience Section -->
+  <section id="about" class="section-gradient py-24 lg:py-32">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div class="order-2 lg:order-1">
-          <div class="relative">
-            <div class="absolute -top-4 -left-4 w-24 h-24 bg-bourbon-600/20 rounded-full blur-2xl"></div>
-            <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-bourbon-500/20 rounded-full blur-2xl"></div>
-            <div class="relative glass-card rounded-3xl p-8 gold-border">
-              <div class="aspect-video bg-dark-700 rounded-2xl flex items-center justify-center mb-6">
-                <div class="text-center">
-                  <i class="fas fa-image text-6xl text-bourbon-700 mb-4"></i>
-                  <p class="text-gray-500">Restaurant Interior</p>
-                  <p class="text-gray-600 text-sm">Modern, sleek atmosphere with TVs</p>
-                </div>
-              </div>
-              <div class="grid grid-cols-2 gap-4">
-                <div class="bg-dark-700 rounded-xl p-4 text-center">
-                  <i class="fas fa-cocktail text-2xl text-bourbon-400 mb-2"></i>
-                  <p class="text-sm text-gray-400">Craft Cocktails</p>
-                </div>
-                <div class="bg-dark-700 rounded-xl p-4 text-center">
-                  <i class="fas fa-tv text-2xl text-bourbon-400 mb-2"></i>
-                  <p class="text-sm text-gray-400">Multiple TVs</p>
-                </div>
-              </div>
-            </div>
+        <!-- Content -->
+        <div class="animate-slide-left">
+          <div class="inline-block bg-bourbon-100 text-bourbon-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            The Experience
           </div>
-        </div>
-        
-        <div class="order-1 lg:order-2">
-          <span class="text-bourbon-400 font-semibold tracking-wider uppercase text-sm">About Us</span>
-          <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
-            Where Craft Meets <span class="gradient-text">Comfort</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            Taking the Classic American Pub to the <span class="text-bourbon-600">Next Level</span>
           </h2>
-          <p class="text-gray-300 text-lg leading-relaxed mb-6">
-            Bourbon's Kitchen takes the classic American pub experience to the next level with its modern, sleek atmosphere and exceptional menu. We're not just a restaurant—we're a destination for bourbon enthusiasts, craft cocktail lovers, and anyone who appreciates elevated comfort food.
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Bourbon's Kitchen isn't just a restaurant—it's a destination. Our modern, sleek atmosphere combines 
+            the warmth of a neighborhood bar with the sophistication of an upscale bourbon lounge. Whether 
+            you're catching the game on one of our many TVs or enjoying an intimate dinner, every visit is an 
+            experience to remember.
           </p>
-          <p class="text-gray-300 text-lg leading-relaxed mb-8">
-            From our signature Chicken & Waffles to our Grippo's-encrusted burgers and expertly crafted Smoked Old Fashioneds, every dish and drink is designed to delight. With over 150 unique bourbons and a rotating selection of craft beers on tap, there's always something new to discover.
+          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            Our expert bartenders craft cocktails that range from timeless classics like the Old Fashioned 
+            to innovative creations featuring rare and allocated bourbons. Meanwhile, our kitchen serves up 
+            elevated comfort food that transforms familiar favorites into extraordinary dishes.
           </p>
           
           <div class="grid grid-cols-2 gap-6">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-bourbon-900/50 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-drumstick-bite text-bourbon-400 text-xl"></i>
+            <div class="flex items-start gap-3">
+              <div class="w-12 h-12 bg-bourbon-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-bourbon-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
               </div>
               <div>
-                <h4 class="font-semibold text-white mb-1">Signature Dishes</h4>
-                <p class="text-gray-400 text-sm">Chicken & Waffles, Truffle Burgers</p>
+                <h4 class="font-semibold text-gray-900">Multiple TVs</h4>
+                <p class="text-gray-600 text-sm">Perfect for game days</p>
               </div>
             </div>
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-bourbon-900/50 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-wine-glass text-bourbon-400 text-xl"></i>
+            <div class="flex items-start gap-3">
+              <div class="w-12 h-12 bg-bourbon-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-bourbon-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"/>
+                </svg>
               </div>
               <div>
-                <h4 class="font-semibold text-white mb-1">Craft Cocktails</h4>
-                <p class="text-gray-400 text-sm">Smoked Old Fashioned, Manhattans</p>
+                <h4 class="font-semibold text-gray-900">Private Events</h4>
+                <p class="text-gray-600 text-sm">Host your celebration</p>
               </div>
             </div>
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-bourbon-900/50 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-calendar-alt text-bourbon-400 text-xl"></i>
+            <div class="flex items-start gap-3">
+              <div class="w-12 h-12 bg-bourbon-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-bourbon-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
               </div>
               <div>
-                <h4 class="font-semibold text-white mb-1">Private Events</h4>
-                <p class="text-gray-400 text-sm">Host your special occasions</p>
+                <h4 class="font-semibold text-gray-900">Happy Hour</h4>
+                <p class="text-gray-600 text-sm">Great deals daily</p>
               </div>
             </div>
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-bourbon-900/50 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-gift text-bourbon-400 text-xl"></i>
+            <div class="flex items-start gap-3">
+              <div class="w-12 h-12 bg-bourbon-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-bourbon-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                </svg>
               </div>
               <div>
-                <h4 class="font-semibold text-white mb-1">Gift Cards</h4>
-                <p class="text-gray-400 text-sm">Perfect for any occasion</p>
+                <h4 class="font-semibold text-gray-900">Craft Cocktails</h4>
+                <p class="text-gray-600 text-sm">Expertly mixed drinks</p>
               </div>
             </div>
+          </div>
+        </div>
+        
+        <!-- Image Grid -->
+        <div class="relative animate-slide-right">
+          <div class="grid grid-cols-2 gap-4">
+            <img 
+              src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=600&q=80" 
+              alt="Craft cocktail with bourbon" 
+              class="rounded-2xl shadow-2xl w-full h-64 object-cover transform translate-y-8"
+            >
+            <img 
+              src="https://images.unsplash.com/photo-1559329007-40df785a9035?w=600&q=80" 
+              alt="Gourmet burger with fries" 
+              class="rounded-2xl shadow-2xl w-full h-64 object-cover"
+            >
+            <img 
+              src="https://images.unsplash.com/photo-1560512826-1f18a77624ba?w=600&q=80" 
+              alt="Bourbon bar interior" 
+              class="rounded-2xl shadow-2xl w-full h-64 object-cover transform translate-y-8"
+            >
+            <img 
+              src="https://images.unsplash.com/photo-1561758033-d8f3409f3515?w=600&q=80" 
+              alt="Chicken and waffles dish" 
+              class="rounded-2xl shadow-2xl w-full h-64 object-cover"
+            >
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Signature Dishes -->
-  <section class="py-24 bg-dark-900 relative overflow-hidden">
-    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-bourbon-900/10 to-transparent"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-16">
-        <span class="text-bourbon-400 font-semibold tracking-wider uppercase text-sm">Customer Favorites</span>
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mt-4">
-          Our <span class="gradient-text">Signature</span> Selections
-        </h2>
-        <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
-          These dishes have earned us rave reviews and loyal customers. Try them and taste why we're a Best of Butler County Finalist.
-        </p>
-      </div>
-      
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Signature 1 -->
-        <div class="glass-card rounded-3xl overflow-hidden group hover:transform hover:scale-105 transition duration-300">
-          <div class="aspect-square bg-dark-700 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center">
-                <i class="fas fa-image text-6xl text-bourbon-700 mb-4"></i>
-                <p class="text-gray-500">Chicken & Waffles</p>
-              </div>
-            </div>
-            <div class="absolute top-4 right-4 bg-bourbon-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-              MUST TRY
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-serif text-2xl font-bold text-white mb-2">Chicken & Waffles</h3>
-            <p class="text-gray-400 mb-4">Belgian waffles with Bulliard's honey hot crispy chicken tenders and maple syrup. Our signature dish!</p>
-            <div class="flex justify-between items-center">
-              <span class="text-bourbon-300 text-2xl font-bold">$18</span>
-              <div class="flex text-bourbon-400">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Signature 2 -->
-        <div class="glass-card rounded-3xl overflow-hidden group hover:transform hover:scale-105 transition duration-300">
-          <div class="aspect-square bg-dark-700 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center">
-                <i class="fas fa-image text-6xl text-bourbon-700 mb-4"></i>
-                <p class="text-gray-500">Grippo's Burger</p>
-              </div>
-            </div>
-            <div class="absolute top-4 right-4 bg-bourbon-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-              FAN FAVORITE
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-serif text-2xl font-bold text-white mb-2">Grippo's Burger</h3>
-            <p class="text-gray-400 mb-4">Muenster cheese, fancy sauce, creamy coleslaw, crushed Grippo's chips, smoked bacon on brioche bun.</p>
-            <div class="flex justify-between items-center">
-              <span class="text-bourbon-300 text-2xl font-bold">$17</span>
-              <div class="flex text-bourbon-400">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Signature 3 -->
-        <div class="glass-card rounded-3xl overflow-hidden group hover:transform hover:scale-105 transition duration-300">
-          <div class="aspect-square bg-dark-700 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center">
-                <i class="fas fa-image text-6xl text-bourbon-700 mb-4"></i>
-                <p class="text-gray-500">Truffle & Gouda Burger</p>
-              </div>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-serif text-2xl font-bold text-white mb-2">Truffle & Gouda Burger</h3>
-            <p class="text-gray-400 mb-4">Truffle aioli, smoked gouda, house-made bacon onion jam, lettuce, tomato on brioche bun.</p>
-            <div class="flex justify-between items-center">
-              <span class="text-bourbon-300 text-2xl font-bold">$18</span>
-              <div class="flex text-bourbon-400">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Full Menu Section -->
-  <section id="menu" class="py-24 bg-dark-800">
+  <!-- Menu Highlights Section -->
+  <section id="menu" class="py-24 lg:py-32 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
       <div class="text-center mb-16">
-        <span class="text-bourbon-400 font-semibold tracking-wider uppercase text-sm">Our Menu</span>
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mt-4 mb-4">
-          Elevated <span class="gradient-text">American Pub Grub</span>
+        <div class="inline-block bg-bourbon-100 text-bourbon-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+          Our Menu
+        </div>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Elevated Comfort Food
         </h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">
-          From starters to desserts, every dish is crafted with care. Ask your server about our seasonal specials!
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          From legendary Chicken & Waffles to our signature steak burgers, every dish is crafted with passion and precision.
         </p>
       </div>
       
-      <!-- Menu Categories -->
-      <div class="space-y-16">
-        
-        <!-- Starters -->
-        <div>
-          <div class="flex items-center gap-4 mb-8">
-            <div class="w-12 h-12 bg-bourbon-900/50 rounded-xl flex items-center justify-center">
-              <i class="fas fa-utensils text-bourbon-400 text-xl"></i>
+      <!-- Featured Items -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <!-- Chicken & Waffles -->
+        <div class="menu-item-hover bg-gray-50 rounded-2xl overflow-hidden transition-all duration-300">
+          <div class="relative h-56 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1561758033-d8f3409f3515?w=600&q=80" 
+              alt="Chicken & Waffles" 
+              class="w-full h-full object-cover"
+            >
+            <div class="absolute top-4 right-4 bg-bourbon-600 text-white px-4 py-2 rounded-full font-bold">
+              $18
             </div>
-            <h3 class="font-serif text-3xl font-bold text-white">Starters</h3>
-            <div class="flex-1 section-divider"></div>
           </div>
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Queso Poutine Fries</h4>
-                <p class="text-gray-400 text-sm">Queso, grilled chicken, tomatoes, sunny side up egg, sweet & tangy bbq, scallions</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$16</span>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Chicken & Waffles</h3>
+            <p class="text-gray-600 mb-4">Belgian waffles with Bulliard's honey hot crispy chicken tenders, maple syrup, powdered sugar, and scallions. Our signature dish!</p>
+            <div class="flex items-center gap-2 text-bourbon-600">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <span class="font-semibold">10 Reviews · 30 Photos</span>
             </div>
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Bone-in Wings</h4>
-                <p class="text-gray-400 text-sm">8 wings, sous vide & broasted, bourbon bbq dry rub, side of ranch</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$16</span>
+          </div>
+        </div>
+        
+        <!-- Queso Poutine Fries -->
+        <div class="menu-item-hover bg-gray-50 rounded-2xl overflow-hidden transition-all duration-300">
+          <div class="relative h-56 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=600&q=80" 
+              alt="Queso Poutine Fries" 
+              class="w-full h-full object-cover"
+            >
+            <div class="absolute top-4 right-4 bg-bourbon-600 text-white px-4 py-2 rounded-full font-bold">
+              $16
             </div>
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Dynamite Shrimp</h4>
-                <p class="text-gray-400 text-sm">Crispy shrimp, dynamite sauce, creamy coleslaw, scallions</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$13</span>
-            </div>
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Chicken Lettuce Wraps</h4>
-                <p class="text-gray-400 text-sm">Elote corn, fire roasted salsa, grilled chicken, pickled onions, cilantro, ancho chili crema</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$15</span>
-            </div>
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Chicken Potstickers</h4>
-                <p class="text-gray-400 text-sm">Elote corn, mae ploy sweet chili, scallions</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$13</span>
-            </div>
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Cauliflower Wings</h4>
-                <p class="text-gray-400 text-sm">Flash fried, choice of sauce: parmesan garlic, sweet chili, hot, honey hot, bbq, grippo's, or dynamite</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$15</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Queso Poutine Fries</h3>
+            <p class="text-gray-600 mb-4">Golden fries smothered in rich queso, topped with crispy bacon bits and fresh scallions. The ultimate starter to share.</p>
+            <div class="flex items-center gap-2 text-bourbon-600">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <span class="font-semibold">5 Reviews · 15 Photos</span>
             </div>
           </div>
         </div>
         
         <!-- Steak Burgers -->
-        <div>
-          <div class="flex items-center gap-4 mb-8">
-            <div class="w-12 h-12 bg-bourbon-900/50 rounded-xl flex items-center justify-center">
-              <i class="fas fa-hamburger text-bourbon-400 text-xl"></i>
+        <div class="menu-item-hover bg-gray-50 rounded-2xl overflow-hidden transition-all duration-300">
+          <div class="relative h-56 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=600&q=80" 
+              alt="Signature Steak Burgers" 
+              class="w-full h-full object-cover"
+            >
+            <div class="absolute top-4 right-4 bg-bourbon-600 text-white px-4 py-2 rounded-full font-bold">
+              $15-19
             </div>
-            <h3 class="font-serif text-3xl font-bold text-white">Steak Burgers</h3>
-            <div class="flex-1 section-divider"></div>
           </div>
-          <p class="text-gray-400 mb-6 text-sm italic">Double steak patties. Served with fries. Sub sweet potato waffle fries $4 • Mac 'n cheese $4.5 • French onion soup $4.5</p>
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">All American <span class="text-bourbon-400 text-sm font-normal">+ egg $2</span></h4>
-                <p class="text-gray-400 text-sm">American cheese, lettuce, tomato, onions, mayo, smoked bacon, brioche bun</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$15</span>
-            </div>
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Grippo's</h4>
-                <p class="text-gray-400 text-sm">Muenster cheese, fancy sauce, creamy coleslaw, crushed grippo's, smoked bacon, brioche bun</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$17</span>
-            </div>
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Bourbon's Melt</h4>
-                <p class="text-gray-400 text-sm">Pepperjack cheese, american cheese, pickled jalapeños, fancy sauce, sourdough bread</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$17</span>
-            </div>
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Truffle & Gouda</h4>
-                <p class="text-gray-400 text-sm">Truffle aioli, smoked gouda, house made bacon onion jam, lettuce, tomato, brioche bun</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$18</span>
-            </div>
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">In 'N Out</h4>
-                <p class="text-gray-400 text-sm">American cheese, pickles, mustard, fancy sauce, flattop onions, brioche bun</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$16</span>
-            </div>
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Bernie Mac</h4>
-                <p class="text-gray-400 text-sm">Pepperjack cheese, sweet & tangy bbq, white cheddar mac'n cheese, smoked bacon, brioche bun</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$19</span>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Signature Steak Burgers</h3>
+            <p class="text-gray-600 mb-4">Hand-crafted steak burgers including the All American, Grippo's (with crushed Grippo's chips), Truffle & Gouda, and the famous Bernie Mac.</p>
+            <div class="flex items-center gap-2 text-bourbon-600">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <span class="font-semibold">Customer Favorite</span>
             </div>
           </div>
         </div>
         
-        <!-- Chicken -->
-        <div>
-          <div class="flex items-center gap-4 mb-8">
-            <div class="w-12 h-12 bg-bourbon-900/50 rounded-xl flex items-center justify-center">
-              <i class="fas fa-drumstick-bite text-bourbon-400 text-xl"></i>
+        <!-- Chicken Tenders -->
+        <div class="menu-item-hover bg-gray-50 rounded-2xl overflow-hidden transition-all duration-300">
+          <div class="relative h-56 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600&q=80" 
+              alt="Chicken Tender Platter" 
+              class="w-full h-full object-cover"
+            >
+            <div class="absolute top-4 right-4 bg-bourbon-600 text-white px-4 py-2 rounded-full font-bold">
+              $19
             </div>
-            <h3 class="font-serif text-3xl font-bold text-white">Chicken Dishes</h3>
-            <div class="flex-1 section-divider"></div>
           </div>
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Chicken & Waffles</h4>
-                <p class="text-gray-400 text-sm">Belgian waffles, Bulliard's honey hot crispy chicken tenders, maple syrup</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$18</span>
-            </div>
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Chicken Tender Platter</h4>
-                <p class="text-gray-400 text-sm">1/2 lb. of hand breaded crispy chicken tenders, fries, creamy coleslaw, choice of sauce</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$19</span>
-            </div>
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Bourbon's Crispy Chicken Sandwich</h4>
-                <p class="text-gray-400 text-sm">Lettuce, crispy chicken, Bulliard's honey hot sauce, elote corn, brioche bun, with fries</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$17</span>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Chicken Tender Platter</h3>
+            <p class="text-gray-600 mb-4">1/2 lb of hand-breaded, crispy chicken tenders served with fries, creamy coleslaw, and your choice of sauce. Parmesan garlic, sweet chili, hot, honey hot, or BBQ.</p>
+            <div class="flex items-center gap-2 text-bourbon-600">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <span class="font-semibold">2 Reviews · 2 Photos</span>
             </div>
           </div>
         </div>
         
-        <!-- Soup & Salad -->
-        <div>
-          <div class="flex items-center gap-4 mb-8">
-            <div class="w-12 h-12 bg-bourbon-900/50 rounded-xl flex items-center justify-center">
-              <i class="fas fa-bowl-food text-bourbon-400 text-xl"></i>
+        <!-- Truffle Fries -->
+        <div class="menu-item-hover bg-gray-50 rounded-2xl overflow-hidden transition-all duration-300">
+          <div class="relative h-56 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1573080496987-a199f8cd1b36?w=600&q=80" 
+              alt="Truffle Fries" 
+              class="w-full h-full object-cover"
+            >
+            <div class="absolute top-4 right-4 bg-bourbon-600 text-white px-4 py-2 rounded-full font-bold">
+              $7
             </div>
-            <h3 class="font-serif text-3xl font-bold text-white">Soup & Salad</h3>
-            <div class="flex-1 section-divider"></div>
           </div>
-          <p class="text-gray-400 mb-6 text-sm italic">Add grilled or hand breaded chicken $7 • Add grilled or crispy shrimp $7</p>
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">French Onion Soup</h4>
-                <p class="text-gray-400 text-sm">House made croutons, chives, topped with white cheddar mac'n cheese</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$9</span>
-            </div>
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Caesar Salad</h4>
-                <p class="text-gray-400 text-sm">Romaine lettuce, parmesan cheese, croutons, caesar dressing</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$11</span>
-            </div>
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Chop Chop Salad</h4>
-                <p class="text-gray-400 text-sm">Crisp lettuce, tomatoes, smoked bacon, house made croutons, balsamic vinaigrette</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$11</span>
-            </div>
-            <div class="menu-item glass-card rounded-2xl p-6 flex justify-between items-start">
-              <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Southwest Salad</h4>
-                <p class="text-gray-400 text-sm">Crisp lettuce, elote corn, tomatoes, buttermilk ranch dressing, crispy onions</p>
-              </div>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$11</span>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Truffle Fries</h3>
+            <p class="text-gray-600 mb-4">Crispy golden fries tossed with truffle oil and topped with parmesan cheese. The perfect side to any burger or sandwich.</p>
+            <div class="flex items-center gap-2 text-bourbon-600">
+              <span class="font-semibold">Available as Side (+$4.50) or Substitution</span>
             </div>
           </div>
         </div>
         
-        <!-- Desserts -->
-        <div>
-          <div class="flex items-center gap-4 mb-8">
-            <div class="w-12 h-12 bg-bourbon-900/50 rounded-xl flex items-center justify-center">
-              <i class="fas fa-ice-cream text-bourbon-400 text-xl"></i>
-            </div>
-            <h3 class="font-serif text-3xl font-bold text-white">Desserts</h3>
-            <div class="flex-1 section-divider"></div>
-          </div>
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="menu-item glass-card rounded-2xl p-6 text-center">
-              <h4 class="font-semibold text-white text-lg mb-2">Pumpkin Pie Cheesecake</h4>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$10</span>
-            </div>
-            <div class="menu-item glass-card rounded-2xl p-6 text-center">
-              <h4 class="font-semibold text-white text-lg mb-2">Triple Layer Chocolate Cake</h4>
-              <p class="text-gray-400 text-sm mb-2">Chocolate mousse, fudge brownie, chocolate chips</p>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$10</span>
-            </div>
-            <div class="menu-item glass-card rounded-2xl p-6 text-center">
-              <h4 class="font-semibold text-white text-lg mb-2">Crème Brûlée Cheesecake</h4>
-              <p class="text-gray-400 text-sm mb-2">Graham cracker crust, madagascar vanilla bean, burnt sugar, raspberry sauce</p>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$10</span>
-            </div>
-            <div class="menu-item glass-card rounded-2xl p-6 text-center border-2 border-bourbon-500/50">
-              <div class="text-bourbon-400 text-xs font-semibold mb-2">CUSTOMER FAVORITE</div>
-              <h4 class="font-semibold text-white text-lg mb-2">Salted Caramel Waffle</h4>
-              <p class="text-gray-400 text-sm mb-2">Belgian waffle, salted caramel ice cream, chocolate & caramel sauce</p>
-              <span class="menu-price text-bourbon-300 text-xl font-bold">$9</span>
+        <!-- Kids Menu -->
+        <div class="menu-item-hover bg-gray-50 rounded-2xl overflow-hidden transition-all duration-300">
+          <div class="relative h-56 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" 
+              alt="Kids Menu" 
+              class="w-full h-full object-cover"
+            >
+            <div class="absolute top-4 right-4 bg-bourbon-600 text-white px-4 py-2 rounded-full font-bold">
+              $8.50
             </div>
           </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Kids Menu</h3>
+            <p class="text-gray-600 mb-4">Perfect for little ones! Choose from Boneless Wings & Fries, Mac 'n Cheese & Fries, Grilled Cheese & Fries, or a Kids Cheeseburger. All include a drink.</p>
+            <div class="flex items-center gap-2 text-bourbon-600">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+              <span class="font-semibold">Family Friendly</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- View Full Menu CTA -->
+      <div class="text-center">
+        <p class="text-gray-600 mb-4">Ask your server about our seasonal menu and daily specials!</p>
+        <a href="tel:5132170099" class="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-semibold text-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          Call to Order or Reserve
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bourbon Bar Section -->
+  <section id="bourbons" class="relative py-24 lg:py-32 overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80" 
+        alt="Bourbon bottles collection" 
+        class="w-full h-full object-cover"
+      >
+      <div class="absolute inset-0 bg-gradient-to-r from-bourbon-900/95 via-bourbon-800/90 to-bourbon-900/95"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-8">
+          <svg class="w-6 h-6 text-bourbon-300" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+          </svg>
+          <span class="text-white font-medium">Over 150 Unique Bourbons</span>
+        </div>
+        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          The Bourbon Experience
+        </h2>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          From rare allocated bottles to timeless classics, our bourbon collection is curated for both 
+          the connoisseur and the curious. Let our expert bartenders guide you on a journey through 
+          Kentucky's finest.
+        </p>
+      </div>
+      
+      <!-- Featured Cocktails -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Old Fashioned -->
+        <div class="glass-card rounded-2xl p-8 text-center">
+          <div class="w-20 h-20 bg-bourbon-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-bourbon-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Old Fashioned</h3>
+          <p class="text-gray-600 mb-4">The classic bourbon cocktail. Expertly crafted with your choice of bourbon, bitters, sugar, and a twist of citrus.</p>
+          <div class="text-bourbon-600 font-bold text-xl">$12+</div>
+          <div class="flex items-center justify-center gap-1 text-bourbon-500 mt-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <span class="text-sm font-medium">8 Reviews</span>
+          </div>
+        </div>
+        
+        <!-- Manhattan -->
+        <div class="glass-card rounded-2xl p-8 text-center">
+          <div class="w-20 h-20 bg-bourbon-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-bourbon-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Manhattan</h3>
+          <p class="text-gray-600 mb-4">Sophisticated and smooth. Rye whiskey, sweet vermouth, and bitters create this timeless New York classic.</p>
+          <div class="text-bourbon-600 font-bold text-xl">$13+</div>
+          <div class="mt-2 text-sm text-gray-500">Expertly Crafted</div>
+        </div>
+        
+        <!-- Bourbon Flights -->
+        <div class="glass-card rounded-2xl p-8 text-center">
+          <div class="w-20 h-20 bg-bourbon-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-bourbon-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Bourbon Flights</h3>
+          <p class="text-gray-600 mb-4">Explore the world of bourbon with our curated flights. From smooth wheated bourbons to bold high-rye options.</p>
+          <div class="text-bourbon-600 font-bold text-xl">$15-25</div>
+          <div class="mt-2 text-sm text-gray-500">3-Glass Selection</div>
+        </div>
+      </div>
+      
+      <!-- Additional Features -->
+      <div class="mt-16 grid md:grid-cols-4 gap-6 text-center">
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+          <div class="text-3xl font-bold text-bourbon-300 mb-2">150+</div>
+          <div class="text-white">Unique Bourbons</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+          <div class="text-3xl font-bold text-bourbon-300 mb-2">20+</div>
+          <div class="text-white">Craft Beers on Tap</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+          <div class="text-3xl font-bold text-bourbon-300 mb-2">Daily</div>
+          <div class="text-white">Happy Hour Specials</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+          <div class="text-3xl font-bold text-bourbon-300 mb-2">Expert</div>
+          <div class="text-white">Bartenders</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Bourbon Collection -->
-  <section id="bourbons" class="py-24 bg-dark-900 relative">
-    <div class="absolute inset-0 bg-gradient-to-br from-bourbon-900/20 via-transparent to-bourbon-900/10"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <span class="text-bourbon-400 font-semibold tracking-wider uppercase text-sm">The Collection</span>
-          <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
-            Over <span class="gradient-text">150 Unique</span> Bourbons
-          </h2>
-          <p class="text-gray-300 text-lg leading-relaxed mb-8">
-            Our extensive bourbon collection is one of the largest in Butler County. From rare allocated releases to classic favorites, our knowledgeable staff can guide you through a tasting journey you'll never forget.
-          </p>
-          
-          <div class="space-y-6">
-            <div class="flex items-center gap-4">
-              <div class="w-14 h-14 bg-bourbon-900/50 rounded-xl flex items-center justify-center">
-                <i class="fas fa-fire text-bourbon-400 text-2xl"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-white text-lg">Smoked Old Fashioned</h4>
-                <p class="text-gray-400">Our signature cocktail with a smoky twist</p>
-              </div>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="w-14 h-14 bg-bourbon-900/50 rounded-xl flex items-center justify-center">
-                <i class="fas fa-city text-bourbon-400 text-2xl"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-white text-lg">Classic Manhattan</h4>
-                <p class="text-gray-400">Expertly crafted with premium bourbon</p>
-              </div>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="w-14 h-14 bg-bourbon-900/50 rounded-xl flex items-center justify-center">
-                <i class="fas fa-coffee text-bourbon-400 text-2xl"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-white text-lg">Bourbon Espresso Martini</h4>
-                <p class="text-gray-400">A caffeinated twist on a classic favorite</p>
-              </div>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="w-14 h-14 bg-bourbon-900/50 rounded-xl flex items-center justify-center">
-                <i class="fas fa-beer text-bourbon-400 text-2xl"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-white text-lg">Craft Beer on Tap</h4>
-                <p class="text-gray-400">Rotating selection of local and regional craft brews</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <div class="absolute -top-6 -right-6 w-32 h-32 bg-bourbon-600/20 rounded-full blur-3xl"></div>
-          <div class="absolute -bottom-6 -left-6 w-40 h-40 bg-bourbon-500/20 rounded-full blur-3xl"></div>
-          <div class="glass-card rounded-3xl p-8 gold-border relative">
-            <div class="aspect-[4/3] bg-dark-700 rounded-2xl flex items-center justify-center mb-6">
-              <div class="text-center">
-                <i class="fas fa-wine-bottle text-8xl text-bourbon-700 mb-6"></i>
-                <p class="text-gray-500 text-lg">Bourbon Collection</p>
-                <p class="text-gray-600 text-sm mt-2">150+ unique selections</p>
-              </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="bg-dark-700 rounded-xl p-4 text-center">
-                <div class="text-3xl font-bold text-bourbon-300 mb-1">150+</div>
-                <p class="text-gray-400 text-sm">Bourbons</p>
-              </div>
-              <div class="bg-dark-700 rounded-xl p-4 text-center">
-                <div class="text-3xl font-bold text-bourbon-300 mb-1">20+</div>
-                <p class="text-gray-400 text-sm">Craft Beers</p>
-              </div>
-              <div class="bg-dark-700 rounded-xl p-4 text-center">
-                <div class="text-3xl font-bold text-bourbon-300 mb-1">12+</div>
-                <p class="text-gray-400 text-sm">Cocktails</p>
-              </div>
-              <div class="bg-dark-700 rounded-xl p-4 text-center">
-                <div class="text-3xl font-bold text-bourbon-300 mb-1">Daily</div>
-                <p class="text-gray-400 text-sm">Happy Hour</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reviews Section -->
-  <section id="reviews" class="py-24 bg-dark-800">
+  <!-- Testimonials Section -->
+  <section class="py-24 lg:py-32 section-gradient">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <span class="text-bourbon-400 font-semibold tracking-wider uppercase text-sm">Testimonials</span>
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mt-4 mb-4">
-          What Our <span class="gradient-text">Guests</span> Say
+        <div class="inline-block bg-bourbon-100 text-bourbon-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+          What Our Guests Say
+        </div>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Rave Reviews
         </h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">
-          Don't just take our word for it. Here's what our customers have to say about their experience at Bourbon's Kitchen.
-        </p>
+        <p class="text-xl text-gray-600">Join thousands of satisfied guests who've discovered Middletown's hidden gem.</p>
       </div>
       
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Review 1 -->
-        <div class="glass-card rounded-3xl p-8">
-          <div class="flex text-bourbon-400 mb-4">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <div class="bg-white rounded-2xl p-8 shadow-lg">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
           </div>
-          <p class="text-gray-300 mb-6 leading-relaxed">
-            "Amazing food, staff, service, drinks, atmosphere two major thumbs up! The poutine fries and grippo burgers are incredible. This place is a hidden gem!"
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            "Amazing food, staff, service, drinks, atmosphere—two major thumbs up! The poutine fries, grippo burgers, chicken & waffles, and all the sides were incredible. This place is a hidden gem in Middletown!"
           </p>
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 bg-bourbon-600 rounded-full flex items-center justify-center">
-              <i class="fas fa-user text-white"></i>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-bourbon-100 rounded-full flex items-center justify-center">
+              <span class="text-bourbon-600 font-bold">JD</span>
             </div>
             <div>
-              <div class="font-semibold text-white">Google Reviewer</div>
-              <div class="text-gray-500 text-sm">5 stars on Google</div>
+              <div class="font-semibold text-gray-900">Google Review</div>
+              <div class="text-sm text-gray-500">Verified Guest</div>
             </div>
           </div>
         </div>
         
         <!-- Review 2 -->
-        <div class="glass-card rounded-3xl p-8">
-          <div class="flex text-bourbon-400 mb-4">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <div class="bg-white rounded-2xl p-8 shadow-lg">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
           </div>
-          <p class="text-gray-300 mb-6 leading-relaxed">
-            "They have quite a menu from chicken, salads and burgers. I got the in & out burger with cheese and sautéed onions and their signature sauce. It was double delicious!"
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            "Outstanding service from Spenser! Cocktails were top-notch and delicious. The food was excellent—highly elevated bar food. Plus there's Chicken and Waffles on offer! The truffle and Gouda burger was magnificent with flavors that went so well together."
           </p>
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 bg-bourbon-600 rounded-full flex items-center justify-center">
-              <i class="fas fa-user text-white"></i>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-bourbon-100 rounded-full flex items-center justify-center">
+              <span class="text-bourbon-600 font-bold">TB</span>
             </div>
             <div>
-              <div class="font-semibold text-white">Yelp Reviewer</div>
-              <div class="text-gray-500 text-sm">4.6/5 on Yelp</div>
+              <div class="font-semibold text-gray-900">Teresa B.</div>
+              <div class="text-sm text-gray-500">Facebook Review</div>
             </div>
           </div>
         </div>
         
         <!-- Review 3 -->
-        <div class="glass-card rounded-3xl p-8">
-          <div class="flex text-bourbon-400 mb-4">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <div class="bg-white rounded-2xl p-8 shadow-lg">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
           </div>
-          <p class="text-gray-300 mb-6 leading-relaxed">
-            "The lettuce wraps and the dynamite shrimp appetizer were fantastic starters. Known for delicious waffles, truffle burger, and bourbon espresso martini. A welcoming atmosphere!"
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            "My new favorite place in Middletown! Got the Chicken and Waffles—chicken was amazing and the waffles had this incredible sugary crust. Also tried the barnyard burger with an egg on it... OMG so good! Love this place."
           </p>
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 bg-bourbon-600 rounded-full flex items-center justify-center">
-              <i class="fas fa-user text-white"></i>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-bourbon-100 rounded-full flex items-center justify-center">
+              <span class="text-bourbon-600 font-bold">CF</span>
             </div>
             <div>
-              <div class="font-semibold text-white">OpenTable Diner</div>
-              <div class="text-gray-500 text-sm">5/5 on OpenTable</div>
+              <div class="font-semibold text-gray-900">Chowdown Cincinnati</div>
+              <div class="text-sm text-gray-500">Facebook Group</div>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Review Stats -->
-      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="glass-card rounded-2xl p-6 text-center">
-          <div class="text-4xl font-bold text-bourbon-300 mb-2">282</div>
-          <div class="text-gray-400">Yelp Reviews</div>
-          <div class="flex justify-center text-bourbon-400 mt-2">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+      <!-- Rating Summary -->
+      <div class="mt-12 bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div class="flex items-center justify-center gap-1 mb-2">
+              <svg class="w-8 h-8 text-bourbon-500" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <span class="text-3xl font-bold text-gray-900">4.7</span>
+            </div>
+            <div class="text-gray-600">Google Reviews</div>
+            <div class="text-bourbon-600 font-semibold">1,654 reviews</div>
           </div>
-        </div>
-        <div class="glass-card rounded-2xl p-6 text-center">
-          <div class="text-4xl font-bold text-bourbon-300 mb-2">1,654</div>
-          <div class="text-gray-400">Google Reviews</div>
-          <div class="flex justify-center text-bourbon-400 mt-2">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+          <div>
+            <div class="flex items-center justify-center gap-1 mb-2">
+              <svg class="w-8 h-8 text-red-500" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              <span class="text-3xl font-bold text-gray-900">4.6</span>
+            </div>
+            <div class="text-gray-600">Yelp Rating</div>
+            <div class="text-bourbon-600 font-semibold">282 reviews</div>
           </div>
-        </div>
-        <div class="glass-card rounded-2xl p-6 text-center">
-          <div class="text-4xl font-bold text-bourbon-300 mb-2">21</div>
-          <div class="text-gray-400">OpenTable Reviews</div>
-          <div class="flex justify-center text-bourbon-400 mt-2">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-        </div>
-        <div class="glass-card rounded-2xl p-6 text-center">
-          <div class="text-4xl font-bold text-bourbon-300 mb-2">40</div>
-          <div class="text-gray-400">Tripadvisor Reviews</div>
-          <div class="flex justify-center text-bourbon-400 mt-2">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+          <div>
+            <div class="flex items-center justify-center gap-1 mb-2">
+              <svg class="w-8 h-8 text-bourbon-600" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z"/>
+              </svg>
+              <span class="text-3xl font-bold text-gray-900">5.0</span>
+            </div>
+            <div class="text-gray-600">OpenTable</div>
+            <div class="text-bourbon-600 font-semibold">21 reviews</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Location & Contact -->
-  <section id="contact" class="py-24 bg-dark-900">
+  <!-- Location & Contact Section -->
+  <section id="location" class="py-24 lg:py-32 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16">
         <!-- Contact Info -->
         <div>
-          <span class="text-bourbon-400 font-semibold tracking-wider uppercase text-sm">Visit Us</span>
-          <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mt-4 mb-8">
-            Come Experience <span class="gradient-text">Bourbon's Kitchen</span>
+          <div class="inline-block bg-bourbon-100 text-bourbon-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            Visit Us
+          </div>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Come Experience<br>Bourbon's Kitchen
           </h2>
+          <p class="text-lg text-gray-600 mb-8">
+            Located in the heart of Middletown, we're your destination for exceptional food, 
+            craft cocktails, and the finest bourbon selection in Butler County.
+          </p>
           
-          <div class="space-y-6 mb-8">
+          <div class="space-y-6">
             <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-bourbon-900/50 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-map-marker-alt text-bourbon-400 text-xl"></i>
+              <div class="w-14 h-14 bg-bourbon-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-bourbon-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
               </div>
               <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Address</h4>
-                <p class="text-gray-400">2231 N Verity Pkwy<br>Middletown, OH 45042</p>
+                <h4 class="font-semibold text-gray-900 text-lg mb-1">Address</h4>
+                <p class="text-gray-600">2231 N Verity Pkwy<br>Middletown, OH 45042</p>
               </div>
             </div>
+            
             <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-bourbon-900/50 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-phone text-bourbon-400 text-xl"></i>
+              <div class="w-14 h-14 bg-bourbon-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-bourbon-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
               </div>
               <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Phone</h4>
-                <a href="tel:5132170099" class="text-bourbon-300 hover:text-bourbon-200 text-lg">(513) 217-0099</a>
+                <h4 class="font-semibold text-gray-900 text-lg mb-1">Phone</h4>
+                <a href="tel:5132170099" class="text-bourbon-600 font-semibold text-lg hover:text-bourbon-700 transition-colors">
+                  (513) 217-0099
+                </a>
               </div>
             </div>
+            
             <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-bourbon-900/50 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-clock text-bourbon-400 text-xl"></i>
+              <div class="w-14 h-14 bg-bourbon-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-bourbon-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
               </div>
               <div>
-                <h4 class="font-semibold text-white text-lg mb-1">Hours</h4>
-                <p class="text-gray-400">Open Daily at 11:00 AM<br><span class="text-bourbon-300">Happy Hour Food Available</span></p>
+                <h4 class="font-semibold text-gray-900 text-lg mb-1">Hours</h4>
+                <p class="text-gray-600">
+                  <span class="font-medium">Mon:</span> Closed<br>
+                  <span class="font-medium">Tue-Sat:</span> 11:00 AM - 9:00 PM<br>
+                  <span class="font-medium">Sun:</span> 11:00 AM - 8:00 PM
+                </p>
               </div>
             </div>
           </div>
           
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="https://www.opentable.com/r/bourbons-craft-kitchen-and-bar-middletown" target="_blank" class="bg-bourbon-600 hover:bg-bourbon-500 text-white px-6 py-3 rounded-full font-semibold transition text-center">
-              <i class="fas fa-calendar-check mr-2"></i>Reserve on OpenTable
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a href="tel:5132170099" class="btn-primary px-8 py-4 rounded-full text-white font-semibold inline-flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+              Call Now
             </a>
-            <a href="tel:5132170099" class="bg-transparent border-2 border-bourbon-400 hover:bg-bourbon-400/10 text-bourbon-300 px-6 py-3 rounded-full font-semibold transition text-center">
-              <i class="fas fa-phone mr-2"></i>Call for Takeout
+            <a href="#" onclick="alert('Online ordering coming soon! Please call to order.')" class="btn-secondary border-2 border-bourbon-600 text-bourbon-600 px-8 py-4 rounded-full font-semibold inline-flex items-center gap-2 hover:bg-bourbon-50 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+              Order Online
             </a>
-          </div>
-          
-          <div class="mt-8 flex gap-4">
-            <a href="https://www.doordash.com/store/bourbon's-kitchen-middletown-oh" target="_blank" class="w-12 h-12 bg-bourbon-900/50 rounded-full flex items-center justify-center hover:bg-bourbon-800 transition">
-              <i class="fas fa-motorcycle text-bourbon-400 text-xl"></i>
-            </a>
-            <span class="text-gray-400 self-center">Available on DoorDash for delivery</span>
           </div>
         </div>
         
         <!-- Map -->
-        <div class="relative">
-          <div class="absolute -top-6 -right-6 w-32 h-32 bg-bourbon-600/20 rounded-full blur-3xl"></div>
-          <div class="glass-card rounded-3xl p-4 gold-border h-full">
-            <div class="bg-dark-700 rounded-2xl h-full min-h-[400px] flex items-center justify-center">
-              <div class="text-center p-8">
-                <i class="fas fa-map-marked-alt text-6xl text-bourbon-700 mb-6"></i>
-                <h4 class="font-serif text-2xl font-bold text-white mb-4">Find Us in Middletown</h4>
-                <p class="text-gray-400 mb-6">2231 N Verity Pkwy<br>Middletown, OH 45042</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=2231+N+Verity+Pkwy,+Middletown,+OH+45042" target="_blank" class="inline-flex items-center text-bourbon-300 hover:text-bourbon-200 transition">
-                  <i class="fas fa-external-link-alt mr-2"></i>
-                  Get Directions
-                </a>
-              </div>
-            </div>
-          </div>
+        <div class="relative h-96 lg:h-auto rounded-2xl overflow-hidden shadow-2xl">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3081.666785368097!2d-84.37023348433978!3d39.51550781915286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8840c6e1a3e6a7a9%3A0x9e6c2a9d8e7f5b4c!2s2231%20N%20Verity%20Pkwy%2C%20Middletown%2C%20OH%2045042!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Bourbon's Kitchen Location Map"
+          ></iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-20 bg-gradient-to-r from-bourbon-900/50 via-dark-800 to-bourbon-900/50">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">
-        Ready to Experience <span class="gradient-text">Bourbon's Kitchen</span>?
+  <!-- Private Events CTA -->
+  <section class="relative py-20 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80" 
+        alt="Private dining room" 
+        class="w-full h-full object-cover"
+      >
+      <div class="absolute inset-0 bg-bourbon-900/85"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+        Host Your Next Event With Us
       </h2>
-      <p class="text-gray-300 text-xl mb-8">
-        Join us for craft burgers, bourbon, and unforgettable moments. Make a reservation or stop by today!
+      <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+        From birthday celebrations to corporate gatherings, our private event space and catering services 
+        bring the Bourbon's Kitchen experience to your special occasion.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="tel:5132170099" class="bg-bourbon-600 hover:bg-bourbon-500 text-white px-8 py-4 rounded-full font-semibold text-lg transition shadow-lg shadow-bourbon-600/30">
-          <i class="fas fa-phone mr-2"></i>Call (513) 217-0099
-        </a>
-        <a href="https://www.opentable.com/r/bourbons-craft-kitchen-and-bar-middletown" target="_blank" class="bg-transparent border-2 border-bourbon-400 hover:bg-bourbon-400/10 text-bourbon-300 px-8 py-4 rounded-full font-semibold text-lg transition">
-          <i class="fas fa-calendar-alt mr-2"></i>Make a Reservation
-        </a>
-      </div>
+      <a href="tel:5132170099" class="btn-primary px-8 py-4 rounded-full text-white font-semibold text-lg inline-flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+        Inquire About Private Events
+      </a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-dark-900 border-t border-bourbon-900/30 py-16">
+  <footer class="bg-gray-900 text-white py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <!-- Brand -->
         <div class="md:col-span-2">
-          <a href="#" class="font-serif text-3xl font-bold text-bourbon-300 mb-4 inline-block">Bourbon's Kitchen</a>
+          <a href="#" class="font-display text-3xl font-bold text-white tracking-wide mb-4 inline-block">
+            Bourbon's <span class="text-bourbon-400">Kitchen</span>
+          </a>
           <p class="text-gray-400 mb-6 max-w-md">
-            Elevated American pub grub with over 150 unique bourbons, craft burgers, and handcrafted cocktails in the heart of Middletown, Ohio.
+            Elevating the American pub experience with 150+ bourbons, craft cocktails, 
+            and elevated comfort food. Your destination for unforgettable dining in Middletown, OH.
           </p>
           <div class="flex gap-4">
-            <span class="w-10 h-10 bg-dark-800 rounded-full flex items-center justify-center text-gray-500 hover:text-bourbon-400 hover:bg-bourbon-900/30 transition cursor-pointer">
-              <i class="fab fa-facebook-f"></i>
-            </span>
-            <span class="w-10 h-10 bg-dark-800 rounded-full flex items-center justify-center text-gray-500 hover:text-bourbon-400 hover:bg-bourbon-900/30 transition cursor-pointer">
-              <i class="fab fa-instagram"></i>
-            </span>
-            <span class="w-10 h-10 bg-dark-800 rounded-full flex items-center justify-center text-gray-500 hover:text-bourbon-400 hover:bg-bourbon-900/30 transition cursor-pointer">
-              <i class="fab fa-yelp"></i>
-            </span>
-            <span class="w-10 h-10 bg-dark-800 rounded-full flex items-center justify-center text-gray-500 hover:text-bourbon-400 hover:bg-bourbon-900/30 transition cursor-pointer">
-              <i class="fab fa-google"></i>
-            </span>
+            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-bourbon-600 transition-colors" aria-label="Facebook">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-bourbon-600 transition-colors" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
           </div>
         </div>
         
+        <!-- Quick Links -->
         <div>
-          <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+          <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
           <ul class="space-y-2">
-            <li><a href="#about" class="text-gray-400 hover:text-bourbon-300 transition">About Us</a></li>
-            <li><a href="#menu" class="text-gray-400 hover:text-bourbon-300 transition">Our Menu</a></li>
-            <li><a href="#bourbons" class="text-gray-400 hover:text-bourbon-300 transition">Bourbon Collection</a></li>
-            <li><a href="#contact" class="text-gray-400 hover:text-bourbon-300 transition">Contact</a></li>
+            <li><a href="#menu" class="text-gray-400 hover:text-bourbon-400 transition-colors">Our Menu</a></li>
+            <li><a href="#bourbons" class="text-gray-400 hover:text-bourbon-400 transition-colors">Bourbon Bar</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-bourbon-400 transition-colors">About Us</a></li>
+            <li><a href="#location" class="text-gray-400 hover:text-bourbon-400 transition-colors">Location</a></li>
+            <li><a href="#" onclick="alert('Gift cards available in-store!')" class="text-gray-400 hover:text-bourbon-400 transition-colors">Gift Cards</a></li>
           </ul>
         </div>
         
+        <!-- Contact -->
         <div>
-          <h4 class="font-semibold text-white mb-4">Contact</h4>
+          <h4 class="font-semibold text-lg mb-4">Contact</h4>
           <ul class="space-y-2 text-gray-400">
-            <li><i class="fas fa-map-marker-alt mr-2 text-bourbon-400"></i>2231 N Verity Pkwy</li>
+            <li>2231 N Verity Pkwy</li>
             <li>Middletown, OH 45042</li>
-            <li class="pt-2"><a href="tel:5132170099" class="hover:text-bourbon-300 transition"><i class="fas fa-phone mr-2 text-bourbon-400"></i>(513) 217-0099</a></li>
-            <li class="pt-2"><i class="fas fa-clock mr-2 text-bourbon-400"></i>Open Daily at 11 AM</li>
+            <li class="pt-2">
+              <a href="tel:5132170099" class="text-bourbon-400 hover:text-bourbon-300 transition-colors">
+                (513) 217-0099
+              </a>
+            </li>
           </ul>
         </div>
       </div>
       
-      <div class="border-t border-bourbon-900/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="text-gray-500 text-sm">
-          © 2026 Bourbon's Kitchen. All rights reserved. Best of Butler County Finalist.
+          © 2026 Bourbon's Kitchen. All rights reserved.
         </p>
-        <div class="flex items-center gap-6 text-sm text-gray-500">
-          <span><i class="fas fa-utensils mr-1"></i> Bar & Grill</span>
-          <span><i class="fas fa-wine-glass mr-1"></i> 150+ Bourbons</span>
-          <span><i class="fas fa-star mr-1"></i> 4.6 Rating</span>
-        </div>
+        <p class="text-gray-500 text-sm">
+          Website by <span class="text-bourbon-400">SkyConsult</span>
+        </p>
       </div>
     </div>
   </footer>
 
   <!-- Floating CTA -->
   <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
-    <a href="tel:5132170099" class="bg-bourbon-600 hover:bg-bourbon-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-bourbon-600/40 transition transform hover:scale-110">
-      <i class="fas fa-phone text-xl"></i>
+    <a href="tel:5132170099" class="btn-primary w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform" aria-label="Call Now">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+      </svg>
     </a>
-    <a href="#menu" class="bg-dark-800 hover:bg-dark-700 border border-bourbon-400 text-bourbon-300 w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition transform hover:scale-110">
-      <i class="fas fa-utensils text-xl"></i>
-    </a>
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform text-gray-800" aria-label="Back to top">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+      </svg>
+    </button>
   </div>
 
+  <!-- Scripts -->
   <script>
-    // Mobile Menu Toggle
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('bg-bourbon-900/95', 'backdrop-blur-md', 'shadow-lg');
+        navbar.classList.remove('bg-transparent');
+      } else {
+        navbar.classList.remove('bg-bourbon-900/95', 'backdrop-blur-md', 'shadow-lg');
+        navbar.classList.add('bg-transparent');
+      }
+    });
+    
+    // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu');
     const mobileMenu = document.getElementById('mobile-menu');
     
     mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('visible');
     });
     
-    // Smooth Scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-          mobileMenu.classList.add('hidden');
-        }
+    closeMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('visible');
+    });
+    
+    // Close mobile menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('visible');
       });
     });
     
-    // Navbar Background on Scroll
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        nav.classList.add('shadow-lg');
-      } else {
-        nav.classList.remove('shadow-lg');
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    document.querySelectorAll('.menu-item-hover').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+    
+    // Add smooth reveal for other sections
+    document.querySelectorAll('section').forEach(section => {
+      if (!section.classList.contains('relative')) {
+        section.style.opacity = '0.95';
+        section.style.transition = 'opacity 0.5s ease';
+        observer.observe(section);
       }
     });
   </script>
