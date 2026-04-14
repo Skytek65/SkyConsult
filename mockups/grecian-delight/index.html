@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grecian Delight | Authentic Greek Cuisine in Middletown, OH</title>
+  <meta name="description" content="Family-owned Greek restaurant in Middletown serving authentic gyros, moussaka, baklava & more. 4.5★ rating with 127+ reviews. Open Mon-Sat.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'aegean': {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            'terracotta': {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              300: '#fdba74',
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+              800: '#9a3412',
+              900: '#7c2d12',
+            },
+            'olive': {
+              50: '#f7fee7',
+              100: '#ecfccb',
+              200: '#d9f99d',
+              300: '#bef264',
+              400: '#a3e635',
+              500: '#84cc16',
+              600: '#65a30d',
+              700: '#4d7c0f',
+              800: '#3f6212',
+              900: '#365314',
+            }
+          },
+          fontFamily: {
+            'display': ['Playfair Display', 'serif'],
+            'sans': ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .gradient-text {
+      background: linear-gradient(135deg, #0369a1 0%, #ea580c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(12, 74, 110, 0.95) 0%, rgba(124, 45, 18, 0.85) 100%);
+    }
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    .image-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+    }
+    .wave-divider {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .wave-divider svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 80px;
+    }
+    .wave-divider .shape-fill {
+      fill: #ffffff;
+    }
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    
+    .menu-item {
+      transition: all 0.3s ease;
+    }
+    .menu-item:hover {
+      background: linear-gradient(135deg, #f0f9ff 0%, #fff7ed 100%);
+      border-left: 4px solid #ea580c;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(234, 88, 12, 0.4);
+    }
+    .btn-secondary {
+      border: 2px solid #0369a1;
+      color: #0369a1;
+      transition: all 0.3s ease;
+    }
+    .btn-secondary:hover {
+      background: #0369a1;
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .greek-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230369a1' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    .scroll-reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-white">
+  
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex items-center space-x-2">
+          <div class="w-10 h-10 bg-gradient-to-br from-terracotta-500 to-terracotta-700 rounded-full flex items-center justify-center">
+            <i data-lucide="utensils" class="w-5 h-5 text-white"></i>
+          </div>
+          <span class="font-display text-2xl font-bold text-gray-900">Grecian Delight</span>
+        </div>
+        
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#menu" class="text-gray-700 hover:text-terracotta-600 font-medium transition-colors">Menu</a>
+          <a href="#specials" class="text-gray-700 hover:text-terracotta-600 font-medium transition-colors">Daily Specials</a>
+          <a href="#about" class="text-gray-700 hover:text-terracotta-600 font-medium transition-colors">Our Story</a>
+          <a href="#reviews" class="text-gray-700 hover:text-terracotta-600 font-medium transition-colors">Reviews</a>
+          <a href="#contact" class="text-gray-700 hover:text-terracotta-600 font-medium transition-colors">Contact</a>
+        </div>
+        
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="tel:5134245411" class="flex items-center space-x-2 text-terracotta-600 font-semibold hover:text-terracotta-700">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+            <span>(513) 424-5411</span>
+          </a>
+          <a href="#contact" class="btn-primary text-white px-6 py-2.5 rounded-full font-semibold text-sm">
+            Order Now
+          </a>
+        </div>
+        
+        <button class="md:hidden p-2" id="mobile-menu-btn">
+          <i data-lucide="menu" class="w-6 h-6 text-gray-700"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="hidden md:hidden bg-white border-t" id="mobile-menu">
+      <div class="px-4 py-4 space-y-3">
+        <a href="#menu" class="block text-gray-700 font-medium">Menu</a>
+        <a href="#specials" class="block text-gray-700 font-medium">Daily Specials</a>
+        <a href="#about" class="block text-gray-700 font-medium">Our Story</a>
+        <a href="#reviews" class="block text-gray-700 font-medium">Reviews</a>
+        <a href="#contact" class="block text-gray-700 font-medium">Contact</a>
+        <a href="tel:5134245411" class="block text-terracotta-600 font-semibold">(513) 424-5411</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=1920&q=80" alt="Greek Mediterranean feast" class="w-full h-full object-cover">
+      <div class="absolute inset-0 hero-gradient"></div>
+    </div>
+    
+    <!-- Decorative Elements -->
+    <div class="absolute top-20 right-10 w-32 h-32 bg-white/10 rounded-full blur-3xl floating"></div>
+    <div class="absolute bottom-40 left-10 w-48 h-48 bg-terracotta-500/20 rounded-full blur-3xl floating" style="animation-delay: 1s;"></div>
+    
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="fade-in-up">
+        <div class="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+          <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+          <span class="text-white font-medium text-sm">4.5★ Rating • 127+ Reviews</span>
+        </div>
+        
+        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+          Taste the<br/>
+          <span class="text-terracotta-300">Mediterranean</span>
+        </h1>
+        
+        <p class="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto mb-10 font-light">
+          Authentic Greek-American home cooking since day one. Family-owned, fresh ingredients, recipes passed down through generations.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="tel:5134245411" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center space-x-2">
+            <i data-lucide="phone" class="w-5 h-5"></i>
+            <span>Call to Order</span>
+          </a>
+          <a href="#menu" class="bg-white/20 backdrop-blur-sm text-white border-2 border-white/50 px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/30 transition-all flex items-center space-x-2">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+            <span>View Menu</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Trust Bar -->
+      <div class="mt-16 fade-in-up delay-200">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center">
+            <i data-lucide="award" class="w-8 h-8 text-terracotta-300 mx-auto mb-2"></i>
+            <p class="text-white font-semibold">Award Winning</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center">
+            <i data-lucide="heart" class="w-8 h-8 text-terracotta-300 mx-auto mb-2"></i>
+            <p class="text-white font-semibold">Family Owned</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center">
+            <i data-lucide="leaf" class="w-8 h-8 text-terracotta-300 mx-auto mb-2"></i>
+            <p class="text-white font-semibold">Fresh Daily</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 text-center">
+            <i data-lucide="thumbs-up" class="w-8 h-8 text-terracotta-300 mx-auto mb-2"></i>
+            <p class="text-white font-semibold">Local Favorite</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Wave Divider -->
+    <div class="wave-divider">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Daily Specials Section -->
+  <section id="specials" class="py-24 bg-white relative greek-pattern">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="text-terracotta-600 font-semibold tracking-wider uppercase text-sm">Fresh Every Day</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-4">Daily Specials</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">Our chef prepares different Greek classics every day. All specials include a potato roll, choice of side salad or soup. (Add 75¢ for side Greek salad or Chili)</p>
+        <div class="w-24 h-1 bg-gradient-to-r from-terracotta-500 to-terracotta-600 mx-auto mt-6 rounded-full"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Monday -->
+        <div class="card-hover bg-white rounded-3xl shadow-xl overflow-hidden scroll-reveal">
+          <div class="relative h-48">
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="Pastitsio Greek lasagna" class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-terracotta-500 text-white px-4 py-1 rounded-full font-semibold text-sm">Monday</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Pastitsio</h3>
+            <p class="text-sm text-gray-500 mb-2 italic">(Pa-stee'-cho)</p>
+            <p class="text-gray-600 mb-4">Grecian-style lasagna with layers of long macaroni and spiced ground beef in tomato paste, covered with delicate cream sauce. Served with mixed vegetables.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-bold text-terracotta-600">$14.75</span>
+              <span class="text-sm text-gray-500">Includes sides</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tuesday -->
+        <div class="card-hover bg-white rounded-3xl shadow-xl overflow-hidden scroll-reveal">
+          <div class="relative h-48">
+            <img src="https://images.unsplash.com/photo-1567529854338-25b6f3f78046?w=600&q=80" alt="Grilled souvlaki skewers" class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-terracotta-500 text-white px-4 py-1 rounded-full font-semibold text-sm">Tuesday</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Grilled Chicken or Souvlaki</h3>
+            <p class="text-sm text-gray-500 mb-2 italic">with Manestra</p>
+            <p class="text-gray-600 mb-4">Time-endured classic combining grilled chicken or pork served over Manestra (Greek pasta). A true taste of Greece!</p>
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-bold text-terracotta-600">$14.75</span>
+              <span class="text-sm text-gray-500">Includes sides</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Wednesday -->
+        <div class="card-hover bg-white rounded-3xl shadow-xl overflow-hidden scroll-reveal">
+          <div class="relative h-48">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80" alt="Fresh fish fillet" class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-terracotta-500 text-white px-4 py-1 rounded-full font-semibold text-sm">Wednesday</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Baked or Fried Fish / Shrimp</h3>
+            <p class="text-gray-600 mb-4">Filet of fish baked with stewed tomatoes and sautéed onions, or choose fried fish or fried shrimp. All served with our homemade three cheese macaroni.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-bold text-terracotta-600">$14.75</span>
+              <span class="text-sm text-gray-500">Includes sides</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Thursday -->
+        <div class="card-hover bg-white rounded-3xl shadow-xl overflow-hidden scroll-reveal">
+          <div class="relative h-48">
+            <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&q=80" alt="Greek meatballs on rice" class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-terracotta-500 text-white px-4 py-1 rounded-full font-semibold text-sm">Thursday</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Keftedes</h3>
+            <p class="text-sm text-gray-500 mb-2 italic">(Kef-teh-thes)</p>
+            <p class="text-gray-600 mb-4">Traditional Greek meatballs soaked in a palatable wine sauce, served on spaghetti or a bed of rice pilaf. Classic comfort food!</p>
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-bold text-terracotta-600">$14.75</span>
+              <span class="text-sm text-gray-500">Includes sides</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Friday -->
+        <div class="card-hover bg-white rounded-3xl shadow-xl overflow-hidden scroll-reveal">
+          <div class="relative h-48">
+            <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600&q=80" alt="Chicken kabobs on rice" class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-terracotta-500 text-white px-4 py-1 rounded-full font-semibold text-sm">Friday</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Chicken Kabobs on Rice Pilaf</h3>
+            <p class="text-gray-600 mb-4">Skewered chicken breast with tomatoes, green peppers, onions, and mushrooms. Also available: Souvlaki (pork). Both served on a bed of rice pilaf.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-bold text-terracotta-600">$14.75</span>
+              <span class="text-sm text-gray-500">Includes sides</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Saturday -->
+        <div class="card-hover bg-white rounded-3xl shadow-xl overflow-hidden scroll-reveal">
+          <div class="relative h-48">
+            <img src="https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=600&q=80" alt="Moussaka eggplant casserole" class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-terracotta-500 text-white px-4 py-1 rounded-full font-semibold text-sm">Saturday</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-2">Saturday's Surprise</h3>
+            <p class="text-gray-600 mb-4">Featuring great dinners like Stuffed Peppers, Italian Lasagna, Stuffed Cabbage Rolls, or our famous Moussaka (Eggplant Casserole). Rotating weekly!</p>
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-bold text-terracotta-600">$14.75</span>
+              <span class="text-sm text-gray-500">Includes sides</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 bg-gradient-to-br from-aegean-50 to-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Image -->
+        <div class="relative scroll-reveal">
+          <div class="absolute -top-10 -left-10 w-40 h-40 bg-terracotta-200 rounded-full opacity-50 blur-3xl"></div>
+          <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-aegean-200 rounded-full opacity-50 blur-3xl"></div>
+          <div class="relative grid grid-cols-2 gap-4">
+            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&q=80" alt="Greek restaurant interior" class="rounded-2xl shadow-2xl w-full h-64 object-cover">
+            <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&q=80" alt="Fresh Greek ingredients" class="rounded-2xl shadow-2xl w-full h-64 object-cover mt-8">
+            <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=400&q=80" alt="Greek cooking preparation" class="rounded-2xl shadow-2xl w-full h-64 object-cover">
+            <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&q=80" alt="Traditional Greek food" class="rounded-2xl shadow-2xl w-full h-64 object-cover mt-8">
+          </div>
+          
+          <!-- Floating Badge -->
+          <div class="absolute -right-6 top-1/2 transform -translate-y-1/2 bg-white rounded-2xl shadow-2xl p-4 floating">
+            <div class="text-center">
+              <p class="text-3xl font-bold text-terracotta-600">4.5★</p>
+              <p class="text-sm text-gray-600">127+ Reviews</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="scroll-reveal">
+          <span class="text-terracotta-600 font-semibold tracking-wider uppercase text-sm">Our Story</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-6">Family-Owned Greek-American Tradition</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Grecian Delight is a small, family-owned Greek-American style restaurant serving up delicious, traditional Greek dishes made with fresh, high-quality ingredients. From savory gyros and flavorful moussaka to crisp Greek salads and decadent baklava, we offer a taste of Greece in the heart of Middletown.
+          </p>
+          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            Our cozy, inviting atmosphere and friendly service create the perfect setting to enjoy an authentic Greek dining experience. Every dish is prepared with love and recipes passed down through generations.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-6 mb-8">
+            <div class="flex items-start space-x-3">
+              <div class="w-10 h-10 bg-terracotta-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <i data-lucide="clock" class="w-5 h-5 text-terracotta-600"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">Fresh Daily</p>
+                <p class="text-gray-600 text-sm">Ingredients delivered every morning</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-10 h-10 bg-terracotta-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <i data-lucide="users" class="w-5 h-5 text-terracotta-600"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">Family Recipes</p>
+                <p class="text-gray-600 text-sm">Passed down generations</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-10 h-10 bg-terracotta-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <i data-lucide="heart-handshake" class="w-5 h-5 text-terracotta-600"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">Made with Love</p>
+                <p class="text-gray-600 text-sm">Every dish prepared to order</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-10 h-10 bg-terracotta-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <i data-lucide="award" class="w-5 h-5 text-terracotta-600"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">Local Favorite</p>
+                <p class="text-gray-600 text-sm">Award-winning cuisine</p>
+              </div>
+            </div>
+          </div>
+          
+          <a href="#contact" class="btn-primary text-white px-8 py-4 rounded-full font-semibold inline-flex items-center space-x-2">
+            <i data-lucide="map-pin" class="w-5 h-5"></i>
+            <span>Visit Us Today</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="py-24 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="text-terracotta-600 font-semibold tracking-wider uppercase text-sm">Authentic Greek</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-4">Our Menu</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">From classic gyros to homemade desserts, experience the flavors of Greece right here in Middletown.</p>
+        <div class="w-24 h-1 bg-gradient-to-r from-terracotta-500 to-terracotta-600 mx-auto mt-6 rounded-full"></div>
+      </div>
+      
+      <!-- Menu Categories -->
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Gyros & Sandwiches -->
+        <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 scroll-reveal">
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="w-12 h-12 bg-terracotta-100 rounded-full flex items-center justify-center">
+              <i data-lucide="sandwich" class="w-6 h-6 text-terracotta-600"></i>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-gray-900">Gyros & Sandwiches</h3>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Gyro <span class="text-sm text-gray-500 italic">(ye'ro)</span></h4>
+                  <p class="text-sm text-gray-600">Lamb/Beef seasoned strips on pita with onions, tomato & Tzatziki</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$7.95</span>
+              </div>
+            </div>
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Souvlaki <span class="text-sm text-gray-500 italic">(Soo-vlah'ke)</span></h4>
+                  <p class="text-sm text-gray-600">Pork marinated in paprika-oregano glaze on pita with Tzatziki</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$7.95</span>
+              </div>
+            </div>
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Chicken Teriyaki</h4>
+                  <p class="text-sm text-gray-600">Marinated chicken breast on pita with lettuce, onion, tomato & honey mustard</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$7.95</span>
+              </div>
+            </div>
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Grilled Chicken Sandwich</h4>
+                  <p class="text-sm text-gray-600">Grilled chicken breast with mayo, lettuce, tomato on Kaiser roll</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$7.95</span>
+              </div>
+            </div>
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Grilled Steak or Chicken Philly</h4>
+                  <p class="text-sm text-gray-600">On hoagie bun with melted Swiss, mushrooms, peppers & onions</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$8.75</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Gyro Combo -->
+          <div class="mt-6 p-4 bg-terracotta-50 rounded-xl border-l-4 border-terracotta-500">
+            <div class="flex justify-between items-start">
+              <div>
+                <h4 class="font-semibold text-gray-900">Gyro, Salad & Drink Combo</h4>
+                <p class="text-sm text-gray-600">Lamb/Beef, Chicken, or Souvlaki Gyro + fries or Greek salad + drink</p>
+              </div>
+              <span class="text-2xl font-bold text-terracotta-600">$14.75</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Salads -->
+        <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 scroll-reveal">
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="w-12 h-12 bg-olive-100 rounded-full flex items-center justify-center">
+              <i data-lucide="salad" class="w-6 h-6 text-olive-600"></i>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-gray-900">Fresh Salads</h3>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Large Greek Salad</h4>
+                  <p class="text-sm text-gray-600">Fresh lettuce, carrots, red cabbage, feta, pepperoncini, Kalamata olives & zesty house dressing</p>
+                </div>
+                <div class="text-right">
+                  <span class="text-xl font-bold text-terracotta-600">$11.50</span>
+                </div>
+              </div>
+              <p class="text-sm text-gray-500">with Grilled Chicken: $14.50</p>
+            </div>
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Athenian Salad</h4>
+                  <p class="text-sm text-gray-600">Greek Salad with Greek style potato salad beneath</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$11.75</span>
+              </div>
+            </div>
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Chicken Caesar Garden Salad</h4>
+                  <p class="text-sm text-gray-600">Large salad with marinated chicken strips & Caesar dressing</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$14.50</span>
+              </div>
+            </div>
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Chef Salad</h4>
+                  <p class="text-sm text-gray-600">Large tossed salad topped with ham, turkey & choice of cheese</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$14.50</span>
+              </div>
+            </div>
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Grilled Chicken Pasta Salad</h4>
+                  <p class="text-sm text-gray-600">Snips of grilled chicken over our homemade pasta salad</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$14.50</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Appetizers -->
+        <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 scroll-reveal">
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="w-12 h-12 bg-aegean-100 rounded-full flex items-center justify-center">
+              <i data-lucide="croissant" class="w-6 h-6 text-aegean-600"></i>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-gray-900">Appetizers & Sides</h3>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Spanakopita <span class="text-sm text-gray-500 italic">(Spinach Pie)</span></h4>
+                  <p class="text-sm text-gray-600">Layers of strudel dough with three cheeses & spinach, baked inside</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$3.75</span>
+              </div>
+            </div>
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Tiropita <span class="text-sm text-gray-500 italic">(Cheese Pie)</span></h4>
+                  <p class="text-sm text-gray-600">Strudel dough with Feta, cottage & parmesan cheeses</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$3.75</span>
+              </div>
+            </div>
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Greek Fries</h4>
+                  <p class="text-sm text-gray-600">Our famous fries with Feta, Tzatziki sauce & house dressing</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$6.75</span>
+              </div>
+            </div>
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Homemade Soups</h4>
+                  <p class="text-sm text-gray-600">Ham & Bean, Lentil, Chicken Noodle, or Chili</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$6.00-6.75</span>
+              </div>
+            </div>
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Homemade Potato Salad</h4>
+                  <p class="text-sm text-gray-600">Made the Greek way!</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$6.50</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Desserts -->
+        <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 scroll-reveal">
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="w-12 h-12 bg-terracotta-100 rounded-full flex items-center justify-center">
+              <i data-lucide="cake" class="w-6 h-6 text-terracotta-600"></i>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-gray-900">Delightful Desserts</h3>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Baklava <span class="text-sm text-gray-500 italic">(bahk-lah-vah')</span></h4>
+                  <p class="text-sm text-gray-600">Fifty+ layers of strudel dough, walnuts, cinnamon, immersed in honey & sugar syrup</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$3.75</span>
+              </div>
+            </div>
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Floyeres <span class="text-sm text-gray-500 italic">(flo-ye'-res)</span></h4>
+                  <p class="text-sm text-gray-600">Rolled strudel with shredded dough, walnuts, cinnamon & honey syrup</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$3.75</span>
+              </div>
+            </div>
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Rice Pudding <span class="text-sm text-gray-500 italic">(re-zo'-ga-lo)</span></h4>
+                  <p class="text-sm text-gray-600">Creamy rice pudding served warm or cold</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$3.75</span>
+              </div>
+            </div>
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Kosta's Fried Pita</h4>
+                  <p class="text-sm text-gray-600">Fried pita bread covered with powdered sugar!</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$6.00</span>
+              </div>
+            </div>
+            <div class="menu-item p-4 rounded-xl border-b border-gray-100">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="font-semibold text-gray-900">Specialty Cake</h4>
+                  <p class="text-sm text-gray-600">Rotating weekly special</p>
+                </div>
+                <span class="text-xl font-bold text-terracotta-600">$3.75</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Full Menu CTA -->
+      <div class="mt-12 text-center scroll-reveal">
+        <p class="text-gray-600 mb-4">View our complete menu with burgers, combos, and more</p>
+        <a href="#contact" class="btn-secondary px-8 py-4 rounded-full font-semibold inline-flex items-center space-x-2">
+          <i data-lucide="book-open" class="w-5 h-5"></i>
+          <span>Call for Full Menu</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews" class="py-24 bg-gradient-to-br from-terracotta-50 via-white to-aegean-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="text-terracotta-600 font-semibold tracking-wider uppercase text-sm">What People Say</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-4">Raving Reviews</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">Don't just take our word for it. Here's what our loyal customers have to say about Grecian Delight.</p>
+        
+        <!-- Rating Summary -->
+        <div class="mt-8 flex items-center justify-center space-x-8">
+          <div class="text-center">
+            <p class="text-5xl font-bold text-terracotta-600">4.5</p>
+            <div class="flex items-center justify-center space-x-1 my-2">
+              <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+              <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+            </div>
+            <p class="text-gray-600">127+ Reviews</p>
+          </div>
+          <div class="w-px h-16 bg-gray-300"></div>
+          <div class="text-center">
+            <p class="text-5xl font-bold text-aegean-600">836</p>
+            <p class="text-gray-600 mt-2">Google Reviews</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Testimonial Cards -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
+          <div class="flex items-center space-x-1 mb-4">
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+          </div>
+          <p class="text-gray-700 mb-6 italic">"No pictures because the food was soo good! Best gyros, Greek salads, and baklava. They also have daily specials. And the owners are so sweet!"</p>
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-terracotta-100 rounded-full flex items-center justify-center">
+              <span class="text-terracotta-600 font-bold">C</span>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900">Chowdown Cincinnati</p>
+              <p class="text-sm text-gray-500">Facebook Review</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
+          <div class="flex items-center space-x-1 mb-4">
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+          </div>
+          <p class="text-gray-700 mb-6 italic">"The food is always fresh and delicious and the gyro with cucumber sauce is second to none. Great service from the sweetest people too."</p>
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-aegean-100 rounded-full flex items-center justify-center">
+              <span class="text-aegean-600 font-bold">T</span>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900">TripAdvisor Member</p>
+              <p class="text-sm text-gray-500">Tripadvisor Review</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
+          <div class="flex items-center space-x-1 mb-4">
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+          </div>
+          <p class="text-gray-700 mb-6 italic">"This place is family owned and the owners are just the sweetest people ever. Also great service, good prices, best Greek food you'll ever eat!"</p>
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-olive-100 rounded-full flex items-center justify-center">
+              <span class="text-olive-600 font-bold">G</span>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900">Google Reviewer</p>
+              <p class="text-sm text-gray-500">Google Reviews</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Hours Section -->
+  <section id="contact" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <!-- Contact Info -->
+        <div class="scroll-reveal">
+          <span class="text-terracotta-600 font-semibold tracking-wider uppercase text-sm">Visit Us</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-6">Come Taste Greece</h2>
+          <p class="text-lg text-gray-600 mb-8">
+            We're conveniently located on Cincinnati Dayton Rd in Middletown. Stop by for lunch or dinner and experience authentic Greek hospitality!
+          </p>
+          
+          <div class="space-y-6 mb-8">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-terracotta-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <i data-lucide="map-pin" class="w-6 h-6 text-terracotta-600"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 text-lg">Address</h4>
+                <p class="text-gray-600">1300 Cincinnati Dayton Rd<br/>Middletown, OH 45044</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-terracotta-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <i data-lucide="phone" class="w-6 h-6 text-terracotta-600"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 text-lg">Phone</h4>
+                <a href="tel:5134245411" class="text-terracotta-600 font-semibold text-xl hover:text-terracotta-700">(513) 424-5411</a>
+                <p class="text-gray-500 text-sm">Call to order or ask about our daily special!</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-terracotta-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <i data-lucide="clock" class="w-6 h-6 text-terracotta-600"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 text-lg">Hours</h4>
+                <div class="grid grid-cols-2 gap-x-8 gap-y-1 text-gray-600">
+                  <span>Monday - Thursday:</span>
+                  <span>10:00 AM - 7:00 PM</span>
+                  <span>Friday:</span>
+                  <span>10:00 AM - 8:00 PM</span>
+                  <span>Saturday:</span>
+                  <span>10:00 AM - 7:00 PM</span>
+                  <span>Sunday:</span>
+                  <span class="text-red-500 font-medium">Closed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Quick Action Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="tel:5134245411" class="btn-primary text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center space-x-2">
+              <i data-lucide="phone" class="w-5 h-5"></i>
+              <span>Call to Order</span>
+            </a>
+            <a href="https://www.google.com/maps/dir//1300+Cincinnati+Dayton+Rd+Middletown+OH+45044" target="_blank" class="btn-secondary px-8 py-4 rounded-full font-semibold flex items-center justify-center space-x-2">
+              <i data-lucide="navigation" class="w-5 h-5"></i>
+              <span>Get Directions</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Hours Card -->
+        <div class="scroll-reveal">
+          <div class="bg-gradient-to-br from-terracotta-500 to-terracotta-600 rounded-3xl p-8 text-white shadow-2xl">
+            <div class="flex items-center space-x-3 mb-6">
+              <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                <i data-lucide="calendar" class="w-6 h-6 text-white"></i>
+              </div>
+              <h3 class="font-display text-2xl font-bold">Opening Hours</h3>
+            </div>
+            
+            <div class="space-y-4">
+              <div class="flex justify-between items-center py-3 border-b border-white/20">
+                <span class="font-medium">Monday</span>
+                <span>10:00 AM - 7:00 PM</span>
+              </div>
+              <div class="flex justify-between items-center py-3 border-b border-white/20">
+                <span class="font-medium">Tuesday</span>
+                <span>10:00 AM - 7:00 PM</span>
+              </div>
+              <div class="flex justify-between items-center py-3 border-b border-white/20">
+                <span class="font-medium">Wednesday</span>
+                <span>10:00 AM - 7:00 PM</span>
+              </div>
+              <div class="flex justify-between items-center py-3 border-b border-white/20">
+                <span class="font-medium">Thursday</span>
+                <span>10:00 AM - 7:00 PM</span>
+              </div>
+              <div class="flex justify-between items-center py-3 border-b border-white/20">
+                <span class="font-medium">Friday</span>
+                <span class="font-bold text-yellow-300">10:00 AM - 8:00 PM</span>
+              </div>
+              <div class="flex justify-between items-center py-3 border-b border-white/20">
+                <span class="font-medium">Saturday</span>
+                <span>10:00 AM - 7:00 PM</span>
+              </div>
+              <div class="flex justify-between items-center py-3">
+                <span class="font-medium">Sunday</span>
+                <span class="font-bold text-red-300">Closed</span>
+              </div>
+            </div>
+            
+            <div class="mt-8 p-4 bg-white/10 rounded-xl">
+              <p class="text-center text-sm">
+                <i data-lucide="info" class="w-4 h-4 inline mr-1"></i>
+                Hours may vary on holidays. Call to confirm.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Gift Certificates -->
+          <div class="mt-6 bg-gray-50 rounded-2xl p-6 border-l-4 border-terracotta-500">
+            <div class="flex items-center space-x-3">
+              <i data-lucide="gift" class="w-6 h-6 text-terracotta-600"></i>
+              <div>
+                <h4 class="font-semibold text-gray-900">Gift Certificates Available</h4>
+                <p class="text-gray-600 text-sm">$5, $10, or $20 increments. The perfect gift for any occasion!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-12">
+        <!-- Brand -->
+        <div class="md:col-span-1">
+          <div class="flex items-center space-x-2 mb-4">
+            <div class="w-10 h-10 bg-gradient-to-br from-terracotta-500 to-terracotta-700 rounded-full flex items-center justify-center">
+              <i data-lucide="utensils" class="w-5 h-5 text-white"></i>
+            </div>
+            <span class="font-display text-xl font-bold">Grecian Delight</span>
+          </div>
+          <p class="text-gray-400 text-sm">Authentic Greek-American home cooking in the heart of Middletown, Ohio. Family-owned since day one.</p>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#menu" class="hover:text-terracotta-400 transition-colors">Menu</a></li>
+            <li><a href="#specials" class="hover:text-terracotta-400 transition-colors">Daily Specials</a></li>
+            <li><a href="#about" class="hover:text-terracotta-400 transition-colors">Our Story</a></li>
+            <li><a href="#reviews" class="hover:text-terracotta-400 transition-colors">Reviews</a></li>
+            <li><a href="#contact" class="hover:text-terracotta-400 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h4 class="font-semibold text-lg mb-4">Contact</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li class="flex items-center space-x-2">
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+              <span>1300 Cincinnati Dayton Rd<br/>Middletown, OH 45044</span>
+            </li>
+            <li class="flex items-center space-x-2">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              <a href="tel:5134245411" class="hover:text-terracotta-400 transition-colors">(513) 424-5411</a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Hours -->
+        <div>
+          <h4 class="font-semibold text-lg mb-4">Hours</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li>Mon-Thu: 10AM - 7PM</li>
+            <li>Fri: 10AM - 8PM</li>
+            <li>Sat: 10AM - 7PM</li>
+            <li>Sun: Closed</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 text-sm mb-4 md:mb-0">
+          © 2025 Grecian Delight Middletown. All Rights Reserved.
+        </p>
+        <div class="flex items-center space-x-4">
+          <span class="text-gray-500 text-sm">Authentic Greek Cuisine</span>
+          <div class="flex items-center space-x-1">
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating CTA -->
+  <a href="tel:5134245411" class="fixed bottom-6 right-6 z-50 btn-primary text-white px-6 py-4 rounded-full font-semibold shadow-2xl flex items-center space-x-2 hover:scale-105 transition-transform">
+    <i data-lucide="phone" class="w-5 h-5"></i>
+    <span>Call Now</span>
+  </a>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+    
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          mobileMenu.classList.add('hidden');
+        }
+      });
+    });
+    
+    // Navbar Background on Scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-md');
+      } else {
+        navbar.classList.remove('shadow-md');
+      }
+    });
+    
+    // Scroll Reveal Animation
+    const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    scrollRevealElements.forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>
