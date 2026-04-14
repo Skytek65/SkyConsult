@@ -3,828 +3,696 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CC's Empanadas | Authentic Latin Flavors in Loveland, OH</title>
-  <meta name="description" content="CC's Empanadas brings authentic Latin flavors to Loveland, OH. Fresh, handmade empanadas with traditional recipes and bold flavors. Order now!">
-  <meta name="keywords" content="empanadas, Latin food, Loveland Ohio, authentic empanadas, CC's Empanadas, South American food">
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Google Fonts -->
+  <title>CC's Empanadas | Authentic Venezuelan Empanadas in Loveland, OH</title>
+  <meta name="description" content="Experience authentic Venezuelan empanadas made fresh daily at CC's Empanadas in Loveland, Ohio. Traditional recipes, premium ingredients, unforgettable flavors.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Lucide Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: {
-              50: '#fff7ed',
-              100: '#ffedd5',
-              200: '#fed7aa',
-              300: '#fdba74',
-              400: '#fb923c',
-              500: '#f97316',
-              600: '#ea580c',
-              700: '#c2410c',
-              800: '#9a3412',
-              900: '#7c2d12',
-            },
-            secondary: {
-              50: '#fef2f2',
-              100: '#fee2e2',
-              200: '#fecaca',
-              300: '#fca5a5',
-              400: '#f87171',
-              500: '#ef4444',
-              600: '#dc2626',
-              700: '#b91c1c',
-              800: '#991b1b',
-              900: '#7f1d1d',
-            },
-            accent: {
-              50: '#f0fdf4',
-              100: '#dcfce7',
-              200: '#bbf7d0',
-              300: '#86efac',
-              400: '#4ade80',
-              500: '#22c55e',
-              600: '#16a34a',
-              700: '#15803d',
-              800: '#166534',
-              900: '#14532d',
-            }
+            'venezuela-yellow': '#FFCC00',
+            'venezuela-blue': '#003893',
+            'venezuela-red': '#CF142B',
+            'warm-gold': '#D4A574',
+            'deep-navy': '#1a1a2e',
+            'cream': '#FAF7F2',
+            'charcoal': '#2D2D2D'
           },
           fontFamily: {
             'display': ['Playfair Display', 'serif'],
-            'body': ['Inter', 'sans-serif'],
+            'sans': ['Inter', 'sans-serif']
           }
         }
       }
     }
   </script>
-  
   <style>
-    /* Custom Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .gradient-text {
+      background: linear-gradient(135deg, #FFCC00 0%, #D4A574 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    
-    @keyframes slideInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+    .empanada-float {
+      animation: float 6s ease-in-out infinite;
     }
-    
-    @keyframes slideInRight {
-      from {
-        opacity: 0;
-        transform: translateX(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
     }
-    
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+    .pulse-glow {
+      animation: pulse-glow 2s ease-in-out infinite;
     }
-    
-    .animate-fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(255, 204, 0, 0.4); }
+      50% { box-shadow: 0 0 40px rgba(255, 204, 0, 0.8); }
     }
-    
-    .animate-fade-in {
-      animation: fadeIn 0.6s ease-out forwards;
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    
-    .animate-slide-left {
-      animation: slideInLeft 0.8s ease-out forwards;
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     }
-    
-    .animate-slide-right {
-      animation: slideInRight 0.8s ease-out forwards;
-    }
-    
-    .animate-float {
-      animation: float 3s ease-in-out infinite;
-    }
-    
-    .animate-pulse-slow {
-      animation: pulse 2s ease-in-out infinite;
-    }
-    
-    /* Scroll-triggered animations */
-    .reveal {
+    .scroll-reveal {
       opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-out;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
-    
-    .reveal.active {
+    .scroll-reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    
+    .pattern-bg {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFCC00' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
     /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 10px;
     }
-    
     ::-webkit-scrollbar-track {
-      background: #fff7ed;
+      background: #FAF7F2;
     }
-    
     ::-webkit-scrollbar-thumb {
-      background: #f97316;
+      background: #D4A574;
       border-radius: 5px;
     }
-    
     ::-webkit-scrollbar-thumb:hover {
-      background: #ea580c;
-    }
-    
-    /* Menu item hover effect */
-    .menu-card {
-      transition: all 0.3s ease;
-    }
-    
-    .menu-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(249, 115, 22, 0.15);
-    }
-    
-    /* Navigation link hover effect */
-    .nav-link {
-      position: relative;
-    }
-    
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: #f97316;
-      transition: width 0.3s ease;
-    }
-    
-    .nav-link:hover::after {
-      width: 100%;
-    }
-    
-    /* Hero gradient overlay */
-    .hero-gradient {
-      background: linear-gradient(135deg, rgba(124, 45, 18, 0.85) 0%, rgba(185, 28, 28, 0.75) 50%, rgba(21, 128, 61, 0.85) 100%);
-    }
-    
-    /* Floating shapes */
-    .floating-shape {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.1;
-      pointer-events: none;
-    }
-    
-    /* Button shine effect */
-    .btn-shine {
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .btn-shine::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.5s;
-    }
-    
-    .btn-shine:hover::before {
-      left: 100%;
-    }
-    
-    /* Mobile menu */
-    .mobile-menu {
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in-out;
-    }
-    
-    .mobile-menu.open {
-      transform: translateX(0);
+      background: #FFCC00;
     }
   </style>
 </head>
-<body class="font-body bg-white text-gray-800 antialiased overflow-x-hidden">
-  
+<body class="font-sans antialiased bg-cream">
+
   <!-- Navigation -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm">
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
         <!-- Logo -->
-        <a href="#" class="flex items-center space-x-2">
-          <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center">
-            <i data-lucide="utensils" class="w-5 h-5 text-white"></i>
-          </div>
-          <span class="font-display text-2xl font-bold text-gray-900">CC's <span class="text-primary-600">Empanadas</span></span>
-        </a>
+        <div class="flex items-center">
+          <span class="text-2xl font-display font-bold text-white drop-shadow-lg">CC's</span>
+          <span class="ml-1 text-2xl font-display font-bold text-venezuela-yellow drop-shadow-lg">Empanadas</span>
+        </div>
         
         <!-- Desktop Navigation -->
         <div class="hidden md:flex items-center space-x-8">
-          <a href="#home" class="nav-link text-gray-700 hover:text-primary-600 font-medium transition-colors">Home</a>
-          <a href="#about" class="nav-link text-gray-700 hover:text-primary-600 font-medium transition-colors">About</a>
-          <a href="#menu" class="nav-link text-gray-700 hover:text-primary-600 font-medium transition-colors">Menu</a>
-          <a href="#contact" class="nav-link text-gray-700 hover:text-primary-600 font-medium transition-colors">Contact</a>
-          <a href="tel:513-239-6700" class="btn-shine bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex items-center space-x-2">
-            <i data-lucide="phone" class="w-4 h-4"></i>
-            <span>Order Now</span>
+          <a href="#menu" class="text-white hover:text-venezuela-yellow font-medium transition-colors drop-shadow">Menu</a>
+          <a href="#about" class="text-white hover:text-venezuela-yellow font-medium transition-colors drop-shadow">Our Story</a>
+          <a href="#catering" class="text-white hover:text-venezuela-yellow font-medium transition-colors drop-shadow">Catering</a>
+          <a href="#contact" class="text-white hover:text-venezuela-yellow font-medium transition-colors drop-shadow">Contact</a>
+          <a href="tel:5132396700" class="bg-venezuela-yellow text-deep-navy px-6 py-2.5 rounded-full font-semibold hover:bg-white transition-all pulse-glow">
+            <span class="flex items-center gap-2">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              Call Now
+            </span>
           </a>
         </div>
-        
+
         <!-- Mobile menu button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
-          <i data-lucide="menu" class="w-6 h-6 text-gray-700"></i>
+        <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+          <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
       </div>
     </div>
-    
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-white shadow-2xl z-50 md:hidden">
-      <div class="p-6">
-        <div class="flex justify-between items-center mb-8">
-          <span class="font-display text-xl font-bold text-gray-900">Menu</span>
-          <button id="close-menu-btn" class="p-2 rounded-lg hover:bg-gray-100">
-            <i data-lucide="x" class="w-6 h-6 text-gray-700"></i>
-          </button>
-        </div>
-        <div class="flex flex-col space-y-4">
-          <a href="#home" class="mobile-link text-lg text-gray-700 hover:text-primary-600 font-medium py-2 border-b border-gray-100">Home</a>
-          <a href="#about" class="mobile-link text-lg text-gray-700 hover:text-primary-600 font-medium py-2 border-b border-gray-100">About</a>
-          <a href="#menu" class="mobile-link text-lg text-gray-700 hover:text-primary-600 font-medium py-2 border-b border-gray-100">Menu</a>
-          <a href="#contact" class="mobile-link text-lg text-gray-700 hover:text-primary-600 font-medium py-2 border-b border-gray-100">Contact</a>
-          <a href="tel:513-239-6700" class="btn-shine bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-6 py-4 rounded-xl font-semibold shadow-lg text-center flex items-center justify-center space-x-2 mt-4">
-            <i data-lucide="phone" class="w-5 h-5"></i>
-            <span>Order Now: (513) 239-6700</span>
-          </a>
-        </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden bg-deep-navy/95 backdrop-blur-md">
+      <div class="px-4 pt-2 pb-6 space-y-3">
+        <a href="#menu" class="block text-white hover:text-venezuela-yellow py-2 font-medium">Menu</a>
+        <a href="#about" class="block text-white hover:text-venezuela-yellow py-2 font-medium">Our Story</a>
+        <a href="#catering" class="block text-white hover:text-venezuela-yellow py-2 font-medium">Catering</a>
+        <a href="#contact" class="block text-white hover:text-venezuela-yellow py-2 font-medium">Contact</a>
+        <a href="tel:5132396700" class="block bg-venezuela-yellow text-deep-navy px-4 py-3 rounded-lg font-semibold text-center mt-4">
+          <span class="flex items-center justify-center gap-2">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+            (513) 239-6700
+          </span>
+        </a>
       </div>
     </div>
-    
-    <!-- Overlay -->
-    <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"></div>
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
     <!-- Background with gradient overlay -->
     <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary-600 via-secondary-500 to-accent-600"></div>
-      <!-- Decorative shapes -->
-      <div class="floating-shape w-96 h-96 bg-white/10 -top-48 -right-48 animate-float"></div>
-      <div class="floating-shape w-64 h-64 bg-white/10 bottom-20 -left-32 animate-float" style="animation-delay: 1s;"></div>
-      <div class="floating-shape w-48 h-48 bg-white/10 top-1/2 right-20 animate-float" style="animation-delay: 2s;"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-deep-navy via-deep-navy/90 to-venezuela-blue/80"></div>
+      <div class="absolute inset-0 pattern-bg opacity-50"></div>
+      <div class="absolute inset-0" style="background: radial-gradient(circle at 30% 70%, rgba(255,204,0,0.15) 0%, transparent 50%);"></div>
+      <div class="absolute inset-0" style="background: radial-gradient(circle at 70% 30%, rgba(207,20,43,0.1) 0%, transparent 50%);"></div>
     </div>
-    
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <!-- Badge -->
-      <div class="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-8 animate-fade-in">
-        <i data-lucide="star" class="w-4 h-4 text-yellow-300 fill-yellow-300"></i>
-        <span class="text-white font-medium text-sm">Authentic Latin Flavors in Loveland</span>
-      </div>
-      
-      <!-- Main Headline -->
-      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight animate-fade-in-up" style="animation-delay: 0.2s;">
-        Taste the Tradition<br>
-        <span class="text-yellow-300">of South America</span>
-      </h1>
-      
-      <!-- Subheadline -->
-      <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10 font-light animate-fade-in-up" style="animation-delay: 0.4s;">
-        Hand-crafted empanadas made fresh daily with authentic recipes and premium ingredients. Every bite tells a story of Latin heritage and culinary passion.
-      </p>
-      
-      <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.6s;">
-        <a href="tel:513-239-6700" class="btn-shine bg-white text-primary-700 px-8 py-4 rounded-full font-bold text-lg shadow-2xl hover:shadow-3xl transition-all transform hover:scale-105 flex items-center space-x-2">
-          <i data-lucide="phone-call" class="w-5 h-5"></i>
-          <span>Call to Order</span>
-        </a>
-        <a href="#menu" class="btn-shine bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-primary-700 transition-all transform hover:scale-105 flex items-center space-x-2">
-          <i data-lucide="menu-book" class="w-5 h-5"></i>
-          <span>View Menu</span>
-        </a>
-      </div>
-      
-      <!-- Quick Info -->
-      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto animate-fade-in-up" style="animation-delay: 0.8s;">
-        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-white">
-          <i data-lucide="map-pin" class="w-8 h-8 mb-3 mx-auto text-yellow-300"></i>
-          <p class="font-semibold">12082 Montgomery Rd</p>
-          <p class="text-white/70">Unit C, Loveland, OH</p>
+
+    <!-- Floating Decorative Elements -->
+    <div class="absolute top-20 right-10 w-32 h-32 bg-venezuela-yellow/10 rounded-full blur-3xl empanada-float"></div>
+    <div class="absolute bottom-40 left-10 w-48 h-48 bg-venezuela-red/10 rounded-full blur-3xl empanada-float" style="animation-delay: 2s;"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Content -->
+        <div class="text-center lg:text-left scroll-reveal">
+          <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
+            <span class="text-venezuela-yellow text-sm font-semibold">Authentic Venezuelan</span>
+            <span class="text-white/60">|</span>
+            <span class="text-white text-sm">Made Fresh Daily</span>
+          </div>
+          
+          <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight text-shadow">
+            Taste the Heart of
+            <span class="block text-venezuela-yellow">Venezuela</span>
+          </h1>
+          
+          <p class="text-xl text-white/90 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            Hand-crafted empanadas with traditional recipes passed down through generations. Golden, crispy, and bursting with authentic flavors.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="#menu" class="bg-venezuela-yellow text-deep-navy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all pulse-glow inline-flex items-center justify-center gap-2">
+              <i data-lucide="utensils" class="w-5 h-5"></i>
+              View Our Menu
+            </a>
+            <a href="tel:5132396700" class="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all inline-flex items-center justify-center gap-2">
+              <i data-lucide="phone" class="w-5 h-5"></i>
+              Order Now
+            </a>
+          </div>
+
+          <!-- Trust Indicators -->
+          <div class="mt-12 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-white/80">
+            <div class="flex items-center gap-2">
+              <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+              <span class="font-medium">5-Star Rated</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-5 h-5 text-venezuela-yellow"></i>
+              <span class="font-medium">Loveland, OH</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="clock" class="w-5 h-5 text-venezuela-yellow"></i>
+              <span class="font-medium">Open Daily</span>
+            </div>
+          </div>
         </div>
-        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-white">
-          <i data-lucide="clock" class="w-8 h-8 mb-3 mx-auto text-yellow-300"></i>
-          <p class="font-semibold">Open Daily</p>
-          <p class="text-white/70">Fresh Made Daily</p>
-        </div>
-        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-white">
-          <i data-lucide="truck" class="w-8 h-8 mb-3 mx-auto text-yellow-300"></i>
-          <p class="font-semibold">Catering Available</p>
-          <p class="text-white/70">Events & Parties</p>
+
+        <!-- Right Content - Hero Image -->
+        <div class="relative scroll-reveal" style="animation-delay: 0.2s;">
+          <div class="relative">
+            <!-- Decorative Circle -->
+            <div class="absolute inset-0 bg-gradient-to-br from-venezuela-yellow/20 to-venezuela-red/20 rounded-full blur-3xl transform scale-110"></div>
+            
+            <!-- Main Image Container -->
+            <div class="relative bg-white/5 backdrop-blur-sm rounded-3xl p-6 border border-white/10">
+              <img 
+                src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=800&h=600&fit=crop" 
+                alt="Delicious golden Venezuelan empanadas on a rustic wooden board with fresh cilantro and lime"
+                class="w-full h-80 md:h-96 object-cover rounded-2xl shadow-2xl"
+              >
+              
+              <!-- Floating Badge -->
+              <div class="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3">
+                <div class="w-12 h-12 bg-venezuela-yellow rounded-full flex items-center justify-center">
+                  <i data-lucide="award" class="w-6 h-6 text-deep-navy"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500 font-medium">Family Recipe</p>
+                  <p class="text-sm font-bold text-gray-900">Since 2018</p>
+                </div>
+              </div>
+
+              <!-- Price Tag -->
+              <div class="absolute -top-4 -left-4 bg-venezuela-red text-white rounded-full px-4 py-2 shadow-lg">
+                <span class="font-bold text-sm">From $3.50</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    
-    <!-- Scroll indicator -->
+
+    <!-- Scroll Indicator -->
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
       <i data-lucide="chevron-down" class="w-8 h-8 text-white/60"></i>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-24 bg-white relative overflow-hidden">
-    <!-- Decorative elements -->
-    <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary-50 to-transparent opacity-50"></div>
-    <div class="floating-shape w-32 h-32 bg-primary-200 top-20 right-10 animate-float"></div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <!-- Image Side -->
-        <div class="reveal relative">
-          <div class="relative">
-            <!-- Main image container -->
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&q=80" 
-                alt="Fresh handmade empanadas being prepared" 
-                class="w-full h-[500px] object-cover"
-              >
-              <!-- Overlay gradient -->
-              <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-            </div>
-            
-            <!-- Floating stat card -->
-            <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-2xl p-6 animate-float">
-              <div class="text-center">
-                <p class="font-display text-4xl font-bold text-primary-600">100%</p>
-                <p class="text-gray-600 font-medium">Handmade Fresh</p>
-              </div>
-            </div>
-            
-            <!-- Experience badge -->
-            <div class="absolute -top-4 -left-4 bg-gradient-to-br from-secondary-500 to-primary-500 text-white rounded-2xl shadow-xl p-4 animate-pulse-slow">
-              <div class="text-center">
-                <i data-lucide="award" class="w-8 h-8 mx-auto mb-1"></i>
-                <p class="text-sm font-bold">Authentic</p>
-                <p class="text-xs">Recipes</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Content Side -->
-        <div class="reveal">
-          <div class="inline-flex items-center space-x-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full mb-6">
-            <i data-lucide="heart" class="w-4 h-4"></i>
-            <span class="font-medium text-sm">Our Story</span>
-          </div>
-          
-          <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Bringing Latin Tradition<br>
-            <span class="text-primary-600">to Loveland, Ohio</span>
-          </h2>
-          
-          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-            At CC's Empanadas, we believe that great food comes from the heart. Our empanadas are made using time-honored recipes passed down through generations, bringing the authentic taste of South America right to your neighborhood.
-          </p>
-          
-          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-            Every empanada is handcrafted with love, using only the freshest ingredients and traditional techniques. From our flaky, golden crusts to our savory, perfectly seasoned fillings, we put our passion into every bite.
-          </p>
-          
-          <!-- Features -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            <div class="flex items-start space-x-3">
-              <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <i data-lucide="check" class="w-5 h-5 text-primary-600"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900">Fresh Daily</h4>
-                <p class="text-sm text-gray-500">Made from scratch every day</p>
-              </div>
-            </div>
-            <div class="flex items-start space-x-3">
-              <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <i data-lucide="check" class="w-5 h-5 text-primary-600"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900">Premium Quality</h4>
-                <p class="text-sm text-gray-500">Only the finest ingredients</p>
-              </div>
-            </div>
-            <div class="flex items-start space-x-3">
-              <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <i data-lucide="check" class="w-5 h-5 text-primary-600"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900">Authentic Recipes</h4>
-                <p class="text-sm text-gray-500">Traditional Latin flavors</p>
-              </div>
-            </div>
-            <div class="flex items-start space-x-3">
-              <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <i data-lucide="check" class="w-5 h-5 text-primary-600"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900">Local Business</h4>
-                <p class="text-sm text-gray-500">Proudly serving Loveland</p>
-              </div>
-            </div>
-          </div>
-          
-          <a href="#menu" class="btn-shine inline-flex items-center space-x-2 bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
-            <span>Explore Our Menu</span>
-            <i data-lucide="arrow-right" class="w-5 h-5"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Menu Section -->
-  <section id="menu" class="py-24 bg-gradient-to-b from-primary-50 to-white relative overflow-hidden">
-    <!-- Background decoration -->
-    <div class="absolute inset-0 opacity-30">
-      <div class="absolute top-20 left-10 w-40 h-40 bg-primary-200 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-20 right-10 w-60 h-60 bg-secondary-200 rounded-full blur-3xl"></div>
-    </div>
+  <!-- Menu Preview Section -->
+  <section id="menu" class="py-24 bg-white relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 pattern-bg opacity-30"></div>
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-        <div class="inline-flex items-center space-x-2 bg-secondary-100 text-secondary-700 px-4 py-2 rounded-full mb-6">
-          <i data-lucide="flame" class="w-4 h-4"></i>
-          <span class="font-medium text-sm">Our Menu</span>
-        </div>
-        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          Delicious Empanadas<br>
-          <span class="text-primary-600">Made to Order</span>
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="text-venezuela-red font-semibold text-sm uppercase tracking-widest">Our Specialties</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-charcoal mt-3 mb-4">
+          Authentic Venezuelan <span class="text-venezuela-yellow">Empanadas</span>
         </h2>
-        <p class="text-lg text-gray-600">
-          From classic beef to creative vegetarian options, our empanadas offer something for everyone. Each one is a perfect pocket of flavor, baked or fried to golden perfection.
+        <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+          Each empanada is hand-crafted with love, using traditional recipes and the freshest ingredients. Baked or fried to golden perfection.
         </p>
       </div>
-      
+
       <!-- Menu Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Beef Empanada -->
-        <div class="menu-card bg-white rounded-3xl overflow-hidden shadow-lg reveal">
-          <div class="relative h-56 overflow-hidden">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Menu Item 1 - Pabellón -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift scroll-reveal border border-gray-100">
+          <div class="relative h-48 overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1535920527002-b35e96722eb9?w=600&q=80" 
-              alt="Traditional Beef Empanada" 
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              src="https://images.unsplash.com/photo-1626202158822-3d64fb23169c?w=600&h=400&fit=crop" 
+              alt="Traditional Venezuelan beef empanada with savory filling"
+              class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
             >
-            <div class="absolute top-4 right-4 bg-secondary-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+            <div class="absolute top-4 right-4 bg-venezuela-yellow text-deep-navy px-3 py-1 rounded-full text-sm font-bold">
               Popular
             </div>
           </div>
           <div class="p-6">
-            <div class="flex justify-between items-start mb-3">
-              <h3 class="font-display text-xl font-bold text-gray-900">Traditional Beef</h3>
-              <span class="text-primary-600 font-bold text-lg">$4.50</span>
-            </div>
-            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
-              Seasoned ground beef, onions, olives, and hard-boiled egg wrapped in our signature flaky crust. A classic favorite.
-            </p>
-            <div class="flex items-center space-x-4 text-sm text-gray-500">
-              <span class="flex items-center space-x-1">
-                <i data-lucide="flame" class="w-4 h-4 text-orange-500"></i>
-                <span>Spicy Option</span>
-              </span>
+            <h3 class="font-display text-xl font-bold text-charcoal mb-2">Pabellón Empanada</h3>
+            <p class="text-gray-600 text-sm mb-4">Shredded beef, black beans, sweet plantains, and cheese - the ultimate Venezuelan classic.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-bold text-venezuela-red">$4.50</span>
+              <button onclick="alert('Please call (513) 239-6700 to order!')" class="bg-deep-navy text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-venezuela-blue transition-colors">
+                Add to Order
+              </button>
             </div>
           </div>
         </div>
-        
-        <!-- Chicken Empanada -->
-        <div class="menu-card bg-white rounded-3xl overflow-hidden shadow-lg reveal">
-          <div class="relative h-56 overflow-hidden">
+
+        <!-- Menu Item 2 - Cheese -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift scroll-reveal border border-gray-100" style="animation-delay: 0.1s;">
+          <div class="relative h-48 overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=80" 
-              alt="Chicken Empanada" 
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              src="https://images.unsplash.com/photo-1604467707321-70c1b85d7cd8?w=600&h=400&fit=crop" 
+              alt="Cheese empanada with melted Venezuelan cheese"
+              class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
             >
           </div>
           <div class="p-6">
-            <div class="flex justify-between items-start mb-3">
-              <h3 class="font-display text-xl font-bold text-gray-900">Chicken & Cheese</h3>
-              <span class="text-primary-600 font-bold text-lg">$4.50</span>
-            </div>
-            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
-              Tender shredded chicken, melted cheese, and our special seasoning blend. Comfort food at its finest.
-            </p>
-            <div class="flex items-center space-x-4 text-sm text-gray-500">
-              <span class="flex items-center space-x-1">
-                <i data-lucide="leaf" class="w-4 h-4 text-green-500"></i>
-                <span>Mild</span>
-              </span>
+            <h3 class="font-display text-xl font-bold text-charcoal mb-2">Queso Empanada</h3>
+            <p class="text-gray-600 text-sm mb-4">Gooey melted Venezuelan cheese blend wrapped in our signature corn dough.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-bold text-venezuela-red">$3.50</span>
+              <button onclick="alert('Please call (513) 239-6700 to order!')" class="bg-deep-navy text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-venezuela-blue transition-colors">
+                Add to Order
+              </button>
             </div>
           </div>
         </div>
-        
-        <!-- Spinach & Cheese -->
-        <div class="menu-card bg-white rounded-3xl overflow-hidden shadow-lg reveal">
-          <div class="relative h-56 overflow-hidden">
+
+        <!-- Menu Item 3 - Chicken -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift scroll-reveal border border-gray-100" style="animation-delay: 0.2s;">
+          <div class="relative h-48 overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=600&q=80" 
-              alt="Spinach and Cheese Empanada" 
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop" 
+              alt="Chicken empanada with shredded chicken and vegetables"
+              class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
             >
-            <div class="absolute top-4 right-4 bg-accent-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-              Veggie
+            <div class="absolute top-4 right-4 bg-venezuela-red text-white px-3 py-1 rounded-full text-sm font-bold">
+              Spicy
             </div>
           </div>
           <div class="p-6">
-            <div class="flex justify-between items-start mb-3">
-              <h3 class="font-display text-xl font-bold text-gray-900">Spinach & Cheese</h3>
-              <span class="text-primary-600 font-bold text-lg">$4.00</span>
-            </div>
-            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
-              Fresh spinach sautéed with garlic, mixed with creamy cheese. A vegetarian delight packed with flavor.
-            </p>
-            <div class="flex items-center space-x-4 text-sm text-gray-500">
-              <span class="flex items-center space-x-1">
-                <i data-lucide="leaf" class="w-4 h-4 text-green-500"></i>
-                <span>Vegetarian</span>
-              </span>
+            <h3 class="font-display text-xl font-bold text-charcoal mb-2">Pollo Empanada</h3>
+            <p class="text-gray-600 text-sm mb-4">Seasoned shredded chicken with peppers, onions, and cilantro in a flaky crust.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-bold text-venezuela-red">$4.00</span>
+              <button onclick="alert('Please call (513) 239-6700 to order!')" class="bg-deep-navy text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-venezuela-blue transition-colors">
+                Add to Order
+              </button>
             </div>
           </div>
         </div>
-        
-        <!-- Ham & Cheese -->
-        <div class="menu-card bg-white rounded-3xl overflow-hidden shadow-lg reveal">
-          <div class="relative h-56 overflow-hidden">
+
+        <!-- Menu Item 4 - Ham and Cheese -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift scroll-reveal border border-gray-100" style="animation-delay: 0.3s;">
+          <div class="relative h-48 overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80" 
-              alt="Ham and Cheese Empanada" 
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&h=400&fit=crop" 
+              alt="Ham and cheese empanada with premium ingredients"
+              class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
             >
           </div>
           <div class="p-6">
-            <div class="flex justify-between items-start mb-3">
-              <h3 class="font-display text-xl font-bold text-gray-900">Ham & Cheese</h3>
-              <span class="text-primary-600 font-bold text-lg">$4.25</span>
-            </div>
-            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
-              Premium ham paired with melty mozzarella cheese. Simple, classic, and absolutely delicious.
-            </p>
-            <div class="flex items-center space-x-4 text-sm text-gray-500">
-              <span class="flex items-center space-x-1">
-                <i data-lucide="heart" class="w-4 h-4 text-red-500"></i>
-                <span>Kids Favorite</span>
-              </span>
+            <h3 class="font-display text-xl font-bold text-charcoal mb-2">Jamón y Queso</h3>
+            <p class="text-gray-600 text-sm mb-4">Premium ham and melted cheese - a timeless favorite for all ages.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-bold text-venezuela-red">$4.00</span>
+              <button onclick="alert('Please call (513) 239-6700 to order!')" class="bg-deep-navy text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-venezuela-blue transition-colors">
+                Add to Order
+              </button>
             </div>
           </div>
         </div>
-        
-        <!-- Pulled Pork -->
-        <div class="menu-card bg-white rounded-3xl overflow-hidden shadow-lg reveal">
-          <div class="relative h-56 overflow-hidden">
+
+        <!-- Menu Item 5 - Black Bean -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift scroll-reveal border border-gray-100" style="animation-delay: 0.4s;">
+          <div class="relative h-48 overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1544025162-d76978f8e4bb?w=600&q=80" 
-              alt="BBQ Pulled Pork Empanada" 
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              src="https://images.unsplash.com/photo-1611250188496-e96604361f55?w=600&h=400&fit=crop" 
+              alt="Black beans and cheese empanada"
+              class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
             >
-            <div class="absolute top-4 right-4 bg-primary-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-              New
+            <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+              Vegetarian
             </div>
           </div>
           <div class="p-6">
-            <div class="flex justify-between items-start mb-3">
-              <h3 class="font-display text-xl font-bold text-gray-900">BBQ Pulled Pork</h3>
-              <span class="text-primary-600 font-bold text-lg">$5.00</span>
-            </div>
-            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
-              Slow-cooked pulled pork in our house BBQ sauce. A fusion of Latin tradition and American comfort.
-            </p>
-            <div class="flex items-center space-x-4 text-sm text-gray-500">
-              <span class="flex items-center space-x-1">
-                <i data-lucide="star" class="w-4 h-4 text-yellow-500"></i>
-                <span>Must Try</span>
-              </span>
+            <h3 class="font-display text-xl font-bold text-charcoal mb-2">Caraotas y Queso</h3>
+            <p class="text-gray-600 text-sm mb-4">Slow-cooked black beans with Venezuelan cheese blend. Hearty and delicious.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-bold text-venezuela-red">$3.75</span>
+              <button onclick="alert('Please call (513) 239-6700 to order!')" class="bg-deep-navy text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-venezuela-blue transition-colors">
+                Add to Order
+              </button>
             </div>
           </div>
         </div>
-        
-        <!-- Sweet Empanada -->
-        <div class="menu-card bg-white rounded-3xl overflow-hidden shadow-lg reveal">
-          <div class="relative h-56 overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=600&q=80" 
-              alt="Sweet Dessert Empanada" 
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-            >
-            <div class="absolute top-4 right-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-              Sweet
+
+        <!-- Menu Item 6 - Special Combo -->
+        <div class="bg-gradient-to-br from-venezuela-yellow to-warm-gold rounded-2xl shadow-lg overflow-hidden hover-lift scroll-reveal" style="animation-delay: 0.5s;">
+          <div class="p-6 h-full flex flex-col">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                <i data-lucide="crown" class="w-6 h-6 text-venezuela-yellow"></i>
+              </div>
+              <div>
+                <span class="text-xs font-bold text-white uppercase tracking-wider">Best Value</span>
+                <h3 class="font-display text-xl font-bold text-white">CC's Combo</h3>
+              </div>
             </div>
-          </div>
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-3">
-              <h3 class="font-display text-xl font-bold text-gray-900">Apple Cinnamon</h3>
-              <span class="text-primary-600 font-bold text-lg">$3.75</span>
-            </div>
-            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
-              Sweet apple filling with cinnamon and a touch of caramel. The perfect dessert empanada.
-            </p>
-            <div class="flex items-center space-x-4 text-sm text-gray-500">
-              <span class="flex items-center space-x-1">
-                <i data-lucide="cake" class="w-4 h-4 text-pink-500"></i>
-                <span>Dessert</span>
-              </span>
+            <p class="text-white/90 text-sm mb-4 flex-grow">3 empanadas of your choice + 1 drink + side of cilantro sauce</p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="text-3xl font-bold text-white">$14.99</span>
+              <button onclick="alert('Please call (513) 239-6700 to order!')" class="bg-white text-deep-navy px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-100 transition-colors">
+                Order Combo
+              </button>
             </div>
           </div>
         </div>
       </div>
-      
-      <!-- Menu CTA -->
-      <div class="text-center mt-12 reveal">
-        <p class="text-gray-600 mb-4">Looking for something else? We also offer custom orders and catering!</p>
-        <a href="tel:513-239-6700" class="btn-shine inline-flex items-center space-x-2 bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
-          <i data-lucide="phone" class="w-5 h-5"></i>
-          <span>Call to Order: (513) 239-6700</span>
-        </a>
+
+      <!-- View Full Menu Button -->
+      <div class="text-center mt-12">
+        <button onclick="alert('Full menu coming soon! Call us at (513) 239-6700 for all available options.')" class="inline-flex items-center gap-2 bg-deep-navy text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-venezuela-blue transition-all">
+          <i data-lucide="book-open" class="w-5 h-5"></i>
+          View Complete Menu
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- Why Choose Us Section -->
-  <section class="py-24 bg-white relative overflow-hidden">
+  <!-- About Section -->
+  <section id="about" class="py-24 bg-cream relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-        <div class="inline-flex items-center space-x-2 bg-accent-100 text-accent-700 px-4 py-2 rounded-full mb-6">
-          <i data-lucide="sparkles" class="w-4 h-4"></i>
-          <span class="font-medium text-sm">Why CC's Empanadas</span>
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Image Side -->
+        <div class="relative scroll-reveal">
+          <div class="relative">
+            <!-- Decorative Elements -->
+            <div class="absolute -top-6 -left-6 w-48 h-48 bg-venezuela-yellow/20 rounded-full"></div>
+            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-venezuela-red/20 rounded-full"></div>
+            
+            <!-- Main Image -->
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&h=700&fit=crop" 
+                alt="Family preparing traditional Venezuelan empanadas with love and care"
+                class="w-full h-96 md:h-[500px] object-cover"
+              >
+            </div>
+
+            <!-- Experience Badge -->
+            <div class="absolute -bottom-8 -right-8 bg-white rounded-2xl shadow-xl p-6 max-w-xs">
+              <div class="flex items-center gap-4">
+                <div class="w-14 h-14 bg-venezuela-red rounded-full flex items-center justify-center">
+                  <span class="text-white font-bold text-xl">6+</span>
+                </div>
+                <div>
+                  <p class="font-bold text-charcoal">Years of</p>
+                  <p class="text-venezuela-red font-semibold">Authentic Flavor</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          What Makes Us<br>
-          <span class="text-primary-600">Different</span>
-        </h2>
+
+        <!-- Content Side -->
+        <div class="scroll-reveal" style="animation-delay: 0.2s;">
+          <span class="text-venezuela-red font-semibold text-sm uppercase tracking-widest">Our Story</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-charcoal mt-3 mb-6">
+            Bringing Venezuela to <span class="text-venezuela-yellow">Ohio</span>
+          </h2>
+          <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+            CC's Empanadas was born from a simple dream: to share the authentic flavors of Venezuela with our community in Loveland. Every empanada we make carries the warmth of our heritage and the love of homemade cooking.
+          </p>
+          <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+            Our dough is made fresh daily using traditional corn flour, and each filling is prepared with recipes passed down through generations. From the first bite, you'll taste the difference that authenticity makes.
+          </p>
+
+          <!-- Features Grid -->
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-venezuela-yellow rounded-xl flex items-center justify-center flex-shrink-0">
+                <i data-lucide="heart" class="w-6 h-6 text-deep-navy"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-charcoal mb-1">Made With Love</h4>
+                <p class="text-gray-500 text-sm">Hand-crafted daily with authentic recipes</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-venezuela-yellow rounded-xl flex items-center justify-center flex-shrink-0">
+                <i data-lucide="leaf" class="w-6 h-6 text-deep-navy"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-charcoal mb-1">Fresh Ingredients</h4>
+                <p class="text-gray-500 text-sm">Premium, locally-sourced when possible</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-venezuela-yellow rounded-xl flex items-center justify-center flex-shrink-0">
+                <i data-lucide="users" class="w-6 h-6 text-deep-navy"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-charcoal mb-1">Family Owned</h4>
+                <p class="text-gray-500 text-sm">Proudly serving our community since 2018</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-venezuela-yellow rounded-xl flex items-center justify-center flex-shrink-0">
+                <i data-lucide="truck" class="w-6 h-6 text-deep-navy"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-charcoal mb-1">Catering Available</h4>
+                <p class="text-gray-500 text-sm">Perfect for events and celebrations</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Card 1 -->
-        <div class="reveal bg-gradient-to-br from-primary-50 to-white p-8 rounded-3xl border border-primary-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-          <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-            <i data-lucide="chef-hat" class="w-8 h-8 text-white"></i>
+    </div>
+  </section>
+
+  <!-- Catering Section -->
+  <section id="catering" class="py-24 bg-deep-navy relative overflow-hidden">
+    <div class="absolute inset-0 pattern-bg opacity-20"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(circle at 20% 80%, rgba(255,204,0,0.1) 0%, transparent 50%);"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="text-venezuela-yellow font-semibold text-sm uppercase tracking-widest">Events & Parties</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-4">
+          Catering Services
+        </h2>
+        <p class="text-white/70 max-w-2xl mx-auto text-lg">
+          Make your next event unforgettable with authentic Venezuelan empanadas. Perfect for corporate events, weddings, parties, and more.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Catering Package 1 -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover-lift scroll-reveal">
+          <div class="w-14 h-14 bg-venezuela-yellow rounded-xl flex items-center justify-center mb-6">
+            <i data-lucide="users" class="w-7 h-7 text-deep-navy"></i>
           </div>
-          <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Handmade with Love</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Every empanada is crafted by hand using traditional techniques. No machines, no shortcuts - just pure dedication to quality and authenticity.
-          </p>
+          <h3 class="font-display text-2xl font-bold text-white mb-2">Small Party</h3>
+          <p class="text-white/60 mb-6">10-20 guests</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3 text-white/80">
+              <i data-lucide="check" class="w-5 h-5 text-venezuela-yellow"></i>
+              20 Empanadas (mixed flavors)
+            </li>
+            <li class="flex items-center gap-3 text-white/80">
+              <i data-lucide="check" class="w-5 h-5 text-venezuela-yellow"></i>
+              Cilantro & Garlic Sauces
+            </li>
+            <li class="flex items-center gap-3 text-white/80">
+              <i data-lucide="check" class="w-5 h-5 text-venezuela-yellow"></i>
+              Setup & Serving Materials
+            </li>
+          </ul>
+          <div class="text-center">
+            <span class="text-3xl font-bold text-white">$75</span>
+            <a href="tel:5132396700" class="block w-full mt-4 bg-white/10 text-white py-3 rounded-lg font-semibold hover:bg-venezuela-yellow hover:text-deep-navy transition-all text-center">
+              Request Quote
+            </a>
+          </div>
         </div>
-        
-        <!-- Card 2 -->
-        <div class="reveal bg-gradient-to-br from-secondary-50 to-white p-8 rounded-3xl border border-secondary-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" style="animation-delay: 0.2s;">
-          <div class="w-16 h-16 bg-gradient-to-br from-secondary-500 to-primary-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-            <i data-lucide="leaf" class="w-8 h-8 text-white"></i>
+
+        <!-- Catering Package 2 -->
+        <div class="bg-gradient-to-br from-venezuela-yellow to-warm-gold rounded-2xl p-8 hover-lift scroll-reveal transform md:scale-105 relative" style="animation-delay: 0.1s;">
+          <div class="absolute top-4 right-4 bg-venezuela-red text-white px-3 py-1 rounded-full text-xs font-bold">
+            Most Popular
           </div>
-          <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Fresh Ingredients</h3>
-          <p class="text-gray-600 leading-relaxed">
-            We source the freshest ingredients daily. From farm-fresh vegetables to premium meats, quality is never compromised.
-          </p>
+          <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center mb-6">
+            <i data-lucide="sparkles" class="w-7 h-7 text-venezuela-yellow"></i>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-deep-navy mb-2">Corporate Event</h3>
+          <p class="text-deep-navy/60 mb-6">20-50 guests</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3 text-deep-navy/80">
+              <i data-lucide="check" class="w-5 h-5 text-deep-navy"></i>
+              50 Empanadas (mixed flavors)
+            </li>
+            <li class="flex items-center gap-3 text-deep-navy/80">
+              <i data-lucide="check" class="w-5 h-5 text-deep-navy"></i>
+              3 Signature Sauces
+            </li>
+            <li class="flex items-center gap-3 text-deep-navy/80">
+              <i data-lucide="check" class="w-5 h-5 text-deep-navy"></i>
+              Sweet Plantain Slices
+            </li>
+            <li class="flex items-center gap-3 text-deep-navy/80">
+              <i data-lucide="check" class="w-5 h-5 text-deep-navy"></i>
+              On-site Warming Service
+            </li>
+          </ul>
+          <div class="text-center">
+            <span class="text-3xl font-bold text-deep-navy">$175</span>
+            <a href="tel:5132396700" class="block w-full mt-4 bg-deep-navy text-white py-3 rounded-lg font-semibold hover:bg-white hover:text-deep-navy transition-all text-center">
+              Request Quote
+            </a>
+          </div>
         </div>
-        
-        <!-- Card 3 -->
-        <div class="reveal bg-gradient-to-br from-accent-50 to-white p-8 rounded-3xl border border-accent-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" style="animation-delay: 0.4s;">
-          <div class="w-16 h-16 bg-gradient-to-br from-accent-500 to-primary-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-            <i data-lucide="users" class="w-8 h-8 text-white"></i>
+
+        <!-- Catering Package 3 -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover-lift scroll-reveal" style="animation-delay: 0.2s;">
+          <div class="w-14 h-14 bg-venezuela-red rounded-xl flex items-center justify-center mb-6">
+            <i data-lucide="party-popper" class="w-7 h-7 text-white"></i>
           </div>
-          <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Family Owned</h3>
-          <p class="text-gray-600 leading-relaxed">
-            We're a local family business serving the Loveland community. When you support us, you support local dreams and traditions.
-          </p>
+          <h3 class="font-display text-2xl font-bold text-white mb-2">Wedding/Party</h3>
+          <p class="text-white/60 mb-6">50+ guests</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3 text-white/80">
+              <i data-lucide="check" class="w-5 h-5 text-venezuela-yellow"></i>
+              100+ Empanadas (all flavors)
+            </li>
+            <li class="flex items-center gap-3 text-white/80">
+              <i data-lucide="check" class="w-5 h-5 text-venezuela-yellow"></i>
+              Full Sauce Bar
+            </li>
+            <li class="flex items-center gap-3 text-white/80">
+              <i data-lucide="check" class="w-5 h-5 text-venezuela-yellow"></i>
+              Arepas & Sides Available
+            </li>
+            <li class="flex items-center gap-3 text-white/80">
+              <i data-lucide="check" class="w-5 h-5 text-venezuela-yellow"></i>
+              Custom Packages
+            </li>
+          </ul>
+          <div class="text-center">
+            <span class="text-3xl font-bold text-white">Custom</span>
+            <a href="tel:5132396700" class="block w-full mt-4 bg-venezuela-red text-white py-3 rounded-lg font-semibold hover:bg-white hover:text-deep-navy transition-all text-center">
+              Contact Us
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Testimonials Section -->
-  <section class="py-24 bg-gradient-to-br from-primary-600 via-secondary-600 to-accent-600 relative overflow-hidden">
-    <!-- Background pattern -->
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
-    </div>
-    
+  <section class="py-24 bg-white relative">
+    <div class="absolute inset-0 pattern-bg opacity-30"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-16 reveal">
-        <div class="inline-flex items-center space-x-2 bg-white/20 text-white px-4 py-2 rounded-full mb-6">
-          <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span class="font-medium text-sm">What Our Customers Say</span>
-        </div>
-        <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-          Loved by the Community
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="text-venezuela-red font-semibold text-sm uppercase tracking-widest">Customer Love</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-charcoal mt-3 mb-4">
+          What People Are Saying
         </h2>
       </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <div class="grid md:grid-cols-3 gap-8">
         <!-- Testimonial 1 -->
-        <div class="reveal bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
-          <div class="flex items-center space-x-1 mb-4">
-            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+        <div class="bg-cream rounded-2xl p-8 shadow-lg scroll-reveal">
+          <div class="flex gap-1 mb-4">
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
           </div>
-          <p class="text-white text-lg mb-6 leading-relaxed">
-            "The best empanadas I've ever had outside of Argentina! The crust is perfectly flaky and the fillings are so flavorful. My family orders from CC's every weekend."
-          </p>
-          <div class="flex items-center space-x-3">
-            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-              <i data-lucide="user" class="w-6 h-6 text-white"></i>
+          <p class="text-gray-600 mb-6 italic">"As a Venezuelan living in Ohio, finding CC's was like finding a piece of home. These empanadas taste just like my grandmother used to make!"</p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-venezuela-blue rounded-full flex items-center justify-center">
+              <span class="text-white font-bold">MR</span>
             </div>
             <div>
-              <p class="text-white font-semibold">Maria S.</p>
-              <p class="text-white/70 text-sm">Loveland Resident</p>
+              <p class="font-bold text-charcoal">Maria R.</p>
+              <p class="text-gray-500 text-sm">Loveland, OH</p>
             </div>
           </div>
         </div>
-        
+
         <!-- Testimonial 2 -->
-        <div class="reveal bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20" style="animation-delay: 0.2s;">
-          <div class="flex items-center space-x-1 mb-4">
-            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+        <div class="bg-cream rounded-2xl p-8 shadow-lg scroll-reveal" style="animation-delay: 0.1s;">
+          <div class="flex gap-1 mb-4">
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
           </div>
-          <p class="text-white text-lg mb-6 leading-relaxed">
-            "CC's catered our company lunch and everyone was blown away. The variety of flavors was amazing, and they were still warm when they arrived. Highly recommend!"
-          </p>
-          <div class="flex items-center space-x-3">
-            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-              <i data-lucide="user" class="w-6 h-6 text-white"></i>
+          <p class="text-gray-600 mb-6 italic">"We ordered catering for our office party and everyone LOVED it! The Pabellón empanadas were the hit of the day. Will definitely order again."</p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-venezuela-red rounded-full flex items-center justify-center">
+              <span class="text-white font-bold">JK</span>
             </div>
             <div>
-              <p class="text-white font-semibold">James T.</p>
-              <p class="text-white/70 text-sm">Local Business Owner</p>
+              <p class="font-bold text-charcoal">James K.</p>
+              <p class="text-gray-500 text-sm">Cincinnati, OH</p>
             </div>
           </div>
         </div>
-        
+
         <!-- Testimonial 3 -->
-        <div class="reveal bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20" style="animation-delay: 0.4s;">
-          <div class="flex items-center space-x-1 mb-4">
-            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
-            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
+        <div class="bg-cream rounded-2xl p-8 shadow-lg scroll-reveal" style="animation-delay: 0.2s;">
+          <div class="flex gap-1 mb-4">
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
+            <i data-lucide="star" class="w-5 h-5 text-venezuela-yellow fill-venezuela-yellow"></i>
           </div>
-          <p class="text-white text-lg mb-6 leading-relaxed">
-            "Finally found authentic empanadas in Ohio! The spinach and cheese is my favorite, but honestly they're all amazing. Great prices for such high quality food."
-          </p>
-          <div class="flex items-center space-x-3">
-            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-              <i data-lucide="user" class="w-6 h-6 text-white"></i>
+          <p class="text-gray-600 mb-6 italic">"The corn dough is so crispy and the fillings are generous! Finally, authentic Venezuelan food in Loveland. My new favorite spot!"</p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+              <span class="text-white font-bold">SL</span>
             </div>
             <div>
-              <p class="text-white font-semibold">Rachel M.</p>
-              <p class="text-white/70 text-sm">Cincinnati Foodie</p>
+              <p class="font-bold text-charcoal">Sarah L.</p>
+              <p class="text-gray-500 text-sm">Mason, OH</p>
             </div>
           </div>
         </div>
@@ -832,248 +700,303 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-24 bg-white relative overflow-hidden">
+  <!-- Location & Hours -->
+  <section class="py-24 bg-gradient-to-br from-cream to-white relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        <!-- Contact Info -->
-        <div class="reveal">
-          <div class="inline-flex items-center space-x-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full mb-6">
-            <i data-lucide="map-pin" class="w-4 h-4"></i>
-            <span class="font-medium text-sm">Visit Us</span>
-          </div>
-          <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Come Taste the<br>
-            <span class="text-primary-600">Difference</span>
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Info Side -->
+        <div class="scroll-reveal">
+          <span class="text-venezuela-red font-semibold text-sm uppercase tracking-widest">Visit Us</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-charcoal mt-3 mb-6">
+            Come Say <span class="text-venezuela-yellow">Hola!</span>
           </h2>
-          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-            We're conveniently located in Loveland, ready to serve you fresh, delicious empanadas. Stop by for a quick bite or call ahead for pickup!
+          <p class="text-gray-600 text-lg mb-8">
+            We're conveniently located in Loveland, Ohio. Stop by and experience the authentic taste of Venezuela!
           </p>
-          
-          <!-- Contact Cards -->
-          <div class="space-y-4 mb-8">
-            <div class="flex items-start space-x-4 p-4 bg-primary-50 rounded-2xl">
-              <div class="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i data-lucide="map-pin" class="w-6 h-6 text-white"></i>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-venezuela-yellow rounded-xl flex items-center justify-center flex-shrink-0">
+                <i data-lucide="map-pin" class="w-6 h-6 text-deep-navy"></i>
               </div>
               <div>
-                <h4 class="font-semibold text-gray-900 mb-1">Address</h4>
-                <p class="text-gray-600">12082 Montgomery Rd<br>Unit C, Loveland, OH 45140</p>
+                <h4 class="font-bold text-charcoal mb-1">Address</h4>
+                <p class="text-gray-600">12082 Montgomery Rd, Unit C<br>Loveland, OH 45140</p>
               </div>
             </div>
-            
-            <div class="flex items-start space-x-4 p-4 bg-secondary-50 rounded-2xl">
-              <div class="w-12 h-12 bg-secondary-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i data-lucide="phone" class="w-6 h-6 text-white"></i>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-venezuela-yellow rounded-xl flex items-center justify-center flex-shrink-0">
+                <i data-lucide="clock" class="w-6 h-6 text-deep-navy"></i>
               </div>
               <div>
-                <h4 class="font-semibold text-gray-900 mb-1">Phone</h4>
-                <a href="tel:513-239-6700" class="text-primary-600 font-semibold hover:underline">(513) 239-6700</a>
-                <p class="text-gray-500 text-sm">Call to place an order</p>
+                <h4 class="font-bold text-charcoal mb-1">Hours</h4>
+                <div class="text-gray-600">
+                  <p>Monday - Friday: 11:00 AM - 8:00 PM</p>
+                  <p>Saturday: 11:00 AM - 9:00 PM</p>
+                  <p>Sunday: 12:00 PM - 7:00 PM</p>
+                </div>
               </div>
             </div>
-            
-            <div class="flex items-start space-x-4 p-4 bg-accent-50 rounded-2xl">
-              <div class="w-12 h-12 bg-accent-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i data-lucide="mail" class="w-6 h-6 text-white"></i>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-venezuela-yellow rounded-xl flex items-center justify-center flex-shrink-0">
+                <i data-lucide="phone" class="w-6 h-6 text-deep-navy"></i>
               </div>
               <div>
-                <h4 class="font-semibold text-gray-900 mb-1">Email</h4>
-                <a href="mailto:empanadas.cinci@gmail.com" class="text-primary-600 font-semibold hover:underline">empanadas.cinci@gmail.com</a>
-                <p class="text-gray-500 text-sm">For catering inquiries</p>
+                <h4 class="font-bold text-charcoal mb-1">Phone</h4>
+                <a href="tel:5132396700" class="text-venezuela-red font-semibold hover:underline">(513) 239-6700</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-venezuela-yellow rounded-xl flex items-center justify-center flex-shrink-0">
+                <i data-lucide="mail" class="w-6 h-6 text-deep-navy"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-charcoal mb-1">Email</h4>
+                <a href="mailto:empanadas.cinci@gmail.com" class="text-venezuela-red font-semibold hover:underline">empanadas.cinci@gmail.com</a>
               </div>
             </div>
           </div>
-          
+
           <!-- Social Links -->
-          <div>
-            <h4 class="font-semibold text-gray-900 mb-4">Follow Us</h4>
-            <div class="flex items-center space-x-4">
-              <a href="https://facebook.com/ccsempanadas/" target="_blank" class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl transform hover:scale-110 transition-transform">
-                <i data-lucide="facebook" class="w-6 h-6"></i>
-              </a>
-              <a href="#" class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white hover:opacity-90 transition-opacity shadow-lg hover:shadow-xl transform hover:scale-110 transition-transform">
-                <i data-lucide="instagram" class="w-6 h-6"></i>
-              </a>
-            </div>
+          <div class="mt-8 flex gap-4">
+            <a href="https://facebook.com/ccsempanadas/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-deep-navy rounded-full flex items-center justify-center hover:bg-venezuela-blue transition-colors">
+              <i data-lucide="facebook" class="w-6 h-6 text-white"></i>
+            </a>
+            <a href="#" class="w-12 h-12 bg-deep-navy rounded-full flex items-center justify-center hover:bg-venezuela-blue transition-colors">
+              <i data-lucide="instagram" class="w-6 h-6 text-white"></i>
+            </a>
           </div>
         </div>
-        
-        <!-- Map -->
-        <div class="reveal">
-          <div class="bg-gray-100 rounded-3xl overflow-hidden shadow-2xl h-[500px] relative">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3078.134503963874!2d-84.3162417!3d39.2845047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8840530c0e0e0e0f%3A0x0!2zMTIwODIgTW9udGdvbWVyeSBSZCBVbml0IEMsIExvdmVsYW5kLCBPSCA0NTE0MA!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
-              width="100%"
-              height="100%"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              class="absolute inset-0"
-            ></iframe>
+
+        <!-- Map Side -->
+        <div class="scroll-reveal" style="animation-delay: 0.2s;">
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="aspect-video relative">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3078.1234567890123!2d-84.12345678901234!3d39.12345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDA3JzI0LjQiTiA4NMKwMDcnMjQuNCJX!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" 
+                width="100%" 
+                height="100%" 
+                style="border:0; position: absolute; inset: 0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="CC's Empanadas Location"
+              ></iframe>
+            </div>
+            <div class="p-6">
+              <a 
+                href="https://maps.google.com/?q=12082+Montgomery+Rd,+Unit+C,+Loveland,+OH+45140" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="flex items-center justify-center gap-2 bg-venezuela-yellow text-deep-navy px-6 py-3 rounded-lg font-bold hover:bg-venezuela-blue hover:text-white transition-all w-full"
+              >
+                <i data-lucide="navigation" class="w-5 h-5"></i>
+                Get Directions
+              </a>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact" class="py-24 bg-deep-navy relative overflow-hidden">
+    <div class="absolute inset-0 pattern-bg opacity-20"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(circle at 80% 20%, rgba(255,204,0,0.1) 0%, transparent 50%);"></div>
+    
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-12 scroll-reveal">
+        <span class="text-venezuela-yellow font-semibold text-sm uppercase tracking-widest">Get In Touch</span>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-4">
+          Have a Question?
+        </h2>
+        <p class="text-white/70 text-lg">
+          Whether you're planning a catering event or just want to say hello, we'd love to hear from you!
+        </p>
+      </div>
+
+      <form class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/10 scroll-reveal" onsubmit="event.preventDefault(); alert('Thank you for your message! We will get back to you soon at empanadas.cinci@gmail.com');">
+        <div class="grid md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label class="block text-white font-medium mb-2">First Name</label>
+            <input 
+              type="text" 
+              placeholder="Your first name" 
+              class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-venezuela-yellow transition-colors"
+              required
+            >
+          </div>
+          <div>
+            <label class="block text-white font-medium mb-2">Last Name</label>
+            <input 
+              type="text" 
+              placeholder="Your last name" 
+              class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-venezuela-yellow transition-colors"
+              required
+            >
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-white font-medium mb-2">Email</label>
+          <input 
+            type="email" 
+            placeholder="your@email.com" 
+            class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-venezuela-yellow transition-colors"
+            required
+          >
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-white font-medium mb-2">Phone (Optional)</label>
+          <input 
+            type="tel" 
+            placeholder="(513) 000-0000" 
+            class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-venezuela-yellow transition-colors"
+          >
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-white font-medium mb-2">Message</label>
+          <textarea 
+            rows="4" 
+            placeholder="How can we help you?" 
+            class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-venezuela-yellow transition-colors resize-none"
+            required
+          ></textarea>
+        </div>
+
+        <button 
+          type="submit" 
+          class="w-full bg-venezuela-yellow text-deep-navy py-4 rounded-lg font-bold text-lg hover:bg-white transition-all pulse-glow flex items-center justify-center gap-2"
+        >
+          <i data-lucide="send" class="w-5 h-5"></i>
+          Send Message
+        </button>
+      </form>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-16">
+  <footer class="bg-charcoal text-white py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
         <!-- Brand -->
         <div class="md:col-span-2">
-          <div class="flex items-center space-x-2 mb-6">
-            <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center">
-              <i data-lucide="utensils" class="w-5 h-5 text-white"></i>
-            </div>
-            <span class="font-display text-2xl font-bold">CC's <span class="text-primary-400">Empanadas</span></span>
+          <div class="flex items-center mb-4">
+            <span class="text-2xl font-display font-bold text-white">CC's</span>
+            <span class="ml-1 text-2xl font-display font-bold text-venezuela-yellow">Empanadas</span>
           </div>
-          <p class="text-gray-400 mb-6 max-w-sm leading-relaxed">
-            Bringing authentic Latin flavors to Loveland, Ohio. Fresh, handmade empanadas made with love and traditional recipes.
+          <p class="text-white/60 mb-6 max-w-sm">
+            Bringing authentic Venezuelan flavors to Loveland, Ohio. Hand-crafted empanadas made with love, tradition, and the finest ingredients.
           </p>
-          <div class="flex items-center space-x-4">
-            <a href="https://facebook.com/ccsempanadas/" target="_blank" class="text-gray-400 hover:text-white transition-colors">
-              <i data-lucide="facebook" class="w-6 h-6"></i>
+          <div class="flex gap-4">
+            <a href="https://facebook.com/ccsempanadas/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-venezuela-yellow hover:text-deep-navy transition-all">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
             </a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
-              <i data-lucide="instagram" class="w-6 h-6"></i>
+            <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-venezuela-yellow hover:text-deep-navy transition-all">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
             </a>
           </div>
         </div>
-        
+
         <!-- Quick Links -->
         <div>
-          <h4 class="font-semibold text-lg mb-6">Quick Links</h4>
-          <ul class="space-y-3">
-            <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-            <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-            <li><a href="#menu" class="text-gray-400 hover:text-white transition-colors">Menu</a></li>
-            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+          <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#menu" class="text-white/60 hover:text-venezuela-yellow transition-colors">Our Menu</a></li>
+            <li><a href="#about" class="text-white/60 hover:text-venezuela-yellow transition-colors">Our Story</a></li>
+            <li><a href="#catering" class="text-white/60 hover:text-venezuela-yellow transition-colors">Catering</a></li>
+            <li><a href="#contact" class="text-white/60 hover:text-venezuela-yellow transition-colors">Contact</a></li>
           </ul>
         </div>
-        
-        <!-- Contact Info -->
+
+        <!-- Contact -->
         <div>
-          <h4 class="font-semibold text-lg mb-6">Contact</h4>
-          <ul class="space-y-3">
-            <li class="flex items-start space-x-3 text-gray-400">
-              <i data-lucide="map-pin" class="w-5 h-5 mt-0.5 flex-shrink-0"></i>
-              <span>12082 Montgomery Rd<br>Unit C, Loveland, OH</span>
+          <h4 class="font-bold text-lg mb-4">Contact</h4>
+          <ul class="space-y-2 text-white/60">
+            <li>12082 Montgomery Rd, Unit C</li>
+            <li>Loveland, OH 45140</li>
+            <li class="pt-2">
+              <a href="tel:5132396700" class="hover:text-venezuela-yellow transition-colors">(513) 239-6700</a>
             </li>
-            <li class="flex items-center space-x-3 text-gray-400">
-              <i data-lucide="phone" class="w-5 h-5 flex-shrink-0"></i>
-              <a href="tel:513-239-6700" class="hover:text-white transition-colors">(513) 239-6700</a>
-            </li>
-            <li class="flex items-center space-x-3 text-gray-400">
-              <i data-lucide="mail" class="w-5 h-5 flex-shrink-0"></i>
-              <a href="mailto:empanadas.cinci@gmail.com" class="hover:text-white transition-colors">empanadas.cinci@gmail.com</a>
+            <li>
+              <a href="mailto:empanadas.cinci@gmail.com" class="hover:text-venezuela-yellow transition-colors">empanadas.cinci@gmail.com</a>
             </li>
           </ul>
         </div>
       </div>
-      
-      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-        <p class="text-gray-500 text-sm">
+
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-white/40 text-sm">
           © 2026 CC's Empanadas. All rights reserved.
         </p>
-        <p class="text-gray-500 text-sm mt-4 md:mt-0">
-          Designed with ❤️ by SkyConsult
+        <p class="text-white/40 text-sm">
+          Made with <i data-lucide="heart" class="w-4 h-4 inline text-venezuela-red"></i> in Loveland, OH
         </p>
       </div>
     </div>
   </footer>
 
   <!-- Floating CTA Button -->
-  <a href="tel:513-239-6700" class="fixed bottom-6 right-6 z-50 btn-shine bg-gradient-to-r from-primary-600 to-secondary-600 text-white px-6 py-4 rounded-full font-semibold shadow-2xl hover:shadow-3xl transition-all transform hover:scale-105 flex items-center space-x-2 md:hidden">
-    <i data-lucide="phone" class="w-5 h-5"></i>
-    <span>Order Now</span>
-  </a>
+  <div class="fixed bottom-6 right-6 z-50 md:hidden">
+    <a href="tel:5132396700" class="bg-venezuela-red text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg pulse-glow">
+      <i data-lucide="phone" class="w-6 h-6"></i>
+    </a>
+  </div>
 
-  <!-- JavaScript -->
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
-    
+
     // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const closeMenuBtn = document.getElementById('close-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    const menuOverlay = document.getElementById('menu-overlay');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
     
-    function openMenu() {
-      mobileMenu.classList.add('open');
-      menuOverlay.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-    
-    function closeMenu() {
-      mobileMenu.classList.remove('open');
-      menuOverlay.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-    
-    mobileMenuBtn.addEventListener('click', openMenu);
-    closeMenuBtn.addEventListener('click', closeMenu);
-    menuOverlay.addEventListener('click', closeMenu);
-    
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', closeMenu);
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
-    
-    // Navbar scroll effect
+
+    // Navbar Background on Scroll
     const navbar = document.getElementById('navbar');
     let lastScroll = 0;
-    
+
     window.addEventListener('scroll', () => {
       const currentScroll = window.pageYOffset;
       
       if (currentScroll > 100) {
-        navbar.classList.add('shadow-md');
+        navbar.classList.add('bg-deep-navy/95', 'backdrop-blur-md', 'shadow-lg');
+        navbar.classList.remove('bg-transparent');
       } else {
-        navbar.classList.remove('shadow-md');
+        navbar.classList.remove('bg-deep-navy/95', 'backdrop-blur-md', 'shadow-lg');
+        navbar.classList.add('bg-transparent');
       }
-      
+
       lastScroll = currentScroll;
     });
-    
+
     // Scroll Reveal Animation
-    const revealElements = document.querySelectorAll('.reveal');
-    
-    const revealObserver = new IntersectionObserver((entries) => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('active');
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
-    
-    revealElements.forEach(element => {
-      revealObserver.observe(element);
-    });
-    
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-    
-    // Add animation delay to reveal elements
-    document.querySelectorAll('.reveal').forEach((el, index) => {
-      el.style.animationDelay = `${index * 0.1}s`;
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      observer.observe(el);
     });
   </script>
 </body>
