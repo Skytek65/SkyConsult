@@ -1,91 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Optimal Family Dental | Dr. Meera Thunga, DDS | Mason, OH</title>
-  <meta name="description" content="Dr. Meera Thunga, DDS - Family dentistry in Mason, OH. 10+ years experience. Cosmetic dentistry, dental implants, teeth whitening, sleep apnea treatment. Accepting new patients. Call (513) 770-0063.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: { 50: '#f4f7f5', 100: '#e3ebe6', 200: '#c5d8cc', 300: '#9bbfa8', 400: '#6fa082', 500: '#4d8260', 600: '#3a6649', 700: '#30523c', 800: '#284232', 900: '#22362b', 950: '#121f19' },
-            accent: { 50: '#fdf8f6', 100: '#faede8', 200: '#f5ddd3', 300: '#edc3b3', 400: '#e09e88', 500: '#d47b60', 600: '#c65f45', 700: '#a54b36', 800: '#873f31', 900: '#6f362b', 950: '#3b1a14' },
-            sage: { 50: '#f6f7f4', 100: '#e8ebe3', 200: '#d4dac9', 300: '#b8c2a8', 400: '#9aa584', 500: '#7d8966', 600: '#616d4e', 700: '#4d563e', 800: '#3f4633', 900: '#353b2d' }
-          },
-          fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Playfair Display', 'serif'] }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimal Family Dental | Mason, OH Dentist | Dr. Meera Thunga</title>
+    <meta name="description" content="Optimal Family Dental in Mason, OH offers comprehensive family and cosmetic dentistry. Dr. Meera Thunga provides quality dental care with 20+ years experience. Call (513) 770-0063.">
+    <meta name="keywords" content="dentist Mason OH, family dentist, cosmetic dentistry, dental implants, teeth whitening, Dr. Meera Thunga">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dental: {
+                            50: '#F0F9FF',
+                            100: '#E0F2FE',
+                            200: '#BAE6FD',
+                            300: '#7DD3FC',
+                            400: '#38BDF8',
+                            500: '#0EA5E9',
+                            600: '#0284C7',
+                            700: '#0369A1',
+                            800: '#075985',
+                            900: '#0C4A6E',
+                        },
+                        coral: {
+                            50: '#FFF7ED',
+                            100: '#FFEDD5',
+                            200: '#FED7AA',
+                            300: '#FDBA74',
+                            400: '#FB923C',
+                            500: '#F97316',
+                            600: '#EA580C',
+                            700: '#C2410C',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    .font-display { font-family: 'Playfair Display', serif; }
-    html { scroll-behavior: smooth; }
-    .hero-gradient { background: linear-gradient(135deg, #f6f7f4 0%, #e8ebe3 50%, #d4dac9 100%); }
-    .accent-gradient { background: linear-gradient(135deg, #d47b60 0%, #c65f45 100%); }
-    .text-gradient { background: linear-gradient(135deg, #4d8260 0%, #3a6649 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .card-hover { transition: all 0.4s ease; }
-    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .animate-fadeInUp { animation: fadeInUp 0.8s ease forwards; }
-    .pattern-dots { background-image: radial-gradient(#4d8260 1px, transparent 1px); background-size: 20px 20px; }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #f6f7f4; }
-    ::-webkit-scrollbar-thumb { background: #4d8260; border-radius: 4px; }
-  </style>
+    </script>
+    
+    <style>
+        .gradient-hero {
+            background: linear-gradient(135deg, #0C4A6E 0%, #075985 50%, #0369A1 100%);
+        }
+        
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        
+        .service-icon {
+            background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%);
+        }
+        
+        .coral-gradient {
+            background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+        }
+        
+        .image-overlay {
+            background: linear-gradient(to top, rgba(12, 74, 110, 0.8) 0%, transparent 100%);
+        }
+    </style>
 </head>
-<body class="bg-sage-50 text-gray-800 antialiased">
+<body class="font-sans antialiased bg-gray-50">
 
-  <!-- Floating CTA (Mobile) -->
-  <a href="tel:513-770-0063" class="fixed bottom-6 right-6 z-50 md:hidden bg-accent-500 text-white p-4 rounded-full shadow-xl flex items-center justify-center animate-pulse">
-    <i data-lucide="phone" class="w-6 h-6"></i>
-  </a>
+    <!-- Fixed Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center space-x-2">
+                        <div class="w-10 h-10 bg-dental-600 rounded-full flex items-center justify-center">
+                            <i data-lucide="smile" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h1 class="font-serif text-xl font-bold text-dental-900">Optimal Family Dental</h1>
+                            <p class="text-xs text-gray-500">Mason, Ohio</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#services" class="text-gray-700 hover:text-dental-600 font-medium transition">Services</a>
+                    <a href="#about" class="text-gray-700 hover:text-dental-600 font-medium transition">About Dr. Thunga</a>
+                    <a href="#office" class="text-gray-700 hover:text-dental-600 font-medium transition">Our Office</a>
+                    <a href="#gallery" class="text-gray-700 hover:text-dental-600 font-medium transition">Smile Gallery</a>
+                    <a href="#contact" class="text-gray-700 hover:text-dental-600 font-medium transition">Contact</a>
+                    <a href="tel:513-770-0063" class="coral-gradient text-white px-6 py-2.5 rounded-full font-semibold hover:shadow-lg transition flex items-center space-x-2">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        <span>(513) 770-0063</span>
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-2" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-6 h-6 text-gray-700"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#services" class="block py-2 text-gray-700 hover:text-dental-600 font-medium">Services</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-dental-600 font-medium">About Dr. Thunga</a>
+                <a href="#office" class="block py-2 text-gray-700 hover:text-dental-600 font-medium">Our Office</a>
+                <a href="#gallery" class="block py-2 text-gray-700 hover:text-dental-600 font-medium">Smile Gallery</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-dental-600 font-medium">Contact</a>
+                <a href="tel:513-770-0063" class="block py-2 coral-gradient text-white px-4 rounded-lg text-center font-semibold">
+                    Call (513) 770-0063
+                </a>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Navigation -->
-  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-20">
-        <div class="flex items-center">
-          <div class="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center mr-3">
-            <i data-lucide="sparkles" class="w-7 h-7 text-white"></i>
-          </div>
-          <div>
-            <h1 class="font-display text-2xl font-semibold text-primary-900 tracking-tight">Optimal Family</h1>
-            <p class="text-primary-600 text-xs font-medium tracking-widest uppercase">Dental</p>
-          </div>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen gradient-hero pt-20">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-96 h-96 bg-dental-400/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-coral-500/10 rounded-full blur-3xl"></div>
         </div>
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="#services" class="text-gray-600 hover:text-primary-600 transition-colors font-medium">Services</a>
-          <a href="#about" class="text-gray-600 hover:text-primary-600 transition-colors font-medium">About</a>
-          <a href="#financing" class="text-gray-600 hover:text-primary-600 transition-colors font-medium">Financing</a>
-          <a href="#location" class="text-gray-600 hover:text-primary-600 transition-colors font-medium">Location</a>
-          <a href="tel:513-770-0063" class="bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-lg font-semibold transition-all flex items-center gap-2">
-            <i data-lucide="phone" class="w-4 h-4"></i>
-            (513) 770-0063
-          </a>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in">
+                    <div class="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                        <i data-lucide="award" class="w-4 h-4 text-coral-300"></i>
+                        <span class="text-white/90 text-sm font-medium">20+ Years of Excellence in Mason</span>
+                    </div>
+                    
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 text-shadow">
+                        Your Family's Smile <br>
+                        <span class="text-coral-300">Deserves the Best</span>
+                    </h1>
+                    
+                    <p class="text-lg sm:text-xl text-white/90 mb-8 max-w-lg leading-relaxed">
+                        Experience compassionate, comprehensive dental care with Dr. Meera Thunga. From routine cleanings to advanced cosmetic procedures, we're here for your family's oral health.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="coral-gradient text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition flex items-center justify-center space-x-2">
+                            <i data-lucide="calendar" class="w-5 h-5"></i>
+                            <span>Request Appointment</span>
+                        </a>
+                        <a href="#services" class="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transition flex items-center justify-center space-x-2">
+                            <span>Explore Services</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="mt-12 grid grid-cols-3 gap-6 pt-8 border-t border-white/20">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-white">20+</div>
+                            <div class="text-sm text-white/80">Years Experience</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-white">7</div>
+                            <div class="text-sm text-white/80">Service Categories</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-white">5★</div>
+                            <div class="text-sm text-white/80">Patient Rating</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Image -->
+                <div class="relative animate-fade-in stagger-2">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="https://www.ofdental.com/tour-1.jpg" alt="Optimal Family Dental Office in Mason, OH" class="w-full h-[500px] object-cover" onerror="this.src='https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80'">
+                        <div class="image-overlay absolute inset-0"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <div class="glass-card rounded-xl p-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-12 h-12 bg-dental-600 rounded-full flex items-center justify-center">
+                                        <i data-lucide="map-pin" class="w-6 h-6 text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-900">969 Reading Rd, Suite J</p>
+                                        <p class="text-sm text-gray-600">Mason, OH 45040</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl p-4 animate-fade-in stagger-4">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-gray-900">Accepting New</p>
+                                <p class="text-xs text-gray-600">Patients</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button id="mobile-menu-btn" class="md:hidden text-primary-900 p-2">
-          <i data-lucide="menu" class="w-6 h-6"></i>
-        </button>
-      </div>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
-      <div class="px-4 py-6 space-y-4">
-        <a href="#services" class="block text-gray-600 hover:text-primary-600 font-medium py-2">Services</a>
-        <a href="#about" class="block text-gray-600 hover:text-primary-600 font-medium py-2">About</a>
-        <a href="#financing" class="block text-gray-600 hover:text-primary-600 font-medium py-2">Financing</a>
-        <a href="#location" class="block text-gray-600 hover:text-primary-600 font-medium py-2">Location</a>
-        <a href="tel:513-770-0063" class="block bg-accent-500 text-white px-6 py-3 rounded-lg font-semibold text-center">Call (513) 770-0063</a>
-      </div>
-    </div>
-  </nav>
+    </section>
 
   <!-- Hero Section -->
   <section class="relative min-h-screen flex items-center hero-gradient overflow-hidden pt-20">
@@ -163,568 +325,784 @@
     </div>
   </section>
 
-  <!-- Trust Bar -->
-  <section class="bg-primary-900 py-12 relative overflow-hidden">
-    <div class="absolute inset-0 pattern-dots opacity-10"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div class="flex flex-col items-center">
-          <i data-lucide="calendar" class="w-8 h-8 text-accent-400 mb-3"></i>
-          <p class="text-4xl font-display font-semibold text-white">10+</p>
-          <p class="text-primary-300 text-sm">Years Experience</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <i data-lucide="users" class="w-8 h-8 text-accent-400 mb-3"></i>
-          <p class="text-4xl font-display font-semibold text-white">1000s</p>
-          <p class="text-primary-300 text-sm">Happy Patients</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <i data-lucide="sparkles" class="w-8 h-8 text-accent-400 mb-3"></i>
-          <p class="text-4xl font-display font-semibold text-white">Full</p>
-          <p class="text-primary-300 text-sm">Service Dentistry</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <i data-lucide="credit-card" class="w-8 h-8 text-accent-400 mb-3"></i>
-          <p class="text-4xl font-display font-semibold text-white">0%</p>
-          <p class="text-primary-300 text-sm">Financing Available</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About / Doctor Section -->
-  <section id="about" class="py-24 bg-white relative overflow-hidden">
-    <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-sage-50 to-transparent"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div class="order-2 lg:order-1">
-          <div class="inline-flex items-center gap-2 bg-primary-100 px-4 py-2 rounded-full mb-6">
-            <i data-lucide="user" class="w-4 h-4 text-primary-600"></i>
-            <span class="text-primary-800 font-semibold text-sm">Meet Your Dentist</span>
-          </div>
-          <h2 class="font-display text-4xl md:text-5xl font-semibold text-primary-900 mb-6">
-            Dr. Meera Thunga, <span class="text-accent-500">DDS</span>
-          </h2>
-          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-            Dr. Thunga has been serving the Mason community for over 10 years, providing compassionate, quality dental care to families throughout the area. She believes in building lasting relationships with her patients while delivering exceptional results.
-          </p>
-          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-            Her gentle approach and commitment to continuing education ensure that you receive the most advanced dental treatments in a comfortable, welcoming environment.
-          </p>
-          <div class="grid grid-cols-2 gap-4 mb-8">
-            <div class="flex items-center gap-3 bg-sage-50 p-4 rounded-xl">
-              <i data-lucide="graduation-cap" class="w-5 h-5 text-primary-600"></i>
-              <span class="text-gray-700 font-medium">Doctor of Dental Surgery</span>
+    <!-- Features Strip -->
+    <section class="bg-white py-8 shadow-lg relative z-10 -mt-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-dental-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="credit-card" class="w-6 h-6 text-dental-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-900 text-sm">0% Financing</p>
+                        <p class="text-xs text-gray-600">CareCredit Available</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-coral-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-coral-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-900 text-sm">Most Insurance</p>
+                        <p class="text-xs text-gray-600">Accepted</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-dental-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="moon" class="w-6 h-6 text-dental-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-900 text-sm">Sleep Apnea</p>
+                        <p class="text-xs text-gray-600">Treatment Available</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-coral-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="baby" class="w-6 h-6 text-coral-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-900 text-sm">Pediatric</p>
+                        <p class="text-xs text-gray-600">Dentistry</p>
+                    </div>
+                </div>
             </div>
-            <div class="flex items-center gap-3 bg-sage-50 p-4 rounded-xl">
-              <i data-lucide="award" class="w-5 h-5 text-primary-600"></i>
-              <span class="text-gray-700 font-medium">Licensed in Ohio</span>
+        </div>
+    </section>
+
+    <!-- About Dr. Thunga Section -->
+    <section id="about" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="relative order-2 lg:order-1">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-dental-100 rounded-3xl transform rotate-3"></div>
+                        <img src="https://www.ofdental.com/photo_dr_thunga.jpg" alt="Dr. Meera Thunga - Dentist in Mason, OH" class="relative rounded-2xl shadow-2xl w-full" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <div class="hidden relative rounded-2xl shadow-2xl w-full h-[500px] bg-gradient-to-br from-dental-100 to-dental-200 items-center justify-center">
+                            <div class="text-center">
+                                <div class="w-32 h-32 bg-dental-300 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                    <i data-lucide="user" class="w-16 h-16 text-dental-700"></i>
+                                </div>
+                                <p class="text-dental-800 font-semibold">Dr. Meera Thunga</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Credentials Card -->
+                    <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6 max-w-xs">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 bg-dental-600 rounded-full flex items-center justify-center">
+                                <i data-lucide="graduation-cap" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <p class="font-bold text-gray-900">Education</p>
+                        </div>
+                        <p class="text-sm text-gray-600">NYU College of Dentistry</p>
+                        <p class="text-sm text-gray-600">Doctor of Dental Surgery, 2003</p>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <div class="inline-flex items-center space-x-2 bg-dental-50 rounded-full px-4 py-2 mb-6">
+                        <i data-lucide="user-check" class="w-4 h-4 text-dental-600"></i>
+                        <span class="text-dental-800 text-sm font-medium">Meet Your Dentist</span>
+                    </div>
+                    
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        Dr. Meera Thunga, DDS
+                    </h2>
+                    
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Dr. Thunga received her Doctor of Dental Surgery degree from New York University (NYU) in 2003. Prior to her studies at NYU, she completed her Bachelor of Dental Surgery and Internship from India. She has been practicing in the Cincinnati area since 2003, providing quality family, restorative and cosmetic dental care.
+                    </p>
+                    
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Dr. Thunga actively seeks out the newest technology, best materials and latest techniques available in the industry today. Her emphasis on patient comfort, along with staying up to date through Continuing Education programs, enables her to provide patients with the best quality of care in the field.
+                    </p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-coral-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <p class="text-gray-700">20+ Years Experience</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-coral-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <p class="text-gray-700">NYU Trained</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-coral-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <p class="text-gray-700">Northeast Cincinnati Chamber Member</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-coral-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <p class="text-gray-700">Mason Resident</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4">
+                        <a href="#contact" class="coral-gradient text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition">
+                            Book a Consultation
+                        </a>
+                        <div class="text-sm text-gray-600">
+                            <p>Dr. Thunga lives in Mason with her husband</p>
+                            <p>Mitra and their two children, Sidhu and Adhu.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex items-center gap-3 bg-sage-50 p-4 rounded-xl">
-              <i data-lucide="book-open" class="w-5 h-5 text-primary-600"></i>
-              <span class="text-gray-700 font-medium">Continuing Education</span>
-            </div>
-            <div class="flex items-center gap-3 bg-sage-50 p-4 rounded-xl">
-              <i data-lucide="heart-handshake" class="w-5 h-5 text-primary-600"></i>
-              <span class="text-gray-700 font-medium">Patient-Focused Care</span>
-            </div>
-          </div>
-          <a href="tel:513-770-0063" class="inline-flex items-center gap-2 text-accent-600 hover:text-accent-700 font-semibold transition-colors">
-            <i data-lucide="phone" class="w-5 h-5"></i>
-            Schedule a Consultation with Dr. Thunga
-          </a>
         </div>
-        <div class="order-1 lg:order-2 relative">
-          <div class="absolute -inset-4 bg-gradient-to-br from-primary-100 to-accent-100 rounded-3xl transform -rotate-2"></div>
-          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&q=80" alt="Dr. Meera Thunga, DDS" class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Services Section -->
-  <section id="services" class="py-24 bg-sage-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full mb-4 shadow-sm">
-          <i data-lucide="stethoscope" class="w-4 h-4 text-primary-600"></i>
-          <span class="text-primary-800 font-semibold text-sm">Comprehensive Care</span>
-        </div>
-        <h2 class="font-display text-4xl md:text-5xl font-semibold text-primary-900 mb-4">Complete Dental Services</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">From preventive care to advanced cosmetic procedures, we offer everything your family needs for healthy, beautiful smiles.</p>
-      </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Preventive Care -->
-        <div class="bg-white rounded-2xl p-8 card-hover shadow-sm">
-          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mb-6">
-            <i data-lucide="shield" class="w-8 h-8 text-primary-600"></i>
-          </div>
-          <h3 class="font-display text-2xl font-semibold text-primary-900 mb-3">Preventive Care</h3>
-          <p class="text-gray-600 mb-4">Regular exams, cleanings, and X-rays to keep your smile healthy and catch issues early.</p>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-primary-500"></i>
-              Dental Exams & Cleanings
-            </li>
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-primary-500"></i>
-              Digital X-Rays
-            </li>
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-primary-500"></i>
-              Oral Cancer Screenings
-            </li>
-          </ul>
-        </div>
-
-        <!-- Cosmetic Dentistry -->
-        <div class="bg-white rounded-2xl p-8 card-hover shadow-sm">
-          <div class="w-16 h-16 bg-accent-100 rounded-2xl flex items-center justify-center mb-6">
-            <i data-lucide="sparkles" class="w-8 h-8 text-accent-600"></i>
-          </div>
-          <h3 class="font-display text-2xl font-semibold text-primary-900 mb-3">Cosmetic Dentistry</h3>
-          <p class="text-gray-600 mb-4">Transform your smile with our cosmetic treatments designed to enhance your natural beauty.</p>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-accent-500"></i>
-              Teeth Whitening
-            </li>
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-accent-500"></i>
-              Porcelain Veneers
-            </li>
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-accent-500"></i>
-              Smile Makeovers
-            </li>
-          </ul>
-        </div>
-
-        <!-- Restorative -->
-        <div class="bg-white rounded-2xl p-8 card-hover shadow-sm">
-          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mb-6">
-            <i data-lucide="wrench" class="w-8 h-8 text-primary-600"></i>
-          </div>
-          <h3 class="font-display text-2xl font-semibold text-primary-900 mb-3">Restorative Care</h3>
-          <p class="text-gray-600 mb-4">Repair damaged teeth and restore function with our advanced restorative treatments.</p>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-primary-500"></i>
-              Dental Fillings
-            </li>
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-primary-500"></i>
-              Crowns & Bridges
-            </li>
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-primary-500"></i>
-              Dental Implants
-            </li>
-          </ul>
-        </div>
-
-        <!-- Emergency -->
-        <div class="bg-white rounded-2xl p-8 card-hover shadow-sm">
-          <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
-            <i data-lucide="alert-circle" class="w-8 h-8 text-red-600"></i>
-          </div>
-          <h3 class="font-display text-2xl font-semibold text-primary-900 mb-3">Emergency Care</h3>
-          <p class="text-gray-600 mb-4">Dental emergencies happen. We're here to provide prompt relief when you need it most.</p>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-red-500"></i>
-              Toothache Relief
-            </li>
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-red-500"></i>
-              Broken Tooth Repair
-            </li>
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-red-500"></i>
-              Same-Day Appointments
-            </li>
-          </ul>
-        </div>
-
-        <!-- Sleep Apnea -->
-        <div class="bg-white rounded-2xl p-8 card-hover shadow-sm border-2 border-accent-200">
-          <div class="w-16 h-16 bg-accent-100 rounded-2xl flex items-center justify-center mb-6">
-            <i data-lucide="moon" class="w-8 h-8 text-accent-600"></i>
-          </div>
-          <h3 class="font-display text-2xl font-semibold text-primary-900 mb-3">Sleep Apnea Treatment</h3>
-          <p class="text-gray-600 mb-4">Having trouble sleeping? We offer custom oral appliances to help you sleep well again.</p>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-accent-500"></i>
-              Custom Oral Appliances
-            </li>
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-accent-500"></i>
-              Non-Invasive Treatment
-            </li>
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-accent-500"></i>
-              Better Sleep Quality
-            </li>
-          </ul>
-          <div class="mt-4 bg-accent-50 px-4 py-2 rounded-lg">
-            <p class="text-accent-700 text-sm font-medium">Featured Service</p>
-          </div>
-        </div>
-
-        <!-- Family Care -->
-        <div class="bg-white rounded-2xl p-8 card-hover shadow-sm">
-          <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mb-6">
-            <i data-lucide="users" class="w-8 h-8 text-primary-600"></i>
-          </div>
-          <h3 class="font-display text-2xl font-semibold text-primary-900 mb-3">Family Dentistry</h3>
-          <p class="text-gray-600 mb-4">Gentle care for patients of all ages. We make dental visits comfortable for the whole family.</p>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-primary-500"></i>
-              Pediatric Dentistry
-            </li>
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-primary-500"></i>
-              Senior Dental Care
-            </li>
-            <li class="flex items-center gap-2 text-sm text-gray-600">
-              <i data-lucide="check" class="w-4 h-4 text-primary-500"></i>
-              Family Appointment Scheduling
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Insurance & Financing Section -->
-  <section id="financing" class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <div class="inline-flex items-center gap-2 bg-accent-100 px-4 py-2 rounded-full mb-6">
-            <i data-lucide="credit-card" class="w-4 h-4 text-accent-600"></i>
-            <span class="text-accent-800 font-semibold text-sm">Affordable Care</span>
-          </div>
-          <h2 class="font-display text-4xl md:text-5xl font-semibold text-primary-900 mb-6">
-            Flexible Payment Options
-          </h2>
-          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-            Quality dental care should be accessible to everyone. We work with most major insurance providers and offer flexible financing options to fit your budget.
-          </p>
-          
-          <div class="space-y-6">
-            <div class="flex items-start gap-4 bg-sage-50 p-6 rounded-xl">
-              <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i data-lucide="shield-check" class="w-6 h-6 text-primary-600"></i>
-              </div>
-              <div>
-                <h3 class="font-semibold text-primary-900 text-lg mb-1">Insurance Accepted</h3>
-                <p class="text-gray-600">We participate with most major insurance companies. Call us to verify your coverage.</p>
-              </div>
+    <!-- Services Section -->
+    <section id="services" class="py-20 lg:py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 bg-dental-100 rounded-full px-4 py-2 mb-6">
+                    <i data-lucide="stethoscope" class="w-4 h-4 text-dental-600"></i>
+                    <span class="text-dental-800 text-sm font-medium">Comprehensive Care</span>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                    Our Dental Services
+                </h2>
+                <p class="text-lg text-gray-600">
+                    From preventive care to advanced cosmetic procedures, we offer a full range of dental services to keep your family smiling bright.
+                </p>
             </div>
             
-            <div class="flex items-start gap-4 bg-accent-50 p-6 rounded-xl border border-accent-100">
-              <div class="w-12 h-12 bg-accent-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i data-lucide="percent" class="w-6 h-6 text-accent-600"></i>
-              </div>
-              <div>
-                <h3 class="font-semibold text-primary-900 text-lg mb-1">0% Financing with CareCredit</h3>
-                <p class="text-gray-600">Spread your payments over time with 0% interest financing options available. Various payment periods to fit your budget.</p>
-              </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cleaning & Prevention -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+                    <div class="service-icon w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="sparkles" class="w-8 h-8 text-dental-600"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Cleaning & Prevention</h3>
+                    <p class="text-gray-600 mb-4">Regular cleanings, comprehensive exams, and preventive care to maintain optimal oral health.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Professional Cleanings</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Dental Exams & X-Rays</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Periodontal Treatment</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Cosmetic Procedures -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+                    <div class="service-icon w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="sun" class="w-8 h-8 text-dental-600"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Cosmetic Dentistry</h3>
+                    <p class="text-gray-600 mb-4">Transform your smile with our advanced cosmetic procedures designed for beautiful results.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Teeth Whitening</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Porcelain Veneers</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Dental Bonding</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Restorative Procedures -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+                    <div class="service-icon w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="cross" class="w-8 h-8 text-dental-600"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Restorative Dentistry</h3>
+                    <p class="text-gray-600 mb-4">Repair and restore damaged teeth with our comprehensive restorative treatments.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Dental Crowns & Bridges</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Root Canal Therapy</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Tooth-Colored Fillings</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Pediatric Dentistry -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+                    <div class="service-icon w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="baby" class="w-8 h-8 text-dental-600"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Pediatric Dentistry</h3>
+                    <p class="text-gray-600 mb-4">Gentle, friendly dental care designed specifically for children in a comfortable environment.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Child-Friendly Exams</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Preventive Treatments</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Dental Sealants</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Sleep Apnea -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+                    <div class="service-icon w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="moon" class="w-8 h-8 text-dental-600"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Sleep Apnea Treatment</h3>
+                    <p class="text-gray-600 mb-4">Custom oral appliances to help you sleep better and improve your overall health.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Custom Oral Appliances</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Non-Invasive Solution</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Improved Sleep Quality</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Orthodontics -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+                    <div class="service-icon w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="zap" class="w-8 h-8 text-dental-600"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Fast Braces & Aligners</h3>
+                    <p class="text-gray-600 mb-4">Straighten your teeth quickly and effectively with Fast Braces or ClearCorrect aligners.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Fast Braces Technology</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>ClearCorrect Aligners</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-coral-500"></i>
+                            <span>Shorter Treatment Time</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
             
-            <div class="flex items-start gap-4 bg-sage-50 p-6 rounded-xl">
-              <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i data-lucide="wallet" class="w-6 h-6 text-primary-600"></i>
-              </div>
-              <div>
-                <h3 class="font-semibold text-primary-900 text-lg mb-1">Flexible Payment Plans</h3>
-                <p class="text-gray-600">We offer in-house payment arrangements for uninsured patients. Don't let cost prevent you from getting the care you need.</p>
-              </div>
+            <!-- Additional Services -->
+            <div class="mt-12 bg-dental-50 rounded-2xl p-8">
+                <h3 class="font-serif text-2xl font-bold text-gray-900 mb-6 text-center">Additional Services</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="flex items-center space-x-3 bg-white rounded-xl p-4 shadow-sm">
+                        <i data-lucide="scissors" class="w-5 h-5 text-dental-600"></i>
+                        <span class="text-gray-700 font-medium">Tooth Extractions</span>
+                    </div>
+                    <div class="flex items-center space-x-3 bg-white rounded-xl p-4 shadow-sm">
+                        <i data-lucide="alert-circle" class="w-5 h-5 text-dental-600"></i>
+                        <span class="text-gray-700 font-medium">Emergency Care</span>
+                    </div>
+                    <div class="flex items-center space-x-3 bg-white rounded-xl p-4 shadow-sm">
+                        <i data-lucide="scan" class="w-5 h-5 text-dental-600"></i>
+                        <span class="text-gray-700 font-medium">Digital X-Rays</span>
+                    </div>
+                    <div class="flex items-center space-x-3 bg-white rounded-xl p-4 shadow-sm">
+                        <i data-lucide="file-text" class="w-5 h-5 text-dental-600"></i>
+                        <span class="text-gray-700 font-medium">New Patient Exams</span>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
+
+    <!-- Office Tour Section -->
+    <section id="office" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 bg-dental-100 rounded-full px-4 py-2 mb-6">
+                    <i data-lucide="building" class="w-4 h-4 text-dental-600"></i>
+                    <span class="text-dental-800 text-sm font-medium">Tour Our Facility</span>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                    Welcome to Our Office
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Our modern, comfortable dental office is designed with your comfort in mind. Take a virtual tour of our Mason location.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="relative group overflow-hidden rounded-2xl aspect-square">
+                    <img src="https://www.ofdental.com/tour-1.jpg" alt="Optimal Family Dental Office - Reception Area" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dental-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl aspect-square">
+                    <img src="https://www.ofdental.com/tour-2.jpg" alt="Optimal Family Dental Office - Treatment Room" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dental-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl aspect-square">
+                    <img src="https://www.ofdental.com/tour-3.jpg" alt="Optimal Family Dental Office - Waiting Area" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dental-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl aspect-square">
+                    <img src="https://www.ofdental.com/tour-4.jpg" alt="Optimal Family Dental Office - Exam Room" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dental-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl aspect-square">
+                    <img src="https://www.ofdental.com/tour-5.jpg" alt="Optimal Family Dental Office - Equipment" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dental-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl aspect-square">
+                    <img src="https://www.ofdental.com/tour-6.jpg" alt="Optimal Family Dental Office - Interior" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dental-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <p class="text-gray-600 mb-4">Conveniently located at 969 Reading Rd, Suite J in Mason, OH</p>
+                <a href="https://goo.gl/maps/PQepVDgD3E52" target="_blank" class="inline-flex items-center space-x-2 text-dental-600 hover:text-dental-700 font-semibold">
+                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    <span>Get Directions</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smile Gallery Section -->
+    <section id="gallery" class="py-20 lg:py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 bg-coral-100 rounded-full px-4 py-2 mb-6">
+                    <i data-lucide="camera" class="w-4 h-4 text-coral-600"></i>
+                    <span class="text-coral-800 text-sm font-medium">Real Results</span>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                    Smile Transformations
+                </h2>
+                <p class="text-lg text-gray-600">
+                    See the amazing results our patients have achieved. These before and after photos showcase the quality of our cosmetic and restorative work.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="https://static.dentalwebservices.net/members/common/stock-responsive/ba-veneers.jpg" alt="Porcelain Veneers Before and After" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Porcelain Veneers</h3>
+                        <p class="text-gray-600 text-sm">Transform your smile with custom-crafted porcelain veneers for a natural, beautiful look.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="https://static.dentalwebservices.net/members/common/stock-responsive/ba-crowns.jpg" alt="Dental Crowns Before and After" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Porcelain Crowns</h3>
+                        <p class="text-gray-600 text-sm">Restore damaged teeth with durable, natural-looking porcelain crowns.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="https://static.dentalwebservices.net/members/common/stock-responsive/ba-bonding.jpg" alt="Dental Bonding Before and After" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Dental Bonding</h3>
+                        <p class="text-gray-600 text-sm">Quick, affordable cosmetic improvements to fix chips, gaps, and discoloration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 lg:py-32 bg-dental-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+                    Why Choose Optimal Family Dental?
+                </h2>
+                <p class="text-lg text-white/80">
+                    We combine advanced technology with compassionate care to deliver an exceptional dental experience.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="heart" class="w-8 h-8 text-coral-400"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-2">Patient Comfort</h3>
+                    <p class="text-white/70 text-sm">Gentle, compassionate care in a relaxed, welcoming environment.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="cpu" class="w-8 h-8 text-coral-400"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-2">Modern Technology</h3>
+                    <p class="text-white/70 text-sm">Latest dental technology for precise, efficient treatments.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="users" class="w-8 h-8 text-coral-400"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-2">Family Friendly</h3>
+                    <p class="text-white/70 text-sm">Comprehensive care for patients of all ages, from children to seniors.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="clock" class="w-8 h-8 text-coral-400"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-2">Convenient Hours</h3>
+                    <p class="text-white/70 text-sm">Monday-Thursday 8am-4pm to fit your busy schedule.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Appointment Section -->
+    <section id="contact" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+                <!-- Contact Info -->
+                <div>
+                    <div class="inline-flex items-center space-x-2 bg-coral-100 rounded-full px-4 py-2 mb-6">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-coral-600"></i>
+                        <span class="text-coral-800 text-sm font-medium">Get in Touch</span>
+                    </div>
+                    
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                        Schedule Your Visit Today
+                    </h2>
+                    
+                    <p class="text-lg text-gray-600 mb-8">
+                        Ready to experience exceptional dental care? Contact us to schedule your appointment or request more information about our services.
+                    </p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-dental-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="map-pin" class="w-6 h-6 text-dental-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-lg mb-1">Office Location</h3>
+                                <p class="text-gray-600">969 Reading Rd, Suite J<br>Mason, OH 45040</p>
+                                <a href="https://goo.gl/maps/PQepVDgD3E52" target="_blank" class="text-dental-600 hover:text-dental-700 text-sm font-medium">Get Directions →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-dental-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="phone" class="w-6 h-6 text-dental-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-lg mb-1">Phone</h3>
+                                <a href="tel:513-770-0063" class="text-gray-600 hover:text-dental-600">(513) 770-0063</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-dental-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="clock" class="w-6 h-6 text-dental-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-lg mb-1">Office Hours</h3>
+                                <ul class="text-gray-600 text-sm space-y-1">
+                                    <li class="flex justify-between"><span>Monday:</span> <span>8:00am - 4:00pm</span></li>
+                                    <li class="flex justify-between"><span>Tuesday:</span> <span>8:00am - 4:00pm</span></li>
+                                    <li class="flex justify-between"><span>Wednesday:</span> <span>8:00am - 4:00pm</span></li>
+                                    <li class="flex justify-between"><span>Thursday:</span> <span>8:00am - 4:00pm</span></li>
+                                    <li class="flex justify-between"><span>Friday - Sunday:</span> <span>Closed</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-4">Connect With Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="https://www.facebook.com/Optimal-Family-Dental-225495377529211/" target="_blank" class="w-12 h-12 bg-dental-100 rounded-xl flex items-center justify-center hover:bg-dental-200 transition">
+                                <i data-lucide="facebook" class="w-6 h-6 text-dental-600"></i>
+                            </a>
+                            <a href="https://goo.gl/maps/PQepVDgD3E52" target="_blank" class="w-12 h-12 bg-dental-100 rounded-xl flex items-center justify-center hover:bg-dental-200 transition">
+                                <i data-lucide="map" class="w-6 h-6 text-dental-600"></i>
+                            </a>
+                            <a href="http://www.yelp.com/biz/optimal-family-dental-mason" target="_blank" class="w-12 h-12 bg-dental-100 rounded-xl flex items-center justify-center hover:bg-dental-200 transition">
+                                <i data-lucide="star" class="w-6 h-6 text-dental-600"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Appointment Form -->
+                <div class="bg-gray-50 rounded-3xl p-8 lg:p-10">
+                    <h3 class="font-serif text-2xl font-bold text-gray-900 mb-6">Request an Appointment</h3>
+                    <form action="mailto:info@ofdental.com" method="post" enctype="text/plain" class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                            <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-dental-500 focus:ring-2 focus:ring-dental-200 outline-none transition" placeholder="John Doe">
+                        </div>
+                        
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                                <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-dental-500 focus:ring-2 focus:ring-dental-200 outline-none transition" placeholder="(513) 000-0000">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" name="email" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-dental-500 focus:ring-2 focus:ring-dental-200 outline-none transition" placeholder="john@example.com">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Reason for Visit</label>
+                            <select name="reason" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-dental-500 focus:ring-2 focus:ring-dental-200 outline-none transition">
+                                <option value="">Select a service...</option>
+                                <option value="New Patient Exam">New Patient Exam</option>
+                                <option value="Regular Cleaning">Regular Cleaning</option>
+                                <option value="Crown">Crown</option>
+                                <option value="Filling">Filling</option>
+                                <option value="Pain / Problem">Pain / Problem</option>
+                                <option value="Tooth Repair">Tooth Repair</option>
+                                <option value="Teeth Whitening">Teeth Whitening</option>
+                                <option value="Veneers">Veneers</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Day</label>
+                                <select name="preferred_day" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-dental-500 focus:ring-2 focus:ring-dental-200 outline-none transition">
+                                    <option value="">Select day...</option>
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                    <option value="Thursday">Thursday</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Preferred Time</label>
+                                <select name="preferred_time" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-dental-500 focus:ring-2 focus:ring-dental-200 outline-none transition">
+                                    <option value="">Select time...</option>
+                                    <option value="Morning">Morning</option>
+                                    <option value="Early Afternoon">Early Afternoon</option>
+                                    <option value="Late Afternoon">Late Afternoon</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message (Optional)</label>
+                            <textarea name="message" rows="3" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-dental-500 focus:ring-2 focus:ring-dental-200 outline-none transition resize-none" placeholder="Tell us about your dental concerns..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full coral-gradient text-white py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition flex items-center justify-center space-x-2">
+                            <i data-lucide="calendar-check" class="w-5 h-5"></i>
+                            <span>Request Appointment</span>
+                        </button>
+                        
+                        <p class="text-xs text-gray-500 text-center">
+                            By submitting this form, you agree to be contacted about your appointment request.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insurance & Financing Section -->
+    <section class="py-16 bg-gray-50 border-t">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <div class="text-center md:text-left">
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">Insurance Accepted</h3>
+                    <p class="text-gray-600 text-sm">We participate with most major insurance companies. Call us to verify your coverage.</p>
+                </div>
+                <div class="text-center">
+                    <div class="inline-flex items-center space-x-4">
+                        <div class="w-16 h-16 bg-white rounded-xl shadow-md flex items-center justify-center">
+                            <i data-lucide="shield" class="w-8 h-8 text-dental-600"></i>
+                        </div>
+                        <div class="w-16 h-16 bg-white rounded-xl shadow-md flex items-center justify-center">
+                            <i data-lucide="credit-card" class="w-8 h-8 text-coral-500"></i>
+                        </div>
+                        <div class="w-16 h-16 bg-white rounded-xl shadow-md flex items-center justify-center">
+                            <i data-lucide="check-circle" class="w-8 h-8 text-green-500"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center md:text-right">
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-2">0% Financing Available</h3>
+                    <p class="text-gray-600 text-sm">CareCredit financing options with various payment period options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dental-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                            <i data-lucide="smile" class="w-6 h-6 text-dental-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-lg font-bold">Optimal Family Dental</h3>
+                        </div>
+                    </div>
+                    <p class="text-white/70 text-sm mb-6">
+                        Providing quality family and cosmetic dental care to the Mason community for over 20 years.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="https://www.facebook.com/Optimal-Family-Dental-225495377529211/" target="_blank" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://goo.gl/maps/PQepVDgD3E52" target="_blank" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="http://www.yelp.com/biz/optimal-family-dental-mason" target="_blank" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition">
+                            <i data-lucide="star" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-white/70">
+                        <li><a href="#services" class="hover:text-white transition">Our Services</a></li>
+                        <li><a href="#about" class="hover:text-white transition">About Dr. Thunga</a></li>
+                        <li><a href="#office" class="hover:text-white transition">Office Tour</a></li>
+                        <li><a href="#gallery" class="hover:text-white transition">Smile Gallery</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Services</h4>
+                    <ul class="space-y-3 text-white/70">
+                        <li><a href="#services" class="hover:text-white transition">Cleanings & Prevention</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Cosmetic Dentistry</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Restorative Care</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Pediatric Dentistry</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Sleep Apnea Treatment</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Contact</h4>
+                    <ul class="space-y-4 text-white/70">
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                            <span>969 Reading Rd, Suite J<br>Mason, OH 45040</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i data-lucide="phone" class="w-5 h-5 flex-shrink-0"></i>
+                            <a href="tel:513-770-0063" class="hover:text-white transition">(513) 770-0063</a>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="clock" class="w-5 h-5 mt-0.5 flex-shrink-0"></i>
+                            <span>Mon-Thu: 8am-4pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-white/50 text-sm mb-4 md:mb-0">
+                    © 2026 Optimal Family Dental. All rights reserved.
+                </p>
+                <p class="text-white/50 text-sm">
+                    Designed with care for Mason, Ohio families.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
         
-        <div class="relative">
-          <div class="absolute -inset-4 bg-gradient-to-br from-primary-100 via-sage-100 to-accent-100 rounded-3xl"></div>
-          <div class="relative bg-white rounded-2xl shadow-xl p-8">
-            <div class="text-center mb-8">
-              <div class="w-20 h-20 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i data-lucide="heart" class="w-10 h-10 text-white"></i>
-              </div>
-              <h3 class="font-display text-2xl font-semibold text-primary-900">New Patient Special</h3>
-              <p class="text-gray-600 mt-2">Start your journey to a healthier smile</p>
-            </div>
-            
-            <div class="space-y-4 mb-8">
-              <div class="flex justify-between items-center py-3 border-b border-gray-100">
-                <span class="text-gray-600">Comprehensive Exam</span>
-                <span class="font-semibold text-primary-900">Included</span>
-              </div>
-              <div class="flex justify-between items-center py-3 border-b border-gray-100">
-                <span class="text-gray-600">Digital X-Rays</span>
-                <span class="font-semibold text-primary-900">Included</span>
-              </div>
-              <div class="flex justify-between items-center py-3 border-b border-gray-100">
-                <span class="text-gray-600">Professional Cleaning</span>
-                <span class="font-semibold text-primary-900">Included</span>
-              </div>
-              <div class="flex justify-between items-center py-3">
-                <span class="text-gray-600">Treatment Plan</span>
-                <span class="font-semibold text-primary-900">Included</span>
-              </div>
-            </div>
-            
-            <a href="tel:513-770-0063" class="block w-full bg-accent-500 hover:bg-accent-600 text-white text-center px-8 py-4 rounded-xl font-bold text-lg transition-all">
-              Call to Schedule Today
-            </a>
-            <p class="text-center text-gray-500 text-sm mt-4">Most insurances cover preventive care at 100%</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Location Section -->
-  <section id="location" class="py-24 bg-sage-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full mb-4 shadow-sm">
-          <i data-lucide="map-pin" class="w-4 h-4 text-primary-600"></i>
-          <span class="text-primary-800 font-semibold text-sm">Visit Us</span>
-        </div>
-        <h2 class="font-display text-4xl md:text-5xl font-semibold text-primary-900 mb-4">Conveniently Located in Mason</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Easy to find, easy to park. We're here to serve the Mason community and surrounding areas.</p>
-      </div>
-      
-      <div class="grid lg:grid-cols-3 gap-8">
-        <div class="lg:col-span-1 space-y-6">
-          <div class="bg-white rounded-2xl p-6 shadow-sm">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i data-lucide="map-pin" class="w-6 h-6 text-primary-600"></i>
-              </div>
-              <div>
-                <h3 class="font-semibold text-primary-900 text-lg mb-1">Address</h3>
-                <p class="text-gray-600">969 Reading Rd, Suite J<br>Mason, OH 45040</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="bg-white rounded-2xl p-6 shadow-sm">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-accent-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i data-lucide="phone" class="w-6 h-6 text-accent-600"></i>
-              </div>
-              <div>
-                <h3 class="font-semibold text-primary-900 text-lg mb-1">Phone</h3>
-                <a href="tel:513-770-0063" class="text-accent-600 hover:text-accent-700 font-medium text-lg">(513) 770-0063</a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="bg-white rounded-2xl p-6 shadow-sm">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <i data-lucide="clock" class="w-6 h-6 text-primary-600"></i>
-              </div>
-              <div>
-                <h3 class="font-semibold text-primary-900 text-lg mb-1">Office Hours</h3>
-                <p class="text-gray-600">Monday - Friday<br>9:00 AM - 5:00 PM</p>
-                <p class="text-gray-500 text-sm mt-2">Saturday & Sunday: Closed</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="bg-white rounded-2xl p-6 shadow-sm">
-            <h3 class="font-semibold text-primary-900 text-lg mb-4">Connect With Us</h3>
-            <div class="flex gap-3">
-              <a href="https://facebook.com/optimalfamilydental" target="_blank" class="w-12 h-12 bg-primary-100 hover:bg-primary-200 rounded-xl flex items-center justify-center transition-all">
-                <i data-lucide="facebook" class="w-6 h-6 text-primary-600"></i>
-              </a>
-              <a href="#" class="w-12 h-12 bg-primary-100 hover:bg-primary-200 rounded-xl flex items-center justify-center transition-all">
-                <i data-lucide="instagram" class="w-6 h-6 text-primary-600"></i>
-              </a>
-              <a href="#" class="w-12 h-12 bg-primary-100 hover:bg-primary-200 rounded-xl flex items-center justify-center transition-all">
-                <i data-lucide="message-circle" class="w-6 h-6 text-primary-600"></i>
-              </a>
-            </div>
-          </div>
-        </div>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
         
-        <div class="lg:col-span-2">
-          <div class="bg-white rounded-2xl shadow-xl overflow-hidden h-full min-h-[400px]">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3088.1234567890123!2d-84.3176234!3d39.3587654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841abc123456789%3A0xdef1234567890abc!2s969%20Reading%20Rd%20Suite%20J%2C%20Mason%2C%20OH%2045040!5e0!3m2!1sen!2sus!4v1234567890123" 
-              width="100%" 
-              height="100%" 
-              style="border:0; min-height: 500px;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="py-24 bg-primary-900 relative overflow-hidden">
-    <div class="absolute inset-0 pattern-dots opacity-10"></div>
-    <div class="absolute top-0 left-0 w-96 h-96 bg-primary-700 rounded-full filter blur-3xl opacity-30"></div>
-    <div class="absolute bottom-0 right-0 w-72 h-72 bg-accent-600 rounded-full filter blur-3xl opacity-20"></div>
-    
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-      <div class="w-20 h-20 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-8">
-        <i data-lucide="sparkles" class="w-10 h-10 text-white"></i>
-      </div>
-      <h2 class="font-display text-4xl md:text-5xl font-semibold text-white mb-6">
-        Ready for Your Healthiest Smile?
-      </h2>
-      <p class="text-xl text-primary-200 mb-10 max-w-2xl mx-auto">
-        Join thousands of satisfied patients who trust Dr. Thunga for their family's dental care. New patients are always welcome!
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="tel:513-770-0063" class="bg-accent-500 hover:bg-accent-600 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
-          <i data-lucide="phone" class="w-6 h-6"></i>
-          Call (513) 770-0063
-        </a>
-        <a href="#location" class="bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 px-10 py-5 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-3">
-          <i data-lucide="map-pin" class="w-6 h-6"></i>
-          Get Directions
-        </a>
-      </div>
-      <p class="text-primary-300 mt-6">Accepting new patients • Most insurances accepted • 0% financing available</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-primary-950 pt-16 pb-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-4 gap-8 mb-12">
-        <div class="col-span-2">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center mr-3">
-              <i data-lucide="sparkles" class="w-6 h-6 text-white"></i>
-            </div>
-            <div>
-              <h3 class="font-display text-xl font-semibold text-white">Optimal Family</h3>
-              <p class="text-primary-400 text-xs font-medium tracking-widest uppercase">Dental</p>
-            </div>
-          </div>
-          <p class="text-primary-300 mb-6 max-w-sm">
-            Providing compassionate, quality dental care to families in Mason, OH for over 10 years. Your smile is our passion.
-          </p>
-          <div class="flex gap-3">
-            <a href="https://facebook.com/optimalfamilydental" target="_blank" class="w-10 h-10 bg-primary-800 hover:bg-accent-500 rounded-lg flex items-center justify-center transition-all">
-              <i data-lucide="facebook" class="w-5 h-5 text-primary-300"></i>
-            </a>
-            <a href="#" class="w-10 h-10 bg-primary-800 hover:bg-accent-500 rounded-lg flex items-center justify-center transition-all">
-              <i data-lucide="instagram" class="w-5 h-5 text-primary-300"></i>
-            </a>
-          </div>
-        </div>
-        <div>
-          <h4 class="font-display text-lg font-semibold text-white mb-4">Quick Links</h4>
-          <ul class="space-y-2">
-            <li><a href="#services" class="text-primary-300 hover:text-accent-400 transition-colors">Services</a></li>
-            <li><a href="#about" class="text-primary-300 hover:text-accent-400 transition-colors">About Dr. Thunga</a></li>
-            <li><a href="#financing" class="text-primary-300 hover:text-accent-400 transition-colors">Financing</a></li>
-            <li><a href="#location" class="text-primary-300 hover:text-accent-400 transition-colors">Location</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-display text-lg font-semibold text-white mb-4">Contact</h4>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3">
-              <i data-lucide="map-pin" class="w-5 h-5 text-accent-400 flex-shrink-0 mt-0.5"></i>
-              <span class="text-primary-300">969 Reading Rd, Suite J<br>Mason, OH 45040</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <i data-lucide="phone" class="w-5 h-5 text-accent-400 flex-shrink-0"></i>
-              <a href="tel:513-770-0063" class="text-primary-300 hover:text-accent-400 transition-colors">(513) 770-0063</a>
-            </li>
-            <li class="flex items-start gap-3">
-              <i data-lucide="clock" class="w-5 h-5 text-accent-400 flex-shrink-0 mt-0.5"></i>
-              <span class="text-primary-300">Mon-Fri: 9AM-5PM</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-primary-800 pt-8">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p class="text-primary-400 text-sm">© 2024 Optimal Family Dental. All rights reserved.</p>
-          <div class="flex items-center gap-4">
-            <span class="text-primary-400 text-sm flex items-center gap-2">
-              <i data-lucide="award" class="w-4 h-4 text-accent-400"></i>
-              Licensed & Insured
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    lucide.createIcons();
-    
-    // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-    
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-      });
-    });
-    
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 100) {
-        navbar.classList.add('shadow-md');
-      } else {
-        navbar.classList.remove('shadow-md');
-      }
-    });
-    
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-    
-    // Animation on scroll
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-    
-    document.querySelectorAll('.card-hover').forEach((el, index) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-      observer.observe(el);
-    });
-  </script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            alert('Thank you for your appointment request! We will contact you shortly to confirm your appointment.');
+        });
+    </script>
 </body>
 </html>
