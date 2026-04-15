@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe's Plumbing | Emergency & Residential Plumbing Services | Mason, OH</title>
+    <meta name="description" content="Joe's Plumbing provides 24/7 emergency plumbing services in Mason, OH. Expert drain cleaning, pipe repair, water heater installation & more. Call (513) 555-5678.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                        },
+                        accent: {
+                            50: '#fafafa',
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            300: '#d4d4d4',
+                            400: '#a3a3a3',
+                            500: '#737373',
+                            600: '#525252',
+                            700: '#404040',
+                            800: '#262626',
+                            900: '#171717',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Oswald', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230ea5e9' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .service-card { transition: all 0.3s ease; }
+        .service-card:hover { transform: translateY(-8px); }
+        .btn-primary {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.4);
+        }
+        .emergency-banner {
+            background: linear-gradient(90deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.9; }
+        }
+        .trust-badge {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+    </style>
+</head>
+<body class="font-sans text-accent-800 bg-accent-50">
+    <!-- Emergency Banner -->
+    <div class="emergency-banner text-white py-2 px-4 text-center">
+        <div class="container mx-auto flex items-center justify-center gap-4">
+            <i class="fas fa-exclamation-triangle animate-pulse"></i>
+            <span class="font-semibold">24/7 EMERGENCY SERVICE AVAILABLE</span>
+            <span class="hidden sm:inline">|</span>
+            <a href="tel:+15135555678" class="font-bold hover:underline flex items-center gap-2">
+                <i class="fas fa-phone"></i> (513) 555-5678
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-800 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-faucet text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-heading text-2xl font-bold text-accent-900">Joe's Plumbing</h1>
+                        <p class="text-xs text-primary-600 font-medium">Mason, OH • Since 1998</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#services" class="text-accent-700 hover:text-primary-600 font-medium transition">Services</a>
+                    <a href="#about" class="text-accent-700 hover:text-primary-600 font-medium transition">About</a>
+                    <a href="#why-us" class="text-accent-700 hover:text-primary-600 font-medium transition">Why Us</a>
+                    <a href="#contact" class="text-accent-700 hover:text-primary-600 font-medium transition">Contact</a>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="tel:+15135555678" class="btn-primary text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+
+                <button class="md:hidden text-2xl text-accent-700" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-4 flex flex-col gap-4">
+                <a href="#services" class="text-accent-700 font-medium py-2">Services</a>
+                <a href="#about" class="text-accent-700 font-medium py-2">About</a>
+                <a href="#why-us" class="text-accent-700 font-medium py-2">Why Us</a>
+                <a href="#contact" class="text-accent-700 font-medium py-2">Contact</a>
+                <a href="tel:+15135555678" class="btn-primary text-white px-6 py-3 rounded-full font-semibold text-center">
+                    <i class="fas fa-phone mr-2"></i> (513) 555-5678
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[600px] flex items-center hero-pattern">
+        <div class="absolute inset-0 bg-gradient-to-br from-accent-900/90 via-accent-800/85 to-primary-900/80"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+                        <i class="fas fa-star text-secondary-400"></i>
+                        <span class="text-sm font-medium">5-Star Rated in Mason, OH</span>
+                    </div>
+                    <h2 class="font-heading text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Fast, Reliable<br>
+                        <span class="text-primary-400">Plumbing Services</span>
+                    </h2>
+                    <p class="text-xl text-accent-100 mb-8 leading-relaxed">
+                        From emergency repairs to routine maintenance, Joe's Plumbing delivers expert solutions 24/7. Local, licensed professionals you can trust.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="tel:+15135555678" class="btn-primary text-white px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-3">
+                            <i class="fas fa-phone-alt"></i>
+                            Get Emergency Help
+                        </a>
+                        <a href="#services" class="bg-white text-accent-900 px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-3 hover:bg-accent-100 transition">
+                            <i class="fas fa-list-ul"></i>
+                            Our Services
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-6 mt-8 text-accent-200">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-primary-400"></i>
+                            <span>Licensed & Insured</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-primary-400"></i>
+                            <span>Upfront Pricing</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-primary-400"></i>
+                            <span>Satisfaction Guaranteed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden lg:block">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-primary-500/20 rounded-3xl blur-2xl"></div>
+                        <div class="relative bg-white rounded-3xl shadow-2xl p-8">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center">
+                                    <i class="fas fa-wrench text-primary-600 text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-heading text-xl font-bold text-accent-900">Request Service</h3>
+                                    <p class="text-accent-500">Fast response guaranteed</p>
+                                </div>
+                            </div>
+                            <form class="space-y-4">
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <input type="text" placeholder="Your Name" class="w-full px-4 py-3 bg-accent-50 border border-accent-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200">
+                                    <input type="tel" placeholder="Phone Number" class="w-full px-4 py-3 bg-accent-50 border border-accent-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200">
+                                </div>
+                                <select class="w-full px-4 py-3 bg-accent-50 border border-accent-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200">
+                                    <option value="">Select Service Type</option>
+                                    <option value="emergency">Emergency Plumbing</option>
+                                    <option value="drain">Drain Cleaning</option>
+                                    <option value="pipe">Pipe Repair</option>
+                                    <option value="water-heater">Water Heater</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <textarea placeholder="Describe your plumbing issue..." rows="3" class="w-full px-4 py-3 bg-accent-50 border border-accent-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200"></textarea>
+                                <button type="button" class="w-full btn-primary text-white py-4 rounded-xl font-bold text-lg">
+                                    Get Free Quote
+                                </button>
+                            </form>
+                            <p class="text-center text-accent-400 text-sm mt-4">
+                                <i class="fas fa-shield-alt mr-1"></i> We respect your privacy
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="py-12 bg-white border-b border-accent-200">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="trust-badge rounded-2xl p-6 text-center">
+                    <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-clock text-primary-600 text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-accent-900">24/7 Emergency</h4>
+                    <p class="text-accent-500 text-sm">Always Available</p>
+                </div>
+                <div class="trust-badge rounded-2xl p-6 text-center">
+                    <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-certificate text-primary-600 text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-accent-900">Licensed Plumbers</h4>
+                    <p class="text-accent-500 text-sm">State Certified</p>
+                </div>
+                <div class="trust-badge rounded-2xl p-6 text-center">
+                    <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-dollar-sign text-primary-600 text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-accent-900">Upfront Pricing</h4>
+                    <p class="text-accent-500 text-sm">No Hidden Fees</p>
+                </div>
+                <div class="trust-badge rounded-2xl p-6 text-center">
+                    <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-thumbs-up text-primary-600 text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-accent-900">100% Guaranteed</h4>
+                    <p class="text-accent-500 text-sm">Satisfaction Promise</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-accent-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-primary-100 text-primary-700 px-4 py-2 rounded-full font-semibold text-sm mb-4">
+                    Our Services
+                </span>
+                <h2 class="font-heading text-4xl lg:text-5xl font-bold text-accent-900 mb-4">
+                    Expert Plumbing Solutions
+                </h2>
+                <p class="text-xl text-accent-600 max-w-2xl mx-auto">
+                    From minor repairs to major installations, we handle all your plumbing needs with professionalism and care.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Emergency Plumbing -->
+                <div class="service-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center">
+                        <i class="fas fa-exclamation-triangle text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl font-bold text-accent-900 mb-3">Emergency Plumbing</h3>
+                        <p class="text-accent-600 mb-4">24/7 emergency response for burst pipes, severe leaks, and plumbing disasters. Fast, reliable help when you need it most.</p>
+                        <ul class="space-y-2 text-accent-500 mb-6">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Burst Pipe Repair</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Sewer Backups</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Major Leaks</li>
+                        </ul>
+                        <a href="tel:+15135555678" class="block text-center bg-red-500 text-white py-3 rounded-xl font-semibold hover:bg-red-600 transition">
+                            Call Emergency Line
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Drain Cleaning -->
+                <div class="service-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
+                        <i class="fas fa-shower text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl font-bold text-accent-900 mb-3">Drain Cleaning</h3>
+                        <p class="text-accent-600 mb-4">Professional drain cleaning for clogged sinks, showers, and main sewer lines. We clear even the toughest blockages.</p>
+                        <ul class="space-y-2 text-accent-500 mb-6">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Kitchen Sinks</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Bathroom Drains</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Main Sewer Lines</li>
+                        </ul>
+                        <a href="tel:+15135555678" class="block text-center bg-primary-600 text-white py-3 rounded-xl font-semibold hover:bg-primary-700 transition">
+                            Schedule Service
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pipe Repair -->
+                <div class="service-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-cyan-700 flex items-center justify-center">
+                        <i class="fas fa-tools text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl font-bold text-accent-900 mb-3">Pipe Repair</h3>
+                        <p class="text-accent-600 mb-4">Expert pipe repair and replacement services. We handle everything from small leaks to complete repiping projects.</p>
+                        <ul class="space-y-2 text-accent-500 mb-6">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Leak Detection</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Pipe Replacement</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Repiping Services</li>
+                        </ul>
+                        <a href="tel:+15135555678" class="block text-center bg-cyan-600 text-white py-3 rounded-xl font-semibold hover:bg-cyan-700 transition">
+                            Get Estimate
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Water Heaters -->
+                <div class="service-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center">
+                        <i class="fas fa-fire text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl font-bold text-accent-900 mb-3">Water Heaters</h3>
+                        <p class="text-accent-600 mb-4">Water heater repair, maintenance, and installation. Traditional tanks and tankless systems. Hot water when you need it.</p>
+                        <ul class="space-y-2 text-accent-500 mb-6">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Repair & Install</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Tankless Systems</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-500 text-sm"></i> Maintenance Plans</li>
+                        </ul>
+                        <a href="tel:+15135555678" class="block text-center bg-amber-600 text-white py-3 rounded-xl font-semibold hover:bg-amber-700 transition">
+                            Request Service
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="inline-block bg-primary-100 text-primary-700 px-4 py-2 rounded-full font-semibold text-sm mb-4">
+                        About Joe's Plumbing
+                    </span>
+                    <h2 class="font-heading text-4xl lg:text-5xl font-bold text-accent-900 mb-6">
+                        Your Local Plumbing Experts
+                    </h2>
+                    <p class="text-lg text-accent-600 mb-6 leading-relaxed">
+                        For over 25 years, Joe's Plumbing has been the trusted name for residential and commercial plumbing services in Mason, Ohio, and surrounding communities. We take pride in delivering quality workmanship with a focus on customer satisfaction.
+                    </p>
+                    <p class="text-lg text-accent-600 mb-8 leading-relaxed">
+                        Our team of licensed plumbers brings expertise, professionalism, and a commitment to getting the job done right the first time. Whether it's a midnight emergency or a planned renovation, we're here to help.
+                    </p>
+                    
+                    <div class="grid sm:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary-600 mb-1">25+</div>
+                            <div class="text-accent-500">Years Experience</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary-600 mb-1">10K+</div>
+                            <div class="text-accent-500">Happy Customers</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary-600 mb-1">24/7</div>
+                            <div class="text-accent-500">Availability</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-primary-200 to-cyan-200 rounded-3xl transform rotate-3"></div>
+                    <div class="relative bg-white rounded-3xl shadow-2xl p-8">
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4 p-4 bg-accent-50 rounded-xl">
+                                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-accent-900">Local & Licensed</h4>
+                                    <p class="text-accent-500 text-sm">Fully licensed and insured plumbers serving Mason, OH and surrounding areas.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 p-4 bg-accent-50 rounded-xl">
+                                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-star text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-accent-900">5-Star Rated</h4>
+                                    <p class="text-accent-500 text-sm">Consistently rated 5 stars by our customers for quality and reliability.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 p-4 bg-accent-50 rounded-xl">
+                                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-hand-holding-usd text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-accent-900">Honest Pricing</h4>
+                                    <p class="text-accent-500 text-sm">Transparent, upfront pricing with no hidden fees or surprise charges.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 p-4 bg-accent-50 rounded-xl">
+                                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-broom text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-accent-900">Clean & Courteous</h4>
+                                    <p class="text-accent-500 text-sm">We respect your home - clean workspaces and shoe covers always.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="py-20 bg-gradient-to-br from-accent-900 to-primary-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl lg:text-5xl font-bold text-white mb-4">
+                    Why Choose Joe's Plumbing?
+                </h2>
+                <p class="text-xl text-accent-200 max-w-2xl mx-auto">
+                    We're more than just plumbers - we're your partners in maintaining a safe, comfortable home.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                    <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-secondary-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-3">Rapid Response</h3>
+                    <p class="text-accent-200">Emergency calls answered immediately. We arrive quickly with fully-stocked trucks ready to solve your problem.</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                    <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-user-tie text-secondary-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-3">Expert Technicians</h3>
+                    <p class="text-accent-200">Our plumbers are background-checked, drug-tested, and continuously trained on the latest techniques and technologies.</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                    <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-file-contract text-secondary-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-3">Upfront Quotes</h3>
+                    <p class="text-accent-200">No surprises, ever. You'll know the exact cost before we start any work. Fair, honest pricing every time.</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                    <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-secondary-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-3">Work Guaranteed</h3>
+                    <p class="text-accent-200">All our work comes with a 100% satisfaction guarantee. If you're not happy, we'll make it right.</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                    <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-calendar-check text-secondary-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-3">Flexible Scheduling</h3>
+                    <p class="text-accent-200">We work around your schedule with convenient appointment times, including evenings and weekends.</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                    <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-home text-secondary-400 text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-3">Respect for Your Home</h3>
+                    <p class="text-accent-200">Shoe covers, drop cloths, and thorough cleanup. We leave your home cleaner than we found it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-accent-50">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <span class="inline-block bg-primary-100 text-primary-700 px-4 py-2 rounded-full font-semibold text-sm mb-4">
+                        Get In Touch
+                    </span>
+                    <h2 class="font-heading text-4xl lg:text-5xl font-bold text-accent-900 mb-6">
+                        Ready to Solve Your Plumbing Problem?
+                    </h2>
+                    <p class="text-xl text-accent-600 mb-8">
+                        Whether it's an emergency or routine maintenance, we're here to help. Reach out today for fast, reliable service.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm">
+                            <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-phone-alt text-primary-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-accent-500 text-sm">24/7 Emergency Line</p>
+                                <a href="tel:+15135555678" class="text-xl font-bold text-accent-900 hover:text-primary-600 transition">(513) 555-5678</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm">
+                            <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-envelope text-primary-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-accent-500 text-sm">Email Us</p>
+                                <a href="mailto:contact@joesplumbing.com" class="text-xl font-bold text-accent-900 hover:text-primary-600 transition">contact@joesplumbing.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm">
+                            <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-primary-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-accent-500 text-sm">Service Area</p>
+                                <p class="text-xl font-bold text-accent-900">456 Oak Street, Mason, OH 45040</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm">
+                            <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-clock text-primary-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-accent-500 text-sm">Business Hours</p>
+                                <p class="text-lg font-bold text-accent-900">24/7 Emergency Service</p>
+                                <p class="text-accent-500 text-sm">Mon-Sat: 7AM - 8PM | Sun: 8AM - 6PM (Non-Emergency)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 p-6 bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl text-white">
+                        <h3 class="font-heading text-xl font-bold mb-3">Emergency? Call Now!</h3>
+                        <p class="text-primary-100 mb-4">Water damage doesn't wait for business hours. Neither do we.</p>
+                        <a href="tel:+15135555678" class="inline-flex items-center gap-2 bg-white text-primary-700 px-6 py-3 rounded-full font-bold hover:bg-accent-100 transition">
+                            <i class="fas fa-phone-alt"></i> (513) 555-5678
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-white rounded-3xl shadow-2xl p-8">
+                        <h3 class="font-heading text-2xl font-bold text-accent-900 mb-2">Request a Free Quote</h3>
+                        <p class="text-accent-500 mb-6">Fill out the form below and we'll get back to you within 30 minutes.</p>
+                        
+                        <form class="space-y-5">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-accent-700 mb-2">First Name</label>
+                                    <input type="text" placeholder="John" class="w-full px-4 py-3 bg-accent-50 border border-accent-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-accent-700 mb-2">Last Name</label>
+                                    <input type="text" placeholder="Doe" class="w-full px-4 py-3 bg-accent-50 border border-accent-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-accent-700 mb-2">Phone Number</label>
+                                <input type="tel" placeholder="(513) 555-XXXX" class="w-full px-4 py-3 bg-accent-50 border border-accent-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-accent-700 mb-2">Email Address</label>
+                                <input type="email" placeholder="john@example.com" class="w-full px-4 py-3 bg-accent-50 border border-accent-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-accent-700 mb-2">Service Needed</label>
+                                <select class="w-full px-4 py-3 bg-accent-50 border border-accent-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200">
+                                    <option value="">Select a service...</option>
+                                    <option value="emergency">Emergency Repair</option>
+                                    <option value="drain">Drain Cleaning</option>
+                                    <option value="pipe">Pipe Repair/Replacement</option>
+                                    <option value="water-heater">Water Heater Service</option>
+                                    <option value="leak">Leak Detection</option>
+                                    <option value="fixture">Fixture Installation</option>
+                                    <option value="sewer">Sewer Line Service</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-accent-700 mb-2">Message</label>
+                                <textarea placeholder="Tell us about your plumbing issue..." rows="4" class="w-full px-4 py-3 bg-accent-50 border border-accent-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-200"></textarea>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <input type="checkbox" id="consent" class="mt-1 w-5 h-5 text-primary-600 rounded border-accent-300 focus:ring-primary-500">
+                                <label for="consent" class="text-sm text-accent-600">
+                                    I consent to being contacted about my plumbing needs. We respect your privacy and will never share your information.
+                                </label>
+                            </div>
+
+                            <button type="button" class="w-full btn-primary text-white py-4 rounded-xl font-bold text-lg">
+                                Send Request
+                            </button>
+                        </form>
+
+                        <div class="mt-6 pt-6 border-t border-accent-100 text-center">
+                            <p class="text-accent-500 text-sm">
+                                <i class="fas fa-shield-alt text-green-500 mr-1"></i> 
+                                Your information is secure and protected
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-accent-900 text-accent-300 py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-800 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-faucet text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-heading text-xl font-bold text-white">Joe's Plumbing</h4>
+                        </div>
+                    </div>
+                    <p class="text-accent-400 mb-6">
+                        Your trusted local plumber serving Mason, OH and surrounding areas for over 25 years. Quality work, honest pricing, guaranteed satisfaction.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-accent-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-accent-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-accent-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition">
+                            <i class="fab fa-yelp"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-accent-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold text-white mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="hover:text-white transition">Our Services</a></li>
+                        <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#why-us" class="hover:text-white transition">Why Choose Us</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition">Service Areas</a></li>
+                        <li><a href="#" class="hover:text-white transition">Reviews</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold text-white mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="hover:text-white transition">Emergency Plumbing</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Drain Cleaning</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Pipe Repair</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Water Heaters</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Leak Detection</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Sewer Services</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold text-white mb-6">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-primary-400 mt-1"></i>
+                            <span>456 Oak Street<br>Mason, OH 45040</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-primary-400"></i>
+                            <a href="tel:+15135555678" class="hover:text-white transition">(513) 555-5678</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-primary-400"></i>
+                            <a href="mailto:contact@joesplumbing.com" class="hover:text-white transition">contact@joesplumbing.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-clock text-primary-400"></i>
+                            <span>24/7 Emergency Service</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-accent-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-accent-500 text-sm">
+                        © 2024 Joe's Plumbing. All rights reserved. Licensed & Insured.
+                    </p>
+                    <div class="flex gap-6 text-sm text-accent-500">
+                        <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition">Terms of Service</a>
+                        <a href="#" class="hover:text-white transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-accent-200 p-4 md:hidden z-50">
+        <div class="flex gap-3">
+            <a href="tel:+15135555678" class="flex-1 bg-red-500 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-center gap-2">
+                <i class="fas fa-phone"></i> Emergency
+            </a>
+            <a href="#contact" class="flex-1 btn-primary text-white py-3 px-4 rounded-xl font-bold flex items-center justify-center gap-2">
+                <i class="fas fa-calendar"></i> Schedule
+            </a>
+        </div>
+    </div>
+    <div class="h-20 md:hidden"></div>
+
+</body>
+</html>
