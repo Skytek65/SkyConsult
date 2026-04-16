@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Miranda's Ice Cream Shop and Eatery</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        :root {
+            --primary: #FF9AA2;
+            --primary-dark: #E57373;
+            --secondary: #B5EAD7;
+            --accent: #FFDAC1;
+            --text: #5D4037;
+            --text-light: #8D6E63;
+            --bg: #FFF8F0;
+            --bg-alt: #FFFFFF;
+            --shadow: rgba(93, 64, 55, 0.1);
+            --shadow-deep: rgba(93, 64, 55, 0.15);
+            --max-width: 1200px;
+            --radius: 16px;
+            --radius-sm: 8px;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 248, 240, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 154, 162, 0.2);
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+        
+        nav {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1rem 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.02);
+        }
+        
+        .desktop-nav {
+            display: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        
+        .desktop-nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+        
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .desktop-nav a:hover::after,
+        .desktop-nav a.active::after {
+            width: 100%;
+        }
+        
+        .desktop-nav a.active {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 10px;
+            text-decoration: none;
+            color: var(--text);
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Mobile Menu */
+        #mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 9999;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        #mobile-menu:target {
+            display: flex;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 300;
+            line-height: 1;
+            transition: transform 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            transform: rotate(90deg);
+        }
+        
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg) 0%, var(--accent) 100%);
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            background-image: url('https://static.wixstatic.com/media/80a901_937d8cf999744113874466dd550799cc~mv2.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(2px);
+        }
+        
+        .hero-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 80px 24px;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 154, 162, 0.4);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0 0 1.5rem 0;
+            color: var(--text);
+            letter-spacing: -1px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+        }
+        
+        .hero-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            color: var(--text);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--primary-dark);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(229, 115, 115, 0.4);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(229, 115, 115, 0.5);
+            background: var(--primary);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-dark);
+            box-shadow: none;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary-dark);
+            color: white;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        /* Hours Badge */
+        .hours-badge {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 40px var(--shadow);
+            max-width: 400px;
+            border-left: 4px solid var(--primary);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hours-badge h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+        }
+        
+        .hours-list {
+            display: grid;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.25rem 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+        }
+        
+        .hours-row:last-child {
+            border-bottom: none;
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 24px;
+        }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            color: var(--text);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Features Grid */
+        .features {
+            background: var(--bg-alt);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 10px 40px var(--shadow);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px var(--shadow-deep);
+        }
+        
+        .feature-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .feature-content {
+            padding: 2rem;
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0 0 0.75rem 0;
+            color: var(--text);
+        }
+        
+        .feature-card p {
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        /* About Preview */
+        .about-preview {
+            background: linear-gradient(to bottom, var(--bg) 0%, var(--accent) 100%);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 20px 60px var(--shadow-deep);
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-content h2 {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .owners {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-style: italic;
+        }
+        
+        /* Testimonial */
+        .testimonial {
+            background: var(--bg-alt);
+            position: relative;
+        }
+        
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8rem;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: 0 20px 60px var(--shadow);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .author-info h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+        
+        .author-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .stars {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Events CTA */
+        .events {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .events h2 {
+            color: white;
+        }
+        
+        .events .section-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+            text-align: left;
+        }
+        
+        .event-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .event-card h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .event-card p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 0;
+        }
+        
+        .capacity {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        .phone-cta {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .phone-cta:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: rgba(255,255,255,0.8);
+            padding: 80px 24px 40px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        
+        .footer-brand h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0 1rem 0;
+        }
+        
+        .footer-brand p {
+            line-height: 1.8;
+            margin: 0;
+        }
+        
+        .footer-links h4 {
+            color: white;
+            margin: 0 0 1.5rem 0;
+            font-size: 1.1rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-contact p {
+            margin: 0 0 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .footer-bottom {
+            max-width: var(--max-width);
+            margin: 4rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Trail Features */
+        .trail-features {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .trail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .trail-icon {
+            font-size: 1.5rem;
+        }
+        
+        /* Responsive */
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+            }
+            
+            .hamburger {
+                display: none;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            section {
+                padding: 100px 40px;
+            }
+            
+            nav {
+                padding: 1.25rem 40px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+            
+            .hero-content {
+                padding: 100px 40px;
+            }
+            
+            .testimonial-card {
+                padding: 4rem;
+            }
+        }
+        
+        /* Focus states for accessibility */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+        
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* PAGE-SPECIFIC STYLES FOR MENU */
+        
+        .menu-section {
+            background: var(--bg-alt);
+        }
+        
+        .menu-category {
+            margin-bottom: 4rem;
+        }
+        
+        .menu-category:last-child {
+            margin-bottom: 0;
+        }
+        
+        .category-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        .category-header::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+        
+        .category-title {
+            font-size: 1.8rem;
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        
+        .category-icon {
+            font-size: 2rem;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .menu-item {
+            background: white;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px var(--shadow-deep);
+        }
+        
+        .menu-item:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            gap: 1rem;
+        }
+        
+        .item-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 0;
+            line-height: 1.3;
+        }
+        
+        .item-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            white-space: nowrap;
+        }
+        
+        .item-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+            flex-grow: 1;
+        }
+        
+        .item-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent);
+            color: var(--text);
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        
+        .tag.featured {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .full-menu-image {
+            margin-top: 4rem;
+            text-align: center;
+        }
+        
+        .menu-image-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 20px 60px var(--shadow-deep);
+            background: white;
+            padding: 1rem;
+        }
+        
+        .menu-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--radius-sm);
+        }
+        
+        .download-btn {
+            margin-top: 2rem;
+            display: inline-flex;
+        }
+        
+        .cones-section {
+            background: var(--bg);
+        }
+        
+        .cones-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .cone-option {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .cone-option:hover {
+            transform: translateY(-4px);
+        }
+        
+        .cone-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .cone-name {
+            font-weight: 700;
+            color: var(--text);
+            margin: 0 0 0.25rem 0;
+        }
+        
+        .cone-price {
+            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        @media (min-width: 768px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cones-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .menu-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .special-dietary {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--bg) 100%);
+            text-align: center;
+        }
+        
+        .dietary-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+        
+        .dietary-item {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+        
+        .dietary-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .dietary-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Miranda's Ice Cream</a>
+            <div class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="menu.html" class="active">Menu</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <a href="#mobile-menu" class="hamburger" aria-label="Open mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </nav>
+    </header>
+    
+    <div id="mobile-menu">
+        <a href="#" class="close-btn" aria-label="Close menu">&times;</a>
+        <div class="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="menu.html" class="active">Menu</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <span class="hero-badge">☀️ Sweet Treats Await ☀️</span>
+                <h1>Our Menu</h1>
+                <p class="hero-subtitle">Premium gourmet ice cream, delicious comfort food, and refreshing drinks served with a smile.</p>
+                <p class="hero-text">From our famous Unicone to hearty snacks and energizing sports drinks, everything is made to fuel your adventures on the Little Miami Scenic Trail.</p>
+                <div class="hero-buttons">
+                    <a href="#ice-cream" class="btn">View Ice Cream</a>
+                    <a href="#food" class="btn btn-secondary">View Food</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="menu-section" id="ice-cream">
+            <div class="container">
+                <div class="menu-category">
+                    <div class="category-header">
+                        <h2 class="category-title">
+                            <span class="category-icon">🍦</span>
+                            Gourmet Ice Cream
+                        </h2>
+                        <p class="section-subtitle">Premium flavors served in cups, cones, or as decadent specialties</p>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Single Scoop</h3>
+                                <span class="item-price">$4.50</span>
+                            </div>
+                            <p class="item-description">One generous scoop of your favorite gourmet flavor in a cup or cone.</p>
+                            <div class="item-tags">
+                                <span class="tag">Classic</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Double Scoop</h3>
+                                <span class="item-price">$6.50</span>
+                            </div>
+                            <p class="item-description">Two scoops of premium ice cream. Mix and match flavors!</p>
+                            <div class="item-tags">
+                                <span class="tag">Popular</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Triple Scoop</h3>
+                                <span class="item-price">$8.50</span>
+                            </div>
+                            <p class="item-description">Three scoops of pure bliss. Perfect for sharing (or not!).</p>
+                            <div class="item-tags">
+                                <span class="tag">Best Value</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">The Unicone</h3>
+                                <span class="item-price">$7.00</span>
+                            </div>
+                            <p class="item-description">Our signature creation! A unique twisted cone design with two flavors swirled together.</p>
+                            <div class="item-tags">
+                                <span class="tag featured">Signature</span>
+                                <span class="tag">Home of the Unicone</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Banana Split</h3>
+                                <span class="item-price">$9.50</span>
+                            </div>
+                            <p class="item-description">Three scoops of ice cream, fresh banana, whipped cream, nuts, and cherries over a split banana.</p>
+                            <div class="item-tags">
+                                <span class="tag">Classic</span>
+                                <span class="tag">Shareable</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Ice Cream Parfait</h3>
+                                <span class="item-price">$8.00</span>
+                            </div>
+                            <p class="item-description">Layers of premium ice cream, fresh fruit, granola, and whipped cream in a tall glass.</p>
+                            <div class="item-tags">
+                                <span class="tag">Fresh</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Strawberry Shortcake Special</h3>
+                                <span class="item-price">$8.50</span>
+                            </div>
+                            <p class="item-description">Fresh strawberries, shortcake, and vanilla ice cream topped with whipped cream. Customer favorite!</p>
+                            <div class="item-tags">
+                                <span class="tag featured">Seasonal</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Build Your Own Sundae</h3>
+                                <span class="item-price">$7.50+</span>
+                            </div>
+                            <p class="item-description">Start with two scoops and add your choice of toppings. $0.75 per additional topping.</p>
+                            <div class="item-tags">
+                                <span class="tag">Custom</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Kids Scoop</h3>
+                                <span class="item-price">$3.50</span>
+                            </div>
+                            <p class="item-description">Perfectly sized scoop for little ones. Includes sprinkles on top!</p>
+                            <div class="item-tags">
+                                <span class="tag">Kids</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cones-section">
+            <div class="container">
+                <div class="category-header">
+                    <h2 class="category-title">
+                        <span class="category-icon">🍨</span>
+                        Cone Options
+                    </h2>
+                    <p class="section-subtitle">Choose your perfect vessel</p>
+                </div>
+                <div class="cones-grid">
+                    <div class="cone-option">
+                        <span class="cone-icon">🍦</span>
+                        <h3 class="cone-name">Classic Cone</h3>
+                        <p class="cone-price">Included</p>
+                    </div>
+                    <div class="cone-option">
+                        <span class="cone-icon">🍪</span>
+                        <h3 class="cone-name">Sugar Cone</h3>
+                        <p class="cone-price">+$0.75</p>
+                    </div>
+                    <div class="cone-option">
+                        <span class="cone-icon">🥐</span>
+                        <h3 class="cone-name">Waffle Cone</h3>
+                        <p class="cone-price">+$1.50</p>
+                    </div>
+                    <div class="cone-option">
+                        <span class="cone-icon">🍫</span>
+                        <h3 class="cone-name">Waffle Bowl</h3>
+                        <p class="cone-price">+$2.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="menu-section" id="shakes">
+            <div class="container">
+                <div class="menu-category">
+                    <div class="category-header">
+                        <h2 class="category-title">
+                            <span class="category-icon">🥤</span>
+                            Shakes & Blends
+                        </h2>
+                        <p class="section-subtitle">Thick, creamy, and made to order</p>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Classic Milkshake</h3>
+                                <span class="item-price">$6.50</span>
+                            </div>
+                            <p class="item-description">Hand-spun shake with premium ice cream and milk. Choose from vanilla, chocolate, or strawberry.</p>
+                            <div class="item-tags">
+                                <span class="tag">16 oz</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Premium Shake</h3>
+                                <span class="item-price">$7.50</span>
+                            </div>
+                            <p class="item-description">Any gourmet flavor blended into a thick, creamy shake. Topped with whipped cream.</p>
+                            <div class="item-tags">
+                                <span class="tag">20 oz</span>
+                                <span class="tag">Thick</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Miranda's Blend</h3>
+                                <span class="item-price">$8.00</span>
+                            </div>
+                            <p class="item-description">Our signature blend with cookie pieces, fudge, and vanilla ice cream. Like a Blizzard!</p>
+                            <div class="item-tags">
+                                <span class="tag featured">Bestseller</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Float</h3>
+                                <span class="item-price">$5.50</span>
+                            </div>
+                            <p class="item-description">Root beer or cola with a scoop of vanilla ice cream. Classic and refreshing.</p>
+                            <div class="item-tags">
+                                <span class="tag">Classic</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Smoothie</h3>
+                                <span class="item-price">$6.00</span>
+                            </div>
+                            <p class="item-description">Fresh fruit blended with yogurt and ice. Strawberry-banana or mixed berry.</p>
+                            <div class="item-tags">
+                                <span class="tag">Fresh Fruit</span>
+                                <span class="tag">Non-dairy</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Malts</h3>
+                                <span class="item-price">$7.00</span>
+                            </div>
+                            <p class="item-description">Old-fashioned malted milk shake. Chocolate, vanilla, or strawberry with that distinct malt flavor.</p>
+                            <div class="item-tags">
+                                <span class="tag">Retro</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="menu-section" id="food" style="background: var(--bg-alt);">
+            <div class="container">
+                <div class="menu-category">
+                    <div class="category-header">
+                        <h2 class="category-title">
+                            <span class="category-icon">🍔</span>
+                            Comfort Food & Snacks
+                        </h2>
+                        <p class="section-subtitle">Fuel up before or after your trail adventure</p>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Gourmet Hot Dog</h3>
+                                <span class="item-price">$5.50</span>
+                            </div>
+                            <p class="item-description">All-beef hot dog served with your choice of toppings. Add chili or cheese for $1.00.</p>
+                            <div class="item-tags">
+                                <span class="tag">Hearty</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Chili Cheese Dog</h3>
+                                <span class="item-price">$6.50</span>
+                            </div>
+                            <p class="item-description">Loaded with homemade chili and shredded cheese. A trail rider favorite!</p>
+                            <div class="item-tags">
+                                <span class="tag">Filling</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Nachos</h3>
+                                <span class="item-price">$6.00</span>
+                            </div>
+                            <p class="item-description">Tortilla chips with warm cheese sauce, jalapeños, and salsa on the side.</p>
+                            <div class="item-tags">
+                                <span class="tag">Shareable</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Loaded Nachos</h3>
+                                <span class="item-price">$8.50</span>
+                            </div>
+                            <p class="item-description">Chips topped with chili, cheese, sour cream, and jalapeños. Enough for two!</p>
+                            <div class="item-tags">
+                                <span class="tag">Meal Size</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Soft Pretzel</h3>
+                                <span class="item-price">$4.00</span>
+                            </div>
+                            <p class="item-description">Warm, salted pretzel with cheese dipping sauce. Perfect for a quick snack.</p>
+                            <div class="item-tags">
+                                <span class="tag">Quick</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Chips & Dip</h3>
+                                <span class="item-price">$3.50</span>
+                            </div>
+                            <p class="item-description">Choice of potato chips or tortilla chips with homemade dip.</p>
+                            <div class="item-tags">
+                                <span class="tag">Light</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Candy & Treats</h3>
+                                <span class="item-price">$1.50-$3.00</span>
+                            </div>
+                            <p class="item-description">Selection of classic candies and chocolate bars. Perfect with your ice cream!</p>
+                            <div class="item-tags">
+                                <span class="tag">Sweet</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Trail Mix</h3>
+                                <span class="item-price">$3.00</span>
+                            </div>
+                            <p class="item-description">Energy-packed mix of nuts, dried fruit, and chocolate. Great for the trail!</p>
+                            <div class="item-tags">
+                                <span class="tag">Energy</span>
+                                <span class="tag">To-Go</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Popcorn</h3>
+                                <span class="item-price">$3.50</span>
+                            </div>
+                            <p class="item-description">Fresh popped buttered popcorn. Regular or large size.</p>
+                            <div class="item-tags">
+                                <span class="tag">Classic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="menu-section">
+            <div class="container">
+                <div class="menu-category">
+                    <div class="category-header">
+                        <h2 class="category-title">
+                            <span class="category-icon">🧃</span>
+                            Drinks & Refreshments
+                        </h2>
+                        <p class="section-subtitle">Hydration for every adventure</p>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Bottled Water</h3>
+                                <span class="item-price">$2.00</span>
+                            </div>
+                            <p class="item-description">Cold purified water. Essential for trail riders and hikers.</p>
+                            <div class="item-tags">
+                                <span class="tag">Essential</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Sports Drinks</h3>
+                                <span class="item-price">$3.00</span>
+                            </div>
+                            <p class="item-description">Gatorade or Powerade in various flavors. Replenish those electrolytes!</p>
+                            <div class="item-tags">
+                                <span class="tag">Electrolytes</span>
+                                <span class="tag">Biker Favorite</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Soda/Fountain Drinks</h3>
+                                <span class="item-price">$2.50</span>
+                            </div>
+                            <p class="item-description">Coca-Cola products. Free refills with dine-in.</p>
+                            <div class="item-tags">
+                                <span class="tag">Free Refills</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Iced Tea</h3>
+                                <span class="item-price">$2.50</span>
+                            </div>
+                            <p class="item-description">Fresh brewed sweet or unsweetened tea. Perfect for hot days.</p>
+                            <div class="item-tags">
+                                <span class="tag">Refreshing</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Lemonade</h3>
+                                <span class="item-price">$3.00</span>
+                            </div>
+                            <p class="item-description">Fresh squeezed lemonade. Available regular or strawberry.</p>
+                            <div class="item-tags">
+                                <span class="tag">Fresh</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Coffee & Hot Cocoa</h3>
+                                <span class="item-price">$2.50</span>
+                            </div>
+                            <p class="item-description">Fresh brewed coffee or rich hot chocolate. Perfect for cooler evenings.</p>
+                            <div class="item-tags">
+                                <span class="tag">Hot</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Energy Drinks</h3>
+                                <span class="item-price">$3.50</span>
+                            </div>
+                            <p class="item-description">Monster, Red Bull, or similar. For that extra boost on long trail days.</p>
+                            <div class="item-tags">
+                                <span class="tag">Caffeine</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Juice Boxes</h3>
+                                <span class="item-price">$1.50</span>
+                            </div>
+                            <p class="item-description">Apple or fruit punch. Perfect for kids.</p>
+                            <div class="item-tags">
+                                <span class="tag">Kids</span>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h3 class="item-name">Bottled Soft Drinks</h3>
+                                <span class="item-price">$2.75</span>
+                            </div>
+                            <p class="item-description">Variety of bottled sodas and beverages to take on the trail.</p>
+                            <div class="item-tags">
+                                <span class="tag">To-Go</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="special-dietary">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Special Options</h2>
+                    <p class="section-subtitle">We accommodate various dietary needs. Just ask our friendly staff!</p>
+                </div>
+                <div class="dietary-grid">
+                    <div class="dietary-item">
+                        <div class="dietary-icon">🥜</div>
+                        <h3>Nut-Free Options</h3>
+                        <p>Several flavors available without nuts. Ask for our current nut-free selection.</p>
+                    </div>
+                    <div class="dietary-item">
+                        <div class="dietary-icon">🌾</div>
+                        <h3>Gluten-Free Cones</h3>
+                        <p>Gluten-free cake cones available upon request.</p>
+                    </div>
+                    <div class="dietary-item">
+                        <div class="dietary-icon">🥛</div>
+                        <h3>Dairy-Free Sorbet</h3>
+                        <p>Fruit sorbets available seasonally. Refreshing and dairy-free!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="menu-section" style="background: var(--bg);">
+            <div class="container">
+                <div class="full-menu-image">
+                    <div class="section-header">
+                        <h2>Complete Menu</h2>
+                        <p class="section-subtitle">Download our full menu or view it below</p>
+                    </div>
+                    <div class="menu-image-container">
+                        <img src="https://static.wixstatic.com/media/80a901_937d8cf999744113874466dd550799cc~mv2.jpg/v1/crop/x_0,y_785,w_16481,h_8879/fill/w_980,h_529,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/website%20menu%20no%20pricing%202025.jpg" alt="Complete Miranda's Ice Cream Shop Menu 2025" loading="lazy">
+                    </div>
+                    <a href="https://static.wixstatic.com/media/80a901_937d8cf999744113874466dd550799cc~mv2.jpg/v1/crop/x_0,y_785,w_16481,h_8879/fill/w_980,h_529,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/website%20menu%20no%20pricing%202025.jpg" class="btn download-btn" download>Download Menu Image</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="events">
+            <div class="container">
+                <h2>Catering & Events</h2>
+                <p class="section-subtitle">Let us cater your next celebration with our delicious ice cream and treats!</p>
+                <div class="events-grid">
+                    <div class="event-card">
+                        <h3>Ice Cream Social</h3>
+                        <p>Perfect for birthday parties, team celebrations, or family reunions. We bring the scoops, you bring the smiles.</p>
+                        <span class="capacity">Custom pricing available</span>
+                    </div>
+                    <div class="event-card">
+                        <h3>Trail Group Specials</h3>
+                        <p>Large groups of cyclists, hikers, or riders welcome! Ask about our group discounts for 10+ people.</p>
+                        <span class="capacity">Groups of 10+</span>
+                    </div>
+                </div>
+                <a href="tel:5134313126" class="phone-cta">📞 (513) 431-3126</a>
+                <p style="margin-top: 1rem; opacity: 0.9;">Call or text to discuss custom orders and catering options</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Miranda's Ice Cream</h3>
+                <p>Your neighborhood spot for fun, flavor, and relaxation! Located in the historic bank building in Morrow, Ohio. Home of the Unicone and friendly faces.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Visit Us</h4>
+                <ul>
+                    <li>205 Main Street</li>
+                    <li>Morrow, Ohio 45152</li>
+                    <li>On the Little Miami Scenic Trail</li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>📞 (513) 431-3126</p>
+                <p>✉️ mirandasoldtimeicecream@gmail.com</p>
+                <p style="margin-top: 1rem;"><strong>Hours:</strong></p>
+                <p>Mon, Fri-Sun: 12pm-9pm</p>
+                <p>Tue-Thu: 4pm-9pm</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Miranda's Ice Cream Shop and Eatery. All rights reserved. | Owned by sisters-in-law Olga and Anne</p>
+        </div>
+    </footer>
+</body>
+</html>
