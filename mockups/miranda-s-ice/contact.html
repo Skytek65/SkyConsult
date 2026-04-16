@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Miranda's Ice Cream Shop and Eatery</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        :root {
+            --primary: #FF9AA2;
+            --primary-dark: #E57373;
+            --secondary: #B5EAD7;
+            --accent: #FFDAC1;
+            --text: #5D4037;
+            --text-light: #8D6E63;
+            --bg: #FFF8F0;
+            --bg-alt: #FFFFFF;
+            --shadow: rgba(93, 64, 55, 0.1);
+            --shadow-deep: rgba(93, 64, 55, 0.15);
+            --max-width: 1200px;
+            --radius: 16px;
+            --radius-sm: 8px;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 248, 240, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 154, 162, 0.2);
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+        
+        nav {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1rem 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.02);
+        }
+        
+        .desktop-nav {
+            display: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        
+        .desktop-nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+        
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .desktop-nav a:hover::after,
+        .desktop-nav a.active::after {
+            width: 100%;
+        }
+        
+        .desktop-nav a.active {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 10px;
+            text-decoration: none;
+            color: var(--text);
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Mobile Menu */
+        #mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 9999;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        #mobile-menu:target {
+            display: flex;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 300;
+            line-height: 1;
+            transition: transform 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            transform: rotate(90deg);
+        }
+        
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg) 0%, var(--accent) 100%);
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            background-image: url('https://static.wixstatic.com/media/80a901_937d8cf999744113874466dd550799cc~mv2.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(2px);
+        }
+        
+        .hero-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 80px 24px;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 154, 162, 0.4);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0 0 1.5rem 0;
+            color: var(--text);
+            letter-spacing: -1px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            font-weight: 500;
+        }
+        
+        .hero-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            color: var(--text);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--primary-dark);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(229, 115, 115, 0.4);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(229, 115, 115, 0.5);
+            background: var(--primary);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-dark);
+            box-shadow: none;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary-dark);
+            color: white;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Hours Badge */
+        .hours-badge {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 40px var(--shadow);
+            max-width: 400px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .hours-badge h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+        }
+        
+        .hours-list {
+            display: grid;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.25rem 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+        }
+        
+        .hours-row:last-child {
+            border-bottom: none;
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 24px;
+        }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            color: var(--text);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Features Grid */
+        .features {
+            background: var(--bg-alt);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 10px 40px var(--shadow);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px var(--shadow-deep);
+        }
+        
+        .feature-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .feature-content {
+            padding: 2rem;
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0 0 0.75rem 0;
+            color: var(--text);
+        }
+        
+        .feature-card p {
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        /* About Preview */
+        .about-preview {
+            background: linear-gradient(to bottom, var(--bg) 0%, var(--accent) 100%);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 20px 60px var(--shadow-deep);
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-content h2 {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .owners {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-style: italic;
+        }
+        
+        /* Testimonial */
+        .testimonial {
+            background: var(--bg-alt);
+            position: relative;
+        }
+        
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8rem;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: 0 20px 60px var(--shadow);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .author-info h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+        
+        .author-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .stars {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Events CTA */
+        .events {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .events h2 {
+            color: white;
+        }
+        
+        .events .section-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+            text-align: left;
+        }
+        
+        .event-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .event-card h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .event-card p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 0;
+        }
+        
+        .capacity {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        .phone-cta {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .phone-cta:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: rgba(255,255,255,0.8);
+            padding: 80px 24px 40px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        
+        .footer-brand h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0 1rem 0;
+        }
+        
+        .footer-brand p {
+            line-height: 1.8;
+            margin: 0;
+        }
+        
+        .footer-links h4 {
+            color: white;
+            margin: 0 0 1.5rem 0;
+            font-size: 1.1rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-contact p {
+            margin: 0 0 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .footer-bottom {
+            max-width: var(--max-width);
+            margin: 4rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Trail Features */
+        .trail-features {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .trail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .trail-icon {
+            font-size: 1.5rem;
+        }
+        
+        /* Responsive */
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+            }
+            
+            .hamburger {
+                display: none;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            section {
+                padding: 100px 40px;
+            }
+            
+            nav {
+                padding: 1.25rem 40px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+            
+            .hero-content {
+                padding: 100px 40px;
+            }
+            
+            .testimonial-card {
+                padding: 4rem;
+            }
+        }
+        
+        /* Focus states for accessibility */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+        
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Contact Page Specific Styles */
+        .contact-hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-hero h1 {
+            margin-bottom: 1rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 40px var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px var(--shadow-deep);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .contact-card p {
+            color: var(--text-light);
+            margin: 0 0 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .contact-card a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .hours-list-contact {
+            display: grid;
+            gap: 0.5rem;
+            text-align: left;
+            max-width: 280px;
+            margin: 1rem auto 0;
+        }
+
+        .hours-row-contact {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+            font-size: 0.95rem;
+        }
+
+        .hours-row-contact:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .time {
+            color: var(--text-light);
+        }
+
+        .map-section {
+            background: var(--bg-alt);
+            padding: 0;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 20px 60px var(--shadow-deep);
+            border: 1px solid rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(20%) contrast(1.1);
+        }
+
+        .map-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .form-section {
+            background: var(--bg);
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: 0 20px 60px var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.75rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid rgba(0,0,0,0.1);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(255, 154, 162, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .map-container {
+                height: 500px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .contact-form {
+                padding: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Miranda's Ice Cream</a>
+            <div class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="menu.html">Menu</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+            <a href="#mobile-menu" class="hamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </nav>
+    </header>
+
+    <div id="mobile-menu">
+        <a href="#" class="close-btn" aria-label="Close menu">&times;</a>
+        <div class="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="menu.html">Menu</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </div>
+
+    <main>
+        <section class="contact-hero">
+            <div class="container">
+                <div class="section-header">
+                    <span class="hero-badge">Get In Touch</span>
+                    <h1>Contact Us</h1>
+                    <p class="section-subtitle">We'd love to hear from you! Whether you have questions about our menu, want to book an event, or just want to say hello, reach out anytime.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="contact-grid">
+                    <article class="contact-card">
+                        <span class="contact-icon">📍</span>
+                        <h3>Visit Us</h3>
+                        <p>205 Main Street<br>Morrow, Ohio 45152</p>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; font-style: italic;">Located in a charming historic bank building on the Little Miami Scenic Trail</p>
+                    </article>
+
+                    <article class="contact-card">
+                        <span class="contact-icon">📞</span>
+                        <h3>Call or Text</h3>
+                        <p>Have questions or want to book an event?</p>
+                        <a href="tel:513-431-3126">(513) 431-3126</a>
+                    </article>
+
+                    <article class="contact-card">
+                        <span class="contact-icon">✉️</span>
+                        <h3>Email Us</h3>
+                        <p>Send us a message anytime</p>
+                        <a href="mailto:mirandasoldtimeicecream@gmail.com">mirandasoldtimeicecream@gmail.com</a>
+                    </article>
+
+                    <article class="contact-card">
+                        <span class="contact-icon">🕒</span>
+                        <h3>Hours</h3>
+                        <div class="hours-list-contact">
+                            <div class="hours-row-contact">
+                                <span class="day">Monday</span>
+                                <span class="time">12pm - 9pm</span>
+                            </div>
+                            <div class="hours-row-contact">
+                                <span class="day">Tuesday</span>
+                                <span class="time">4pm - 9pm</span>
+                            </div>
+                            <div class="hours-row-contact">
+                                <span class="day">Wednesday</span>
+                                <span class="time">4pm - 9pm</span>
+                            </div>
+                            <div class="hours-row-contact">
+                                <span class="day">Thursday</span>
+                                <span class="time">4pm - 9pm</span>
+                            </div>
+                            <div class="hours-row-contact">
+                                <span class="day">Friday</span>
+                                <span class="time">12pm - 9pm</span>
+                            </div>
+                            <div class="hours-row-contact">
+                                <span class="day">Saturday</span>
+                                <span class="time">12pm - 9pm</span>
+                            </div>
+                            <div class="hours-row-contact">
+                                <span class="day">Sunday</span>
+                                <span class="time">12pm - 9pm</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Find Us</h2>
+                    <p class="section-subtitle">Located in the heart of Morrow, right on the Little Miami Scenic Trail</p>
+                </div>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3086.0!2d-84.1306!3d39.3542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8840f7b8c8b8b8b8%3A0x8b8b8b8b8b8b8b8b!2s205%20Main%20St%2C%20Morrow%2C%20OH%2045152!5e0!3m2!1sen!2sus!4v1234567890" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Miranda's Ice Cream Shop Location">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Send Us a Message</h2>
+                    <p class="section-subtitle">Have a question about our menu, want to book a party, or just want to say hi? Fill out the form below and we'll get back to you as soon as possible.</p>
+                </div>
+                <form class="contact-form" action="#" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="Tell us what's on your mind..."></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; justify-content: center;">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Miranda's Ice Cream Shop and Eatery</h3>
+                <p>Your neighborhood spot for fun, flavor, and relaxation! Home of the Unicone and located in a charming historic bank building. Come for the ice cream, stay for the charm.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Party Rentals</a></li>
+                    <li><a href="#">Event Room</a></li>
+                    <li><a href="#">Patio Rentals</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p>📍 205 Main Street<br>Morrow, Ohio 45152</p>
+                <p>📞 <a href="tel:513-431-3126" style="color: rgba(255,255,255,0.7); text-decoration: none;">(513) 431-3126</a></p>
+                <p>✉️ <a href="mailto:mirandasoldtimeicecream@gmail.com" style="color: rgba(255,255,255,0.7); text-decoration: none;">mirandasoldtimeicecream@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Miranda's Ice Cream Shop and Eatery. All rights reserved. | Owned and operated by Olga and Anne</p>
+        </div>
+    </footer>
+
+</body>
+</html>
