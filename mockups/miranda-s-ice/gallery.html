@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse our gallery of Miranda's Ice Cream Shop and Eatery. See our delicious treats, cozy patio, historic vault dining room, and happy customers enjoying the sunshine in Morrow, Ohio.">
+    <title>Gallery - Miranda's Ice Cream Shop and Eatery</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF8C42;
+            --primary-dark: #E67335;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --text: #2D3436;
+            --text-light: #636E72;
+            --bg: #FEF9F3;
+            --bg-alt: #FFF5EB;
+            --white: #FFFFFF;
+            --shadow: rgba(45, 52, 54, 0.08);
+            --shadow-hover: rgba(45, 52, 54, 0.15);
+            --radius: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --container: 1200px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            margin: 0;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin: 0 0 1rem;
+            word-wrap: break-word;
+        }
+
+        a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary);
+        }
+
+        a:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 40px;
+            }
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(254, 249, 243, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 140, 66, 0.1);
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            font-size: 1.75rem;
+        }
+
+        .desktop-nav {
+            display: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .desktop-nav a {
+            color: var(--text);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .desktop-nav a:hover::after,
+        .desktop-nav a.active::after {
+            width: 100%;
+        }
+
+        .desktop-nav a.active {
+            color: var(--primary-dark);
+        }
+
+        /* Mobile Menu Toggle */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--text);
+            transition: var(--transition);
+        }
+
+        /* Mobile Menu Overlay */
+        #mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--primary-dark);
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        #mobile-menu:target {
+            display: flex;
+        }
+
+        #mobile-menu a {
+            color: var(--white);
+            font-size: 1.4rem;
+            font-weight: 600;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        #mobile-menu a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(10px);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem !important;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        @media (min-width: 768px) {
+            .hamburger {
+                display: none;
+            }
+            .desktop-nav {
+                display: flex;
+            }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: var(--white);
+            font-weight: 600;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 140, 66, 0.4);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: #3DBDB4;
+            box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '☀️';
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            font-size: 8rem;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--text);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(255, 230, 109, 0.3);
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .hero h1 em {
+            color: var(--primary-dark);
+            font-style: normal;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .hero-image {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 40px var(--shadow-hover);
+            transform: rotate(2deg);
+            transition: var(--transition);
+        }
+
+        .hero-image:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 120px 0;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+            .hero-content {
+                text-align: left;
+            }
+            .hero p {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .hero-buttons {
+                justify-content: flex-start;
+            }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        section.alt-bg {
+            background: var(--bg-alt);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-header h2 {
+            color: var(--text);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.125rem;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px var(--shadow-hover);
+        }
+
+        .card-image {
+            overflow: hidden;
+            height: 220px;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: var(--text-light);
+            flex: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-link {
+            color: var(--primary);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 40px var(--shadow-hover);
+            position: relative;
+        }
+
+        .about-image::after {
+            content: '🍦';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 4rem;
+            background: var(--white);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 400px;
+        }
+
+        .about-content h2 {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+        }
+
+        .owners {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--bg-alt);
+        }
+
+        .owners strong {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+        }
+
+        @media (min-width: 1024px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+            .about-image {
+                order: 2;
+            }
+        }
+
+        /* Features Highlight */
+        .feature-highlight {
+            background: linear-gradient(to bottom, var(--bg-alt), var(--bg));
+        }
+
+        .feature-box {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px var(--shadow);
+            border-left: 4px solid var(--primary);
+            height: 100%;
+        }
+
+        .feature-box h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text);
+        }
+
+        .feature-box p {
+            color: var(--text-light);
+            margin-top: 1rem;
+        }
+
+        /* Testimonial */
+        .testimonial {
+            background: var(--text);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -40px;
+            left: 20px;
+            font-size: 20rem;
+            color: rgba(255, 255, 255, 0.05);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-text {
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .testimonial-role {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .stars {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 4px;
+        }
+
+        /* Info Section (Hours & Contact) */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .info-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .hours-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--bg-alt);
+            color: var(--text-light);
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .hours-list li strong {
+            color: var(--text);
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            color: var(--text-light);
+        }
+
+        .contact-list a {
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        @media (min-width: 768px) {
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before,
+        .cta::after {
+            content: '🍦';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.1;
+        }
+
+        .cta::before {
+            top: -20px;
+            left: 10%;
+            transform: rotate(-20deg);
+        }
+
+        .cta::after {
+            bottom: -20px;
+            right: 10%;
+            transform: rotate(20deg);
+        }
+
+        .cta h2 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta .btn {
+            background: var(--white);
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            padding: 16px 40px;
+        }
+
+        .cta .btn:hover {
+            background: var(--accent);
+            color: var(--text);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.25rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        /* Utility */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-0 {
+            margin-bottom: 0;
+        }
+
+        /* Trail Riders Badge */
+        .trail-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* GALLERY PAGE SPECIFIC STYLES */
+        .gallery-section {
+            background: var(--bg);
+            padding: 80px 0;
+        }
+
+        .gallery-masonry {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-masonry {
+                column-count: 2;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .gallery-masonry {
+                column-count: 3;
+            }
+        }
+
+        .gallery-card {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px var(--shadow-hover);
+        }
+
+        .gallery-image-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 100%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-card:hover .gallery-image-wrapper::after {
+            opacity: 1;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            padding: 1.25rem;
+            background: var(--white);
+        }
+
+        .gallery-caption h3 {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .gallery-caption p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .hero-gallery {
+            padding: 100px 0 60px;
+        }
+
+        .hero-gallery .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <span>🍦</span>
+                    Miranda's
+                </a>
+                
+                <div class="desktop-nav">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="menu.html">Menu</a>
+                    <a href="gallery.html" class="active">Gallery</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+                <a href="#mobile-menu" class="hamburger" aria-label="Open mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </nav>
+        </div>
+
+        <div id="mobile-menu">
+            <a href="#" class="close-btn" aria-label="Close menu">×</a>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="menu.html">Menu</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero hero-gallery">
+            <div class="container">
+                <div class="hero-content text-center">
+                    <span class="hero-badge">📸 Sweet Memories</span>
+                    <h1>Our Gallery</h1>
+                    <p>Miranda's sun spot. Kick back and relax. Come enjoy warm weather and an ice cream cone or some food on our spacious back patio. Ample seating, pergola, fire-pit, games and so much more.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="container">
+                <div class="gallery-masonry">
+                    <article class="gallery-card">
+                        <div class="gallery-image-wrapper">
+                            <img src="https://static.wixstatic.com/media/90a441_0235ee9f999045caa66f6716f3f64121~mv2.jpg/v1/fill/w_402,h_323,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_0235ee9f999045caa66f6716f3f64121~mv2.jpg" alt="Delicious ice cream treats at Miranda's" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Gourmet Treats</h3>
+                            <p>Premium ice cream and sweet delights</p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="gallery-image-wrapper">
+                            <img src="https://static.wixstatic.com/media/90a441_d277184345e04c9880dadaa547addbf8~mv2.jpg/v1/fill/w_434,h_244,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_d277184345e04c9880dadaa547addbf8~mv2.jpg" alt="Spacious outdoor patio seating area" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Patio Paradise</h3>
+                            <p>Spacious back patio with pergola</p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="gallery-image-wrapper">
+                            <img src="https://static.wixstatic.com/media/80a901_9fe48bb8f87e4e01ba72e6eebfd0680b~mv2.jpg/v1/fill/w_407,h_271,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Mirandas%20Ice%20Cream_-105.jpg" alt="Historic bank building interior with vault" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Historic Charm</h3>
+                            <p>Dine inside our unique bank vault</p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="gallery-image-wrapper">
+                            <img src="https://static.wixstatic.com/media/90a441_94210709ec364e6ebd2bbfab4cc5367b~mv2.jpg/v1/fill/w_410,h_271,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_94210709ec364e6ebd2bbfab4cc5367b~mv2.jpg" alt="Ice cream cones and treats display" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Flavorful Selection</h3>
+                            <p>Variety of gourmet flavors</p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="gallery-image-wrapper">
+                            <img src="https://static.wixstatic.com/media/90a441_abb6c55b43f64f3da904c6cb4a8cc3e3~mv2.jpg/v1/fill/w_410,h_271,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_abb6c55b43f64f3da904c6cb4a8cc3e3~mv2.jpg" alt="Cozy indoor seating and event room" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Cozy Indoors</h3>
+                            <p>Event room and indoor seating</p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="gallery-image-wrapper">
+                            <img src="https://static.wixstatic.com/media/80a901_3871d007bc2641b7a3030126299aac2c~mv2.png/v1/fill/w_408,h_213,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/80a901_3871d007bc2641b7a3030126299aac2c~mv2.png" alt="Trail riders welcome at Miranda's" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Trail Riders Welcome</h3>
+                            <p>Bike charging and horse-friendly stop</p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="gallery-image-wrapper">
+                            <img src="https://static.wixstatic.com/media/80a901_ec5f2a6765a24eecb0a83cfec835f9fe~mv2.jpg/v1/fill/w_352,h_217,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Mirandas%20Ice%20Cream_-41_edited.jpg" alt="Family enjoying ice cream on the patio" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Family Fun</h3>
+                            <p>Perfect spot for families and friends</p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="gallery-image-wrapper">
+                            <img src="https://static.wixstatic.com/media/90a441_9dfb364da09d4fdc8f6cbe5488dfe7bb~mv2.jpg/v1/fill/w_575,h_510,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_9dfb364da09d4fdc8f6cbe5488dfe7bb~mv2.jpg" alt="Special events and parties at Miranda's" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Special Events</h3>
+                            <p>Birthdays, weddings, and celebrations</p>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="gallery-image-wrapper">
+                            <img src="https://static.wixstatic.com/media/90a441_efad1520350d4effbfe58112ecf64cbb~mv2.jpg/v1/fill/w_437,h_245,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_efad1520350d4effbfe58112ecf64cbb~mv2.jpg" alt="Outdoor games and fire pit area" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Outdoor Games</h3>
+                            <p>Fire pit, lawn games, and relaxation</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Host Your Next Event With Us</h2>
+                <p>Our Patio accommodates up to 100 guests and our Event Room seats up to 40. Perfect for birthdays, weddings, reunions, and more!</p>
+                <a href="contact.html" class="btn">Book Your Event</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Miranda's Ice Cream</h3>
+                    <p>Your neighborhood spot for fun, flavor, and relaxation. Home of the Unicone! 🦄</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Visit Us</h4>
+                    <ul>
+                        <li>205 Main Street</li>
+                        <li>Morrow, Ohio 45152</li>
+                        <li><a href="mailto:mirandasoldtimeicecream@gmail.com">Email Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Hours</h4>
+                    <ul>
+                        <li>Mon, Fri-Sun: 12pm-9pm</li>
+                        <li>Tue-Thu: 4pm-9pm</li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Miranda's Ice Cream Shop and Eatery. All rights reserved. | Owned by sisters-in-law Olga and Anne</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
