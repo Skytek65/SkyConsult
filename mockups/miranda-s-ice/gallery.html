@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View our gallery of delicious ice cream treats, historic bank vault dining room, and spacious patio at Miranda's Ice Cream Shop and Eatery in Morrow, Ohio.">
+    <title>Gallery | Miranda's Ice Cream Shop and Eatery</title>
+    <style>
+        :root {
+            --primary: #E85D4E;
+            --primary-dark: #D14A3C;
+            --secondary: #5EBDB2;
+            --accent: #F9C846;
+            --text: #2C3E50;
+            --text-light: #5D6D7E;
+            --bg: #FFFFFF;
+            --bg-alt: #FFF8F0;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-hover: rgba(0, 0, 0, 0.15);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+            --max-width: 1200px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        a:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            color: var(--primary-dark);
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-light);
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 9999;
+            background: var(--primary);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #mobile-menu:target {
+            display: flex;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .mobile-nav a {
+            font-size: 1.4rem;
+            color: white;
+            text-decoration: none;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            padding: 0 var(--spacing-md);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: var(--spacing-md);
+            right: var(--spacing-md);
+            font-size: 2.5rem;
+            color: white;
+            text-decoration: none;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        /* Header */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(232, 93, 78, 0.1);
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo img {
+            max-height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .desktop-nav {
+            display: none;
+            gap: var(--spacing-md);
+        }
+
+        .desktop-nav a {
+            color: var(--text);
+            font-weight: 600;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .desktop-nav a:hover::after,
+        .desktop-nav a.active::after {
+            width: 100%;
+        }
+
+        .desktop-nav a.active {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .hamburger {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg) 100%);
+            padding: var(--spacing-xl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(249, 200, 70, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--text);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-md);
+            box-shadow: 0 4px 15px rgba(249, 200, 70, 0.3);
+        }
+
+        .hero h1 {
+            margin-bottom: var(--spacing-md);
+            color: var(--text);
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--text-light);
+            margin-bottom: var(--spacing-md);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-image {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 20px 60px var(--shadow-hover);
+            transform: rotate(2deg);
+            transition: var(--transition);
+        }
+
+        .hero-image:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 4/3;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(232, 93, 78, 0.3);
+            transition: var(--transition);
+            border: 2px solid transparent;
+            margin-top: var(--spacing-sm);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(232, 93, 78, 0.4);
+            color: white;
+        }
+
+        /* Features Section */
+        .features {
+            padding: var(--spacing-xl) 0;
+            background: var(--bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-header h2 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .feature-card {
+            background: var(--bg);
+            border-radius: var(--radius);
+            padding: var(--spacing-md);
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(232, 93, 78, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-width: 0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px var(--shadow-hover);
+            border-color: rgba(232, 93, 78, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* About Section */
+        .about {
+            padding: var(--spacing-xl) 0;
+            background: var(--bg-alt);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .about-content h2 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .about-content p {
+            margin-bottom: var(--spacing-md);
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 20px 50px var(--shadow);
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .highlight-box {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary);
+            margin: var(--spacing-md) 0;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        /* Special Features */
+        .specials {
+            padding: var(--spacing-xl) 0;
+            background: var(--bg);
+        }
+
+        .specials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .special-card {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            min-height: 300px;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .special-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .special-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .special-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: var(--spacing-md);
+            color: white;
+        }
+
+        .special-overlay h3 {
+            color: var(--accent);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .special-overlay p {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Testimonial Section */
+        .testimonial {
+            padding: var(--spacing-xl) 0;
+            background: linear-gradient(135deg, var(--secondary) 0%, #4AA89E 100%);
+            color: white;
+        }
+
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial blockquote {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: var(--spacing-md);
+            position: relative;
+            padding: 0 var(--spacing-md);
+        }
+
+        .testimonial blockquote::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: -2rem;
+            left: -1rem;
+            color: rgba(255,255,255,0.3);
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Hours & Contact */
+        .info-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--bg-alt);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .hours-box,
+        .contact-box {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .hours-list {
+            list-style: none;
+            margin-top: var(--spacing-sm);
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-weight: 500;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-details {
+            margin-top: var(--spacing-sm);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .contact-label {
+            font-weight: 700;
+            color: var(--primary-dark);
+            min-width: 80px;
+        }
+
+        /* Events CTA */
+        .events {
+            padding: var(--spacing-xl) 0;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .events h2 {
+            color: white;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .events p {
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        .event-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+
+        .event-feature {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            min-width: 250px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .event-feature h4 {
+            color: var(--accent);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .event-feature p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .cta-white {
+            background: white;
+            color: var(--primary);
+            margin-top: var(--spacing-md);
+        }
+
+        .cta-white:hover {
+            background: var(--accent);
+            color: var(--text);
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--text);
+            color: white;
+            padding: var(--spacing-xl) 0 var(--spacing-md);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-col h4 {
+            color: var(--accent);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.2rem;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr 1fr;
+                text-align: left;
+            }
+
+            .hero-content {
+                text-align: left;
+            }
+
+            .hero-subtitle {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .specials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .specials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-0 {
+            margin-bottom: 0;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Gallery Page Specific Styles */
+        .gallery {
+            padding: var(--spacing-xl) 0;
+            background: var(--bg);
+            min-height: 80vh;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            background: var(--bg);
+            transition: var(--transition);
+            cursor: pointer;
+            break-inside: avoid;
+            min-width: 0;
+        }
+
+        .gallery-card:hover {
+            box-shadow: 0 20px 50px var(--shadow-hover);
+            transform: translateY(-8px);
+        }
+
+        .gallery-image {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+
+        .gallery-card:hover .gallery-image img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--bg);
+            text-align: center;
+            border-top: 1px solid rgba(232, 93, 78, 0.1);
+        }
+
+        .gallery-caption h3 {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            margin-bottom: 0;
+        }
+
+        .gallery-caption p {
+            font-size: 0.9rem;
+            margin: 0;
+            color: var(--text-light);
+        }
+
+        /* Masonry-like layout using columns for mobile flexibility */
+        @media (min-width: 640px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: masonry;
+            }
+            
+            .gallery-card:nth-child(4n+1) {
+                grid-row: span 2;
+            }
+            
+            .gallery-card:nth-child(4n+1) .gallery-image {
+                aspect-ratio: 3/4;
+            }
+        }
+
+        .page-hero {
+            min-height: 40vh;
+            background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg) 100%);
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: var(--spacing-xl) 0;
+            position: relative;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(249, 200, 70, 0.15) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-hero h1 {
+            color: var(--primary-dark);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu">
+        <a href="#" class="close-btn" aria-label="Close menu">&times;</a>
+        <nav class="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="menu.html">Menu</a>
+            <a href="gallery.html" class="active">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo" aria-label="Miranda's Ice Cream Shop and Eatery Home">
+                <span style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">Miranda's</span>
+            </a>
+            
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="menu.html">Menu</a>
+                <a href="gallery.html" class="active">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <a href="#mobile-menu" class="menu-toggle" aria-label="Open menu">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container page-hero-content">
+                <span class="hero-badge">☀️ Time to Kick Back and Relax! ☀️</span>
+                <h1>Photo Gallery</h1>
+                <p>Welcome to Miranda's—your go-to spot for sunshine, good vibes, and great food! Take a visual tour of our historic bank building, delicious treats, and spacious patio.</p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Moments & Memories</h2>
+                    <p>Explore our historic bank vault, delicious ice cream creations, and the charming atmosphere that makes Miranda's special.</p>
+                </div>
+
+                <div class="gallery-grid">
+                    <!-- Gallery Item 1 -->
+                    <article class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="https://static.wixstatic.com/media/90a441_0235ee9f999045caa66f6716f3f64121~mv2.jpg/v1/fill/w_402,h_323,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_0235ee9f999045caa66f6716f3f64121~mv2.jpg" 
+                                 alt="Delicious ice cream treats at Miranda's" 
+                                 loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Gourmet Ice Cream</h3>
+                            <p>Handcrafted premium flavors</p>
+                        </div>
+                    </article>
+
+                    <!-- Gallery Item 2 -->
+                    <article class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="https://static.wixstatic.com/media/90a441_d277184345e04c9880dadaa547addbf8~mv2.jpg/v1/fill/w_434,h_244,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_d277184345e04c9880dadaa547addbf8~mv2.jpg" 
+                                 alt="Interior of Miranda's ice cream shop" 
+                                 loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Cozy Interior</h3>
+                            <p>Historic charm meets modern comfort</p>
+                        </div>
+                    </article>
+
+                    <!-- Gallery Item 3 -->
+                    <article class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="https://static.wixstatic.com/media/80a901_9fe48bb8f87e4e01ba72e6eebfd0680b~mv2.jpg/v1/fill/w_407,h_271,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Mirandas%20Ice%20Cream_-105.jpg" 
+                                 alt="Ice cream display at Miranda's" 
+                                 loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Fresh Scoops</h3>
+                            <p>Made with love daily</p>
+                        </div>
+                    </article>
+
+                    <!-- Gallery Item 4 -->
+                    <article class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="https://static.wixstatic.com/media/90a441_94210709ec364e6ebd2bbfab4cc5367b~mv2.jpg/v1/fill/w_410,h_271,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_94210709ec364e6ebd2bbfab4cc5367b~mv2.jpg" 
+                                 alt="Historic bank vault dining area" 
+                                 loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>The Vault</h3>
+                            <p>Dine in a piece of history</p>
+                        </div>
+                    </article>
+
+                    <!-- Gallery Item 5 -->
+                    <article class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="https://static.wixstatic.com/media/90a441_abb6c55b43f64f3da904c6cb4a8cc3e3~mv2.jpg/v1/fill/w_410,h_271,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_abb6c55b43f64f3da904c6cb4a8cc3e3~mv2.jpg" 
+                                 alt="Ice cream sundae special" 
+                                 loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Sweet Treats</h3>
+                            <p>Sundaes, splits & more</p>
+                        </div>
+                    </article>
+
+                    <!-- Gallery Item 6 -->
+                    <article class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="https://static.wixstatic.com/media/80a901_3871d007bc2641b7a3030126299aac2c~mv2.png/v1/fill/w_408,h_213,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/80a901_3871d007bc2641b7a3030126299aac2c~mv2.png" 
+                                 alt="Miranda's Ice Cream sign" 
+                                 loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Our Sign</h3>
+                            <p>Home of the Unicone</p>
+                        </div>
+                    </article>
+
+                    <!-- Gallery Item 7 -->
+                    <article class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="https://static.wixstatic.com/media/80a901_ec5f2a6765a24eecb0a83cfec835f9fe~mv2.jpg/v1/fill/w_352,h_217,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Mirandas%20Ice%20Cream_-41_edited.jpg" 
+                                 alt="Spacious back patio seating area" 
+                                 loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Patio Paradise</h3>
+                            <p>Outdoor seating for 100 guests</p>
+                        </div>
+                    </article>
+
+                    <!-- Gallery Item 8 -->
+                    <article class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="https://static.wixstatic.com/media/90a441_9dfb364da09d4fdc8f6cbe5488dfe7bb~mv2.jpg/v1/fill/w_575,h_510,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_9dfb364da09d4fdc8f6cbe5488dfe7bb~mv2.jpg" 
+                                 alt="Ice cream cone close-up" 
+                                 loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Perfect Cones</h3>
+                            <p>Waffle, sugar, or classic</p>
+                        </div>
+                    </article>
+
+                    <!-- Gallery Item 9 -->
+                    <article class="gallery-card">
+                        <div class="gallery-image">
+                            <img src="https://static.wixstatic.com/media/90a441_efad1520350d4effbfe58112ecf64cbb~mv2.jpg/v1/fill/w_437,h_245,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_efad1520350d4effbfe58112ecf64cbb~mv2.jpg" 
+                                 alt="Historic interior features" 
+                                 loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3>Historic Charm</h3>
+                            <p>Original bank building features</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="events">
+            <div class="container">
+                <h2>Host Your Next Event With Us</h2>
+                <p>Our Patio and Event Room are both available for private rentals. From birthdays and graduations to team parties and family reunions.</p>
+                <div class="event-features">
+                    <div class="event-feature">
+                        <h4>Event Room</h4>
+                        <p>Seats up to 40 guests</p>
+                    </div>
+                    <div class="event-feature">
+                        <h4>Back Patio</h4>
+                        <p>Accommodates up to 100 guests</p>
+                    </div>
+                </div>
+                <a href="contact.html" class="cta-button cta-white">Book Your Event</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Miranda's Ice Cream Shop and Eatery</h4>
+                    <p>Home of the Unicone! Your neighborhood spot for fun, flavor, and relaxation in historic Morrow, Ohio.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="menu.html">Menu</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Hours</h4>
+                    <p>Mon: 12pm - 9pm</p>
+                    <p>Tue-Thu: 4pm - 9pm</p>
+                    <p>Fri-Sun: 12pm - 9pm</p>
+                    <p style="margin-top: 1rem; color: var(--accent); font-weight: 600;">Open for the season!</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>205 Main Street<br>Morrow, Ohio 45152</p>
+                    <p><a href="tel:5134313126">(513) 431-3126</a></p>
+                    <p><a href="mailto:mirandasoldtimeicecream@gmail.com">mirandasoldtimeicecream@gmail.com</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Miranda's Ice Cream Shop and Eatery. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem;">Owned and operated by sisters-in-law Olga and Anne</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
