@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miranda's Ice Cream Shop and Eatery | Morrow, Ohio</title>
+    <meta name="description" content="Home of the Unicone! Premium gourmet ice cream, comfort food, and historic charm in a former bank building. Patio dining, event space, bike & horse friendly.">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --color-primary: #E85A4F;
+            --color-secondary: #4A90E2;
+            --color-accent: #F5A623;
+            --color-dark: #2C3E50;
+            --color-light: #F8F9FA;
+            --color-cream: #FFF8F0;
+            --color-white: #FFFFFF;
+            --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --spacing-xs: 1rem;
+            --spacing-sm: 1.5rem;
+            --spacing-md: 2.5rem;
+            --spacing-lg: 5rem;
+            --spacing-xl: 8rem;
+            --radius: 16px;
+            --radius-sm: 8px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 8px 16px rgba(0,0,0,0.1);
+            --shadow-lg: 0 16px 48px rgba(0,0,0,0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--color-dark);
+            background-color: var(--color-white);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: var(--spacing-md);
+            color: var(--color-dark);
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+            word-wrap: break-word;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+            width: 100%;
+        }
+
+        section {
+            padding: var(--spacing-xl) 0;
+            position: relative;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--color-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--color-dark);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a:focus::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-white);
+            background: linear-gradient(135deg, rgba(232, 90, 79, 0.8), rgba(44, 62, 80, 0.8)), 
+                        url('https://static.wixstatic.com/media/90a441_9dfb364da09d4fdc8f6cbe5488dfe7bb~mv2.jpg/v1/fill/w_575,h_510,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_9dfb364da09d4fdc8f6cbe5488dfe7bb~mv2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: var(--spacing-md);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: var(--spacing-sm);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            margin-bottom: var(--spacing-md);
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-dark);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            margin-top: var(--spacing-sm);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            background: #FFC947;
+        }
+
+        /* Features Grid */
+        .features {
+            background: var(--color-cream);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .feature-card {
+            background: var(--color-white);
+            border-radius: var(--radius);
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+            display: block;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .about-text {
+            order: 2;
+        }
+
+        .about-image {
+            order: 1;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Menu Section */
+        .menu-section {
+            background: var(--color-dark);
+            color: var(--color-white);
+        }
+
+        .menu-section h2 {
+            color: var(--color-white);
+        }
+
+        .menu-container {
+            background: var(--color-white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin-top: var(--spacing-md);
+        }
+
+        .menu-image {
+            width: 100%;
+            display: block;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-sm);
+        }
+
+        .gallery-item {
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            aspect-ratio: 4/3;
+            position: relative;
+            background: var(--color-light);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Testimonial */
+        .testimonial {
+            background: linear-gradient(135deg, var(--color-cream), var(--color-light));
+        }
+
+        .testimonial-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--color-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 6rem;
+            color: var(--color-primary);
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-author {
+            margin-top: var(--spacing-md);
+            font-style: normal;
+            font-weight: 700;
+            color: var(--color-dark);
+        }
+
+        .testimonial-meta {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .contact-info h3 {
+            color: var(--color-primary);
+            margin-top: var(--spacing-md);
+        }
+
+        .contact-info h3:first-child {
+            margin-top: 0;
+        }
+
+        .hours-list {
+            list-style: none;
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .hours-list li strong {
+            color: var(--color-dark);
+            min-width: 100px;
+        }
+
+        .contact-details {
+            list-style: none;
+            margin-top: var(--spacing-sm);
+        }
+
+        .contact-details li {
+            margin-bottom: var(--spacing-xs);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-details a {
+            color: var(--color-secondary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .contact-details a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-dark);
+            color: var(--color-white);
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-brand h3 {
+            color: var(--color-accent);
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-brand p {
+            opacity: 0.8;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            color: var(--color-white);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--color-accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .highlight {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            :root {
+                --spacing-xl: 6rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-text {
+                order: 1;
+            }
+
+            .about-image {
+                order: 2;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .nav-links {
+                gap: var(--spacing-lg);
+            }
+        }
+
+        /* Focus States for Accessibility */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            
+            .feature-card:hover,
+            .cta-button:hover,
+            .gallery-item:hover img,
+            .about-image:hover img {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container" aria-label="Main Navigation">
+            <a href="#home" class="logo" aria-label="Miranda's Ice Cream Home">
+                🍦 Miranda's <span>Eatery</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Experience</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero" aria-label="Welcome to Miranda's">
+            <div class="hero-content">
+                <h1>Welcome to Miranda's</h1>
+                <p class="hero-subtitle">Home of the Unicone! ☀️ Time to Kick Back and Relax! ☀️</p>
+                <p class="hero-subtitle">Your Neighborhood Spot for Fun, Flavor, and Relaxation</p>
+                <a href="#menu" class="cta-button">View Our Menu</a>
+            </div>
+        </section>
+
+        <section id="about" class="about" aria-labelledby="about-heading">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 id="about-heading">Your Go-To Spot for Sunshine, Good Vibes, and Great Food</h2>
+                        <p>Whether you're enjoying time with family and friends, treating yourself to a sweet escape, or taking a break after a bike ride, <span class="highlight">Miranda's is the perfect place to unwind.</span></p>
+                        <p>We proudly serve <strong>premium gourmet ice cream</strong> in a variety of delicious flavors, along with a tasty selection of food, refreshments, sports drinks, and snacks. Choose from cups, classic cones, sugar cones, or waffle cones to enjoy your favorite scoop just the way you like it!</p>
+                        
+                        <h3>🍦 Trail Riders & Sweet Riders Welcome! 🍦</h3>
+                        <p>🚴‍♀️ <strong>Riding in on two wheels?</strong> We've got you covered with electric bike charging stations right outside!</p>
+                        <p>🐴 <strong>Coming by horseback?</strong> No problem — we're proud to be a horse-friendly stop, with space to safely tie up and relax while you enjoy your treat.</p>
+                        
+                        <p style="margin-top: 2rem; font-size: 1.1rem; color: var(--color-primary); font-weight: 600;">💕 Come for the ice cream, stay for the charm. See you soon! 💕</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://static.wixstatic.com/media/80a901_ec5f2a6765a24eecb0a83cfec835f9fe~mv2.jpg/v1/fill/w_352,h_217,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Mirandas%20Ice%20Cream_-41_edited.jpg" 
+                             alt="Miranda's Ice Cream Shop exterior with welcoming patio" 
+                             loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features" aria-labelledby="features-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="features-heading">The Miranda's Experience</h2>
+                    <p>More than just ice cream — discover what makes our historic location special</p>
+                </div>
+                
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <span class="feature-icon">🌿</span>
+                        <h3>Patio Paradise</h3>
+                        <p>Soak up the sun on our spacious back patio, perfect for enjoying warm weather with an ice cream cone or a delicious meal. Features ample seating, a pergola, fire pit, lawn games, and more. <strong>Accommodates up to 100 guests</strong> for private events.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <span class="feature-icon">☔</span>
+                        <h3>Rain or Shine</h3>
+                        <p>When the weather doesn't cooperate, our cozy Event Room is ready to welcome you. Whether it's too hot or raining outside, relax indoors in comfort and style. <strong>Seats up to 40 guests.</strong></p>
+                    </article>
+
+                    <article class="feature-card">
+                        <span class="feature-icon">🏦</span>
+                        <h3>Dine in a Vault</h3>
+                        <p>Yes — it's true! Miranda's is located in a charming historic bank building, and we've kept the original vault right in our dining room. Come experience a unique blend of history and hospitality.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <span class="feature-icon">🎉</span>
+                        <h3>Host Your Event</h3>
+                        <p>Our Patio and Event Room are both available for private rentals. From birthdays and graduations to team parties, weddings, baby showers, and family reunions — we're here to make your event special.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="menu-section" aria-labelledby="menu-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="menu-heading" style="color: white;">Our Menu</h2>
+                    <p style="color: rgba(255,255,255,0.9);">Gourmet ice cream, parfaits, shakes, blends & banana splits • Comfort food, snacks & sweet treats • Refreshing drinks & energizing sports beverages</p>
+                </div>
+                
+                <div class="menu-container">
+                    <img src="https://static.wixstatic.com/media/80a901_937d8cf999744113874466dd550799cc~mv2.jpg/v1/crop/x_0,y_785,w_16481,h_8879/fill/w_980,h_529,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/website%20menu%20no%20pricing%202025.jpg" 
+                         alt="Full menu showing ice cream flavors, food options, and beverages" 
+                         class="menu-image"
+                         loading="lazy">
+                </div>
+                
+                <div class="text-center" style="margin-top: 2rem;">
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: 1rem;">Stop in for a cold one — ice cream, that is!</p>
+                    <a href="#contact" class="cta-button">Visit Us Today</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery" aria-labelledby="gallery-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="gallery-heading">Gallery</h2>
+                    <p>Sunshine, smiles, and sweet treats at Miranda's</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://static.wixstatic.com/media/90a441_0235ee9f999045caa66f6716f3f64121~mv2.jpg/v1/fill/w_402,h_323,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_0235ee9f999045caa66f6716f3f64121~mv2.jpg" 
+                             alt="Delicious ice cream sundae with fresh toppings" 
+                             loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://static.wixstatic.com/media/90a441_d277184345e04c9880dadaa547addbf8~mv2.jpg/v1/fill/w_434,h_244,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_d277184345e04c9880dadaa547addbf8~mv2.jpg" 
+                             alt="Historic bank vault interior dining area" 
+                             loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://static.wixstatic.com/media/80a901_9fe48bb8f87e4e01ba72e6eebfd0680b~mv2.jpg/v1/fill/w_407,h_271,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Mirandas%20Ice%20Cream_-105.jpg" 
+                             alt="Outdoor patio seating area with happy customers" 
+                             loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://static.wixstatic.com/media/90a441_94210709ec364e6ebd2bbfab4cc5367b~mv2.jpg/v1/fill/w_410,h_271,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_94210709ec364e6ebd2bbfab4cc5367b~mv2.jpg" 
+                             alt="Assorted gourmet ice cream cones display" 
+                             loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://static.wixstatic.com/media/90a441_abb6c55b43f64f3da904c6cb4a8cc3e3~mv2.jpg/v1/fill/w_410,h_271,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_abb6c55b43f64f3da904c6cb4a8cc3e3~mv2.jpg" 
+                             alt="Fresh strawberry shortcake specialty dessert" 
+                             loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://static.wixstatic.com/media/90a441_efad1520350d4effbfe58112ecf64cbb~mv2.jpg/v1/fill/w_437,h_245,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_efad1520350d4effbfe58112ecf64cbb~mv2.jpg" 
+                             alt="Colorful ice cream parfait with whipped cream" 
+                             loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial" aria-labelledby="testimonial-heading">
+            <div class="container">
+                <h2 id="testimonial-heading" class="text-center">What Our Customers Say</h2>
+                <div class="testimonial-card">
+                    <p>"Wonderful place in a quaint town that takes you back a little in time. When you walk in, you are immediately greeted by staff who are very welcoming, friendly, and knowledgeable about their products as well as good suggestions about how each tastes, etc. Lisa had a sundae and I had a strawberry shortcake special and we were transported quickly to ice cream heaven. The options were generous, but not overdone, the quality of the ice cream was tasty and creamy, strawberries fresh and wonderful, and the cake just right in taste and, again, very fresh.</p>
+                    <p>This business is in a former bank which lends a certain atmosphere (you can even go in the vault 😊), and has a rather spacious back patio as well where you can eat outdoors. I cannot say enough good about this place... If you are in area or just passing by, this is a perfect place to stop and relax for a spell.</p>
+                    <p>Miranda's is a pleasant change from the chains, shopwise, and for our money, better value, better portions, superior taste, great people. Support local businesses and come down to Miranda's for some great ice cream — you will definitely appreciate the difference 🍨🍦😊"</p>
+                    <div class="testimonial-author">
+                        Emmett Jarvis II
+                        <div class="testimonial-meta">Local Guide • 143 reviews • 365 photos</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact" aria-labelledby="contact-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="contact-heading">Visit Us</h2>
+                    <p>Located on the Little Miami Scenic Trail in historic downtown Morrow</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Hours of Operation</h3>
+                        <ul class="hours-list">
+                            <li><strong>Monday</strong> <span>12pm - 9pm</span></li>
+                            <li><strong>Tuesday</strong> <span>4pm - 9pm</span></li>
+                            <li><strong>Wednesday</strong> <span>4pm - 9pm</span></li>
+                            <li><strong>Thursday</strong> <span>4pm - 9pm</span></li>
+                            <li><strong>Friday</strong> <span>12pm - 9pm</span></li>
+                            <li><strong>Saturday</strong> <span>12pm - 9pm</span></li>
+                            <li><strong>Sunday</strong> <span>12pm - 9pm</span></li>
+                        </ul>
+                        
+                        <h3>Book Your Event</h3>
+                        <p>Call or text to reserve our Patio or Event Room for your next celebration!</p>
+                        <p style="font-size: 1.2rem; font-weight: 700; color: var(--color-primary); margin-top: 0.5rem;">(513) 431-3126</p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <ul class="contact-details">
+                            <li>
+                                <span>📍</span>
+                                <address style="display: inline; font-style: normal;">
+                                    205 Main Street<br>
+                                    Morrow, Ohio 45152
+                                </address>
+                            </li>
+                            <li>
+                                <span>📞</span>
+                                <a href="tel:513-431-3126">(513) 431-3126</a>
+                            </li>
+                            <li>
+                                <span>✉️</span>
+                                <a href="mailto:mirandasoldtimeicecream@gmail.com">mirandasoldtimeicecream@gmail.com</a>
+                            </li>
+                        </ul>
+                        
+                        <h3>About the Owners</h3>
+                        <p>Miranda's Ice Cream Shoppe is owned and operated by sisters-in-law <strong>Olga and Anne</strong>. Olga discovered the previously-owned Miranda's Old Time Ice Cream while horseback riding through Morrow. She and Anne decided it was the perfect location to open a gathering place for family and friends to meet, laugh, and enjoy gourmet ice cream.</p>
+                        
+                        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666;"><em>In the spirit of making a difference, Miranda's donates a portion of proceeds to organizations that help the victims of domestic violence.</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>🍦 Miranda's</h3>
+                    <p>Home of the Unicone! Serving premium gourmet ice cream and comfort food in a historic bank building. Trail riders, families, and sweet tooths welcome.</p>
+                    <div class="social-links" aria-label="Social Media Links">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#features">Patio Dining</a></li>
+                        <li><a href="#features">Event Room Rental</a></li>
+                        <li><a href="#features">Private Parties</a></li>
+                        <li><a href="#contact">Catering</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>205 Main Street</li>
+                        <li>Morrow, OH 45152</li>
+                        <li><a href="tel:513-431-3126">(513) 431-3126</a></li>
+                        <li><a href="mailto:mirandasoldtimeicecream@gmail.com">Email Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Miranda's Ice Cream Shop and Eatery. All rights reserved. | We are pleased and proud to be so warmly welcomed by the people of Morrow.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
