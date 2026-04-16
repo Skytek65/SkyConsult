@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Road House Grill & Catering - Your Ultimate Culinary Destination in Southwest Ohio. Food truck catering, drop-off catering, and lunch boxes for all occasions.">
+    <title>Home | Road House Grill & Catering</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #C41E3A;
+            --primary-dark: #8B1528;
+            --secondary: #D4A574;
+            --accent: #2E8B57;
+            --text: #1A1A1A;
+            --text-light: #666666;
+            --bg: #FFFFFF;
+            --bg-alt: #F9F5F0;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-deep: rgba(0, 0, 0, 0.2);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --transition: all 0.3s ease;
+            --max-width: 1200px;
+            --spacing-xs: 16px;
+            --spacing-sm: 24px;
+            --spacing-md: 40px;
+            --spacing-lg: 80px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        h1, h2, h3, h4 {
+            margin: 0 0 var(--spacing-xs) 0;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+        }
+
+        p {
+            margin: 0 0 var(--spacing-sm) 0;
+            color: var(--text-light);
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .desktop-nav {
+            display: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .desktop-nav a {
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .desktop-nav a:hover::after,
+        .desktop-nav a.active::after {
+            width: 100%;
+        }
+
+        .desktop-nav a.active {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--text);
+            transition: var(--transition);
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 9999;
+            background: var(--primary-dark);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #mobile-menu:target {
+            display: flex;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 300;
+            line-height: 1;
+            padding: 8px;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            padding: var(--spacing-sm);
+        }
+
+        .mobile-nav a {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 500;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 300px;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            mix-blend-mode: multiply;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: var(--spacing-sm);
+            max-width: 800px;
+            color: white;
+        }
+
+        .hero-logo {
+            width: 180px;
+            height: auto;
+            margin: 0 auto var(--spacing-md);
+            filter: drop-shadow(0 4px 20px rgba(0,0,0,0.3));
+        }
+
+        .hero h1 {
+            color: white;
+            margin-bottom: var(--spacing-sm);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            background: var(--secondary);
+            color: var(--text);
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: #E4B584;
+            color: var(--text);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-left: 16px;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Sections General */
+        section {
+            padding: var(--spacing-lg) var(--spacing-sm);
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-md);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            color: var(--primary-dark);
+        }
+
+        /* About Preview */
+        .about-preview {
+            background: var(--bg);
+        }
+
+        .about-grid {
+            display: grid;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .about-content h2 {
+            color: var(--primary-dark);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Services */
+        .services {
+            background: var(--bg-alt);
+        }
+
+        .services-grid {
+            display: grid;
+            gap: var(--spacing-sm);
+        }
+
+        .service-card {
+            background: var(--bg);
+            border-radius: var(--radius);
+            padding: var(--spacing-md);
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px var(--shadow-deep);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-sm);
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            flex-grow: 1;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 var(--spacing-sm) 0;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .price-tag {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: auto;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--bg);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            gap: var(--spacing-sm);
+        }
+
+        .testimonial-card {
+            background: var(--bg-alt);
+            padding: var(--spacing-md);
+            border-radius: var(--radius);
+            position: relative;
+            border-left: 4px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px var(--shadow);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 0.95rem;
+        }
+
+        .rating {
+            color: var(--secondary);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.3;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            color: white;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .cta p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: var(--spacing-md);
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .contact-item strong {
+            color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: rgba(255, 255, 255, 0.8);
+            padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-md);
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: var(--spacing-md);
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .footer-col a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: var(--spacing-sm);
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .social-links img {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-bottom {
+            max-width: var(--max-width);
+            margin: var(--spacing-md) auto 0;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            :root {
+                --spacing-sm: 32px;
+            }
+
+            .desktop-nav {
+                display: flex;
+            }
+
+            .hamburger {
+                display: none;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-buttons {
+                display: flex;
+                gap: 16px;
+                justify-content: center;
+            }
+
+            .contact-info {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            :root {
+                --spacing-sm: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            }
+
+            .hero-content p {
+                font-size: 1.35rem;
+            }
+        }
+
+        /* Utility */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-0 {
+            margin-bottom: 0;
+        }
+
+        /* Focus states for accessibility */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--secondary);
+            outline-offset: 2px;
+        }
+
+        .mobile-nav a:focus-visible {
+            outline: 2px solid white;
+            background: rgba(255, 255, 255, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="logo">
+                <img src="https://static.wixstatic.com/media/104e70_f0431ae92b714cb187519930a54b16c9~mv2.png/v1/fill/w_191,h_215,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/SO1747_RoadhouseGrill_FoodTrailers_Color_Logo_edited_edited.png" alt="Road House Grill Logo">
+                <span class="logo-text">Road House Grill</span>
+            </a>
+            
+            <div class="desktop-nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="menu.html">Menu</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <a href="#mobile-menu" class="hamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </nav>
+    </header>
+
+    <div id="mobile-menu" class="mobile-overlay">
+        <a href="#" class="close-btn" aria-label="Close menu">&times;</a>
+        <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="menu.html">Menu</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="hero">
+            <img src="https://static.wixstatic.com/media/104e70_3c37e310ba0e420f8322ad21f3e4ea18%7Emv2.png/v1/fit/w_2500,h_1330,al_c/104e70_3c37e310ba0e420f8322ad21f3e4ea18%7Emv2.png" alt="Road House Grill Food Trailer" class="hero-bg" loading="eager">
+            <div class="hero-content">
+                <img src="https://static.wixstatic.com/media/104e70_f0431ae92b714cb187519930a54b16c9~mv2.png/v1/fill/w_191,h_215,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/SO1747_RoadhouseGrill_FoodTrailers_Color_Logo_edited_edited.png" alt="Road House Grill Logo" class="hero-logo">
+                <h1>Your Ultimate Culinary Destination</h1>
+                <p>Crafting unforgettable moments through exceptional food and service. From food truck catering to elegant events, we bring the flavor to you across Southwest Ohio.</p>
+                <div class="hero-buttons">
+                    <a href="menu.html" class="btn">View Our Menu</a>
+                    <a href="contact.html" class="btn btn-outline">Book Catering</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-preview">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2>Welcome to Road House Grill & Catering</h2>
+                        <p>We're thrilled to have you here and can't wait to take your dining experience to the next level! At Road House Grill & Catering, we're not just about food — we're about crafting unforgettable moments.</p>
+                        <p>Whether you're planning a corporate luncheon, wedding reception, family gathering, or any special occasion, our expert culinary team is here to make it extraordinary. We serve Warren, Clinton, Clermont, Greene, Clark, Montgomery, and Hamilton Counties with locally sourced ingredients and homemade recipes.</p>
+                        <a href="about.html" class="btn">Learn Our Story</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://static.wixstatic.com/media/104e70_9c5e6b81ab954fff8e21ed98e0479950~mv2.jpg/v1/fit/w_480,h_479,q_90,enc_avif,quality_auto/104e70_9c5e6b81ab954fff8e21ed98e0479950~mv2.jpg" alt="Delicious grilled food from Road House Grill" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Catering Services</h2>
+                    <p>From intimate gatherings to large celebrations, we bring the flavor straight to you with customizable options for every occasion.</p>
+                </div>
+                
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-icon">🚚</div>
+                        <h3>Food Truck Catering</h3>
+                        <p>Bring a unique, exciting experience to your event! Our mobile kitchen adds energy and flair while serving fresh, handcrafted meals made with locally sourced beef and homemade buns.</p>
+                        <ul class="service-features">
+                            <li>Interactive dining experience</li>
+                            <li>Customizable menus</li>
+                            <li>Perfect for outdoor events</li>
+                            <li>Hassle-free service</li>
+                        </ul>
+                        <div class="price-tag">Starting at $300</div>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">🍱</div>
+                        <h3>Lunch Boxes</h3>
+                        <p>Perfect for meetings, events, staff lunches & on-the-go bites! Each box includes a cold cut sandwich, side (chips, pasta or potato salad), fresh fruit, and drink.</p>
+                        <ul class="service-features">
+                            <li>Fresh ingredients daily</li>
+                            <li>Made with care</li>
+                            <li>Easy & delicious</li>
+                            <li>Great for employee appreciation</li>
+                        </ul>
+                        <div class="price-tag">$12.00 - $15.00</div>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">🍖</div>
+                        <h3>Drop-Off Catering</h3>
+                        <p>Easy, crowd-pleasing catering perfect for office lunches and family gatherings. No setup stress, just great food including slow-cooked pulled pork, homemade mac & cheese, and fresh rolls.</p>
+                        <ul class="service-features">
+                            <li>Slow-cooked pulled pork</li>
+                            <li>Homemade sides</li>
+                            <li>Ready to serve</li>
+                            <li>Feeds 20-30 guests</li>
+                        </ul>
+                        <div class="price-tag">Custom Quotes</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Our Guests Say</h2>
+                    <p>Don't just take our word for it — hear from the wonderful people we've had the pleasure of serving.</p>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <article class="testimonial-card">
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-text">Had a lovely time at the murder mystery dinner. Food was great especially the stuffed mushrooms. All the staff were very sweet.</p>
+                        <div class="testimonial-author">— Kimberly S.</div>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-text">Great food and great people. We love supporting locally owned businesses like this! The Road House was such a fun and easy place to feed my family.</p>
+                        <div class="testimonial-author">— Mary H.</div>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-text">The food was reasonably priced for the large amount that we received, and the friendliness of the staff is top notch! Good food, great staff. Will go again.</p>
+                        <div class="testimonial-author">— Carol E.</div>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-text">The Murder Mystery Dinner was a wonderful time. From the moment we walked in the door we all had a blast. The appetizers were absolutely delicious and the homemade desserts were a perfect end to a great meal.</p>
+                        <div class="testimonial-author">— Jeremy S.</div>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-text">Chad B. says: Good food, great staff. Will go again.</p>
+                        <div class="testimonial-author">— Chad B.</div>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-text">As expensive as it is to eat out nowadays, I HIGHLY recommend Road House Grill... the food was delicious, and very reasonably priced... guaranteed you'll love the pulled pork, coleslaw, and Mac and cheese.</p>
+                        <div class="testimonial-author">— JB</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Let's Plan Your Perfect Event!</h2>
+                    <p>Ready to wow your guests? Contact us today to discuss your catering needs! Our team is here to answer your questions, provide custom quotes, and guide you through the process.</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <strong>📍 Serving:</strong> Warren, Clinton, Clermont, Greene, Clark, Montgomery & Hamilton Counties
+                        </div>
+                        <div class="contact-item">
+                            <strong>📞 Call:</strong> 937.768.0199
+                        </div>
+                        <div class="contact-item">
+                            <strong>✉️ Email:</strong> BillieAgnone@Road-House-Grill.com
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="btn">Reserve Your Date Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Road House Grill & Catering</h4>
+                <p>Where great food meets unforgettable moments. We specialize in food truck catering, drop-off catering, and lunch boxes for all occasions across Southwest Ohio.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">
+                        <img src="https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e316f544f9094143b9eac01f1f19e697.png" alt="Facebook" loading="lazy">
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <img src="https://static.wixstatic.com/media/8d6893330740455c96d218258a458aa4.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8d6893330740455c96d218258a458aa4.png" alt="Instagram" loading="lazy">
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <img src="https://static.wixstatic.com/media/11062b_7cf73902d06c4f3685c379a21c6c8285~mv2.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_7cf73902d06c4f3685c379a21c6c8285~mv2.png" alt="Twitter" loading="lazy">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Our Menu</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="menu.html">Food Truck Catering</a></li>
+                    <li><a href="menu.html">Drop-Off Catering</a></li>
+                    <li><a href="menu.html">Lunch Boxes</a></li>
+                    <li><a href="menu.html">Corporate Events</a></li>
+                    <li><a href="menu.html">Weddings</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p>
+                    <strong>Phone:</strong> 937.768.0199<br>
+                    <strong>Email:</strong> BillieAgnone@Road-House-Grill.com<br>
+                    <strong>Service Area:</strong> Southwest Ohio including Warren, Clinton, Clermont, Greene, Clark, Montgomery & Hamilton Counties
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Road House Grill & Catering. All rights reserved. | Thank you for choosing us — where great food meets unforgettable moments!</p>
+        </div>
+    </footer>
+</body>
+</html>
