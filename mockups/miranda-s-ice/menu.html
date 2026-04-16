@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu | Miranda's Ice Cream Shop and Eatery</title>
+  <style>
+    :root {
+      --primary: #D4A373;
+      --primary-dark: #B08968;
+      --secondary: #E9C46A;
+      --accent: #E76F51;
+      --text: #2A1810;
+      --text-light: #8B6F6B;
+      --bg: #FDF6EC;
+      --bg-alt: #FFF8F0;
+      --white: #FFFFFF;
+      --shadow: rgba(42, 24, 16, 0.1);
+      --shadow-hover: rgba(42, 24, 16, 0.15);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    *::before, *::after {
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+      max-width: 100vw;
+      overflow-x: hidden;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    a:hover {
+      color: var(--primary-dark);
+    }
+    
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(253, 246, 236, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(180, 137, 104, 0.2);
+    }
+    
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+    
+    .logo span {
+      color: var(--accent);
+    }
+    
+    .nav-links {
+      display: none;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+    
+    .nav-links a.active {
+      color: var(--accent);
+    }
+    
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    
+    .menu-toggle span {
+      width: 25px;
+      height: 2px;
+      background: var(--text);
+      transition: all 0.3s ease;
+    }
+    
+    #mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--bg);
+      z-index: 9999;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    #mobile-menu:target {
+      display: flex;
+    }
+    
+    #mobile-menu a {
+      font-size: 1.4rem;
+      color: var(--text);
+      font-weight: 500;
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+    }
+    
+    #mobile-menu a:hover {
+      color: var(--accent);
+    }
+    
+    .close-btn {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-size: 2rem !important;
+      font-weight: 300;
+    }
+    
+    .hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(42, 24, 16, 0.6), rgba(42, 24, 16, 0.3)), 
+                  url('https://static.wixstatic.com/media/90a441_9dfb364da09d4fdc8f6cbe5488dfe7bb~mv2.jpg/v1/fill/w_575,h_510,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/90a441_9dfb364da09d4fdc8f6cbe5488dfe7bb~mv2.jpg');
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      z-index: 1;
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      font-weight: 800;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .hero-subtitle {
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      margin-bottom: 2rem;
+      opacity: 0.95;
+      font-weight: 300;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(231, 111, 81, 0.3);
+    }
+    
+    .btn:hover {
+      background: var(--primary-dark);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(231, 111, 81, 0.4);
+    }
+    
+    section {
+      padding: 5rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-header h2 {
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    
+    .section-header p {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    footer {
+      background: var(--text);
+      color: var(--bg);
+      padding: 4rem 1.5rem 2rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      gap: 3rem;
+    }
+    
+    .footer-brand h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+    
+    .footer-brand p {
+      color: rgba(253, 246, 236, 0.8);
+      line-height: 1.6;
+    }
+    
+    .footer-links h4,
+    .footer-contact h4 {
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-links a {
+      color: rgba(253, 246, 236, 0.8);
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--secondary);
+    }
+    
+    .footer-contact p {
+      color: rgba(253, 246, 236, 0.8);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(253, 246, 236, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg);
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(253, 246, 236, 0.1);
+      text-align: center;
+      color: rgba(253, 246, 236, 0.6);
+      font-size: 0.9rem;
+    }
+    
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+      
+      .menu-toggle {
+        display: none;
+      }
+      
+      .footer-content {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+      
+      section {
+        padding: 6rem 2rem;
+      }
+    }
+
+    /* Menu Page Specific Styles */
+    .menu-full-image {
+      background: var(--bg-alt);
+      padding: 4rem 1.5rem;
+    }
+    
+    .menu-image-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px var(--shadow);
+      background: var(--white);
+      padding: 1rem;
+    }
+    
+    .menu-image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+    
+    .menu-categories {
+      background: var(--bg);
+    }
+    
+    .menu-grid {
+      display: grid;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .menu-category {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(180, 137, 104, 0.1);
+    }
+    
+    .menu-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px var(--shadow-hover);
+    }
+    
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--bg-alt);
+    }
+    
+    .category-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    
+    .category-title {
+      font-size: 1.5rem;
+      color: var(--text);
+      margin: 0;
+    }
+    
+    .menu-list {
+      list-style: none;
+    }
+    
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(180, 137, 104, 0.15);
+      gap: 1rem;
+    }
+    
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+    
+    .item-name {
+      font-weight: 600;
+      color: var(--text);
+      flex: 1;
+    }
+    
+    .item-description {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      display: block;
+      margin-top: 0.25rem;
+      font-weight: 400;
+    }
+    
+    .item-price {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 1.1rem;
+      white-space: nowrap;
+    }
+    
+    .featured-item {
+      background: linear-gradient(135deg, var(--bg-alt), var(--white));
+      border: 2px solid var(--secondary);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .featured-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .cone-options {
+      background: var(--bg-alt);
+      padding: 1rem;
+      border-radius: 12px;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    
+    .cone-options strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    .cone-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    
+    .cone-tag {
+      background: var(--white);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(180, 137, 104, 0.2);
+    }
+    
+    .download-menu {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    
+    .note {
+      text-align: center;
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 2rem;
+      font-size: 0.95rem;
+    }
+    
+    @media (min-width: 768px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .menu-category.wide {
+        grid-column: span 2;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .menu-category.wide {
+        grid-column: span 2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Miranda's <span>Ice Cream</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html" class="active">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="#mobile-menu" class="menu-toggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </nav>
+  </header>
+
+  <div id="mobile-menu">
+    <a href="#" class="close-btn" aria-label="Close menu">×</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="menu.html">Menu</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Our Menu</h1>
+        <p class="hero-subtitle">Premium gourmet ice cream, comfort food, and sweet treats served with a smile</p>
+      </div>
+    </section>
+
+    <section class="menu-full-image">
+      <div class="section-header">
+        <h2>Full Menu</h2>
+        <p>View our complete selection of flavors and offerings</p>
+      </div>
+      <div class="menu-image-container">
+        <img src="https://static.wixstatic.com/media/80a901_ec5f2a6765a24eecb0a83cfec835f9fe~mv2.jpg/v1/crop/x_0,y_785,w_16481,h_8879/fill/w_980,h_529,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/website%20menu%20no%20pricing%202025.jpg" alt="Complete menu board showing all ice cream flavors, food items, and beverages available at Miranda's" loading="lazy">
+      </div>
+      <p class="note">Prices subject to change. Please visit us for the most current pricing.</p>
+    </section>
+
+    <section class="menu-categories">
+      <div class="section-header">
+        <h2>Menu Highlights</h2>
+        <p>Handcrafted favorites and seasonal specialties</p>
+      </div>
+      
+      <div class="menu-grid">
+        <article class="menu-category wide">
+          <div class="featured-item">
+            <span class="featured-badge">Home of the Unicone</span>
+            <div class="menu-item" style="border-bottom: none; padding-top: 0;">
+              <div class="item-name">
+                The Unicone
+                <span class="item-description">Our signature creation! A magical swirl of premium ice cream in a colorful cone, topped with edible glitter and a surprise center. The treat that made us famous.</span>
+              </div>
+              <span class="item-price">$6.50</span>
+            </div>
+          </div>
+          
+          <div class="category-header">
+            <span class="category-icon">🍦</span>
+            <h3 class="category-title">Gourmet Ice Cream</h3>
+          </div>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <div class="item-name">
+                Single Scoop
+                <span class="item-description">Choose from 16+ rotating premium flavors</span>
+              </div>
+              <span class="item-price">$4.25</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Double Scoop
+                <span class="item-description">Mix and match your favorites</span>
+              </div>
+              <span class="item-price">$5.75</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Triple Scoop
+                <span class="item-description">The ultimate indulgence</span>
+              </div>
+              <span class="item-price">$7.00</span>
+            </li>
+          </ul>
+          <div class="cone-options">
+            <strong>Cone Choices:</strong>
+            <div class="cone-grid">
+              <span class="cone-tag">Classic Cake</span>
+              <span class="cone-tag">Sugar Cone</span>
+              <span class="cone-tag">Waffle Cone</span>
+              <span class="cone-tag">Cup (+$0.50)</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="menu-category">
+          <div class="category-header">
+            <span class="category-icon">🍨</span>
+            <h3 class="category-title">Sundaes & Parfaits</h3>
+          </div>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <div class="item-name">
+                Classic Banana Split
+                <span class="item-description">Three scoops, fresh banana, whipped cream & cherries</span>
+              </div>
+              <span class="item-price">$8.50</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Strawberry Shortcake
+                <span class="item-description">Fresh berries, sponge cake, vanilla ice cream</span>
+              </div>
+              <span class="item-price">$7.50</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Hot Fudge Sundae
+                <span class="item-description">Warm fudge over vanilla with nuts</span>
+              </div>
+              <span class="item-price">$6.75</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Parfait
+                <span class="item-description">Layers of ice cream, fruit & granola</span>
+              </div>
+              <span class="item-price">$6.25</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-category">
+          <div class="category-header">
+            <span class="category-icon">🥤</span>
+            <h3 class="category-title">Shakes & Blends</h3>
+          </div>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <div class="item-name">
+                Classic Milkshake
+                <span class="item-description">Thick and creamy, any flavor</span>
+              </div>
+              <span class="item-price">$5.50</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Malt Shake
+                <span class="item-description">Old-fashioned malted milk</span>
+              </div>
+              <span class="item-price">$5.75</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Fruit Blend
+                <span class="item-description">Real fruit blended with ice cream</span>
+              </div>
+              <span class="item-price">$6.00</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Float
+                <span class="item-description">Root beer or any soda with vanilla</span>
+              </div>
+              <span class="item-price">$4.75</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-category">
+          <div class="category-header">
+            <span class="category-icon">🍟</span>
+            <h3 class="category-title">Comfort Food</h3>
+          </div>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <div class="item-name">
+                Loaded Nachos
+                <span class="item-description">Tortilla chips with cheese, jalapeños & salsa</span>
+              </div>
+              <span class="item-price">$7.00</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Soft Pretzel
+                <span class="item-description">Warm with cheese dipping sauce</span>
+              </div>
+              <span class="item-price">$4.50</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Hot Dog
+                <span class="item-description">All-beef with classic toppings</span>
+              </div>
+              <span class="item-price">$4.00</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Chili Bowl
+                <span class="item-description">Hearty homemade recipe</span>
+              </div>
+              <span class="item-price">$5.50</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-category">
+          <div class="category-header">
+            <span class="category-icon">🧃</span>
+            <h3 class="category-title">Drinks & Refreshments</h3>
+          </div>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <div class="item-name">
+                Sports Drinks
+                <span class="item-description">Gatorade, Powerade - perfect for trail riders</span>
+              </div>
+              <span class="item-price">$3.00</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Bottled Water
+                <span class="item-description">Ice cold spring water</span>
+              </div>
+              <span class="item-price">$2.00</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Fountain Soda
+                <span class="item-description">Free refills on dine-in</span>
+              </div>
+              <span class="item-price">$2.75</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Iced Coffee
+                <span class="item-description">Cold brew with cream & sugar</span>
+              </div>
+              <span class="item-price">$3.50</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="menu-category">
+          <div class="category-header">
+            <span class="category-icon">🍪</span>
+            <h3 class="category-title">Sweet Treats</h3>
+          </div>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <div class="item-name">
+                Fresh Baked Cookie
+                <span class="item-description">Chocolate chip or sugar</span>
+              </div>
+              <span class="item-price">$2.50</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Brownie Sundae
+                <span class="item-description">Warm brownie with ice cream</span>
+              </div>
+              <span class="item-price">$6.50</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Ice Cream Sandwich
+                <span class="item-description">House-made cookies with vanilla</span>
+              </div>
+              <span class="item-price">$4.25</span>
+            </li>
+            <li class="menu-item">
+              <div class="item-name">
+                Cotton Candy
+                <span class="item-description">Blue or pink</span>
+              </div>
+              <span class="item-price">$3.00</span>
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="download-menu">
+        <a href="https://static.wixstatic.com/media/80a901_ec5f2a6765a24eecb0a83cfec835f9fe~mv2.jpg/v1/crop/x_0,y_785,w_16481,h_8879/fill/w_980,h_529,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/website%20menu%20no%20pricing%202025.jpg" class="btn" download>Download Full Menu</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>Miranda's Ice Cream</h3>
+        <p>Your neighborhood spot for fun, flavor, and relaxation. Home of the Unicone! Located in a historic bank building in the heart of Morrow.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="Yelp">⭐</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Visit Us</h4>
+        <p>📍 205 Main Street<br>Morrow, Ohio 45152</p>
+        <p>📞 (513) 431-3126</p>
+        <p>✉️ mirandasoldtimeicecream@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Miranda's Ice Cream Shop and Eatery. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
