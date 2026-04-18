@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Road House Grill</title>
+    <style>
+        :root {
+            --primary: #9B2335;
+            --primary-dark: #7A1C2A;
+            --secondary: #C9A961;
+            --accent: #E8D5B7;
+            --text: #2C1810;
+            --text-light: #6B4F4F;
+            --bg: #FDF9F6;
+            --bg-alt: #F5EBE4;
+            --white: #FFFFFF;
+            --shadow-sm: 0 2px 4px rgba(44, 24, 16, 0.05);
+            --shadow-md: 0 4px 12px rgba(44, 24, 16, 0.1);
+            --shadow-lg: 0 8px 24px rgba(44, 24, 16, 0.15);
+            --transition: all 0.3s ease;
+            --max-width: 1200px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 5rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        html,
+        body {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--secondary);
+            outline-offset: 2px;
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(253, 249, 246, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(154, 35, 53, 0.1);
+            box-shadow: var(--shadow-sm);
+        }
+
+        nav {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            height: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+
+        .logo:hover {
+            color: var(--primary-dark);
+        }
+
+        .desktop-nav {
+            display: none;
+            gap: var(--spacing-lg);
+        }
+
+        .desktop-nav a {
+            font-weight: 500;
+            color: var(--text);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .desktop-nav a:hover::after,
+        .desktop-nav a.active::after {
+            width: 100%;
+        }
+
+        .desktop-nav a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        /* Mobile Menu Overlay */
+        #mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--primary);
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #mobile-menu:target {
+            display: flex;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 2.5rem;
+            color: var(--white);
+            text-decoration: none;
+            line-height: 1;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .mobile-nav a {
+            color: var(--white);
+            font-size: 1.4rem;
+            font-weight: 500;
+            padding: 16px 24px;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(154, 35, 53, 0.95) 0%, rgba(122, 28, 42, 0.95) 100%), 
+                        url('https://static.wixstatic.com/media/104e70_3ba0f88e98e146be9a5ebd04a23332c5~mv2.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .hero-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: var(--spacing-md);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            max-width: 600px;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            text-decoration: none;
+            min-height: 48px;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--text);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            background: #B8984F;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* Sections General */
+        section {
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Menu Page Specific Styles */
+        .menu-section {
+            background: var(--bg);
+        }
+
+        .menu-section:nth-child(even) {
+            background: var(--bg-alt);
+        }
+
+        .menu-category {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .menu-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        .category-header h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .category-icon {
+            font-size: 2rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .menu-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(154, 35, 53, 0.08);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(154, 35, 53, 0.2);
+        }
+
+        .menu-card.featured {
+            border: 2px solid var(--secondary);
+            background: linear-gradient(135deg, var(--white) 0%, var(--bg-alt) 100%);
+        }
+
+        .menu-card.featured::before {
+            content: 'Popular';
+            position: absolute;
+            top: 12px;
+            right: -28px;
+            background: var(--secondary);
+            color: var(--text);
+            padding: 4px 32px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: rotate(45deg);
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-xs);
+            gap: var(--spacing-sm);
+        }
+
+        .menu-item-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.3;
+            flex: 1;
+        }
+
+        .menu-item-price {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--secondary);
+            white-space: nowrap;
+        }
+
+        .menu-item-description {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: var(--spacing-sm);
+            flex-grow: 1;
+        }
+
+        .menu-item-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--bg-alt);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tag.highlight {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .catering-note {
+            background: var(--white);
+            border-radius: 12px;
+            padding: var(--spacing-md);
+            margin-top: var(--spacing-md);
+            border-left: 4px solid var(--secondary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .catering-note p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .catering-note strong {
+            color: var(--primary);
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--bg-alt);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: var(--spacing-lg) var(--spacing-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(154, 35, 53, 0.08);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(154, 35, 53, 0.2);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-md);
+            flex-grow: 1;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: auto;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: var(--bg-alt);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-top: var(--spacing-sm);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--bg);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: var(--spacing-md);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .testimonial-card.featured {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--white) 0%, var(--bg-alt) 100%);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .testimonial-card.featured .testimonial-text {
+            font-size: 1.15rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .stars {
+            color: var(--secondary);
+            margin-bottom: var(--spacing-xs);
+            letter-spacing: 2px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-size: 1.125rem;
+        }
+
+        .contact-item strong {
+            color: var(--secondary);
+        }
+
+        .counties {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: var(--spacing-md);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: var(--bg);
+            padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .footer-column h3 {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-md);
+            font-weight: 600;
+        }
+
+        .footer-column p {
+            color: rgba(253, 249, 246, 0.8);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(253, 249, 246, 0.8);
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(4px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-4px);
+        }
+
+        .social-links img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .footer-bottom {
+            max-width: var(--max-width);
+            margin: var(--spacing-lg) auto 0;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(253, 249, 246, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            :root {
+                --spacing-md: 2.5rem;
+                --spacing-lg: 3rem;
+                --spacing-xl: 6rem;
+            }
+
+            .desktop-nav {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: none;
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-buttons {
+                flex-direction: row;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .menu-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .testimonial-card.featured {
+                grid-column: span 2;
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            }
+
+            nav {
+                height: 80px;
+            }
+
+            .logo {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* Utility */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: var(--spacing-sm);
+        }
+
+        /* Focus visible for accessibility */
+        button:focus-visible,
+        a:focus-visible {
+            outline: 2px solid var(--secondary);
+            outline-offset: 2px;
+        }
+
+        /* Prevent text overflow */
+        h1, h2, h3, h4, p {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Road House Grill</a>
+            
+            <div class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="menu.html" class="active">Menu</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <a href="#mobile-menu" class="mobile-menu-toggle" aria-label="Open mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </nav>
+
+        <div id="mobile-menu">
+            <a href="#" class="close-btn" aria-label="Close mobile menu">&times;</a>
+            <div class="mobile-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="menu.html" class="active">Menu</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Our Menu</h1>
+                <p>From slow-cooked BBQ to gourmet burgers and homemade sides, every dish is crafted with locally sourced ingredients and served with love.</p>
+                <div class="hero-buttons">
+                    <a href="#catering" class="btn btn-primary">Catering Menu</a>
+                    <a href="#lunch-boxes" class="btn btn-outline">Lunch Boxes</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section" id="signature-bbq">
+            <div class="container">
+                <div class="menu-category">
+                    <div class="category-header">
+                        <span class="category-icon">🔥</span>
+                        <h3>Signature BBQ</h3>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-card featured">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Slow-Cooked Pulled Pork</h4>
+                                <span class="menu-item-price">$200</span>
+                            </div>
+                            <p class="menu-item-description">Tender, juicy, and packed with flavor. Feeds 20-30 people. Served with our bold, sweet, and smoky Montgomery BBQ sauce.</p>
+                            <div class="menu-item-tags">
+                                <span class="tag highlight">Feeds 20-30</span>
+                                <span class="tag">Catering</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-card">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Gourmet Burger</h4>
+                                <span class="menu-item-price">Market</span>
+                            </div>
+                            <p class="menu-item-description">Handcrafted with locally sourced beef and served on our homemade fresh buns. A Road House classic.</p>
+                            <div class="menu-item-tags">
+                                <span class="tag">Local Beef</span>
+                                <span class="tag">Fresh Baked</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-card">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Stuffed Mushrooms</h4>
+                                <span class="menu-item-price">Market</span>
+                            </div>
+                            <p class="menu-item-description">A crowd favorite! Perfectly seasoned and stuffed, these were highlighted by guests at our murder mystery dinners.</p>
+                            <div class="menu-item-tags">
+                                <span class="tag">Appetizer</span>
+                                <span class="tag">Popular</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section" id="comfort-sides">
+            <div class="container">
+                <div class="menu-category">
+                    <div class="category-header">
+                        <span class="category-icon">🍽️</span>
+                        <h3>Homemade Sides</h3>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-card">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Homemade Mac & Cheese</h4>
+                                <span class="menu-item-price">$50</span>
+                            </div>
+                            <p class="menu-item-description">Rich, creamy, and always a favorite. Made with love and the finest cheese blend. Perfect for sharing.</p>
+                            <div class="menu-item-tags">
+                                <span class="tag">Catering Size</span>
+                                <span class="tag">Vegetarian</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-card">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Summer Slaw</h4>
+                                <span class="menu-item-price">$40</span>
+                            </div>
+                            <p class="menu-item-description">Crisp, refreshing, and made with fresh veggies. The perfect tangy crunch to complement our BBQ.</p>
+                            <div class="menu-item-tags">
+                                <span class="tag">Fresh</span>
+                                <span class="tag">Crisp</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-card">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Fresh Parker House Rolls</h4>
+                                <span class="menu-item-price">Included</span>
+                            </div>
+                            <p class="menu-item-description">Soft, buttery, and perfect for sandwiches. Served with our catering packages.</p>
+                            <div class="menu-item-tags">
+                                <span class="tag">Fresh Baked</span>
+                                <span class="tag">Buttery</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-card">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Pickles</h4>
+                                <span class="menu-item-price">Included</span>
+                            </div>
+                            <p class="menu-item-description">The perfect tangy crunch to accompany any meal. Always crisp and refreshing.</p>
+                            <div class="menu-item-tags">
+                                <span class="tag">Tangy</span>
+                                <span class="tag">Crunch</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section" id="lunch-boxes">
+            <div class="container">
+                <div class="menu-category">
+                    <div class="category-header">
+                        <span class="category-icon">🥡</span>
+                        <h3>Lunch Boxes</h3>
+                    </div>
+                    <p style="text-align: center; color: var(--text-light); margin-bottom: var(--spacing-lg); max-width: 800px; margin-left: auto; margin-right: auto;">
+                        Perfect for meetings, events, staff lunches & on-the-go bites! Fresh ingredients, made with care, easy and delicious.
+                    </p>
+                    <div class="menu-grid">
+                        <div class="menu-card featured">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Premium Lunch Box</h4>
+                                <span class="menu-item-price">$15.00</span>
+                            </div>
+                            <p class="menu-item-description">Our deluxe offering featuring a cold cut sandwich stacked with fresh meats, cheese, and crisp toppings on a freshly baked bun. Includes your choice of pasta salad or potato salad, fresh fruit, and a drink.</p>
+                            <div class="menu-item-tags">
+                                <span class="tag highlight">Best Value</span>
+                                <span class="tag">Complete Meal</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-card">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Simple Lunch Box</h4>
+                                <span class="menu-item-price">$12.00</span>
+                            </div>
+                            <p class="menu-item-description">A delicious cold cut sandwich with fresh meats and cheese on a freshly baked bun, served with chips, fresh fruit, and a bottled water or soda.</p>
+                            <div class="menu-item-tags">
+                                <span class="tag">Classic</span>
+                                <span class="tag">Quick</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="catering-note">
+                        <p><strong>Great for:</strong> Employee appreciation, school events, festivals & family gatherings. Message us to book your lunch boxes today!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section" id="catering">
+            <div class="container">
+                <div class="menu-category">
+                    <div class="category-header">
+                        <span class="category-icon">🚚</span>
+                        <h3>Catering Packages</h3>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-card">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Drop-Off Catering</h4>
+                                <span class="menu-item-price">Custom</span>
+                            </div>
+                            <p class="menu-item-description">Easy, crowd-pleasing drop-off catering perfect for office lunches, parties, and family gatherings. No setup stress, just great food including pulled pork, mac & cheese, slaw, rolls, and pickles.</p>
+                            <div class="menu-item-tags">
+                                <span class="tag">No Setup</span>
+                                <span class="tag">Ready to Serve</span>
+                            </div>
+                            <span class="price-tag">Service Fee: $100</span>
+                        </div>
+
+                        <div class="menu-card featured">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Food Truck Catering</h4>
+                                <span class="menu-item-price">$300+</span>
+                            </div>
+                            <p class="menu-item-description">Bring the full experience to your event! Food prepared fresh right in front of your guests. Includes full-size truck or trailer setup. Perfect for outdoor events, weddings, and festivals.</p>
+                            <div class="menu-item-tags">
+                                <span class="tag highlight">Interactive</span>
+                                <span class="tag">Fresh Cooked</span>
+                            </div>
+                            <span class="price-tag">Starting at $300</span>
+                        </div>
+
+                        <div class="menu-card">
+                            <div class="menu-item-header">
+                                <h4 class="menu-item-name">Special Events</h4>
+                                <span class="menu-item-price">Custom</span>
+                            </div>
+                            <p class="menu-item-description">Murder mystery dinners, corporate events, weddings, and private parties. Customizable menus featuring chicken with rice and veggies, meatballs and pasta, charcuterie, tapas, and homemade desserts.</p>
+                            <div class="menu-item-tags">
+                                <span class="tag">Custom Menu</span>
+                                <span class="tag">Full Service</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Makes Us Special</h2>
+                    <p>Fresh ingredients, locally sourced, made with love</p>
+                </div>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-icon">🥩</div>
+                        <h3>Locally Sourced</h3>
+                        <p>We use locally sourced beef and the freshest ingredients available. Quality you can taste in every bite.</p>
+                        <ul class="service-features">
+                            <li>Local farm partnerships</li>
+                            <li>Fresh daily deliveries</li>
+                            <li>Supporting local economy</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">🍞</div>
+                        <h3>Homemade Fresh</h3>
+                        <p>From our signature buns to our desserts, everything is made fresh in-house with traditional recipes.</p>
+                        <ul class="service-features">
+                            <li>Fresh baked buns daily</li>
+                            <li>Homemade desserts</li>
+                            <li>Secret family recipes</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">🚚</div>
+                        <h3>Mobile Kitchen</h3>
+                        <p>Our food truck brings the kitchen to you. Watch your food being prepared fresh at your event.</p>
+                        <ul class="service-features">
+                            <li>Full mobile setup</li>
+                            <li>Interactive experience</li>
+                            <li>Outdoor event specialist</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Hungry Yet?</h2>
+                <p>Let's plan your perfect event or stop by for a meal you won't forget.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong>📞 Call:</strong> 937.768.0199
+                    </div>
+                    <div class="contact-item">
+                        <strong>📧 Email:</strong> BillieAgnone@Road-House-Grill.com
+                    </div>
+                </div>
+                <a href="contact.html" class="btn btn-primary" style="background: var(--secondary); color: var(--text);">Book Your Event</a>
+                <p class="counties">Serving Warren, Clinton, Clermont, Greene, Clark, Montgomery, Hamilton Counties and surrounding areas</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>Road House Grill</h3>
+                <p>Crafting unforgettable culinary moments with locally sourced ingredients and homemade recipes. From food truck catering to special events, we bring the flavor to you.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">
+                        <img src="https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e316f544f9094143b9eac01f1f19e697.png" alt="Facebook" loading="lazy">
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <img src="https://static.wixstatic.com/media/8d6893330740455c96d218258a458aa4.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8d6893330740455c96d218258a458aa4.png" alt="Instagram" loading="lazy">
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <img src="https://static.wixstatic.com/media/11062b_7cf73902d06c4f3685c379a21c6c8285~mv2.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_7cf73902d06c4f3685c379a21c6c8285~mv2.png" alt="LinkedIn" loading="lazy">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="menu.html#catering">Catering</a></li>
+                    <li><a href="menu.html#lunch-boxes">Lunch Boxes</a></li>
+                    <li><a href="menu.html">Food Truck</a></li>
+                    <li><a href="contact.html">Private Events</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>📞 937.768.0199</p>
+                <p>📧 BillieAgnone@Road-House-Grill.com</p>
+                <p>📍 Serving SW Ohio:<br>Warren, Clinton, Clermont, Greene, Clark, Montgomery, Hamilton Counties</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Road House Grill & Catering. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
