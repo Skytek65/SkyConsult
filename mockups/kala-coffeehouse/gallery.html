@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Kala Coffeehouse</title>
+    <style>
+        :root {
+            --primary: #6F4E37;
+            --primary-dark: #5A3D2B;
+            --primary-light: #8B6914;
+            --secondary: #F5F5DC;
+            --accent: #8B956D;
+            --accent-light: #A8B88A;
+            --text: #2C241B;
+            --text-light: #5C4A3A;
+            --text-muted: #8B7355;
+            --bg: #FDFCF8;
+            --bg-alt: #F9F7F2;
+            --white: #FFFFFF;
+            --shadow-sm: 0 2px 4px rgba(44, 36, 27, 0.06);
+            --shadow-md: 0 4px 12px rgba(44, 36, 27, 0.08);
+            --shadow-lg: 0 8px 24px rgba(44, 36, 27, 0.12);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius: 12px;
+            --radius-sm: 8px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(253, 252, 248, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(111, 78, 55, 0.1);
+            box-shadow: var(--shadow-sm);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo::before {
+            content: "☕";
+            font-size: 1.75rem;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 8px 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--primary-dark);
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+        }
+
+        #mobile-menu:target {
+            display: flex;
+        }
+
+        #mobile-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 500;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            transition: var(--transition);
+        }
+
+        #mobile-menu a:hover {
+            color: var(--accent-light);
+            transform: translateX(4px);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 2rem !important;
+            font-weight: 300 !important;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(111, 78, 55, 0.85) 0%, rgba(44, 36, 27, 0.9) 100%), 
+                        url('https://cpmfiles1.com/kalacoffeehouse.com/mission.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 120px 24px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: 400;
+            margin: 0 0 32px 0;
+            opacity: 0.95;
+            font-style: italic;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 24px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--primary);
+            margin: 0 0 16px 0;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Gallery Specific Styles */
+        .gallery-section {
+            background: var(--bg-alt);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            background: var(--white);
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .gallery-item:nth-child(3),
+        .gallery-item:nth-child(4) {
+            aspect-ratio: 3/4;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(44, 36, 27, 0.8), transparent);
+            padding: 24px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 64px 24px 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            max-width: 1200px;
+            margin: 0 auto 48px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin: 0 0 16px 0;
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            opacity: 0.8;
+            margin: 0 0 24px 0;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            font-size: 1.125rem;
+            margin: 0 0 20px 0;
+            font-weight: 600;
+            color: var(--accent-light);
+        }
+
+        .footer-links ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 4px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.25rem;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+
+            .hamburger {
+                display: none;
+            }
+
+            section {
+                padding: 100px 40px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+                aspect-ratio: 16/9;
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            section {
+                padding: 120px 40px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 32px;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 2;
+                aspect-ratio: auto;
+            }
+
+            .gallery-item:nth-child(3) {
+                aspect-ratio: 1/1;
+            }
+
+            .gallery-item:nth-child(4) {
+                aspect-ratio: 1/1;
+            }
+        }
+
+        /* Utility */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-4 {
+            margin-top: 32px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Kala Coffeehouse</a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <a href="#mobile-menu" class="hamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </nav>
+    </header>
+
+    <div id="mobile-menu">
+        <a href="#" class="close-btn" aria-label="Close menu">×</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Our Gallery</h1>
+                <p class="tagline">Drink Good. Do Good.</p>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Life at Kala</h2>
+                    <p>Take a peek inside our coffeehouse, from our carefully crafted drinks to our welcoming atmosphere.</p>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://cpmfiles1.com/kalacoffeehouse.com/mission.jpg" alt="Kala Coffeehouse mission and atmosphere" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span>Our Mission</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://cpmfiles1.com/kalacoffeehouse.com/menunew.jpg" alt="Kala Coffeehouse menu board" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span>Menu Board</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://cpmfiles1.com/kalacoffeehouse.com/4.jpg" alt="Fresh menu item at Kala Coffeehouse" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span>Fresh Creations</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://cpmfiles1.com/kalacoffeehouse.com/5.jpg" alt="Delicious coffee and food pairing" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span>Perfect Pairings</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://cpmfiles1.com/kalacoffeehouse.com/kalagood.jpg" alt="Community and good vibes at Kala" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span>Community First</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://cpmfiles1.com/kalacoffeehouse.com/whatssogood.jpg" alt="Quality ingredients and preparation" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span>Quality Ingredients</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Kala Coffeehouse</h3>
+                <p>A good cup with good company for a good cause. Serving Mason, OH with passion and purpose.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Visit Us</h4>
+                <ul>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="location-hours.html">Location & Hours</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li>4503 State Route 42</li>
+                    <li>Mason, OH 45040</li>
+                    <li>Mon-Fri: 7am-5pm</li>
+                    <li>Sat: 7am-1pm</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Kala Coffeehouse. All rights reserved. Drink Good. Do Good.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
