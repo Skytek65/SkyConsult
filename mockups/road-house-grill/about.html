@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Road House Grill</title>
+    <style>
+        :root {
+            --primary: #9B2335;
+            --primary-dark: #7A1C2A;
+            --secondary: #C9A961;
+            --accent: #E8D5B7;
+            --text: #2C1810;
+            --text-light: #6B4F4F;
+            --bg: #FDF9F6;
+            --bg-alt: #F5EBE4;
+            --white: #FFFFFF;
+            --shadow-sm: 0 2px 4px rgba(44, 24, 16, 0.05);
+            --shadow-md: 0 4px 12px rgba(44, 24, 16, 0.1);
+            --shadow-lg: 0 8px 24px rgba(44, 24, 16, 0.15);
+            --transition: all 0.3s ease;
+            --max-width: 1200px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 5rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        html,
+        body {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--secondary);
+            outline-offset: 2px;
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(253, 249, 246, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(154, 35, 53, 0.1);
+            box-shadow: var(--shadow-sm);
+        }
+
+        nav {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            height: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+
+        .logo:hover {
+            color: var(--primary-dark);
+        }
+
+        .desktop-nav {
+            display: none;
+            gap: var(--spacing-lg);
+        }
+
+        .desktop-nav a {
+            font-weight: 500;
+            color: var(--text);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .desktop-nav a:hover::after,
+        .desktop-nav a.active::after {
+            width: 100%;
+        }
+
+        .desktop-nav a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        /* Mobile Menu Overlay */
+        #mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--primary);
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #mobile-menu:target {
+            display: flex;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 2.5rem;
+            color: var(--white);
+            text-decoration: none;
+            line-height: 1;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .mobile-nav a {
+            color: var(--white);
+            font-size: 1.4rem;
+            font-weight: 500;
+            padding: 16px 24px;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(154, 35, 53, 0.95) 0%, rgba(122, 28, 42, 0.95) 100%), 
+                        url('https://static.wixstatic.com/media/104e70_3ba0f88e98e146be9a5ebd04a23332c5~mv2.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .hero-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: var(--spacing-md);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            max-width: 600px;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            text-decoration: none;
+            min-height: 48px;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--text);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            background: #B8984F;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* Sections General */
+        section {
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Preview */
+        .about-preview {
+            background: var(--bg);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.25rem;
+            color: var(--primary);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.2;
+        }
+
+        .about-content p {
+            margin-bottom: var(--spacing-md);
+            color: var(--text-light);
+            font-size: 1.125rem;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--bg-alt);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: var(--spacing-lg) var(--spacing-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(154, 35, 53, 0.08);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(154, 35, 53, 0.2);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-md);
+            flex-grow: 1;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: auto;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: var(--bg-alt);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-top: var(--spacing-sm);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--bg);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: var(--spacing-md);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .testimonial-card.featured {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--white) 0%, var(--bg-alt) 100%);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .testimonial-card.featured .testimonial-text {
+            font-size: 1.15rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .stars {
+            color: var(--secondary);
+            margin-bottom: var(--spacing-xs);
+            letter-spacing: 2px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-size: 1.125rem;
+        }
+
+        .contact-item strong {
+            color: var(--secondary);
+        }
+
+        .counties {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: var(--spacing-md);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: var(--bg);
+            padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .footer-column h3 {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-md);
+            font-weight: 600;
+        }
+
+        .footer-column p {
+            color: rgba(253, 249, 246, 0.8);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(253, 249, 246, 0.8);
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(4px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-4px);
+        }
+
+        .social-links img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .footer-bottom {
+            max-width: var(--max-width);
+            margin: var(--spacing-lg) auto 0;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(253, 249, 246, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            :root {
+                --spacing-md: 2.5rem;
+                --spacing-lg: 3rem;
+                --spacing-xl: 6rem;
+            }
+
+            .desktop-nav {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: none;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-buttons {
+                flex-direction: row;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .testimonial-card.featured {
+                grid-column: span 2;
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            }
+
+            nav {
+                height: 80px;
+            }
+
+            .logo {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* Utility */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: var(--spacing-sm);
+        }
+
+        /* Focus visible for accessibility */
+        button:focus-visible,
+        a:focus-visible {
+            outline: 2px solid var(--secondary);
+            outline-offset: 2px;
+        }
+
+        /* Prevent text overflow */
+        h1, h2, h3, h4, p {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* PAGE SPECIFIC STYLES FOR ABOUT PAGE */
+        .about-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, rgba(154, 35, 53, 0.92) 0%, rgba(122, 28, 42, 0.92) 100%), 
+                        url('https://static.wixstatic.com/media/104e70_3ba0f88e98e146be9a5ebd04a23332c5~mv2.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .story-section {
+            background: var(--bg);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .values-section {
+            background: var(--bg-alt);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .value-card {
+            background: var(--white);
+            padding: var(--spacing-lg) var(--spacing-md);
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid var(--secondary);
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1;
+        }
+
+        .team-section {
+            background: var(--bg);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-image-placeholder {
+            width: 100%;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+        }
+
+        .team-image-placeholder.gold {
+            background: linear-gradient(135deg, var(--secondary) 0%, #B8984F 100%);
+            color: var(--text);
+        }
+
+        .team-image-placeholder.accent {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--bg-alt) 100%);
+            color: var(--primary);
+        }
+
+        .team-content {
+            padding: var(--spacing-md);
+        }
+
+        .team-content h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .gallery-section {
+            background: var(--bg-alt);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        @media (min-width: 768px) {
+            .story-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Road House Grill</a>
+            <div class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="menu.html">Menu</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <a href="#mobile-menu" class="mobile-menu-toggle" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </nav>
+    </header>
+
+    <div id="mobile-menu">
+        <a href="#" class="close-btn" aria-label="Close menu">&times;</a>
+        <div class="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="menu.html">Menu</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero about-hero">
+            <div class="hero-content">
+                <h1>Our Story</h1>
+                <p>More than just a food truck—we're a family-owned culinary experience serving up unforgettable moments across Ohio.</p>
+            </div>
+        </section>
+
+        <section class="story-section">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="about-content">
+                        <h2>From Dream to Reality</h2>
+                        <p>Road House Grill began with a simple belief: that great food has the power to bring people together. Founded by Billie Agnone, what started as a passion for cooking has grown into a beloved food trailer and catering service serving Warren, Clinton, Clermont, Greene, Clark, Montgomery, Hamilton Counties and beyond.</p>
+                        <p>We specialize in handcrafted American comfort food made with love. Our slow-cooked pulled pork, creamy homemade mac and cheese, and fresh-baked buns have become local legends. Every dish is prepared with locally sourced beef and the finest ingredients, because we believe quality matters.</p>
+                        <p>But we're more than just great food. We're about creating experiences. From intimate family gatherings to corporate events and weddings, we bring the flavor and the fun. Our famous murder mystery dinners have become a local favorite, combining delicious cuisine with interactive entertainment.</p>
+                        <a href="contact.html" class="btn btn-primary mt-2">Get to Know Us</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://static.wixstatic.com/media/104e70_9c5e6b81ab954fff8e21ed98e0479950~mv2.jpg" alt="Road House Grill food preparation" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Values</h2>
+                    <p>The principles that guide everything we do</p>
+                </div>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🥩</div>
+                        <h3>Quality First</h3>
+                        <p>Locally sourced beef, homemade fresh buns, and ingredients we stand behind. No shortcuts, ever.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">👨‍👩‍👧‍👦</div>
+                        <h3>Family Owned</h3>
+                        <p>A locally owned business built on relationships. We treat every customer like family.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">✨</div>
+                        <h3>Unforgettable Experiences</h3>
+                        <p>We don't just serve food—we create memories. From murder mystery dinners to food truck festivals.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3>Community First</h3>
+                        <p>Proudly serving Ohio communities with integrity, warmth, and a commitment to excellence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Meet the Team</h2>
+                    <p>The passionate people behind the grill</p>
+                </div>
+                <div class="team-grid">
+                    <article class="team-card">
+                        <div class="team-image-placeholder">👨‍🍳</div>
+                        <div class="team-content">
+                            <h3>Billie Agnone</h3>
+                            <p class="team-role">Owner & Head Chef</p>
+                            <p>The visionary behind Road House Grill. Billie brings decades of culinary expertise and a passion for creating unforgettable dining experiences. From perfecting our signature pulled pork to organizing our famous murder mystery dinners, Billie ensures every detail is perfect.</p>
+                        </div>
+                    </article>
+                    <article class="team-card">
+                        <div class="team-image-placeholder gold">👩‍🍳</div>
+                        <div class="team-content">
+                            <h3>The Culinary Team</h3>
+                            <p class="team-role">Kitchen Staff</p>
+                            <p>Our dedicated kitchen crew works tirelessly to prepare every meal with care. From handcrafting our famous mac and cheese to baking fresh buns daily, they're the heart of our operation. Described by guests as "sweet" and "top notch."</p>
+                        </div>
+                    </article>
+                    <article class="team-card">
+                        <div class="team-image-placeholder accent">🚚</div>
+                        <div class="team-content">
+                            <h3>Event Crew</h3>
+                            <p class="team-role">Catering & Service</p>
+                            <p>Our friendly service team brings the Road House experience to your event. Whether running the food trailer at a festival or serving a wedding reception, they ensure hassle-free, exceptional service every time.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>A Taste of What We Do</h2>
+                    <p>Fresh flavors, beautiful presentation, unforgettable moments</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://static.wixstatic.com/media/104e70_3ba0f88e98e146be9a5ebd04a23332c5~mv2.jpeg" alt="Road House Grill food presentation" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://static.wixstatic.com/media/104e70_9c5e6b81ab954fff8e21ed98e0479950~mv2.jpg" alt="Gourmet dish from Road House Grill" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://static.wixstatic.com/media/104e70_e99fff10b71e41f79abd8f897a18ba27~mv2.jpg" alt="Fresh ingredients and preparation" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://static.wixstatic.com/media/104e70_e6368dac4528432c81f7ce5abd28acdf~mv2.jpg" alt="Road House Grill specialty dish" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://static.wixstatic.com/media/104e70_20ae0376ec934b379c1e8ace3ece020a~mv2.jpg" alt="Catering setup and presentation" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://static.wixstatic.com/media/104e70_f8b8df84f4974751a0bd8b06dca5f39b~mv2.jpg" alt="Delicious Road House Grill meal" loading="lazy">
+                    </div>
+                </div>
+                <div class="text-center mt-2">
+                    <a href="gallery.html" class="btn btn-primary">View Full Gallery</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Let's Create Something Special Together</h2>
+                <p>Whether it's a wedding, corporate event, or family gathering, we'd love to be part of your next unforgettable moment.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong>📞</strong> 937.768.0199
+                    </div>
+                    <div class="contact-item">
+                        <strong>📧</strong> BillieAgnone@Road-House-Grill.com
+                    </div>
+                </div>
+                <a href="contact.html" class="btn btn-primary">Contact Us Today</a>
+                <p class="counties">Serving Warren, Clinton, Clermont, Greene, Clark, Montgomery, Hamilton Counties and surrounding areas</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>Road House Grill</h3>
+                <p>Your ultimate culinary destination for food truck catering, unforgettable events, and gourmet American cuisine. Locally owned and operated with love.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">
+                        <img src="https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png" alt="Facebook" loading="lazy">
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <img src="https://static.wixstatic.com/media/8d6893330740455c96d218258a458aa4.png" alt="Instagram" loading="lazy">
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <img src="https://static.wixstatic.com/media/11062b_7cf73902d06c4f3685c379a21c6c8285~mv2.png" alt="LinkedIn" loading="lazy">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="menu.html">Our Menu</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Food Truck Catering</a></li>
+                    <li><a href="#">Wedding Catering</a></li>
+                    <li><a href="#">Corporate Events</a></li>
+                    <li><a href="#">Murder Mystery Dinners</a></li>
+                    <li><a href="#">Private Parties</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <p>📞 937.768.0199</p>
+                <p>📧 BillieAgnone@Road-House-Grill.com</p>
+                <p>📍 Serving Ohio Counties:<br>Warren, Clinton, Clermont, Greene, Clark, Montgomery, Hamilton & surrounding areas</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Road House Grill. All rights reserved. | Locally owned & operated.</p>
+        </div>
+    </footer>
+</body>
+</html>
