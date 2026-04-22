@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application - The Wicked Pickle</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .application-hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            text-align: center;
+            padding: 140px 24px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .application-hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -5%;
+            width: 350px;
+            height: 350px;
+            background: url('https://wickedpickleloveland.com/wp-content/uploads/2022/06/Pickle-green-icon-small.png') no-repeat center;
+            background-size: contain;
+            opacity: 0.15;
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+        
+        .application-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .application-hero p {
+            font-size: 1.5rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .team-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 24px 40px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+        
+        .team-intro h2 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+        
+        .team-intro .lead {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        
+        .application-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px 100px;
+        }
+        
+        @media (min-width: 1024px) {
+            .application-grid {
+                grid-template-columns: 1.5fr 1fr;
+                gap: 64px;
+            }
+        }
+        
+        .application-form-container {
+            background: var(--bg-alt);
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+        
+        .application-form-container h2 {
+            color: var(--primary);
+            margin-bottom: 32px;
+            font-size: 1.75rem;
+            padding-bottom: 16px;
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--border, #e0e0e0);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+        }
+        
+        .name-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        
+        @media (min-width: 768px) {
+            .name-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+        
+        .radio-option span {
+            color: var(--text);
+            font-weight: 500;
+        }
+        
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            padding: 18px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            background: var(--primary-dark);
+        }
+        
+        .contact-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        
+        .info-card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--border, #eee);
+        }
+        
+        .info-card h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .info-card p {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            color: var(--text);
+        }
+        
+        .info-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .info-card a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        
+        .hours-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border, #eee);
+            font-weight: 500;
+        }
+        
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .hours-list li span:first-child {
+            color: var(--text-light);
+        }
+        
+        .hours-list li span:last-child {
+            color: var(--text);
+            font-weight: 600;
+        }
+        
+        .visit-logo {
+            max-width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .application-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .application-hero p {
+                font-size: 1.2rem;
+            }
+            
+            .team-intro h2 {
+                font-size: 1.75rem;
+            }
+            
+            .application-form-container {
+                padding: 24px;
+            }
+            
+            .info-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">The Wicked Pickle</a>
+            
+            <div class="nav-links desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="food-drinks-menu.html">Food & Drinks</a>
+                <a href="food-menu.html">Food Menu</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="events.html">Events</a>
+                <a href="hello-world.html">Hello World!</a>
+                <a href="application.html" class="active">Application</a>
+                <a href="coming-soon-copy.html">See You Next Season</a>
+            </div>
+            
+            <a href="#mobile-menu" class="hamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+    </nav>
+    
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="#" class="close-btn" aria-label="Close menu">&times;</a>
+        <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="food-drinks-menu.html">Food & Drinks</a>
+            <a href="food-menu.html">Food Menu</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="events.html">Events</a>
+            <a href="hello-world.html">Hello World!</a>
+            <a href="application.html" class="active">Application</a>
+            <a href="coming-soon-copy.html">See You Next Season</a>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <section class="application-hero">
+            <h1>Join Our Team!</h1>
+            <p>Apply Today & Come Work With Us</p>
+        </section>
+        
+        <section class="team-intro">
+            <span class="badge">Spring 2022 New Ownership!</span>
+            <h2>COME, WORK WITH US!</h2>
+            <p class="lead">We have a great staff of amazing servers and bartenders that create a welcoming environment for all of their co-workers. Our bar and grill is a place that you can enjoy working while making great money with a friendly group of team members!</p>
+        </section>
+        
+        <section class="application-grid">
+            <div class="application-form-container">
+                <h2>Application For Employment</h2>
+                <form action="#" method="POST">
+                    <div class="form-group name-row">
+                        <div>
+                            <label for="first-name">First Name *</label>
+                            <input type="text" id="first-name" name="first_name" required>
+                        </div>
+                        <div>
+                            <label for="last-name">Last Name *</label>
+                            <input type="text" id="last-name" name="last_name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Street Address *</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="city-state-zip">City, State Zip *</label>
+                        <input type="text" id="city-state-zip" name="city_state_zip" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="position">Position You Are Applying For *</label>
+                        <input type="text" id="position" name="position" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Do You Have Reliable Transportation? *</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="transportation" value="Yes" required>
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="transportation" value="No" required>
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Do You Have A Valid ID or Drivers License? *</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="id_license" value="Yes" required>
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="id_license" value="No" required>
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Are You Currently Employed? *</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="employed" value="Yes" required>
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="employed" value="No" required>
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="wage">Desired Starting Wage? *</label>
+                        <input type="text" id="wage" name="desired_wage" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="start-date">When Can You Start? *</label>
+                        <input type="text" id="start-date" name="start_date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Comment or Message *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </div>
+            
+            <aside class="contact-sidebar">
+                <div class="info-card">
+                    <h3>Get In Touch</h3>
+                    <p><strong>Phone:</strong><br><a href="tel:513-683-0222">513-683-0222</a></p>
+                    <p style="margin-top: 16px;"><strong>Email:</strong><br><a href="mailto:wickedpickleloveland@gmail.com">wickedpickleloveland@gmail.com</a></p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Visit Us!</h3>
+                    <img src="https://wickedpickleloveland.com/wp-content/uploads/2022/06/wicked-pickle-final-template-1-1-300x300.png" alt="The Wicked Pickle" class="visit-logo" loading="lazy">
+                    <p><strong>Our Location</strong></p>
+                    <p>123 Railroad Ave.<br>Loveland, OH 45140</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Hours</h3>
+                    <ul class="hours-list">
+                        <li>
+                            <span>SUN - THURS</span>
+                            <span>11AM - 9PM</span>
+                        </li>
+                        <li>
+                            <span>FRI - SAT</span>
+                            <span>11AM - 10PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Our Location</h4>
+                    <p>123 Railroad Ave.<br>Loveland, OH 45140</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Hours</h4>
+                    <p>SUN-THURS: 11AM - 9PM<br>FRI-SAT: 11AM - 10PM</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="food-menu.html">Food Menu</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Follow Us!</h4>
+                    <p style="margin-top: 16px;"><strong>Visit Us!</strong></p>
+                    <p>123 Railroad Ave.<br>Loveland, OH 45140</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Copyright © 2026 The Wicked Pickle - <a href="#">Privacy Policy</a></p>
+                <p>Powered by CyberVibe Web Design</p>
+            </div>
+        </div>
+        
+        <a href="#" class="scroll-top" aria-label="Scroll to top">↑</a>
+    </footer>
+</body>
+</html>
