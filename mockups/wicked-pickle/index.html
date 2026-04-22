@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wicked Pickle | Trailside Cafe & Bar | Loveland, OH</title>
+    <meta name="description" content="The Wicked Pickle - Located along the Little Miami Bike Trail in downtown Loveland, Ohio. Serving wicked good food, sandwiches, empanadas, craft cocktails, and live music.">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        :root {
+            --primary: #3a6b1f;
+            --primary-dark: #254212;
+            --primary-light: #4a8b2c;
+            --secondary: #f4d03f;
+            --secondary-light: #f7dc6f;
+            --accent: #e67e22;
+            --accent-hover: #d35400;
+            --text: #2c3e50;
+            --text-light: #5d6d7e;
+            --text-muted: #7f8c8d;
+            --bg: #ffffff;
+            --bg-alt: #f8f9f5;
+            --bg-cream: #fdfcf8;
+            --bg-dark: #1a1a1a;
+            --border: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --radius: 12px;
+            --radius-lg: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --max-width: 1200px;
+            --header-height: 70px;
+        }
+        
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--text);
+        }
+        
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
+        h4 { font-size: 1.25rem; }
+        
+        p {
+            margin: 0 0 1rem;
+            color: var(--text-light);
+        }
+        
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            height: var(--header-height);
+        }
+        
+        nav {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+        
+        .nav-links {
+            display: none;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 32px;
+        }
+        
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text);
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            transition: var(--transition);
+        }
+        
+        /* Mobile Menu Overlay */
+        #mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--primary-dark);
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        #mobile-menu:target {
+            display: flex;
+        }
+        
+        #mobile-menu a {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 500;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+        }
+        
+        #mobile-menu a:hover {
+            color: var(--secondary);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 2rem !important;
+            font-weight: 300;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: calc(100vh - var(--header-height));
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg-cream) 100%);
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://wickedpickleloveland.com/wp-content/uploads/2025/06/Food-Image-01.webp') no-repeat right center;
+            background-size: cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .hero-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 80px 24px;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        
+        .hero-content h1 {
+            margin-bottom: 24px;
+            color: var(--primary-dark);
+            line-height: 1.1;
+        }
+        
+        .hero-content h1 span {
+            color: var(--accent);
+            display: block;
+            font-size: 0.6em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+        
+        .hero-content p {
+            font-size: 1.125rem;
+            margin-bottom: 32px;
+            max-width: 540px;
+            color: var(--text-light);
+        }
+        
+        .hero-image {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            transform: rotate(2deg);
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-image:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            min-height: 48px;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 24px;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 64px;
+        }
+        
+        .section-header h2 {
+            margin-bottom: 16px;
+            color: var(--primary-dark);
+        }
+        
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+        }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        
+        /* About Preview */
+        .about-preview {
+            background: var(--bg);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 400px;
+        }
+        
+        .about-content h2 {
+            margin-bottom: 24px;
+            color: var(--primary-dark);
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        
+        .highlight-box {
+            background: var(--bg-alt);
+            border-left: 4px solid var(--primary);
+            padding: 24px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin: 32px 0;
+        }
+        
+        .highlight-box p {
+            margin: 0;
+            font-style: italic;
+            color: var(--text);
+        }
+        
+        /* Menu Highlights */
+        .menu-highlights {
+            background: var(--bg-alt);
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+        
+        .menu-card {
+            background: var(--bg);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .menu-card-image {
+            position: relative;
+            overflow: hidden;
+            height: 240px;
+        }
+        
+        .menu-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .menu-card:hover .menu-card-image img {
+            transform: scale(1.05);
+        }
+        
+        .menu-card-content {
+            padding: 32px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .menu-card h3 {
+            margin-bottom: 12px;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .menu-card h3 img {
+            width: 28px;
+            height: 28px;
+        }
+        
+        .menu-card p {
+            margin-bottom: 24px;
+            flex: 1;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: var(--secondary-light);
+            color: var(--primary-dark);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        /* Cocktails Section */
+        .cocktails {
+            background: linear-gradient(to bottom, var(--bg) 0%, var(--bg-cream) 100%);
+        }
+        
+        .cocktail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .cocktail-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 1;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .cocktail-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .cocktail-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .cocktail-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: white;
+        }
+        
+        .cocktail-overlay h4 {
+            color: white;
+            font-size: 1rem;
+            margin: 0;
+        }
+        
+        /* Info Cards (Happy Hour + Live Music) */
+        .info-section {
+            background: var(--primary-dark);
+            color: white;
+            padding: 80px 24px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        
+        .info-card {
+            text-align: center;
+            padding: 48px 32px;
+            background: rgba(255,255,255,0.05);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .info-card h3 {
+            color: var(--secondary);
+            margin-bottom: 16px;
+            font-size: 1.75rem;
+        }
+        
+        .info-card p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+        
+        .info-card .time {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+        
+        .info-card .details {
+            font-size: 1rem;
+            color: var(--secondary-light);
+        }
+        
+        /* Visit Section */
+        .visit {
+            background: var(--bg);
+        }
+        
+        .visit-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+        
+        .visit-info h3 {
+            margin-bottom: 24px;
+            color: var(--primary-dark);
+        }
+        
+        .visit-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .visit-detail strong {
+            display: block;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        
+        .visit-detail p {
+            margin: 0;
+            color: var(--text-light);
+        }
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 24px;
+            padding: 24px;
+            background: var(--bg-alt);
+            border-radius: var(--radius);
+        }
+        
+        .hours-grid div {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+        
+        .hours-grid span:first-child {
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .hours-grid span:last-child {
+            color: var(--text-light);
+        }
+        
+        .status-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+        }
+        
+        .map-placeholder {
+            background: var(--bg-alt);
+            border-radius: var(--radius-lg);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--border);
+        }
+        
+        .map-placeholder p {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 64px 24px 32px;
+        }
+        
+        .footer-grid {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        
+        .footer-col h4 {
+            color: var(--secondary);
+            margin-bottom: 24px;
+            font-size: 1.125rem;
+        }
+        
+        .footer-col p,
+        .footer-col a {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        
+        .footer-col a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.875rem;
+        }
+        
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .hamburger {
+                display: none;
+            }
+            
+            .nav-links {
+                display: flex;
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cocktail-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .visit-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cta-group {
+                flex-direction: row;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            section {
+                padding: 100px 40px;
+            }
+            
+            .menu-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .cocktail-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+            
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-0 {
+            margin-bottom: 0;
+        }
+        
+        .word-wrap {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="https://wickedpickleloveland.com/wp-content/uploads/2022/06/Pickle-green-icon-small.png" alt="">
+                The Wicked Pickle
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="food-drinks-menu.html">Food & Drinks</a></li>
+                <li><a href="food-menu.html">Menu</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <a href="#mobile-menu" class="hamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </nav>
+    </header>
+    
+    <div id="mobile-menu">
+        <a href="#" class="close-btn" aria-label="Close menu">×</a>
+        <a href="index.html">Home</a>
+        <a href="food-drinks-menu.html">Food & Drinks Menu</a>
+        <a href="food-menu.html">Food Menu</a>
+        <a href="events.html">Events</a>
+        <a href="live-music-about-last-night-6-9-pm.html">Live Music</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="application.html">Join Our Team</a>
+        <a href="coming-soon-copy.html">Season Updates</a>
+    </div>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>
+                        <span>Welcome To</span>
+                        The Wicked Pickle
+                    </h1>
+                    <p>Located along the Little Miami Bike Trail in the heart of downtown Loveland, Ohio. Enjoy wicked good food, craft cocktails, and live music in our shaded outdoor patio.</p>
+                    <div class="cta-group">
+                        <a href="food-drinks-menu.html" class="btn btn-primary">Explore Menu</a>
+                        <a href="events.html" class="btn btn-secondary">View Events</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://wickedpickleloveland.com/wp-content/uploads/2025/06/Food-Image-01.webp" alt="Delicious food from The Wicked Pickle">
+                </div>
+            </div>
+        </section>
+        
+        <section class="about-preview">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="https://wickedpickleloveland.com/wp-content/uploads/2025/06/Pickle-Chips.webp" alt="House-made Pickle Chips">
+                    </div>
+                    <div class="about-content">
+                        <h2>Wicked Good Food</h2>
+                        <p>We wanted a name that invoked a Key West feel. The name came partly from the popular restaurant in Key West, The Wicked Lick, and partly from cyclists on the Little Miami Scenic Trail that eat pickles and drink pickle juice when they stop in Loveland.</p>
+                        <div class="highlight-box">
+                            <p>"The outdoor seating offers a wonderful shaded area that's perfect any day. Come enjoy one of our delicious cocktails!"</p>
+                        </div>
+                        <p>Serving the best sandwiches, empanadas, and shareables around. All meats are served with house pickles. We have a full bar with ever-changing ice cold beer on draft along with amazing craft beers.</p>
+                        <a href="about.html" class="btn btn-secondary" style="margin-top: 16px;">Our Story</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="menu-highlights">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Trailside Favorites</h2>
+                    <p>Fresh from the grill. Stop at The Wicked Pickle and see what all the hype is about!</p>
+                </div>
+                
+                <div class="menu-grid">
+                    <article class="menu-card">
+                        <div class="menu-card-image">
+                            <img src="https://wickedpickleloveland.com/wp-content/uploads/2025/06/Food-Image-01.webp" alt="Fresh grilled sandwich">
+                        </div>
+                        <div class="menu-card-content">
+                            <span class="tag">Fresh From The Grill</span>
+                            <h3>
+                                <img src="https://wickedpickleloveland.com/wp-content/uploads/2022/06/Pickle-green-icon-small.png" alt="">
+                                Signature Sandwiches
+                            </h3>
+                            <p>Delicious sandwiches served with house pickles. Updated menu featuring all-time favorite items including our famous Wicked Lemonade.</p>
+                            <a href="food-menu.html" class="btn btn-primary" style="align-self: flex-start;">View Food Menu</a>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-card">
+                        <div class="menu-card-image">
+                            <img src="https://wickedpickleloveland.com/wp-content/uploads/2025/06/Pickle-Chips.webp" alt="House-made Pickle Chips">
+                        </div>
+                        <div class="menu-card-content">
+                            <span class="tag">House Made</span>
+                            <h3>
+                                <img src="https://wickedpickleloveland.com/wp-content/uploads/2022/06/Pickle-green-icon-small.png" alt="">
+                                Empanadas & Shareables
+                            </h3>
+                            <p>Amazing appetizers and shareable plates perfect for your trail stop. Try our house-made pickle chips and empanadas.</p>
+                            <a href="food-menu.html" class="btn btn-primary" style="align-self: flex-start;">View Menu</a>
+                        </div>
+                    </article>
+                    
+                    <article class="menu-card">
+                        <div class="menu-card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center;">
+                            <img src="https://wickedpickleloveland.com/wp-content/uploads/2022/06/icons8-cocktail-100.png" alt="Cocktails" style="width: 80px; height: 80px; object-fit: contain; filter: brightness(0) invert(1);">
+                        </div>
+                        <div class="menu-card-content">
+                            <span class="tag">Craft Cocktails</span>
+                            <h3>
+                                <img src="https://wickedpickleloveland.com/wp-content/uploads/2022/06/Pickle-green-icon-small.png" alt="">
+                                Specialty Drinks
+                            </h3>
+                            <p>Incredible cocktails including Rum Runner, Monkey Business, Piña Colada, Duval Street, Bourbon Slush, and Key West Mojito.</p>
+                            <a href="food-drinks-menu.html" class="btn btn-primary" style="align-self: flex-start;">View Drinks</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cocktails">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Some Of Our Favorite Cocktails</h2>
+                    <p>Key West inspired drinks to cool you down after your bike ride</p>
+                </div>
+                
+                <div class="cocktail-grid">
+                    <div class="cocktail-item">
+                        <img src="https://wickedpickleloveland.com/wp-content/uploads/2025/06/Rum-Runner.webp" alt="Rum Runner cocktail">
+                        <div class="cocktail-overlay">
+                            <h4>Rum Runner</h4>
+                        </div>
+                    </div>
+                    <div class="cocktail-item">
+                        <img src="https://wickedpickleloveland.com/wp-content/uploads/2025/06/Monkey-Business.webp" alt="Monkey Business cocktail">
+                        <div class="cocktail-overlay">
+                            <h4>Monkey Business</h4>
+                        </div>
+                    </div>
+                    <div class="cocktail-item">
+                        <img src="https://wickedpickleloveland.com/wp-content/uploads/2025/06/Pina-Colada.webp" alt="Piña Colada">
+                        <div class="cocktail-overlay">
+                            <h4>Piña Colada</h4>
+                        </div>
+                    </div>
+                    <div class="cocktail-item">
+                        <img src="https://wickedpickleloveland.com/wp-content/uploads/2025/06/Duval-Street.webp" alt="Duval Street cocktail">
+                        <div class="cocktail-overlay">
+                            <h4>Duval Street</h4>
+                        </div>
+                    </div>
+                    <div class="cocktail-item">
+                        <img src="https://wickedpickleloveland.com/wp-content/uploads/2025/06/Bourbon-Slush.webp" alt="Bourbon Slush">
+                        <div class="cocktail-overlay">
+                            <h4>Bourbon Slush</h4>
+                        </div>
+                    </div>
+                    <div class="cocktail-item">
+                        <img src="https://wickedpickleloveland.com/wp-content/uploads/2025/06/Key-West-Mojito.webp" alt="Key West Mojito">
+                        <div class="cocktail-overlay">
+                            <h4>Key West Mojito</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="info-section">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Happy Hours</h3>
+                    <p>Join us for drinks and deals!</p>
+                    <div class="time">Monday - Friday</div>
+                    <div class="details">4:00 PM - 6:00 PM</div>
+                    <p style="margin-top: 16px; font-size: 0.95rem;">$2 Off Specialty Cocktails<br>$1 Drafts<br>$1 Wines</p>
+                    <a href="food-drinks-menu.html" class="btn btn-secondary" style="margin-top: 24px; border-color: white; color: white;">View Drinks Menu</a>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Live Music</h3>
+                    <p>We often have live music and other incredible events that provide a great experience for you and your group.</p>
+                    <div class="time">Check Our Calendar</div>
+                    <div class="details">6:00 PM - 9:00 PM Shows</div>
+                    <p style="margin-top: 16px; font-size: 0.95rem;">Steel Drum Dave, Heather Linville, Ryan Arnold & more!</p>
+                    <a href="events.html" class="btn btn-secondary" style="margin-top: 24px; border-color: white; color: white;">View Calendar</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="visit">
+            <div class="container">
+                <div class="visit-grid">
+                    <div class="visit-info">
+                        <span class="status-badge">Temporarily Closed Until Next Season</span>
+                        <h2>Visit Us!</h2>
+                        <p style="font-size: 1.125rem; margin-bottom: 32px;">Thank you to our incredible guests for an amazing season. We're taking a short break to refresh, regroup, and gear up for next year.</p>
+                        
+                        <div class="visit-detail">
+                            <div>
+                                <strong>Address</strong>
+                                <p>123 Railroad Ave.<br>Loveland, OH 45140</p>
+                            </div>
+                        </div>
+                        
+                        <div class="visit-detail">
+                            <div>
+                                <strong>Phone</strong>
+                                <p>513-683-0222</p>
+                            </div>
+                        </div>
+                        
+                        <div class="visit-detail">
+                            <div>
+                                <strong>Email</strong>
+                                <p>wickedpickleloveland@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hours-grid">
+                            <div>
+                                <span>Sun - Thurs</span>
+                                <span>11AM - 9PM</span>
+                            </div>
+                            <div>
+                                <span>Fri - Sat</span>
+                                <span>11AM - 10PM</span>
+                            </div>
+                        </div>
+                        
+                        <a href="contact.html" class="btn btn-primary" style="margin-top: 32px;">Get Directions</a>
+                    </div>
+                    
+                    <div class="map-placeholder">
+                        <p>Map Location<br>123 Railroad Ave, Loveland, OH</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>The Wicked Pickle</h4>
+                <p>Located along the Little Miami Bike Trail in the heart of downtown Loveland, Ohio. Serving amazing food, cold beer, incredible cocktails and live music!</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">i</a>
+                    <a href="#" aria-label="Twitter">t</a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="food-menu.html">Food Menu</a></li>
+                    <li><a href="food-drinks-menu.html">Drinks Menu</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Events</h4>
+                <ul class="footer-links">
+                    <li><a href="live-music-about-last-night-6-9-pm.html">Live Music</a></li>
+                    <li><a href="steel-drum-dave-6-9-pm.html">Steel Drum Dave</a></li>
+                    <li><a href="coming-soon-copy.html">Season Updates</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Join Us</h4>
+                <ul class="footer-links">
+                    <li><a href="application.html">Apply Today</a></li>
+                    <li><a href="hello-world.html">Blog</a></li>
+                    <li><a href="contact.html">Private Events</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>123 Railroad Ave. Loveland, OH 45140 | 513-683-0222</p>
+            <p style="margin-top: 8px;">Copyright © 2026 The Wicked Pickle - Privacy Policy | Powered by CyberVibe Web Design</p>
+        </div>
+    </footer>
+</body>
+</html>
