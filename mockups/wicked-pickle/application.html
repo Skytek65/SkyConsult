@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application-TheWickedPickle</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .application-hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            text-align: center;
+            padding: 120px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .application-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: url('https://wickedpickleloveland.com/wp-content/uploads/2022/06/Pickle-green-icon-small.png') no-repeat center;
+            background-size: contain;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 16px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        
+        .hero-content .tagline {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.95;
+        }
+        
+        .hero-content .season-note {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.3);
+            font-size: 1.1rem;
+        }
+        
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .contact-bar {
+            background: var(--bg-alt);
+            padding: 60px 24px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        
+        .contact-card {
+            background: var(--bg);
+            padding: 40px 32px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+        }
+        
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        
+        .contact-card a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+            font-size: 1.1rem;
+        }
+        
+        .contact-card a:hover {
+            color: var(--primary);
+        }
+        
+        .contact-card p {
+            margin: 8px 0;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .application-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 24px;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .form-header h2 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        
+        .form-header p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+        
+        .application-form {
+            background: var(--bg);
+            padding: 56px;
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 28px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid var(--bg-alt);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+            background: var(--bg);
+            color: var(--text);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        
+        .form-row.three-col {
+            grid-template-columns: 2fr 1fr 1fr;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .radio-option input[type="radio"] {
+            width: 22px;
+            height: 22px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+        
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 18px 48px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            margin-top: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        
+        .info-section {
+            background: var(--bg-alt);
+            padding: 100px 24px;
+        }
+        
+        .info-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 64px;
+        }
+        
+        .info-card {
+            text-align: center;
+        }
+        
+        .info-card h3 {
+            color: var(--primary);
+            margin-bottom: 32px;
+            font-size: 1.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        .hours-list {
+            list-style: none;
+            padding: 0;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        
+        .hours-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .hours-list span:first-child {
+            color: var(--text-light);
+        }
+        
+        .hours-list span:last-child {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .location-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+        
+        .location-text strong {
+            color: var(--primary);
+            font-size: 1.3rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .quick-links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .quick-links-list a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.5);
+        }
+        
+        .quick-links-list a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(8px);
+        }
+        
+        #mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--primary);
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        #mobile-menu:target {
+            display: flex;
+        }
+        
+        #mobile-menu a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 16px;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+        }
+        
+        #mobile-menu .close-btn {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        @media (max-width: 768px) {
+            .application-hero {
+                padding: 80px 24px;
+            }
+            
+            .form-row,
+            .form-row.three-col {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .application-form {
+                padding: 32px 24px;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .info-grid {
+                gap: 48px;
+            }
+            
+            .contact-bar {
+                margin-top: 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-content .tagline {
+                font-size: 1.1rem;
+                letter-spacing: 2px;
+            }
+            
+            .hero-content .season-note {
+                font-size: 0.95rem;
+                padding: 10px 20px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="logo">The Wicked Pickle</a>
+            
+            <div class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="food-drinks-menu.html">Food&DrinksMenu TheWickedPickle</a>
+                <a href="food-menu.html">FoodMenu TheWickedPickle</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="events.html">Events</a>
+                <a href="hello-world.html">Helloworld! TheWickedPickle</a>
+                <a class="active" href="application.html">Application TheWickedPickle</a>
+                <a href="coming-soon-copy.html">SeeYouNextSeason TheWickedPickle</a>
+            </div>
+
+            <a href="#mobile-menu" class="mobile-menu-btn" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </nav>
+        
+        <div id="mobile-menu">
+            <a href="#" class="close-btn" aria-label="Close menu">×</a>
+            <a href="index.html">Home</a>
+            <a href="food-drinks-menu.html">Food & Drinks Menu</a>
+            <a href="food-menu.html">Food Menu</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="events.html">Events</a>
+            <a href="hello-world.html">Hello World!</a>
+            <a href="application.html">Join Our Team</a>
+            <a href="coming-soon-copy.html">See You Next Season</a>
+        </div>
+    </header>
+    
+    <main>
+        <section class="application-hero">
+            <div class="hero-content">
+                <div class="season-note">SPRING 2022 — New Ownership!!</div>
+                <h1>Join Our Team!</h1>
+                <p class="tagline">Apply Today</p>
+                <p class="tagline">COME, WORK WITH US!</p>
+                <p class="intro-text">We have a great staff of amazing servers and bartenders that create a welcoming environment for all of their co-workers. Our bar and grill is a place that you can enjoy working while making great money with a friendly group of team members!</p>
+            </div>
+        </section>
+        
+        <section class="contact-bar">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Get In Touch</h3>
+                    <p><a href="tel:513-683-0222">513-683-0222</a></p>
+                    <p><a href="mailto:wickedpickleloveland@gmail.com">wickedpickleloveland@gmail.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <h3>Visit Us!</h3>
+                    <p>123 Railroad Ave.<br>Loveland, OH 45140</p>
+                </div>
+                <div class="contact-card">
+                    <img src="https://wickedpickleloveland.com/wp-content/uploads/2022/06/cropped-wicked-pickle-final-template-1-160x160.png" alt="The Wicked Pickle" style="max-width: 100px; margin: 0 auto 20px; display: block;">
+                    <p style="font-weight: 700; color: var(--primary); font-size: 1.2rem;">The Wicked Pickle</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="application-section">
+            <div class="form-header">
+                <h2>Application For Employment</h2>
+                <p>Fill out the form below to join our team</p>
+            </div>
+            
+            <form class="application-form" action="#" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Street Address *</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                
+                <div class="form-row three-col">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state">
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">Zip *</label>
+                        <input type="text" id="zip" name="zip" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="position">Position You Are Applying For *</label>
+                    <input type="text" id="position" name="position" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Do You Have Reliable Transportation? *</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="transportation" value="Yes" required>
+                            <span>Yes</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="transportation" value="No" required>
+                            <span>No</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Do You Have A Valid ID or Drivers License? *</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="idLicense" value="Yes" required>
+                            <span>Yes</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="idLicense" value="No" required>
+                            <span>No</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Are You Currently Employed? *</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="employed" value="Yes" required>
+                            <span>Yes</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="employed" value="No" required>
+                            <span>No</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="wage">Desired Starting Wage? *</label>
+                    <input type="text" id="wage" name="wage" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="startDate">When Can You Start? *</label>
+                    <input type="text" id="startDate" name="startDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Comment or Message *</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </section>
+        
+        <section class="info-section">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Our Location</h3>
+                    <div class="location-text">
+                        <strong>123 Railroad Ave.<br>Loveland, OH 45140</strong>
+                        <img src="https://wickedpickleloveland.com/wp-content/uploads/2022/06/wicked-pickle-final-template-1-1-300x300.png" alt="Visit Us!" loading="lazy" style="max-width: 250px; margin-top: 32px; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Hours</h3>
+                    <ul class="hours-list">
+                        <li>
+                            <span>SUN - THURS</span>
+                            <span>11AM — 9PM</span>
+                        </li>
+                        <li>
+                            <span>FRI - SAT</span>
+                            <span>11AM — 10PM</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Quick Links</h3>
+                    <div class="quick-links-list">
+                        <a href="index.html">Home</a>
+                        <a href="food-menu.html">Food Menu</a>
+                        <a href="events.html">Events</a>
+                        <a href="about.html">About Us</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>🥒 The Wicked Pickle</h3>
+                <p>Serving the best sandwiches, empanadas, and shareables around! Located along the Little Miami Bike Trail in Loveland, Ohio.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="food-menu.html">Food Menu</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Visit Us!</h4>
+                <ul>
+                    <li>123 Railroad Ave.</li>
+                    <li>Loveland, OH 45140</li>
+                    <li><a href="tel:513-683-0222">513-683-0222</a></li>
+                    <li><a href="application.html">Join Our Team</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>Copyright © 2026 The Wicked Pickle - <a href="#" style="color: rgba(255,255,255,0.5);">Privacy Policy</a> | Powered by CyberVibe Web Design</p>
+        </div>
+    </footer>
+</body>
+</html>
