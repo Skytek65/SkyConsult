@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu - The Wicked Pickle</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        :root {
+            --primary: #3a6b1f;
+            --primary-dark: #254212;
+            --primary-light: #4a8b2c;
+            --secondary: #f4d03f;
+            --secondary-light: #f7dc6f;
+            --accent: #e67e22;
+            --accent-hover: #d35400;
+            --text: #2c3e50;
+            --text-light: #5d6d7e;
+            --text-muted: #7f8c8d;
+            --bg: #ffffff;
+            --bg-alt: #f8f9f5;
+            --bg-cream: #fdfcf8;
+            --bg-dark: #1a1a1a;
+            --border: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --radius: 12px;
+            --radius-lg: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --max-width: 1200px;
+            --header-height: 70px;
+        }
+        
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--text);
+        }
+        
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
+        h4 { font-size: 1.25rem; }
+        
+        p {
+            margin: 0 0 1rem;
+            color: var(--text-light);
+        }
+        
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            height: var(--header-height);
+        }
+        
+        nav {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+        
+        .nav-links {
+            display: none;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 32px;
+        }
+        
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text);
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            transition: var(--transition);
+        }
+        
+        /* Mobile Menu Overlay */
+        #mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--primary-dark);
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        #mobile-menu:target {
+            display: flex;
+        }
+        
+        #mobile-menu a {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 500;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+        }
+        
+        #mobile-menu a:hover {
+            color: var(--secondary);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 2rem !important;
+            font-weight: 300;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: calc(60vh - var(--header-height));
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg-cream) 100%);
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://wickedpickleloveland.com/wp-content/uploads/2024/05/FB_IMG_1714857262429.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .hero-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 80px 24px;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            margin-bottom: 24px;
+            color: var(--primary-dark);
+            line-height: 1.1;
+        }
+        
+        .hero-content h1 span {
+            color: var(--accent);
+            display: block;
+            font-size: 0.6em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+        
+        .hero-content p {
+            font-size: 1.125rem;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-light);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 24px;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 64px;
+        }
+        
+        .section-header h2 {
+            margin-bottom: 16px;
+            color: var(--primary-dark);
+        }
+        
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+        }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        
+        /* Menu Section Styles */
+        .menu-section {
+            background: var(--bg);
+        }
+        
+        .menu-section:nth-child(even) {
+            background: var(--bg-alt);
+        }
+        
+        .menu-category {
+            margin-bottom: 64px;
+        }
+        
+        .menu-category:last-child {
+            margin-bottom: 0;
+        }
+        
+        .menu-category-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .menu-category-header img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .menu-category-header h3 {
+            color: var(--primary-dark);
+            font-size: 1.75rem;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        
+        .menu-item {
+            background: var(--bg);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+        
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            gap: 16px;
+        }
+        
+        .menu-item h4 {
+            color: var(--primary-dark);
+            font-size: 1.25rem;
+            margin: 0;
+            flex: 1;
+        }
+        
+        .menu-item .price {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.125rem;
+            white-space: nowrap;
+        }
+        
+        .menu-item p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: var(--secondary-light);
+            color: var(--primary-dark);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-top: 12px;
+            align-self: flex-start;
+        }
+        
+        .tag.spicy {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .tag.vegetarian {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .tag.gluten-free {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+        
+        /* Featured Food Image Section */
+        .food-showcase {
+            background: var(--bg-cream);
+            padding: 60px 24px;
+        }
+        
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            align-items: center;
+        }
+        
+        .showcase-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            transform: rotate(-2deg);
+            transition: transform 0.5s ease;
+        }
+        
+        .showcase-image:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+        
+        .showcase-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .showcase-content h2 {
+            color: var(--primary-dark);
+            margin-bottom: 24px;
+        }
+        
+        .showcase-content p {
+            font-size: 1.125rem;
+            margin-bottom: 24px;
+        }
+        
+        /* Visit Section */
+        .visit {
+            background: var(--bg);
+        }
+        
+        .visit-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+        
+        .visit-info h3 {
+            margin-bottom: 24px;
+            color: var(--primary-dark);
+        }
+        
+        .visit-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .visit-detail strong {
+            display: block;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        
+        .visit-detail p {
+            margin: 0;
+            color: var(--text-light);
+        }
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 24px;
+            padding: 24px;
+            background: var(--bg-alt);
+            border-radius: var(--radius);
+        }
+        
+        .hours-grid div {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+        
+        .hours-grid span:first-child {
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .hours-grid span:last-child {
+            color: var(--text-light);
+        }
+        
+        .map-placeholder {
+            background: var(--bg-alt);
+            border-radius: var(--radius-lg);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--border);
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .map-placeholder p {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            min-height: 48px;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 64px 24px 32px;
+        }
+        
+        .footer-grid {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        
+        .footer-col h4 {
+            color: var(--secondary);
+            margin-bottom: 24px;
+            font-size: 1.125rem;
+        }
+        
+        .footer-col p,
+        .footer-col a {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        
+        .footer-col a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.875rem;
+        }
+        
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .hamburger {
+                display: none;
+            }
+            
+            .nav-links {
+                display: flex;
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .showcase-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .visit-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            section {
+                padding: 100px 40px;
+            }
+            
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+            
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-0 {
+            margin-bottom: 0;
+        }
+        
+        .word-wrap {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="https://wickedpickleloveland.com/wp-content/uploads/2022/06/Pickle-green-icon-small.png" alt="The Wicked Pickle">
+                The Wicked Pickle
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="food-drinks-menu.html">Food & Drinks</a></li>
+                <li><a href="food-menu.html" class="active">Food Menu</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="#mobile-menu" class="hamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </nav>
+    </header>
+
+    <div id="mobile-menu">
+        <a href="#" class="close-btn" aria-label="Close menu">×</a>
+        <a href="index.html">Home</a>
+        <a href="food-drinks-menu.html">Food & Drinks Menu</a>
+        <a href="food-menu.html">Food Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="events.html">Events</a>
+        <a href="live-music-about-last-night-6-9-pm.html">Live Music</a>
+        <a href="hello-world.html">Hello World</a>
+        <a href="application.html">Application</a>
+        <a href="coming-soon-copy.html">See You Next Season</a>
+        <a href="steel-drum-dave-6-9-pm.html">Steel Drum Dave</a>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>
+                        <span>Fresh & Flavorful</span>
+                        Delicious Food
+                    </h1>
+                    <p>From our signature pickles to hearty sandwiches and fresh salads, every dish is crafted with passion and served with a smile at our Loveland location.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="food-showcase">
+            <div class="showcase-grid">
+                <div class="showcase-image">
+                    <img src="https://wickedpickleloveland.com/wp-content/uploads/2024/05/FB_IMG_1714857253658.jpg" alt="Delicious food from The Wicked Pickle" loading="lazy">
+                </div>
+                <div class="showcase-content">
+                    <h2>Our Menu</h2>
+                    <p>At The Wicked Pickle, we believe in serving up comfort food with a twist. Our menu features locally-sourced ingredients, house-made pickles, and recipes that have been perfected over years of love and experimentation.</p>
+                    <p>Whether you're craving a loaded sandwich, a fresh salad, or just want to snack on our famous pickles, we've got something to satisfy every appetite.</p>
+                    <a href="food-drinks-menu.html" class="btn btn-primary">View Full Menu</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <div class="container">
+                <div class="menu-category">
+                    <div class="menu-category-header">
+                        <img src="https://wickedpickleloveland.com/wp-content/uploads/2022/06/Pickle-green-icon-small.png" alt="Pickle icon">
+                        <h3>Appetizers & Starters</h3>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Fried Pickle Chips</h4>
+                                <span class="price">$8.99</span>
+                            </div>
+                            <p>House-breaded pickle chips fried golden and served with our signature ranch dipping sauce.</p>
+                            <span class="tag vegetarian">Vegetarian</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Loaded Pickle Fries</h4>
+                                <span class="price">$10.99</span>
+                            </div>
+                            <p>Crispy fries topped with melted cheese, bacon bits, green onions, and pickle seasoning.</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Pickle Sampler Platter</h4>
+                                <span class="price">$12.99</span>
+                            </div>
+                            <p>A tasting of our famous dill, spicy, and sweet pickles served with assorted dips.</p>
+                            <span class="tag vegetarian">Vegetarian</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Wicked Wings</h4>
+                                <span class="price">$13.99</span>
+                            </div>
+                            <p>Choice of buffalo, BBQ, or our signature pickle-brined wings. Served with celery and blue cheese.</p>
+                            <span class="tag spicy">Spicy Option</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <div class="container">
+                <div class="menu-category">
+                    <div class="menu-category-header">
+                        <img src="https://wickedpickleloveland.com/wp-content/uploads/2022/06/Pickle-green-icon-small.png" alt="Pickle icon">
+                        <h3>Signature Sandwiches</h3>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>The Wicked Pickle Sandwich</h4>
+                                <span class="price">$14.99</span>
+                            </div>
+                            <p>Our namesake! Grilled chicken, bacon, Swiss cheese, lettuce, tomato, and a mountain of our famous pickles on toasted sourdough.</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Pickle Brined Pork Tenderloin</h4>
+                                <span class="price">$13.99</span>
+                            </div>
+                            <p>Midwest classic! Pickle-brined pork tenderloin, breaded and fried, served on a brioche bun with all the fixings.</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Spicy Pickle Reuben</h4>
+                                <span class="price">$15.99</span>
+                            </div>
+                            <p>Corned beef, Swiss cheese, sauerkraut, and our spicy pickle relish on grilled rye bread with Russian dressing.</p>
+                            <span class="tag spicy">Spicy</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Grilled Cheese & Pickle</h4>
+                                <span class="price">$11.99</span>
+                            </div>
+                            <p>Sharp cheddar and American cheese on thick-cut Texas toast with sliced dill pickles and tomato soup for dipping.</p>
+                            <span class="tag vegetarian">Vegetarian</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Pickle Burger</h4>
+                                <span class="price">$15.99</span>
+                            </div>
+                            <p>Half-pound beef patty topped with fried pickle chips, pepper jack cheese, and pickle aioli on a pretzel bun.</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Turkey & Avocado Club</h4>
+                                <span class="price">$14.99</span>
+                            </div>
+                            <p>Roasted turkey breast, bacon, avocado, lettuce, tomato, and pickle mayo on multigrain bread.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <div class="container">
+                <div class="menu-category">
+                    <div class="menu-category-header">
+                        <img src="https://wickedpickleloveland.com/wp-content/uploads/2022/06/Pickle-green-icon-small.png" alt="Pickle icon">
+                        <h3>Fresh Salads</h3>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Pickle Chicken Salad</h4>
+                                <span class="price">$13.99</span>
+                            </div>
+                            <p>Grilled chicken, mixed greens, cucumber, cherry tomatoes, red onion, feta cheese, and pickled vegetables with dill vinaigrette.</p>
+                            <span class="tag gluten-free">Gluten Free</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Wicked Cobb</h4>
+                                <span class="price">$15.99</span>
+                            </div>
+                            <p>Crispy bacon, hard-boiled egg, avocado, blue cheese, cherry tomatoes, and grilled chicken on romaine with ranch dressing.</p>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Pickle Beet & Goat Cheese</h4>
+                                <span class="price">$12.99</span>
+                            </div>
+                            <p>Roasted beets, pickled red onions, goat cheese crumbles, candied walnuts, and arugula with balsamic glaze.</p>
+                            <span class="tag vegetarian">Vegetarian</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Southwest Salad</h4>
+                                <span class="price">$14.99</span>
+                            </div>
+                            <p>Black beans, corn, pepper jack cheese, tortilla strips, grilled chicken, and pickled jalapeños with chipotle ranch.</p>
+                            <span class="tag spicy">Spicy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <div class="container">
+                <div class="menu-category">
+                    <div class="menu-category-header">
+                        <img src="https://wickedpickleloveland.com/wp-content/uploads/2022/06/Pickle-green-icon-small.png" alt="Pickle icon">
+                        <h3>Sides & Extras</h3>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Side of Pickles</h4>
+                                <span class="price">$3.99</span>
+                            </div>
+                            <p>A generous portion of our house-made dill, bread & butter, or spicy pickles.</p>
+                            <span class="tag vegetarian">Vegetarian</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Pickle Potato Salad</h4>
+                                <span class="price">$4.99</span>
+                            </div>
+                            <p>Creamy potato salad loaded with chopped dill pickles and fresh herbs.</p>
+                            <span class="tag vegetarian">Vegetarian</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Pickle Slaw</h4>
+                                <span class="price">$4.99</span>
+                            </div>
+                            <p>Crunchy coleslaw with a pickle juice dressing for extra tang.</p>
+                            <span class="tag vegetarian">Vegetarian</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-header">
+                                <h4>Sweet Potato Fries</h4>
+                                <span class="price">$5.99</span>
+                            </div>
+                            <p>Crispy sweet potato fries served with cinnamon maple dipping sauce.</p>
+                            <span class="tag vegetarian">Vegetarian</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="visit">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Visit Us!</h2>
+                    <p>Come experience the wicked flavor at our Loveland location</p>
+                </div>
+                <div class="visit-grid">
+                    <div class="visit-info">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links" style="margin-bottom: 32px;">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="food-menu.html">Food Menu</a></li>
+                            <li><a href="events.html">Events</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                        
+                        <h3>Location</h3>
+                        <div class="visit-detail">
+                            <div>
+                                <strong>Address</strong>
+                                <p>123 Railroad Ave.<br>Loveland, OH 45140</p>
+                            </div>
+                        </div>
+                        
+                        <h3 style="margin-top: 32px;">Hours of Operation</h3>
+                        <div class="hours-grid">
+                            <div><span>Mon-Thu</span><span>11am - 9pm</span></div>
+                            <div><span>Fri-Sat</span><span>11am - 10pm</span></div>
+                            <div><span>Sunday</span><span>10am - 8pm</span></div>
+                            <div><span>Happy Hour</span><span>3pm - 6pm Daily</span></div>
+                        </div>
+                    </div>
+                    <div class="map-placeholder">
+                        <img src="https://wickedpickleloveland.com/wp-content/uploads/2022/06/wicked-pickle-final-template-1-1-300x300.png" alt="The Wicked Pickle Logo" style="width: 120px; height: 120px; opacity: 0.5;">
+                        <p>123 Railroad Ave, Loveland, OH 45140</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>The Wicked Pickle</h4>
+                <p>Serving up delicious food, refreshing drinks, and good vibes in the heart of Loveland, Ohio. Come get your pickle fix!</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">i</a>
+                    <a href="#" aria-label="Twitter">t</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="food-menu.html">Food Menu</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Visit Us</h4>
+                <p>123 Railroad Ave.<br>Loveland, OH 45140</p>
+                <p style="margin-top: 16px;">Follow Us!</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>Phone: (513) 555-0123</p>
+                <p>Email: info@wickedpickleloveland.com</p>
+                <p style="margin-top: 16px;"><a href="application.html">Join Our Team</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2026 The Wicked Pickle - <a href="privacy-policy.html" style="color: inherit;">Privacy Policy</a></p>
+            <p style="margin-top: 8px; font-size: 0.8rem;">Powered by CyberVibe Web Design</p>
+        </div>
+    </footer>
+</body>
+</html>
