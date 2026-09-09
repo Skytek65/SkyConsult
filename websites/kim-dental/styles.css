@@ -1,0 +1,43 @@
+:root {
+  --ink: #1c2b2a;
+  --teal: #1f6f6a;
+  --deep: #143f3c;
+  --cream: #f6f3ee;
+  --white: #fff;
+  --line: #d9e3e1;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", Helvetica, Arial, sans-serif; color: var(--ink); background: var(--white); }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 8px; top: 8px; background: #fff; padding: 8px; z-index: 5; }
+.site-header { display: flex; gap: 16px; align-items: center; justify-content: space-between; padding: 12px 24px; background: var(--white); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.brand img { height: 64px; width: auto; display: block; }
+nav { display: flex; gap: 16px; }
+nav a { color: var(--deep); text-decoration: none; font-weight: 650; }
+nav a[aria-current="page"] { border-bottom: 2px solid var(--teal); }
+.header-calls, .hero-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn { display: inline-block; text-decoration: none; border: 0; cursor: pointer; border-radius: 4px; padding: 10px 14px; font-weight: 700; }
+.btn-primary { background: var(--teal); color: #fff; }
+.btn-secondary { background: var(--cream); color: var(--deep); }
+.btn-lg { padding: 14px 18px; }
+.hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; align-items: center; padding: 40px 24px; max-width: 1100px; margin: 0 auto; }
+.eyebrow { letter-spacing: .08em; text-transform: uppercase; color: var(--teal); font-weight: 700; }
+h1 { font-size: 2.6rem; line-height: 1.05; margin: 8px 0; color: var(--deep); }
+.lede { font-size: 1.05rem; }
+.hero-photo img, .doctor img { width: 100%; height: auto; display: block; border-radius: 8px; }
+.hero-photo figcaption { color: #506; font-size: .85rem; margin-top: 8px; }
+.services, .contact { padding: 40px 24px; max-width: 1100px; margin: 0 auto; }
+.services { background: var(--cream); max-width: none; }
+.services .section-head, .services .cards { max-width: 1100px; margin-left: auto; margin-right: auto; }
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.card { background: #fff; border-radius: 8px; padding: 8px 8px 4px; }
+.card h3, .card p { margin: 12px 12px; }
+.doctor { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 24px; align-items: center; padding: 40px 24px; max-width: 1100px; margin: 0 auto; }
+.hours { padding-left: 18px; }
+.appt { display: grid; gap: 12px; max-width: 420px; }
+.appt input, .appt textarea { width: 100%; padding: 10px; border: 1px solid var(--line); border-radius: 4px; }
+footer { background: var(--deep); color: #e7f0ee; padding: 16px 24px; }
+@media (max-width: 800px) {
+  .hero, .doctor, .cards { grid-template-columns: 1fr; }
+  h1 { font-size: 2rem; }
+}
