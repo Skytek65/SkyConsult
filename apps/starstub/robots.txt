@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://skyconsult.dev/apps/starstub/sitemap.xml
