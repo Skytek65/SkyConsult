@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /websites/harrison/
+Disallow: /websites/fouss/
+Disallow: /websites/dovetail/
+Disallow: /websites/scandlyn/
+Disallow: /websites/drapery/
+Disallow: /websites/neiderer/
+Disallow: /websites/styleline/
+Disallow: /websites/siegle/
+Disallow: /websites/keystone/
+Disallow: /websites/vidt/
+Disallow: /websites/lohrum/
+Disallow: /websites/sun/
+Allow: /
