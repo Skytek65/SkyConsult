@@ -1,0 +1,17 @@
+bodoni-moda: Copyright 2020 The Bodoni Moda Project Authors (https://github.com/indestructible-type/Bodoni)
+
+bodoni-moda: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL
+
+bodoni-moda: https://scripts.sil.org/OFL
+
+bodoni-moda-italic: Copyright 2020 The Bodoni Moda Project Authors (https://github.com/indestructible-type/Bodoni)
+
+bodoni-moda-italic: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL
+
+bodoni-moda-italic: https://scripts.sil.org/OFL
+
+manrope: Copyright 2019 The Manrope Project Authors (https://github.com/sharanda/manrope)
+
+manrope: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL
+
+manrope: http://scripts.sil.org/OFL
