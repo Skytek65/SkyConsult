@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Twin | Projects · Skyler Martin</title>
+    <meta name="description" content="Every day, find the place on Earth whose sky matches yours, then open a postcard from it.">
+    <meta property="og:title" content="Sky Twin | Projects · Skyler Martin">
+    <meta property="og:description" content="Every day, find the place on Earth whose sky matches yours, then open a postcard from it.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/projects.css">
+</head>
+<body>
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-icon">&#9670;</span>
+                <span class="logo-text">Sky<span class="logo-accent">Consult</span></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#about" class="nav-link">About</a>
+                <a href="/#services" class="nav-link">Services</a>
+                <a href="/projects/" class="nav-link">Projects</a>
+                <a href="/#work" class="nav-link">Work</a>
+                <a href="/#contact" class="nav-link nav-cta">Get in Touch</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="detail-hero">
+            <div class="container">
+                <div class="crumbs"><a href="/">Home</a> / <a href="/projects/">Projects</a> / Sky Twin</div>
+                <div class="detail-head">
+                    <img class="detail-icon" src="/projects/assets/sky-twin/icon-180.png" alt="Sky Twin app icon" loading="lazy">
+                    <div>
+                        <span class="project-kicker">iOS · Open data + AI</span>
+                        <h1 class="detail-title">Sky Twin</h1>
+                        <p class="detail-tagline">Every day, find the place on Earth whose sky matches yours, then open a postcard from it.</p>
+                    </div>
+                </div>
+                <div class="detail-meta">
+                    <span class="status-pill soon">Coming soon to the App Store</span>
+                    <span class="chip">Built with Codex</span>
+                    <a class="btn btn-primary" href="https://skyconsult.dev/apps/skytwin/" target="_blank" rel="noopener noreferrer">Visit the product page <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <div class="gallery"><img class="" src="/projects/assets/sky-twin/shot-1.png" alt="Sky Twin screenshot" loading="lazy"><img class="" src="/projects/assets/sky-twin/shot-2.png" alt="Sky Twin screenshot" loading="lazy"><img class="" src="/projects/assets/sky-twin/shot-3.png" alt="Sky Twin screenshot" loading="lazy"><img class="" src="/projects/assets/sky-twin/shot-4.png" alt="Sky Twin screenshot" loading="lazy"></div>
+            <p class="gallery-note">Screens from the Sky Twin product page.</p>
+            <div class="detail-grid">
+                <div class="detail-copy">
+                    <h2>Overview</h2>
+                    <p>Weather apps are about your sky. Sky Twin is about everyone else&#x27;s. It&#x27;s a small daily ritual that connects you with a faraway place that happens to share your weather right now.</p><p>Sky Twin reads your local conditions and compares them with fresh airport weather reports (METARs) from around the world. It finds today&#x27;s twin: the place whose temperature, cloud, wind, precipitation, visibility and sun angle match yours most closely. You guess where it is on a map, then open a postcard written from its real weather, with a note about the town and a species recently recorded nearby. You can also call whether you&#x27;ll still match at sunset and collect stamps in a passport.</p><p>The app is built as a ten-module Swift package. The modules cover NOAA solar geometry, a decoder for the worldwide METAR bulk feed, and a weighted similarity engine with deterministic rankings and hourly drift forecasts. There&#x27;s also an open-data gazetteer (Wikipedia, Wikimedia Commons, GBIF) that keeps each record&#x27;s license and attribution with the data. Postcards are written on-device with Apple&#x27;s Foundation Models under a strict guard: every number in the generated text has to appear in the input facts, with a factual template as the fallback. On foldables, the hinge becomes the spine of a two-page atlas.</p>
+                    <h2 style="margin-top:40px">Key features</h2>
+                    <ul class="feature-list"><li><strong>Daily twin</strong>: and Opposite Day, the place whose sky is least like yours</li><li><strong>Guess the place</strong>: drop a pin on a map before the reveal</li><li><strong>On-device postcards</strong>: written from real weather facts, with a hallucination guard</li><li><strong>Twin Forecast</strong>: how long the match will last, plus a daily sunset call with streaks</li><li><strong>Passport</strong>: a stamp for every revealed sky, collected by country and sky type</li><li><strong>At a glance</strong>: widgets, StandBy and a Live Activity</li><li><strong>Private</strong>: no account, no ads, no analytics</li></ul>
+                </div>
+                <aside class="detail-side">
+                    <div class="side-card"><h3>At a glance</h3><dl class="kv"><dt>Platform</dt><dd>iPhone (iOS 26+)</dd><dt>Data</dt><dd>NOAA METAR, Apple Weather, open data</dd><dt>Role</dt><dd>Solo: design, iOS, data</dd><dt>Status</dt><dd>Coming soon to the App Store</dd></dl></div>
+                    <div class="side-card"><h3>Tech stack</h3><div class="tech-tags"><span class="tech-tag">Swift 6.2</span><span class="tech-tag">SwiftUI</span><span class="tech-tag">Swift Package (10 modules)</span><span class="tech-tag">Strict concurrency</span><span class="tech-tag">WeatherKit</span><span class="tech-tag">MapKit</span><span class="tech-tag">Foundation Models</span><span class="tech-tag">WidgetKit</span><span class="tech-tag">ActivityKit</span><span class="tech-tag">StoreKit 2</span><span class="tech-tag">Swift Testing</span><span class="tech-tag">NOAA METAR</span><span class="tech-tag">Wikipedia / Commons / GBIF</span></div></div>
+                    <div class="side-card"><h3>Source</h3><p>This is a write-up of the project. The source code isn't public.</p></div>
+                </aside>
+            </div>
+            <div class="next-project">
+                <a href="/projects/duo/">&larr; Duo</a>
+                <a href="/projects/">All projects</a>
+                <a href="/projects/aether/">Aether &rarr;</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-logo">
+                        <span class="logo-icon">&#9670;</span>
+                        <span class="logo-text">Sky<span class="logo-accent">Consult</span></span>
+                    </a>
+                    <p class="footer-tagline">Precision engineering for the digital age.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/#about">About</a>
+                    <a href="/#services">Services</a>
+                    <a href="/#process">Process</a>
+                    <a href="/projects/">Projects</a>
+                    <a href="/#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="mailto:skyler@skyconsult.dev" aria-label="Email">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M22 4L12 13 2 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/skylermartin65/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="https://github.com/Skytek65" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.607.069-.607 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SkyConsult. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

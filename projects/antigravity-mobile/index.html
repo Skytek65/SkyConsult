@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AntiGravity Mobile | Projects · Skyler Martin</title>
+    <meta name="description" content="A native iPhone and iPad app for Google Antigravity. Start, steer and watch your AI coding agent from anywhere.">
+    <meta property="og:title" content="AntiGravity Mobile | Projects · Skyler Martin">
+    <meta property="og:description" content="A native iPhone and iPad app for Google Antigravity. Start, steer and watch your AI coding agent from anywhere.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/projects.css">
+</head>
+<body>
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-icon">&#9670;</span>
+                <span class="logo-text">Sky<span class="logo-accent">Consult</span></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#about" class="nav-link">About</a>
+                <a href="/#services" class="nav-link">Services</a>
+                <a href="/projects/" class="nav-link">Projects</a>
+                <a href="/#work" class="nav-link">Work</a>
+                <a href="/#contact" class="nav-link nav-cta">Get in Touch</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="detail-hero">
+            <div class="container">
+                <div class="crumbs"><a href="/">Home</a> / <a href="/projects/">Projects</a> / AntiGravity Mobile</div>
+                <div class="detail-head">
+                    <img class="detail-icon" src="/projects/assets/antigravity-mobile/icon.png" alt="AntiGravity Mobile app icon" loading="lazy">
+                    <div>
+                        <span class="project-kicker">iOS · AI dev tools</span>
+                        <h1 class="detail-title">AntiGravity Mobile</h1>
+                        <p class="detail-tagline">A native iPhone and iPad app for Google Antigravity. Start, steer and watch your AI coding agent from anywhere.</p>
+                    </div>
+                </div>
+                <div class="detail-meta">
+                    <span class="status-pill ">Working personal build · not on the App Store</span>
+                    <span class="chip">Built with Antigravity</span>
+                    
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <div class="gallery"><img class="" src="/projects/assets/antigravity-mobile/chat.png" alt="AntiGravity Mobile screenshot" loading="lazy"><img class="" src="/projects/assets/antigravity-mobile/projects.png" alt="AntiGravity Mobile screenshot" loading="lazy"><img class="" src="/projects/assets/antigravity-mobile/config.png" alt="AntiGravity Mobile screenshot" loading="lazy"></div>
+            <p class="gallery-note">Screens from the working app. Machine names and tunnel URLs are redacted.</p>
+            <div class="detail-grid">
+                <div class="detail-copy">
+                    <h2>Overview</h2>
+                    <p>Google Antigravity is a desktop agentic IDE. Its agents keep working long after you leave your desk, but there was no way to check on a task, answer the agent or start something new from your phone. Codex users get that mobile experience; Antigravity users don&#x27;t.</p><p>AntiGravity Mobile fills that gap. It pairs a fully native SwiftUI app with a lightweight Node.js companion bridge that runs on the Mac. From the phone you can browse every Antigravity project, start a conversation with your choice of Gemini model, send follow-up prompts, and watch the agent think, run commands and edit files in real time.</p><p>Antigravity has no public API, so the interesting part is the bridge. It reads the agent&#x27;s own on-disk state (project configs, its SQLite conversation store and its “brain” files) and drives the agent through its CLI and language-server entry points. A watcher tails those files and the SQLite write-ahead log, then fans changes out to the phone as live WebSocket deltas. For remote access the bridge opens a Cloudflare Tunnel. That makes the Mac reachable over HTTPS/WSS from cellular or behind CGNAT with no router setup, and pairing takes a one-second QR scan.</p>
+                    <h2 style="margin-top:40px">Key features</h2>
+                    <ul class="feature-list"><li><strong>Live chat canvas</strong>: collapsible thinking, interactive tool-call cards (run_command, read_file, edit_file, search_web) with output and one-tap copy</li><li><strong>Projects from your pocket</strong>: workspaces with git branch and chat counts; create or import projects from the phone</li><li><strong>Model picker</strong>: start new chats on Gemini 3 Flash, Flash Lite or Pro</li><li><strong>Artifacts drawer</strong>: plans, reports and diffs the agent produces, in a full-screen Markdown viewer</li><li><strong>Slash commands</strong>: /plan, /goal, /learn, /compact, /browser and /boost with autocomplete</li><li><strong>Connect anywhere</strong>: QR pairing, Bonjour LAN discovery, Cloudflare Tunnel, optional Cloudflare Access tokens</li><li><strong>Native feel</strong>: haptics, glass materials, keyboard avoidance and an iPad split view</li></ul>
+                </div>
+                <aside class="detail-side">
+                    <div class="side-card"><h3>At a glance</h3><dl class="kv"><dt>Platform</dt><dd>iPhone &amp; iPad (iOS 17+) + macOS companion</dd><dt>Scale</dt><dd>~14k lines across app and bridge</dd><dt>Role</dt><dd>Solo: design, iOS, server</dd><dt>Status</dt><dd>Working personal build · not on the App Store</dd></dl></div>
+                    <div class="side-card"><h3>Tech stack</h3><div class="tech-tags"><span class="tech-tag">Swift</span><span class="tech-tag">SwiftUI</span><span class="tech-tag">Combine</span><span class="tech-tag">Network.framework</span><span class="tech-tag">WebSockets</span><span class="tech-tag">Bonjour</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express 5</span><span class="tech-tag">ws</span><span class="tech-tag">node:sqlite</span><span class="tech-tag">Cloudflare Tunnel</span><span class="tech-tag">QR pairing</span></div></div>
+                    <div class="side-card"><h3>Source</h3><p>This is a write-up of the project. The source code isn't public.</p></div>
+                </aside>
+            </div>
+            <div class="next-project">
+                <a href="/projects/aether/">&larr; Aether</a>
+                <a href="/projects/">All projects</a>
+                <a href="/projects/bioweather/">BioWeather &rarr;</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-logo">
+                        <span class="logo-icon">&#9670;</span>
+                        <span class="logo-text">Sky<span class="logo-accent">Consult</span></span>
+                    </a>
+                    <p class="footer-tagline">Precision engineering for the digital age.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/#about">About</a>
+                    <a href="/#services">Services</a>
+                    <a href="/#process">Process</a>
+                    <a href="/projects/">Projects</a>
+                    <a href="/#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="mailto:skyler@skyconsult.dev" aria-label="Email">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M22 4L12 13 2 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/skylermartin65/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="https://github.com/Skytek65" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.607.069-.607 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SkyConsult. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

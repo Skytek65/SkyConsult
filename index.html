@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/projects.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -26,6 +27,7 @@
                 <a href="#about" class="nav-link">About</a>
                 <a href="#services" class="nav-link">Services</a>
                 <a href="#process" class="nav-link">Process</a>
+                <a href="#builds" class="nav-link">Projects</a>
                 <a href="#work" class="nav-link">Work</a>
                 <a href="#contact" class="nav-link nav-cta">Get in Touch</a>
             </div>
@@ -411,6 +413,123 @@
         </div>
     </section>
 
+
+    <!-- Projects (builds) Section -->
+    <section class="section builds" id="builds">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Projects</span>
+                <h2 class="section-title">Things I've been <span class="gradient-text">building</span></h2>
+                <p class="section-desc">Side projects where I push on new platforms and ideas, from AI agents and on-device machine learning to protocol work and open data. Each one is a working product, not a mockup.</p>
+            </div>
+            <div class="builds-grid">
+                <article class="project-card build-card featured" data-project="antigravity-mobile">
+                    <a class="build-link" href="/projects/antigravity-mobile/">
+                        <div class="build-media"><img class="shot" src="/projects/assets/antigravity-mobile/chat.png" alt="" loading="lazy"><img class="shot" src="/projects/assets/antigravity-mobile/projects.png" alt="" loading="lazy"></div>
+                        <div class="build-body">
+                            <div class="build-head">
+                                <img class="build-icon" src="/projects/assets/antigravity-mobile/icon.png" alt="AntiGravity Mobile app icon" loading="lazy">
+                                <div>
+                                    <span class="project-kicker">iOS · AI dev tools</span>
+                                    <h3 class="project-title" style="margin:2px 0 0">AntiGravity Mobile</h3>
+                                </div>
+                            </div>
+                            <p class="build-tagline">The mobile app for Google Antigravity that didn&#x27;t exist yet. Drive your desktop AI coding agent from your phone over Wi-Fi or 5G.</p>
+                            <div class="chip-row"><span class="chip">Swift</span><span class="chip">SwiftUI</span><span class="chip">Combine</span><span class="chip">Network.framework</span></div>
+                            <div class="build-foot">
+                                <span class="status-pill ">Working personal build · not on the App Store</span>
+                                <span class="read-more">Read more <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                <article class="project-card build-card featured" data-project="bioweather">
+                    <a class="build-link" href="/projects/bioweather/">
+                        <div class="build-media"><img class="shot" src="/projects/assets/bioweather/today.png" alt="" loading="lazy"><img class="shot" src="/projects/assets/bioweather/insights.png" alt="" loading="lazy"></div>
+                        <div class="build-body">
+                            <div class="build-head">
+                                <img class="build-icon" src="/projects/assets/bioweather/icon.png" alt="BioWeather app icon" loading="lazy">
+                                <div>
+                                    <span class="project-kicker">iOS · Health + on-device ML</span>
+                                    <h3 class="project-title" style="margin:2px 0 0">BioWeather</h3>
+                                </div>
+                            </div>
+                            <p class="build-tagline">Turns pressure, humidity, air quality and pollen into personal risk forecasts for migraines, joint pain and more, and learns your triggers on-device.</p>
+                            <div class="chip-row"><span class="chip">Swift</span><span class="chip">SwiftUI</span><span class="chip">SwiftData</span><span class="chip">WeatherKit</span></div>
+                            <div class="build-foot">
+                                <span class="status-pill live">Live on the App Store</span>
+                                <span class="read-more">Read more <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                <article class="project-card build-card" data-project="duo">
+                    <a class="build-link" href="/projects/duo/">
+                        <div class="build-media"><img class="shot" src="/projects/assets/duo/library.png" alt="" loading="lazy"><img class="shot" src="/projects/assets/duo/onboarding-welcome.png" alt="" loading="lazy"></div>
+                        <div class="build-body">
+                            <div class="build-head">
+                                <img class="build-icon" src="/projects/assets/duo/icon.png" alt="Duo app icon" loading="lazy">
+                                <div>
+                                    <span class="project-kicker">iOS · Protocols</span>
+                                    <h3 class="project-title" style="margin:2px 0 0">Duo</h3>
+                                </div>
+                            </div>
+                            <p class="build-tagline">Native VNC and RDP clients in one SwiftUI app. Up to eight live sessions, trackpad-grade controls and encrypted routes to your Macs and PCs.</p>
+                            <div class="chip-row"><span class="chip">Swift 6</span><span class="chip">SwiftUI</span><span class="chip">UIKit gestures</span><span class="chip">Liquid Glass</span></div>
+                            <div class="build-foot">
+                                <span class="status-pill ">In active development</span>
+                                <span class="read-more">Read more <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                <article class="project-card build-card" data-project="sky-twin">
+                    <a class="build-link" href="/projects/sky-twin/">
+                        <div class="build-media"><img class="shot" src="/projects/assets/sky-twin/shot-1.png" alt="" loading="lazy"><img class="shot" src="/projects/assets/sky-twin/shot-2.png" alt="" loading="lazy"></div>
+                        <div class="build-body">
+                            <div class="build-head">
+                                <img class="build-icon" src="/projects/assets/sky-twin/icon-180.png" alt="Sky Twin app icon" loading="lazy">
+                                <div>
+                                    <span class="project-kicker">iOS · Open data + AI</span>
+                                    <h3 class="project-title" style="margin:2px 0 0">Sky Twin</h3>
+                                </div>
+                            </div>
+                            <p class="build-tagline">Matches your weather against live airport reports worldwide to find today&#x27;s sky twin, then writes a factual postcard from it on-device.</p>
+                            <div class="chip-row"><span class="chip">Swift 6.2</span><span class="chip">SwiftUI</span><span class="chip">Swift Package (10 modules)</span><span class="chip">Strict concurrency</span></div>
+                            <div class="build-foot">
+                                <span class="status-pill soon">Coming soon to the App Store</span>
+                                <span class="read-more">Read more <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                <article class="project-card build-card" data-project="aether">
+                    <a class="build-link" href="/projects/aether/">
+                        <div class="build-media"><div class="aether-art" aria-hidden="true">
+  <div class="aether-mac"><div class="bar"><i></i><i></i><i></i></div><div class="win"></div><div class="ring"></div><div class="cursor"></div></div>
+  <div class="aether-phone"><div class="msg me"></div><div class="msg shot"></div><div class="msg"></div><div class="msg s"></div><div class="msg shot"></div><div class="msg s"></div></div>
+</div></div>
+                        <div class="build-body">
+                            <div class="build-head">
+                                <span class="build-icon glyph" aria-hidden="true">&#10022;</span>
+                                <div>
+                                    <span class="project-kicker">macOS + iOS · AI agent</span>
+                                    <h3 class="project-title" style="margin:2px 0 0">Aether</h3>
+                                </div>
+                            </div>
+                            <p class="build-tagline">A computer-use agent: a vision model sees your Mac&#x27;s screen and drives real mouse and keyboard input while you follow along from your phone.</p>
+                            <div class="chip-row"><span class="chip">Swift</span><span class="chip">SwiftUI</span><span class="chip">AppKit</span><span class="chip">ScreenCaptureKit</span></div>
+                            <div class="build-foot">
+                                <span class="status-pill ">Working prototype</span>
+                                <span class="read-more">Read more <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="section contact" id="contact">
         <div class="container">
@@ -458,6 +577,7 @@
                     <a href="#about">About</a>
                     <a href="#services">Services</a>
                     <a href="#process">Process</a>
+                    <a href="#builds">Projects</a>
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="footer-social">
