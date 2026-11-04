@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MdrnDuo Support</title>
+<meta name="description" content="Setup help, troubleshooting and purchase support for MdrnDuo.">
+<meta name="theme-color" content="#0b0f11">
+<link rel="canonical" href="https://skyconsult.dev/apps/mdrnduo/support/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MdrnDuo Support">
+<meta property="og:description" content="Setup help, troubleshooting and purchase support for MdrnDuo.">
+<meta property="og:url" content="https://skyconsult.dev/apps/mdrnduo/support/">
+<meta property="og:image" content="https://skyconsult.dev/apps/mdrnduo/assets/icon-1024.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="wrap masthead">
+<a class="brand" href="../"><img src="../assets/icon-180.png" alt="" width="44" height="44"><span>MdrnDuo<small>Remote desktop for iPhone</small></span></a>
+<nav aria-label="Primary"><a href="../support/" aria-current="page">Support</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a></nav>
+</header>
+<main id="main">
+<article class="wrap document">
+<p class="label">Support</p>
+<h1>MdrnDuo Support</h1>
+<p class="lead">Help with setting up computers, connecting, and MdrnDuo Pro. Can&rsquo;t find your answer? Email <a href="mailto:skytekappledev@gmail.com">skytekappledev@gmail.com</a> and include your iPhone model, iOS version, MdrnDuo version and what you are connecting to.</p>
+
+<section><h2>Get your computer ready</h2>
+<details><summary>Mac</summary><p>Open System Settings &rsaquo; General &rsaquo; Sharing and turn on <strong>Screen Sharing</strong> (or Remote Management). In MdrnDuo, add the Mac with its name or IP address, choose VNC, and sign in with your Mac account name and password, or with a VNC password if you set one.</p></details>
+<details><summary>Windows</summary><p>Turn on <strong>Remote Desktop</strong> in Settings &rsaquo; System &rsaquo; Remote Desktop (available on Windows Pro, Enterprise and Education). In MdrnDuo, choose Remote Desktop and sign in with a Windows account that is allowed to connect. On Windows Home, install a VNC server instead and choose VNC.</p></details>
+<details><summary>Linux and Raspberry Pi</summary><p>Turn on a VNC server, for example with Raspberry Pi Configuration &rsaquo; Interfaces &rsaquo; VNC on Raspberry Pi OS, or a VNC server package on other distributions. Then add the computer in MdrnDuo with its address and VNC port (usually 5900).</p></details>
+<details><summary>Connecting away from home</summary><p>MdrnDuo connects directly to the address you enter. To reach a computer outside your home or office network, use a VPN you already trust, such as Tailscale, and connect to the computer&rsquo;s VPN address. Avoid exposing VNC directly to the internet.</p></details>
+</section>
+
+<section><h2>Troubleshooting</h2>
+<details><summary>MdrnDuo can&rsquo;t find computers nearby</summary><p>Nearby discovery is part of MdrnDuo Pro and needs Local Network access. Check Settings &rsaquo; Privacy &amp; Security &rsaquo; Local Network &rsaquo; MdrnDuo. Some networks, such as guest Wi-Fi, block device discovery. You can always add a computer by its address.</p></details>
+<details><summary>&ldquo;Authentication rejected&rdquo;</summary><p>Check the username and password, and for Macs make sure your account is allowed in the Screen Sharing settings. For a VNC password, use the password configured on the VNC server.</p></details>
+<details><summary>Remote Desktop certificate warning</summary><p>The first time you connect, compare the certificate fingerprint with the one on your PC before trusting it. If a pinned fingerprint later changes unexpectedly, don&rsquo;t connect until you know why.</p></details>
+<details><summary>The connection is slow</summary><p>Choose a lower quality in the computer&rsquo;s connection settings, lower the remote screen resolution, or move closer to your Wi-Fi router.</p></details>
+<details><summary>Copy and paste</summary><p>On VNC, MdrnDuo can send and receive plain text with Latin characters. Clipboard sharing for Remote Desktop isn&rsquo;t available yet.</p></details>
+</section>
+
+<section><h2>MdrnDuo Pro</h2>
+<details><summary>Restore a purchase</summary><p>Open MdrnDuo Pro in the app and tap <strong>Restore purchases</strong> while signed in to the Apple Account you bought with.</p></details>
+<details><summary>Cancel a subscription</summary><p>Go to Settings &rsaquo; [your name] &rsaquo; Subscriptions &rsaquo; MdrnDuo on your iPhone and tap Cancel Subscription. Pro stays on until the end of the period you paid for.</p></details>
+<details><summary>Refunds</summary><p>Purchases are processed by Apple. Request a refund at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p></details>
+</section>
+
+<section><h2>Your data</h2>
+<p>Passwords stay in your iPhone&rsquo;s Keychain, and MdrnDuo doesn&rsquo;t send your data to me. Read the <a href="../privacy/">Privacy Policy</a> for details.</p>
+<div class="contact"><h3>Contact</h3><p>Skyler Martin &middot; <a href="mailto:skytekappledev@gmail.com">skytekappledev@gmail.com</a>. I usually reply within two business days.</p></div>
+</section>
+</article>
+</main>
+<footer class="wrap footer">
+<div><nav aria-label="Legal"><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../support/">Support</a></nav>
+<p>Questions? <a href="mailto:skytekappledev@gmail.com">skytekappledev@gmail.com</a></p></div>
+<p>&copy; 2026 Skyler Martin. MdrnDuo is not affiliated with Apple, Microsoft, Tailscale, or Cisco.<br>Apple, iPhone, Mac and Face ID are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
+</footer>
+</body>
+</html>

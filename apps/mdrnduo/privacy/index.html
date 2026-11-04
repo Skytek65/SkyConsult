@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MdrnDuo Privacy Policy</title>
+<meta name="description" content="How MdrnDuo handles your data: no accounts, no analytics, no tracking.">
+<meta name="theme-color" content="#0b0f11">
+<link rel="canonical" href="https://skyconsult.dev/apps/mdrnduo/privacy/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MdrnDuo Privacy Policy">
+<meta property="og:description" content="How MdrnDuo handles your data: no accounts, no analytics, no tracking.">
+<meta property="og:url" content="https://skyconsult.dev/apps/mdrnduo/privacy/">
+<meta property="og:image" content="https://skyconsult.dev/apps/mdrnduo/assets/icon-1024.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="wrap masthead">
+<a class="brand" href="../"><img src="../assets/icon-180.png" alt="" width="44" height="44"><span>MdrnDuo<small>Remote desktop for iPhone</small></span></a>
+<nav aria-label="Primary"><a href="../support/">Support</a><a href="../privacy/" aria-current="page">Privacy</a><a href="../terms/">Terms</a></nav>
+</header>
+<main id="main">
+<article class="wrap document">
+<p class="label">Privacy Policy</p>
+<h1>Privacy Policy</h1>
+<p class="date">Effective November 4, 2026</p>
+<p class="lead">MdrnDuo is a remote desktop app for iPhone made by Skyler Martin (&ldquo;I&rdquo;, &ldquo;me&rdquo;). The short version: MdrnDuo has no account system, no analytics, no ads and no tracking, and I don&rsquo;t run a server that receives your data. What you save in the app stays on your iPhone, or in your own iCloud account if you turn on sync.</p>
+
+<section><h2>Who is responsible</h2>
+<p>Skyler Martin is the developer and operator of MdrnDuo and is responsible for this policy. Contact: <a href="mailto:skytekappledev@gmail.com">skytekappledev@gmail.com</a>.</p></section>
+
+<section><h2>Data I collect</h2>
+<p>None. MdrnDuo does not send me your computers, credentials, screen contents, clipboard, usage, device identifiers, location, contacts or crash logs. The app contains no third-party analytics, advertising or tracking SDKs, and it does not track you across apps or websites. If you choose to share crash reports or analytics with app developers in iOS Settings, Apple may share anonymous diagnostic reports with me under Apple&rsquo;s own privacy policy.</p></section>
+
+<section><h2>What stays on your iPhone</h2>
+<table>
+<thead><tr><th scope="col">Data</th><th scope="col">Where it is kept</th></tr></thead>
+<tbody>
+<tr><td>Saved computers: name, address, port, protocol, username, folder and connection settings</td><td>The app&rsquo;s protected storage on your iPhone, and (Pro, if you turn it on) your iCloud account</td></tr>
+<tr><td>Passwords, VNC passwords, SSH private keys and API tokens</td><td>The iPhone Keychain, device-only. Never synced, backed up by the app or exported</td></tr>
+<tr><td>Desktop preview thumbnails of recent sessions</td><td>On your iPhone only. Deleted when you delete that computer</td></tr>
+<tr><td>Weekly usage history (connected time, connection counts, most-used computers)</td><td>On your iPhone only. You can reset it in Settings</td></tr>
+<tr><td>Automatic backups of your connection list (without secrets)</td><td>The app&rsquo;s protected storage on your iPhone</td></tr>
+<tr><td>Spotlight entries for your saved computers&rsquo; names</td><td>The on-device Spotlight index. Removed when you delete a computer</td></tr>
+<tr><td>Purchase status</td><td>Read from the App Store on your device</td></tr>
+</tbody>
+</table></section>
+
+<section><h2>Connections you make</h2>
+<p>When you connect, MdrnDuo talks directly to the computer you chose, using the protocol you selected (VNC, Remote Desktop, or VNC through an SSH tunnel). Your login details go only to that computer or SSH server. The screen image, your keyboard and pointer input, and any clipboard text you send travel between your iPhone and that computer. They are not routed through or stored by me. Remote Desktop uses TLS, and you can pin a certificate fingerprint. SSH connections use a pinned host key.</p>
+<p>If you set up the optional self-hosted relay, the connection travels through the relay address you entered and is end-to-end encrypted with a key you provide. I do not operate a relay service.</p></section>
+
+<section><h2>Local network</h2>
+<p>iOS asks for Local Network permission when you use discovery. MdrnDuo uses it only to find VNC (_rfb._tcp) and Remote Desktop (_rdp._tcp) computers with Bonjour, to check common ports on private addresses on your current network, and to connect to computers you pick. Results aren&rsquo;t sent anywhere.</p></section>
+
+<section><h2>Clipboard</h2>
+<p>MdrnDuo reads your iPhone clipboard only when you choose to send clipboard text to a remote computer, and writes to it only when you accept text from one. Clipboard sharing can be turned off for each computer.</p></section>
+
+<section><h2>Face ID</h2>
+<p>If you turn on library protection, iOS checks Face ID or your passcode and tells MdrnDuo only whether it succeeded. MdrnDuo never receives your face data.</p></section>
+
+<section><h2>Services from other companies</h2>
+<ul>
+<li><strong>Apple iCloud (Pro, optional).</strong> iCloud connection sync stores your connection details (not passwords or keys) in your iCloud account through Apple&rsquo;s key-value store. Apple&rsquo;s privacy policy applies.</li>
+<li><strong>Apple App Store.</strong> Purchases and subscriptions are handled entirely by Apple. I don&rsquo;t receive your payment details. I may see aggregate, anonymous sales reports from Apple.</li>
+<li><strong>Tailscale (optional).</strong> If you add a Tailscale API token, MdrnDuo sends it only to Tailscale&rsquo;s API (api.tailscale.com) to list your devices. The token stays in your Keychain. <a href="https://tailscale.com/privacy-policy">Tailscale&rsquo;s privacy policy</a> applies.</li>
+<li><strong>The computers and servers you connect to</strong> are controlled by you or their owners, and their own policies apply.</li>
+</ul></section>
+
+<section><h2>Sharing and export</h2>
+<p>Data leaves the app only when you choose to share it, for example by exporting a JSON or CSV file, sharing a screenshot of a session, a connection link or an SSH public key through the iOS share sheet.</p></section>
+
+<section><h2>Retention and deletion</h2>
+<p>Everything is kept until you delete it. Deleting a computer removes its details, its preview and the passwords saved for it. Shared named credentials can be deleted from the credentials list, and you can reset usage history from the weekly insights screen. Deleting the app removes its data from your iPhone. Keychain items may be removed according to iOS behavior. To remove synced data, turn off iCloud sync in the app and delete the computers, or manage MdrnDuo&rsquo;s data in your iCloud settings. Because I hold no personal data about you, there is nothing for me to delete on my side, but you can always email me with questions.</p></section>
+
+<section><h2>Children</h2>
+<p>MdrnDuo is a general-audience utility and is not directed at children. It does not knowingly collect personal information from anyone, including children under 13.</p></section>
+
+<section><h2>Your rights</h2>
+<p>Depending on where you live (for example under the GDPR or the CCPA), you may have rights to access, correct, delete or port your personal data and to object to processing. Since MdrnDuo doesn&rsquo;t send personal data to me, you can use those rights directly in the app. Email me if you have a request or a concern, and I will respond within 30 days. I don&rsquo;t sell or share personal information.</p></section>
+
+<section><h2>Security</h2>
+<p>Secrets are stored in the iPhone Keychain with device-only protection, app files use iOS data protection, and connections use the protocol security the remote computer supports. No system is perfectly secure. Use strong passwords and keep remote access limited to networks you trust.</p></section>
+
+<section><h2>Changes</h2>
+<p>If this policy changes, I will update this page and the effective date above. Significant changes will also be noted in the app&rsquo;s release notes.</p></section>
+
+<section><h2>Contact</h2>
+<p>Skyler Martin &middot; <a href="mailto:skytekappledev@gmail.com">skytekappledev@gmail.com</a></p></section>
+</article>
+</main>
+<footer class="wrap footer">
+<div><nav aria-label="Legal"><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../support/">Support</a></nav>
+<p>Questions? <a href="mailto:skytekappledev@gmail.com">skytekappledev@gmail.com</a></p></div>
+<p>&copy; 2026 Skyler Martin. MdrnDuo is not affiliated with Apple, Microsoft, Tailscale, or Cisco.<br>Apple, iPhone, Mac and Face ID are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
+</footer>
+</body>
+</html>
